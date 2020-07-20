@@ -9,7 +9,6 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@rjsf/core": "^2.2.1",
     "@rjsf/material-ui": "^2.2.1",
-    "jsonx": "^1.4.3",
     "react": "16.13.1",
     "react-ace": "^9.1.1",
     "react-dom": "16.13.1",
