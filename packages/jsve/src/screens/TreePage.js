@@ -11,6 +11,9 @@ import {useJsve} from '../shared/useJsve'
 import {defaultTree} from '../shared/constants'
 import {isPrimitive, prepareFirst} from '../shared/helper'
 
+import {generateJsonSchemaCode} from '../shared/helpers/jsonSchema'
+import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
+
 const externalNodeType = 'yourNodeType'
 const shouldCopyOnOutsideDrop = true
 const getNodeKey = ({treeIndex}) => treeIndex
@@ -50,8 +53,16 @@ const TreePage = ({jsve, setJsve}) => {
       let newTree = treeData
 
       flatData.map((el) => {
+        console.log('########## newTree===', newTree)
         newTree = prepareFirst(el, newTree)
-        setJsve({...jsve, tree: newTree})
+      })
+      console.log('########## newTree', newTree)
+      console.log('########## SETTING')
+      setJsve({
+        ...jsve,
+        tree: newTree,
+        schemaCode: generateJsonSchemaCode({tree: newTree}),
+        uiSchemaCode: generateJsonUISchemaCode({tree: newTree}),
       })
     } else {
       setJsve({...jsve, error: 'Not allowed.'})

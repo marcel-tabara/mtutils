@@ -3,12 +3,11 @@ import Form from '@rjsf/material-ui'
 import {changeNodeAtPath} from 'react-sortable-tree'
 import isEmpty from 'lodash/isEmpty'
 
-import {jsveAtom} from '../shared/jsveAtom'
-import {useRecoilValue} from 'recoil'
+import {generateJsonSchemaCode} from '../shared/helpers/jsonSchema'
+import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
 
-const InfoForm = (props) => {
-  const jsve = useRecoilValue(jsveAtom)
-  const {tree, setTree, currentNode, setCurrentNode} = jsve
+const InfoForm = ({jsve, setJsve}) => {
+  const {tree, currentNode} = jsve
 
   console.log('########## ===jsve===', jsve)
 
@@ -272,8 +271,12 @@ const InfoForm = (props) => {
       newNode,
     })
 
-    setTree(newTree)
-    setCurrentNode([])
+    setJsve({
+      ...jsve,
+      tree: newTree,
+      schemaCode: generateJsonSchemaCode({tree: newTree}),
+      currentNode: [],
+    })
   }
 
   return (

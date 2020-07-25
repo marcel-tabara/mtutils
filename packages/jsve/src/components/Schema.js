@@ -4,8 +4,15 @@ import AceEditor from 'react-ace'
 import 'ace-builds/src-noconflict/mode-json'
 import 'ace-builds/src-noconflict/theme-github'
 
-const Schema = (props) => {
+const Schema = ({jsve}) => {
   const onChange = () => undefined
+  let code = ''
+  try {
+    code = JSON.parse(jsve.schemaCode, undefined, 2)
+  } catch (error) {
+    console.log('########## error', error)
+    code = jsve.schemaCode
+  }
 
   return (
     <>
@@ -23,7 +30,7 @@ const Schema = (props) => {
         showPrintMargin={true}
         showGutter={true}
         highlightActiveLine={true}
-        value={JSON.stringify({}, undefined, 2)}
+        value={JSON.stringify(code, undefined, 2)}
         height="350px"
       />
     </>

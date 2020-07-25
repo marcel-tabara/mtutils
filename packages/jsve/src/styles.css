@@ -3,9 +3,9 @@ body {
   height: 100%;
   width: 100%;
   font-size: 0.8rem;
-  font-family: 'Monoid' !important;
+  /* font-family: 'Monoid' !important; */
 }
-
+/*
 .rst__moveHandle,
 .rst__loadingHandle {
   background-color: #b5a33f;
@@ -27,4 +27,4 @@ div.rst__moveHandle {
 
 .rstcustom__rowLabel {
   cursor: pointer;
-}
+} */

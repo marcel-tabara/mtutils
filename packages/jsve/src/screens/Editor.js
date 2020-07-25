@@ -27,7 +27,6 @@ const Editor = ({jsve, setJsve}) => {
   }
 
   const isDialogOpen = !isEmpty(currentNode) || !isEmpty(currentUINode)
-  console.log('########## isDialogOpen', isDialogOpen)
 
   const showAlert = () => (
     <AlertDialog setJsve={setJsve} open={isDialogOpen} jsve={jsve}>

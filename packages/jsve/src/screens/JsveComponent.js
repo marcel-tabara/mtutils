@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box'
 import Editor from './Editor'
 import Preview from '../components/Preview'
 import Schema from '../components/Schema'
+import UiSchema from '../components/UiSchema'
 
 import {useJsve} from '../shared/useJsve'
 
@@ -75,7 +76,8 @@ const JsveComponent = () => {
           >
             <Tab label="Editor" {...a11yProps(0)} />
             <Tab label="Schema" {...a11yProps(1)} />
-            <Tab label="Preview" {...a11yProps(2)} />
+            <Tab label="UISchema" {...a11yProps(2)} />
+            <Tab label="Preview" {...a11yProps(3)} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -90,6 +92,9 @@ const JsveComponent = () => {
             Schema
           </TabPanel>
           <TabPanel value={tab} index={2} dir={theme.direction}>
+            UISchema
+          </TabPanel>
+          <TabPanel value={tab} index={3} dir={theme.direction}>
             Preview
           </TabPanel>
         </SwipeableViews>
@@ -103,6 +108,8 @@ const JsveComponent = () => {
     ) : tab === 1 ? (
       <Schema jsve={jsve} setJsve={setJsve} />
     ) : tab === 2 ? (
+      <UiSchema jsve={jsve} setJsve={setJsve} />
+    ) : tab === 3 ? (
       <Preview jsve={jsve} setJsve={setJsve} />
     ) : null
 
