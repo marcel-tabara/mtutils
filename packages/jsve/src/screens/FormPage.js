@@ -6,8 +6,7 @@ import Button from '@material-ui/core/Button'
 import {defaultForm} from '../shared/constants'
 
 const FormPage = ({jsve, setJsve}) => {
-  console.log('########## in formPage')
-  const {tree, currentNode, currentUINode, schemaCode, uiSchemaCode, error} = jsve
+  const {tree, currentNode} = jsve
   if (isEmpty(currentNode)) return null
   const onChange = ({formData}) => {}
 
@@ -273,11 +272,7 @@ const FormPage = ({jsve, setJsve}) => {
     setCurrentNode([])
   }
 
-  const close = () => setCurrentNode([])
-
   const log = (type) => console.log.bind(console, type)
-
-  console.log('########## schema', schema)
 
   return (
     <Form

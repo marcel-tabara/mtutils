@@ -4,15 +4,14 @@ import AceEditor from 'react-ace'
 import 'ace-builds/src-noconflict/mode-json'
 import 'ace-builds/src-noconflict/theme-github'
 
+import prettier from 'prettier/standalone'
+import {prettierOptions} from '../shared/constants'
+
 const Schema = ({jsve}) => {
   const onChange = () => undefined
-  let code = ''
-  try {
-    code = JSON.parse(jsve.schemaCode, undefined, 2)
-  } catch (error) {
-    console.log('########## error', error)
-    code = jsve.schemaCode
-  }
+  const {schemaCode, uiSchemaCode} = jsve
+  const schema = prettier.format(schemaCode, prettierOptions)
+  const uiSchema = prettier.format(uiSchemaCode, prettierOptions)
 
   return (
     <>
@@ -30,7 +29,24 @@ const Schema = ({jsve}) => {
         showPrintMargin={true}
         showGutter={true}
         highlightActiveLine={true}
-        value={JSON.stringify(code, undefined, 2)}
+        value={schema}
+        height="350px"
+      />
+      <AceEditor
+        mode="json"
+        theme="github"
+        onChange={onChange}
+        name="schemaEditor"
+        editorProps={{$blockScrolling: true}}
+        setOptions={{
+          showLineNumbers: true,
+          tabSize: 2,
+        }}
+        fontSize={12}
+        showPrintMargin={true}
+        showGutter={true}
+        highlightActiveLine={true}
+        value={uiSchema}
         height="350px"
       />
     </>

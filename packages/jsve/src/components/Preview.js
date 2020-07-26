@@ -1,15 +1,15 @@
 import React from 'react'
-import has from 'lodash/has'
+import prettier from 'prettier/standalone'
+import parserBabel from 'prettier/parser-babel'
 import Form from '@rjsf/material-ui'
+import {prettierOptions} from '../shared/constants'
 
 const Preview = ({jsve}) => {
-  console.log('########## jsve', jsve)
   const {schemaCode, uiSchemaCode} = jsve
-  const schema = JSON.parse(schemaCode)
-  const uiSchema = JSON.parse(uiSchemaCode)
+  const schema = JSON.parse(prettier.format(schemaCode, prettierOptions))
+  const uiSchema = JSON.parse(prettier.format(uiSchemaCode, prettierOptions))
 
   const showFormPreview = () => {
-    //if (has(jsve, 'error.message')) return console.log('########## error', jsve.error)
     const onChange = () => undefined
     const onSubmit = () => undefined
     return (

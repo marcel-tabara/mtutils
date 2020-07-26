@@ -1,3 +1,5 @@
+import parserBabel from 'prettier/parser-babel'
+
 export const defaultTree = [
   {
     title: '',
@@ -68,4 +70,19 @@ export const defaultForm = {
       },
     },
   },
+}
+
+export const prettierOptions = {
+  useTabs: false,
+  printWidth: 60,
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+  bracketSpacing: false,
+  jsxBracketSameLine: true,
+  parser: 'json',
+  trailingComma: 'none',
+  arrowParens: 'avoid',
+  proseWrap: 'preserve',
+  plugins: [parserBabel],
 }

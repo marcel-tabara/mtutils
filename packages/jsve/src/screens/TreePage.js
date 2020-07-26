@@ -53,11 +53,9 @@ const TreePage = ({jsve, setJsve}) => {
       let newTree = treeData
 
       flatData.map((el) => {
-        console.log('########## newTree===', newTree)
         newTree = prepareFirst(el, newTree)
       })
-      console.log('########## newTree', newTree)
-      console.log('########## SETTING')
+
       setJsve({
         ...jsve,
         tree: newTree,

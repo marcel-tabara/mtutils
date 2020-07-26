@@ -23,7 +23,6 @@ export const generateJsonUISchemaCode = (props) => {
         let isLastChild = false
         const isArray = el.subtitle === 'Array'
         const uiSchema = get(el, 'uiSchema', null)
-        console.log('########## uiSchema', uiSchema)
         const flatElement = flatData.find((element) => element.node.title === el.title)
 
         const parent = !isEmpty(flatElement) ? flatElement.parentNode : null

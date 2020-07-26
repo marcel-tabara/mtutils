@@ -9,8 +9,6 @@ import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
 const InfoForm = ({jsve, setJsve}) => {
   const {tree, currentNode} = jsve
 
-  console.log('########## ===jsve===', jsve)
-
   if (isEmpty(currentNode)) return null
 
   const fieldsTypeEnum = ['boolean', 'string', 'integer', 'number', 'object', 'array']
