@@ -1,167 +1,173 @@
-import isEmpty from "lodash/isEmpty";
-import has from "lodash/has";
-import get from "lodash/get";
-import { getFlatDataFromTree } from "react-sortable-tree";
+import isEmpty from 'lodash/isEmpty'
+import has from 'lodash/has'
+import get from 'lodash/get'
+import {getFlatDataFromTree} from 'react-sortable-tree'
 
-export const generateJsonUISchemaCode = props => {
-  const { tree } = props;
-  let code = "";
+export const generateJsonUISchemaCode = (props) => {
+  const {tree} = props
+  let code = ''
 
   const flatData = getFlatDataFromTree({
     treeData: tree,
-    getNodeKey: ({ treeIndex }) => treeIndex,
+    getNodeKey: ({treeIndex}) => treeIndex,
     ignoreCollapsed: false,
-  });
+  })
 
-  if (!isEmpty(tree) && tree[0].title) code += `{`;
+  if (!isEmpty(tree) && tree[0].title) code += `{`
 
-  const prepareJsonFormUICode = jsonForm => {
-    jsonForm.map(el => {
+  const prepareJsonFormUICode = (jsonForm) => {
+    jsonForm.map((el) => {
       if (el.title) {
-        let isChild = false;
-        let isLastChild = false;
-        const isArray = el.subtitle === "Array";
-        const uiSchema = get(el, "uiSchema", null);
+        let isFirstChild = false
+        let isChild = false
+        let isLastChild = false
+        const isArray = el.subtitle === 'Array'
+        const uiSchema = get(el, 'uiSchema', null)
+        console.log('########## uiSchema', uiSchema)
+        const flatElement = flatData.find((element) => element.node.title === el.title)
 
-        const flatElement = flatData.find(
-          element => element.node.title === el.title
-        );
-
-        const parent = !isEmpty(flatElement) ? flatElement.parentNode : null;
-        const hasParentObject = !isEmpty(parent) && parent.type === "object";
-        const hasTitle = !isEmpty(el.title);
+        const parent = !isEmpty(flatElement) ? flatElement.parentNode : null
+        const hasParentObject = !isEmpty(parent) && parent.type === 'object'
+        const hasTitle = !isEmpty(el.title)
 
         const hasUiOptions =
-          uiSchema && !isEmpty(uiSchema.uiOptions) && hasParentObject;
+          (has(uiSchema, 'uiOptions.addable') && uiSchema.uiOptions.addable) ||
+          (has(uiSchema, 'uiOptions.orderable') && uiSchema.uiOptions.orderable) ||
+          (has(uiSchema, 'uiOptions.removable') && uiSchema.uiOptions.removable) ||
+          (has(uiSchema, 'uiOptions.expandable') && uiSchema.uiOptions.expandable)
+
+        let coma = ''
 
         if (!isEmpty(parent)) {
-          isChild = !isEmpty(parent.children);
-          isLastChild = isChild
-            ? parent.children[parent.children.length - 1].title === el.title
-            : false;
+          isChild = !isEmpty(parent.children)
+          isLastChild = isChild ? parent.children[parent.children.length - 1].title === el.title : false
+          isFirstChild = isChild ? parent.children[0].title === el.title : false
         }
 
         if (!isEmpty(uiSchema)) {
+          if (!isFirstChild) code += `,`
           if (isChild && hasParentObject && hasTitle) {
-            code += `"${el.title}": {`;
+            code += `"${el.title}": {`
           }
 
           if (isArray && hasTitle) {
-            code += `"items":`;
-            code +=
-              !isEmpty(el.children) && el.children.length > 1 ? `[{` : "{";
+            code += `"items":`
+            code += !isEmpty(el.children) && el.children.length > 1 ? `[{` : '{'
           }
         }
 
-        if (!isEmpty(el.children)) prepareJsonFormUICode(el.children);
+        if (!isEmpty(el.children)) prepareJsonFormUICode(el.children)
 
         if (!isEmpty(uiSchema)) {
-          if (has(uiSchema, "uiMore.uiDisabled") && uiSchema.uiMore.uiDisabled)
-            code += `"ui:disabled": true,`;
-          if (
-            has(uiSchema, "uiMore.uiEnumDisabled") &&
-            uiSchema.uiMore.uiEnumDisabled
-          )
-            code += `"ui:enumDisabled": '${uiSchema.uiMore.uiEnumDisabled}',`;
-          if (has(uiSchema, "uiMore.uiReadonly") && uiSchema.uiMore.uiReadonly)
-            code += `"ui:readonly": true,`;
+          // uiMore start -----------------------------
+          if (has(uiSchema, 'uiMore.uiDisabled') && uiSchema.uiMore.uiDisabled) {
+            code += `"ui:disabled": true`
+            coma = ','
+          }
+          if (has(uiSchema, ', uiMore.uiEnumDisabled') && uiSchema.uiMore.uiEnumDisabled) {
+            code += `${coma} "ui:enumDisabled": true`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiMore.uiReadonly') && uiSchema.uiMore.uiReadonly) {
+            code += `${coma} "ui:readonly": true`
+            coma = ','
+          }
+          // uiMore end -----------------------------
 
           // uiOptions
-          if (hasUiOptions) code += `"ui:options": {`;
+          //if (hasUiOptions) code += `"ui:options": {`
 
           // if (has(uiSchema, "uiOptions.uiInline"))
           //   code += `"inline": ${uiSchema.uiOptions.uiInline},`;
-          if (
-            has(uiSchema, "uiOptions.backgroundColor") &&
-            uiSchema.uiOptions.backgroundColor
-          )
-            code += `"backgroundColor": '${uiSchema.uiOptions.backgroundColor}',`;
-          if (
-            has(uiSchema, "uiOptions.classNames") &&
-            uiSchema.uiOptions.classNames
-          )
-            code += `"classNames": '${uiSchema.uiOptions.classNames}',`;
-          if (
-            has(uiSchema, "uiOptions.inputType") &&
-            uiSchema.uiOptions.inputType
-          )
-            code += `"inputType": '${uiSchema.uiOptions.inputType}',`;
-          if (has(uiSchema, "uiOptions.label"))
-            code += `"label": ${uiSchema.uiOptions.label},`;
-          if (has(uiSchema, "uiOptions.rows") && uiSchema.uiOptions.rows)
-            code += `"rows": ${uiSchema.uiOptions.rows},`;
+          if (has(uiSchema, 'uiOptions.backgroundColor') && uiSchema.uiOptions.backgroundColor) {
+            code += `${coma} "ui:backgroundColor": "${uiSchema.uiOptions.backgroundColor}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.classNames') && uiSchema.uiOptions.classNames) {
+            code += `${coma} "ui:classNames": "${uiSchema.uiOptions.classNames}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.inputType') && uiSchema.uiOptions.inputType) {
+            code += `${coma} "ui:inputType": "${uiSchema.uiOptions.inputType}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.label')) {
+            code += `${coma} "ui:label": "${uiSchema.uiOptions.label}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.rows') && uiSchema.uiOptions.rows) {
+            code += `${coma} "ui:rows": ${uiSchema.uiOptions.rows}`
+            coma = ','
+          }
 
-          if (hasUiOptions) code += `},`;
+          //if (hasUiOptions) code += `}`
 
-          // other options
-          if (
-            has(uiSchema, "uiOthers.uiAutofocus") &&
-            uiSchema.uiOthers.uiAutofocus
-          )
-            code += `"ui:autofocus": ${uiSchema.uiOthers.uiAutofocus},`;
-          if (
-            has(uiSchema, "uiOthers.uiDescription") &&
-            uiSchema.uiOthers.uiDescription
-          )
-            code += `"ui:description": '${uiSchema.uiOthers.uiDescription}',`;
-          if (has(uiSchema, "uiOthers.uiTitle") && uiSchema.uiOthers.uiTitle)
-            code += `'ui:title': "${uiSchema.uiOthers.uiTitle}",`;
-          if (has(uiSchema, "uiOthers.uiHelp") && uiSchema.uiOthers.uiHelp)
-            code += `"ui:help": "${uiSchema.uiOthers.uiHelp}",`;
-          if (
-            has(uiSchema, "uiOthers.uiPlaceholder") &&
-            uiSchema.uiOthers.uiPlaceholder.length > 0
-          )
-            code += `"ui:placeholder": "${uiSchema.uiOthers.uiPlaceholder}",`;
+          // uiOthers start -------------------------------------
+          if (has(uiSchema, 'uiOthers.uiAutofocus') && uiSchema.uiOthers.uiAutofocus) {
+            code += `${coma} "ui:autofocus": ${uiSchema.uiOthers.uiAutofocus}`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOthers.uiDescription') && uiSchema.uiOthers.uiDescription) {
+            code += `${coma} "ui:description": "${uiSchema.uiOthers.uiDescription}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOthers.uiTitle') && uiSchema.uiOthers.uiTitle) {
+            code += `${coma} "ui:title": "${uiSchema.uiOthers.uiTitle}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOthers.uiHelp') && uiSchema.uiOthers.uiHelp) {
+            code += `${coma} "ui:help": "${uiSchema.uiOthers.uiHelp}"`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOthers.uiPlaceholder') && uiSchema.uiOthers.uiPlaceholder.length > 0) {
+            code += `${coma} "ui:placeholder": "${uiSchema.uiOthers.uiPlaceholder}"`
+            coma = ','
+          }
+          // uiOthers end -------------------------------------
 
-          if (has(uiSchema, "uiWidget.widget") && uiSchema.uiWidget.widget)
-            code += `"ui:widget": "${uiSchema.uiWidget.widget}",`;
+          // uiWidget
+          if (has(uiSchema, 'uiWidget.widget') && uiSchema.uiWidget.widget)
+            code += `${coma} "ui:widget": "${uiSchema.uiWidget.widget}"`
 
           if (isChild && hasParentObject && hasTitle) {
-            if (!isLastChild) code += `},`;
-            if (isLastChild) code += `},`;
+            code += `}`
           }
 
-          if (
-            has(uiSchema, "uiOptions.addable") ||
-            has(uiSchema, "uiOptions.orderable") ||
-            has(uiSchema, "uiOptions.removable") ||
-            has(uiSchema, "uiOptions.expandable")
-          )
-            code += `"ui:options": {`;
+          // uiOptions start -----------------------
+          //if (hasUiOptions) code += `"ui:options": {`
 
-          if (has(uiSchema, "uiOptions.addable"))
-            code += `"addable": ${uiSchema.uiOptions.addable || false},`;
+          if (has(uiSchema, 'uiOptions.addable') && uiSchema.uiOptions.addable) {
+            code += `"ui:addable": ${uiSchema.uiOptions.addable}`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.orderable') && uiSchema.uiOptions.orderable) {
+            code += `${coma} "ui:orderable": ${uiSchema.uiOptions.orderable}`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.removable') && uiSchema.uiOptions.removable) {
+            code += `${coma} "ui:removable": ${uiSchema.uiOptions.removable}`
+            coma = ','
+          }
+          if (has(uiSchema, 'uiOptions.expandable') && uiSchema.uiOptions.expandable) {
+            code += `${coma} "ui:expandable": ${uiSchema.uiOptions.expandable}`
+            coma = ''
+          }
 
-          if (has(uiSchema, "uiOptions.orderable"))
-            code += `"orderable": ${uiSchema.uiOptions.orderable || false},`;
-
-          if (has(uiSchema, "uiOptions.removable"))
-            code += `"removable": ${uiSchema.uiOptions.removable || false},`;
-          if (has(uiSchema, "uiOptions.expandable"))
-            code += `"expandable": ${uiSchema.uiOptions.expandable || false},`;
-
-          if (
-            has(uiSchema, "uiOptions.addable") ||
-            has(uiSchema, "uiOptions.orderable") ||
-            has(uiSchema, "uiOptions.removable") ||
-            has(uiSchema, "uiOptions.expandable")
-          )
-            code += `},`;
+          //if (hasUiOptions) code += `}`
+          // uiOptions end -----------------------
 
           if (isArray && hasTitle) {
-            code +=
-              !isEmpty(el.children) && el.children.length > 1 ? `}]` : "},";
+            code += !isEmpty(el.children) && el.children.length > 1 ? `}]` : '}'
           }
-          if (!isEmpty(parent) && parent.type === "array" && !isLastChild)
-            code += "}, {";
+          //if (!isLastChild) code += ', '
+          if (!isEmpty(parent) && parent.type === 'array' && !isLastChild) code += '}, {'
         }
-        if (isEmpty(parent)) code += `}`;
+        if (isEmpty(parent)) code += `}`
       }
-    });
+    })
 
-    return code;
-  };
+    return code
+  }
 
-  return prepareJsonFormUICode(tree);
-};
+  return prepareJsonFormUICode(tree)
+}

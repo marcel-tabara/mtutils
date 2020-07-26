@@ -85,7 +85,7 @@ export const generateJsonSchemaCode = ({tree}) => {
         }
 
         if (isArray && hasTitle) {
-          code += !isEmpty(el.children) && el.children.length > 1 ? `}]` : '},'
+          code += !isEmpty(el.children) && el.children.length > 1 ? `}]` : '}'
         }
         if (!isEmpty(parent) && parent.type === 'array' && !isLastChild) code += '}, {'
 
