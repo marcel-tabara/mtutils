@@ -6,7 +6,6 @@ import isEmpty from 'lodash/isEmpty'
 
 import UiSchemaPage from './UiSchemaPage'
 import SchemaPage from './SchemaPage'
-
 import InfoForm from './InfoForm'
 import UiInfoForm from './UiInfoForm'
 
@@ -14,7 +13,7 @@ import AlertDialog from '../components/AlertDialog'
 
 const Editor = ({jsve, setJsve}) => {
   const [tab, setTab] = useState(0)
-  const {tree, currentNode, currentUINode, schemaCode, uiSchemaCode, error} = jsve
+  const {currentNode, currentUINode} = jsve
 
   const handleChange = (e, newValue) => setTab(newValue)
   const renderTabs = () => {

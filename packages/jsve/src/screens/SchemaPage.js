@@ -7,16 +7,13 @@ import StorageIcon from '@material-ui/icons/Storage'
 
 import isEmpty from 'lodash/isEmpty'
 
-import {useJsve} from '../shared/useJsve'
 import {defaultTree} from '../shared/constants'
 import {isPrimitive, prepareFirst} from '../shared/helper'
 
 import {generateJsonSchemaCode} from '../shared/helpers/jsonSchema'
 import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
 
-const externalNodeType = 'yourNodeType'
-const shouldCopyOnOutsideDrop = true
-const getNodeKey = ({treeIndex}) => treeIndex
+import {externalNodeType, shouldCopyOnOutsideDrop, getNodeKey} from '../shared/helper'
 
 const SchemaPage = ({jsve, setJsve}) => {
   const {tree, currentNode, currentUINode, schemaCode, uiSchemaCode, error} = jsve
@@ -51,7 +48,7 @@ const SchemaPage = ({jsve, setJsve}) => {
       let newTree = treeData
 
       flatData.map((el) => {
-        newTree = prepareFirst(el, newTree)
+        newTree = prepareFirst(el.path, el.node, newTree)
       })
 
       setJsve({

@@ -1,4 +1,5 @@
 import parserBabel from 'prettier/parser-babel'
+import {getUIOrder} from '../shared/helper'
 
 export const defaultTree = [
   {
@@ -85,4 +86,25 @@ export const prettierOptions = {
   arrowParens: 'avoid',
   proseWrap: 'preserve',
   plugins: [parserBabel],
+}
+
+export const fieldsTypeEnum = ['boolean', 'string', 'integer', 'number', 'object', 'array']
+export const stringFormatWidgetEnum = ['default', 'email', 'uri', 'data-url', 'date', 'date-time']
+
+export const infoFormSchema = {
+  type: 'object',
+  required: ['title'],
+  properties: {
+    title: {
+      type: 'string',
+      title: 'title',
+      default: '',
+      pattern: '^[a-zA-Z0-9-_]+$',
+    },
+    description: {
+      type: 'string',
+      title: 'description',
+      default: '',
+    },
+  },
 }

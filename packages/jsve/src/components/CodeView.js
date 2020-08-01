@@ -8,7 +8,6 @@ import prettier from 'prettier/standalone'
 import {prettierOptions} from '../shared/constants'
 
 const CodeView = ({jsve}) => {
-  const onChange = () => undefined
   const {schemaCode, uiSchemaCode} = jsve
   const schema = prettier.format(schemaCode, prettierOptions)
   const uiSchema = prettier.format(uiSchemaCode, prettierOptions)
@@ -18,7 +17,6 @@ const CodeView = ({jsve}) => {
       <AceEditor
         mode="json"
         theme="github"
-        onChange={onChange}
         name="schemaEditor"
         editorProps={{$blockScrolling: true}}
         setOptions={{
@@ -35,7 +33,6 @@ const CodeView = ({jsve}) => {
       <AceEditor
         mode="json"
         theme="github"
-        onChange={onChange}
         name="schemaEditor"
         editorProps={{$blockScrolling: true}}
         setOptions={{

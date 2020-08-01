@@ -11,14 +11,7 @@ export const generateJsonSchemaCode = ({tree}) => {
     ignoreCollapsed: false,
   })
 
-  const getRequiredFields = () => {
-    const filtered = flatData.filter((e) => e.node.isRequired)
-    let arr = []
-    if (!isEmpty(filtered)) {
-      arr = filtered.map((e) => e.node.title)
-    }
-    return arr
-  }
+  const getRequiredFields = () => flatData.filter((e) => e.node.isRequired).map((e) => e.node.title)
 
   const requiredFields = getRequiredFields()
   if (!isEmpty(tree) && tree[0].title) code += `{`

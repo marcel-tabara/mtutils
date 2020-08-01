@@ -1,75 +1,18 @@
 import React from 'react'
 import Form from '@rjsf/material-ui'
-import {changeNodeAtPath} from 'react-sortable-tree'
 import isEmpty from 'lodash/isEmpty'
 
 import {generateJsonSchemaCode} from '../shared/helpers/jsonSchema'
-import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
+import {getNodeKey, getUIOrder, prepareFirst} from '../shared/helper'
+
+import {fieldsTypeEnum, stringFormatWidgetEnum, infoFormSchema} from '../shared/constants'
 
 const InfoForm = ({jsve, setJsve}) => {
   const {tree, currentNode} = jsve
 
   if (isEmpty(currentNode)) return null
 
-  const fieldsTypeEnum = ['boolean', 'string', 'integer', 'number', 'object', 'array']
-  const stringFormatWidgetEnum = ['default', 'email', 'uri', 'data-url', 'date', 'date-time']
-
-  const getNodeKey = ({treeIndex}) => treeIndex
   const {node, path} = currentNode
-
-  const getUIOrder = () => {
-    if (node.subtitle === 'String') {
-      return [
-        'title',
-        'description',
-        'defaultValue',
-        'format',
-        'pattern',
-        'minLength',
-        'maxLength',
-        'enumVal',
-        'enumNames',
-        'isRequired',
-      ]
-    }
-    if (node.subtitle === 'Number') {
-      return [
-        'title',
-        'description',
-        'defaultValue',
-        'minimum',
-        'excludeMinimum',
-        'maximum',
-        'excludeMaximum',
-        'multipleOf',
-        'enumVal',
-        'enumNames',
-        'isRequired',
-      ]
-    }
-    if (node.subtitle === 'Integer') {
-      return [
-        'title',
-        'description',
-        'defaultValue',
-        'minimum',
-        'excludeMinimum',
-        'maximum',
-        'excludeMaximum',
-        'multipleOf',
-        'enumVal',
-        'enumNames',
-        'isRequired',
-      ]
-    }
-    if (node.subtitle === 'Array') {
-      return ['title', 'description', 'minItems', 'maxItems', 'uniqueItems']
-    }
-    if (node.subtitle === 'Object') {
-      return ['title', 'description']
-    }
-    return ['title', 'description', 'defaultValue', 'enumVal', 'enumNames', 'isRequired']
-  }
 
   const transformErrors = (errors) => {
     return errors.map((error) => {
@@ -78,31 +21,6 @@ const InfoForm = ({jsve, setJsve}) => {
       }
       return error
     })
-  }
-
-  const schema = {
-    type: 'object',
-    required: ['title'],
-    properties: {
-      title: {
-        type: 'string',
-        title: 'title',
-        default: '',
-        pattern: '^[a-zA-Z0-9-_]+$',
-      },
-      description: {
-        type: 'string',
-        title: 'description',
-        default: '',
-      },
-    },
-  }
-  const uiSchema = {
-    format: {
-      'ui:widget': 'select',
-      'ui:placeholder': 'Choose a format',
-    },
-    'ui:order': getUIOrder(),
   }
 
   if (node.subtitle !== 'Object' && node.subtitle !== 'Array') {
@@ -217,57 +135,7 @@ const InfoForm = ({jsve, setJsve}) => {
   }
 
   const onSubmit = ({formData}) => {
-    const {
-      title,
-      description,
-      defaultValue,
-      enumVal,
-      enumNames,
-      isRequired,
-      format,
-      uniqueItems,
-      minItems,
-      maxItems,
-      multipleOf,
-      minimum,
-      maximum,
-      minLength,
-      maxLength,
-      pattern,
-      excludeMinimum,
-      excludeMaximum,
-    } = formData
-
-    const newNode = {...node}
-    newNode.title = title
-    newNode.uiSchema = {}
-    newNode.description = description
-    newNode.defaultValue = defaultValue
-    newNode.enumVal = enumVal
-    newNode.enumNames = enumNames
-    newNode.isRequired = isRequired
-    newNode.format = format
-    newNode.type = node.subtitle.toLowerCase()
-    newNode.uniqueItems = uniqueItems
-
-    newNode.minItems = minItems
-    newNode.maxItems = maxItems
-    newNode.multipleOf = multipleOf
-    newNode.minimum = minimum
-    newNode.maximum = maximum
-    newNode.minLength = minLength
-    newNode.maxLength = maxLength
-
-    newNode.excludeMinimum = excludeMinimum
-    newNode.excludeMaximum = excludeMaximum
-    newNode.pattern = pattern
-
-    const newTree = changeNodeAtPath({
-      treeData: tree,
-      path,
-      getNodeKey,
-      newNode,
-    })
+    const newTree = prepareFirst(path, formData, tree)
 
     setJsve({
       ...jsve,
@@ -277,11 +145,19 @@ const InfoForm = ({jsve, setJsve}) => {
     })
   }
 
+  const infoFormUiSchema = {
+    format: {
+      'ui:widget': 'select',
+      'ui:placeholder': 'Choose a format',
+    },
+    'ui:order': getUIOrder(node),
+  }
+
   return (
     <Form
-      schema={schema}
+      schema={infoFormSchema}
       noHtml5Validate={true}
-      uiSchema={uiSchema}
+      uiSchema={infoFormUiSchema}
       onSubmit={onSubmit}
       formData={node}
       transformErrors={transformErrors}

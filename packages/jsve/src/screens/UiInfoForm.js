@@ -1,10 +1,9 @@
 import React from 'react'
 import Form from '@rjsf/material-ui'
 import {changeNodeAtPath} from 'react-sortable-tree'
-import isEmpty from 'lodash/isEmpty'
 import get from 'lodash/get'
 import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
-
+import {getNodeKey} from '../shared/helper'
 import {booleanWidgetEnum, stringWidgetEnumDefault, integerWidgetEnum, html5InputTypesEnum} from '../shared/constants'
 
 const UiInfoForm = ({jsve, setJsve}) => {
@@ -236,8 +235,6 @@ const UiInfoForm = ({jsve, setJsve}) => {
   const onChange = (data) => {
     console.log('JsonFormUISettingsForm changed', data, schema)
   }
-
-  const getNodeKey = ({treeIndex}) => treeIndex
 
   const onSubmit = (data) => {
     const {formData} = data

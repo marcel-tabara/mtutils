@@ -3,13 +3,13 @@ import {changeNodeAtPath} from 'react-sortable-tree'
 export const isPrimitive = (subtitle) =>
   subtitle === 'String' || subtitle === 'Integer' || subtitle === 'Boolean' || subtitle === 'Number'
 
-const getTitleFromPath = (path) => {
-  return path.toString().split(',').join('-')
-}
+const getTitleFromPath = (path) => path.toString().split(',').join('-')
 
-const getNodeKey = ({treeIndex}) => treeIndex
+export const externalNodeType = 'yourNodeType'
+export const shouldCopyOnOutsideDrop = true
+export const getNodeKey = ({treeIndex}) => treeIndex
 
-export const prepareFirst = (el, tree) => {
+export const prepareFirst = (path, node, tree) => {
   const {
     title,
     description,
@@ -29,19 +29,20 @@ export const prepareFirst = (el, tree) => {
     pattern,
     excludeMinimum,
     excludeMaximum,
-  } = el.node
+    uiSchema,
+  } = node
 
-  const newNode = {...el.node}
+  const newNode = {...node}
 
-  newNode.title = title.length > 0 && title.substring(0, 1) !== '0' ? title : getTitleFromPath(el.path)
-  newNode.uiSchema = {}
+  newNode.title = title.length > 0 && title.substring(0, 1) !== '0' ? title : getTitleFromPath(path)
+  newNode.uiSchema = uiSchema || {}
   newNode.description = description
   newNode.defaultValue = defaultValue
   newNode.enumVal = enumVal
   newNode.enumNames = enumNames
   newNode.isRequired = isRequired
   newNode.format = format
-  newNode.type = el.node.subtitle.toLowerCase()
+  newNode.type = node.subtitle.toLowerCase()
   newNode.uniqueItems = uniqueItems
 
   newNode.minItems = minItems
@@ -58,10 +59,64 @@ export const prepareFirst = (el, tree) => {
 
   const newTree = changeNodeAtPath({
     treeData: tree,
-    path: el.path,
+    path: path,
     getNodeKey,
     newNode,
   })
 
   return newTree
+}
+
+export const getUIOrder = (node) => {
+  if (node.subtitle === 'String') {
+    return [
+      'title',
+      'description',
+      'defaultValue',
+      'format',
+      'pattern',
+      'minLength',
+      'maxLength',
+      'enumVal',
+      'enumNames',
+      'isRequired',
+    ]
+  }
+  if (node.subtitle === 'Number') {
+    return [
+      'title',
+      'description',
+      'defaultValue',
+      'minimum',
+      'excludeMinimum',
+      'maximum',
+      'excludeMaximum',
+      'multipleOf',
+      'enumVal',
+      'enumNames',
+      'isRequired',
+    ]
+  }
+  if (node.subtitle === 'Integer') {
+    return [
+      'title',
+      'description',
+      'defaultValue',
+      'minimum',
+      'excludeMinimum',
+      'maximum',
+      'excludeMaximum',
+      'multipleOf',
+      'enumVal',
+      'enumNames',
+      'isRequired',
+    ]
+  }
+  if (node.subtitle === 'Array') {
+    return ['title', 'description', 'minItems', 'maxItems', 'uniqueItems']
+  }
+  if (node.subtitle === 'Object') {
+    return ['title', 'description']
+  }
+  return ['title', 'description', 'defaultValue', 'enumVal', 'enumNames', 'isRequired']
 }

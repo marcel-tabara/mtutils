@@ -1,6 +1,5 @@
 import React from 'react'
 import prettier from 'prettier/standalone'
-import parserBabel from 'prettier/parser-babel'
 import Form from '@rjsf/material-ui'
 import {prettierOptions} from '../shared/constants'
 

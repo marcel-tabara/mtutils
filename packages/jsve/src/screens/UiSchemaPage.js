@@ -1,17 +1,10 @@
 import React from 'react'
-import SortableTree, {changeNodeAtPath} from 'react-sortable-tree'
+import SortableTree from 'react-sortable-tree'
 import isEqual from 'lodash/isEqual'
-import isEmpty from 'lodash/isEmpty'
 import get from 'lodash/get'
-
 import StorageIcon from '@material-ui/icons/Storage'
 
-import AlertDialog from '../components/AlertDialog'
-import UiInfoForm from './UiInfoForm'
-
-const externalNodeType = 'uiSchemaNodeType'
-const shouldCopyOnOutsideDrop = true
-const getNodeKey = ({treeIndex}) => treeIndex
+import {externalNodeType, shouldCopyOnOutsideDrop, getNodeKey} from '../shared/helper'
 
 const UiSchemaPage = ({jsve, setJsve}) => {
   const {tree, currentUINode} = jsve
@@ -28,6 +21,7 @@ const UiSchemaPage = ({jsve, setJsve}) => {
   }
 
   const getClassName = (pathParam) => (isEqual(pathParam, get(currentUINode, 'path', [])) ? 'rst__rowSelected' : '')
+  const onChange = () => undefined
 
   return (
     <div className="flex">
@@ -40,6 +34,7 @@ const UiSchemaPage = ({jsve, setJsve}) => {
         }}
       >
         <SortableTree
+          onChange={onChange}
           treeData={tree}
           dndType={externalNodeType}
           shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
