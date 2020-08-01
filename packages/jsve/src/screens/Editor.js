@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import 'react-sortable-tree/style.css'
+import isEmpty from 'lodash/isEmpty'
 
-import FormPage from './FormPage'
-import TreePage from './TreePage'
+import UiSchemaPage from './UiSchemaPage'
+import SchemaPage from './SchemaPage'
 
 import InfoForm from './InfoForm'
-
-import isEmpty from 'lodash/isEmpty'
+import UiInfoForm from './UiInfoForm'
 
 import AlertDialog from '../components/AlertDialog'
 
@@ -20,8 +20,8 @@ const Editor = ({jsve, setJsve}) => {
   const renderTabs = () => {
     return (
       <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered>
-        <Tab label="JsonSchema" />
-        <Tab label="Tree" />
+        <Tab label="Schema" />
+        <Tab label="uiSchema" />
       </Tabs>
     )
   }
@@ -30,16 +30,17 @@ const Editor = ({jsve, setJsve}) => {
 
   const showAlert = () => (
     <AlertDialog setJsve={setJsve} open={isDialogOpen} jsve={jsve}>
-      <InfoForm setJsve={setJsve} jsve={jsve} />
+      {!isEmpty(currentNode) && <InfoForm setJsve={setJsve} jsve={jsve} />}
+      {!isEmpty(currentUINode) && <UiInfoForm setJsve={setJsve} jsve={jsve} />}
     </AlertDialog>
   )
 
   const renderContent = () => {
     if (tab === 0) {
-      return <FormPage jsve={jsve} setJsve={setJsve} />
+      return <SchemaPage jsve={jsve} setJsve={setJsve} />
     }
     if (tab === 1) {
-      return <TreePage jsve={jsve} setJsve={setJsve} />
+      return <UiSchemaPage jsve={jsve} setJsve={setJsve} />
     }
     return null
   }

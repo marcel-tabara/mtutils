@@ -11,8 +11,7 @@ import Box from '@material-ui/core/Box'
 
 import Editor from './Editor'
 import Preview from '../components/Preview'
-import Schema from '../components/Schema'
-import UiSchema from '../components/UiSchema'
+import CodeView from '../components/CodeView'
 
 import {useJsve} from '../shared/useJsve'
 
@@ -57,8 +56,6 @@ const JsveComponent = () => {
   const theme = useTheme()
   const [tab, setTab] = useState(0)
 
-  console.log('########## jsve', jsve)
-
   const handleTabChange = (event, newValue) => setTab(newValue)
   const handleTabChangeIndex = (index) => setTab(index)
 
@@ -75,9 +72,8 @@ const JsveComponent = () => {
             aria-label="full width tabs example"
           >
             <Tab label="Editor" {...a11yProps(0)} />
-            <Tab label="Schema" {...a11yProps(1)} />
-            <Tab label="UISchema" {...a11yProps(2)} />
-            <Tab label="Preview" {...a11yProps(3)} />
+            <Tab label="Code" {...a11yProps(1)} />
+            <Tab label="Preview" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -89,12 +85,9 @@ const JsveComponent = () => {
             Editor
           </TabPanel>
           <TabPanel value={tab} index={1} dir={theme.direction}>
-            Schema
+            Code
           </TabPanel>
           <TabPanel value={tab} index={2} dir={theme.direction}>
-            UISchema
-          </TabPanel>
-          <TabPanel value={tab} index={3} dir={theme.direction}>
             Preview
           </TabPanel>
         </SwipeableViews>
@@ -106,10 +99,8 @@ const JsveComponent = () => {
     tab === 0 ? (
       <Editor jsve={jsve} setJsve={setJsve} />
     ) : tab === 1 ? (
-      <Schema jsve={jsve} setJsve={setJsve} />
+      <CodeView jsve={jsve} setJsve={setJsve} />
     ) : tab === 2 ? (
-      <UiSchema jsve={jsve} setJsve={setJsve} />
-    ) : tab === 3 ? (
       <Preview jsve={jsve} setJsve={setJsve} />
     ) : null
 

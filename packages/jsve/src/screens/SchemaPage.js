@@ -18,7 +18,7 @@ const externalNodeType = 'yourNodeType'
 const shouldCopyOnOutsideDrop = true
 const getNodeKey = ({treeIndex}) => treeIndex
 
-const TreePage = ({jsve, setJsve}) => {
+const SchemaPage = ({jsve, setJsve}) => {
   const {tree, currentNode, currentUINode, schemaCode, uiSchemaCode, error} = jsve
 
   const remove = (path) => {
@@ -38,9 +38,7 @@ const TreePage = ({jsve, setJsve}) => {
       ignoreCollapsed: false,
     })
 
-    return flatData.find((el) => {
-      return isPrimitive(el.node.subtitle) && !isEmpty(el.node.children)
-    })
+    return flatData.find((el) => isPrimitive(el.node.subtitle) && !isEmpty(el.node.children))
   }
 
   const onChange = (treeData) => {
@@ -67,9 +65,7 @@ const TreePage = ({jsve, setJsve}) => {
     }
   }
 
-  const setCurrentForm = (node, path) => {
-    setJsve({...jsve, currentNode: {node, path}})
-  }
+  const setCurrentForm = (node, path) => setJsve({...jsve, currentNode: {node, path}})
 
   return (
     <>
@@ -117,4 +113,4 @@ const TreePage = ({jsve, setJsve}) => {
   )
 }
 
-export default TreePage
+export default SchemaPage

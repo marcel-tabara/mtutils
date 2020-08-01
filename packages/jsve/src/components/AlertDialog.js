@@ -31,14 +31,6 @@ export default function AlertDialog({open, setJsve, jsve, children}) {
           <span>{children}</span>
         </DialogContentText>
       </DialogContent>
-      {/* <DialogActions>
-        <Button onClick={onClose} color="primary">
-          Cancel
-        </Button>
-        <Button onClick={onConfirm} color="primary" autoFocus>
-          OK
-        </Button>
-      </DialogActions> */}
     </Dialog>
   )
 }

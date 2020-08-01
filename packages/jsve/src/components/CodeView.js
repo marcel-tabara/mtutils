@@ -7,7 +7,7 @@ import 'ace-builds/src-noconflict/theme-github'
 import prettier from 'prettier/standalone'
 import {prettierOptions} from '../shared/constants'
 
-const Schema = ({jsve}) => {
+const CodeView = ({jsve}) => {
   const onChange = () => undefined
   const {schemaCode, uiSchemaCode} = jsve
   const schema = prettier.format(schemaCode, prettierOptions)
@@ -53,4 +53,4 @@ const Schema = ({jsve}) => {
   )
 }
 
-export default Schema
+export default CodeView
