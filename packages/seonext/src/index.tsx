@@ -1,2 +1,1 @@
-export { SeoNext } from './SeoNext'
-export { seoNextData } from './SeoNext/SeoNext'
+export { SeoNext, seoNextData } from './SeoNext'
