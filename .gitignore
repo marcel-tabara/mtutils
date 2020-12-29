@@ -1,5 +1,3 @@
-.log
-.DS_Store
-.jest-*
-lib
+.vscode
 node_modules
+dist

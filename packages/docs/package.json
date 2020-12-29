@@ -1,0 +1,31 @@
+{
+  "name": "@mtutils/docs",
+  "version": "0.0.1",
+  "description": "@mtutils/docs",
+  "author": "Marcel Tabara <marcel.tabarav@gmail.com>",
+  "homepage": "https://github.com/marcel-tabara@mtutils#readme",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcel-tabara@mtutils.git"
+  },
+  "scripts": {
+    "storybook": "start-storybook",
+    "docs:dev": "npm run storybook"
+  },
+  "bugs": {
+    "url": "https://github.com/marcel-tabara@mtutils/issues"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.1.11"
+  },
+  "dependencies": {
+    "@mtutils/jsve": "^0.0.1",
+    "@mtutils/seonext": "^0.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react-dom": "^17.0.1"
+  }
+}
