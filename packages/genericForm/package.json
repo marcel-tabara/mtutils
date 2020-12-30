@@ -1,7 +1,7 @@
 {
-  "name": "@mtutils/seonext",
+  "name": "@mtutils/genericform",
   "version": "0.0.1",
-  "description": "mtutils/seonext",
+  "description": "mtutils/genericform",
   "author": "Marcel Tabara <marcel.tabara@gmail.com>",
   "homepage": "https://github.com/marcel-tabara/mtutils#readme",
   "license": "ISC",
@@ -24,12 +24,10 @@
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
-    "@rjsf/bootstrap-4": "^2.4.0",
-    "@rjsf/core": "^2.4.0",
-    "@rjsf/material-ui": "^2.4.0",
-    "@types/react-jsonschema-form": "^1.7.4",
-    "react-bootstrap": "^1.4.0",
-    "recoil": "^0.1.2"
+    "@rjsf/bootstrap-4": "^2.4.1",
+    "@rjsf/core": "^2.4.1",
+    "@rjsf/material-ui": "^2.4.1",
+    "@types/react-jsonschema-form": "^1.7.4"
   },
   "devDependencies": {
     "postcss": "^8.2.1",

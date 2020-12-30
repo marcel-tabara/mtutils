@@ -1,4 +1,4 @@
-export const defaultSchema = {
+export const seoNext = {
   definitions: {
     AllSeoProps: {
       properties: {

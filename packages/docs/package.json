@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@mtutils/jsve": "^0.0.1",
-    "@mtutils/seonext": "^0.0.1",
+    "@mtutils/genericform": "^0.0.1",
     "react-dom": "^17.0.1"
   },
   "peerDependencies": {
