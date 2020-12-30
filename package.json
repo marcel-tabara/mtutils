@@ -22,6 +22,6 @@
   "scripts": {
     "dev": "lerna run docs:dev  --parallel -- babel",
     "comp": "lerna run compile  --parallel",
-    "clean": "lerna run rimraf ./node_modules --parallel"
+    "clean": "lerna clean --yes && lerna exec -- rimraf dist --parallel"
   }
 }
