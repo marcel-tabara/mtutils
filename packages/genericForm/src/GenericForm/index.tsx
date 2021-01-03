@@ -1,4 +1,5 @@
 import Form from '@rjsf/material-ui'
+import { JSONSchema7 } from 'json-schema'
 import React, { useEffect } from 'react'
 import * as schemas from './constants'
 import { GenericFormProps } from './types'
@@ -24,7 +25,7 @@ export const GenericForm = ({
 
   return (
     <Form
-      schema={genericFormSchema as any}
+      schema={genericFormSchema as JSONSchema7}
       onSubmit={onSubmit}
       formData={genericFormData}
     />
