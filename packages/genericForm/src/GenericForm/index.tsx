@@ -9,7 +9,7 @@ let genericFormData = {}
 export const GenericForm = ({
   initialData,
   cb,
-  type,
+  type='nextSeo',
   schema,
 }: GenericFormProps) => {
   useEffect(() => {
@@ -24,12 +24,15 @@ export const GenericForm = ({
   }
 
   return (
-    <Form
-      schema={genericFormSchema as JSONSchema7}
-      onSubmit={onSubmit}
-      formData={genericFormData}
-    />
+    <div style={{padding: 50}}>
+      <Form
+        schema={genericFormSchema as JSONSchema7}
+        onSubmit={onSubmit}
+        formData={genericFormData}
+      />
+    </div>
   )
 }
 
 export { genericFormData }
+

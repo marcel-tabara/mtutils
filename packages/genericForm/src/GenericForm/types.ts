@@ -1,4 +1,4 @@
-type SchemaType = 'seoNext' | 'other'
+type SchemaType = 'nextSeo' | 'other'
 
 export interface GenericFormProps {
   initialData?: {}
