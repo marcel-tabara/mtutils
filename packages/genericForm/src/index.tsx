@@ -1,1 +1,2 @@
-export { GenericForm, genericFormData } from './GenericForm'
+export { GenericForm } from './GenericForm';
+

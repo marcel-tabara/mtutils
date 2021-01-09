@@ -1,38 +1,36 @@
 import Form from '@rjsf/material-ui'
 import { JSONSchema7 } from 'json-schema'
-import React, { useEffect } from 'react'
+import React from 'react'
 import * as schemas from './constants'
 import { GenericFormProps } from './types'
 
-let genericFormData = {}
-
-export const GenericForm = ({
+const GenericForm = ({
   initialData,
-  cb,
+  onChange,
   type='nextSeo',
   schema,
 }: GenericFormProps) => {
-  useEffect(() => {
-    genericFormData = initialData || {}
-  }, [initialData])
-
   const genericFormSchema = type ? schemas[type] : schema ? schema : {}
 
-  const onSubmit = ({ formData }) => {
-    genericFormData = formData
-    cb && cb()
+  const onValueChange = ({ formData }) => {
+    onChange && onChange(formData)
   }
 
   return (
     <div style={{padding: 50}}>
       <Form
         schema={genericFormSchema as JSONSchema7}
-        onSubmit={onSubmit}
-        formData={genericFormData}
-      />
+        onChange={onValueChange}
+        formData={initialData}
+      >
+        <button type="submit" style={{visibility: 'hidden'}}>
+            Submit
+          </button>
+      </Form>
     </div>
   )
 }
 
-export { genericFormData }
+
+export { GenericForm }
 

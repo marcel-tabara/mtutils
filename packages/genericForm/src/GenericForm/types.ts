@@ -4,5 +4,5 @@ export interface GenericFormProps {
   initialData?: {}
   schema?: string
   type?: SchemaType
-  cb?: () => void
+  onChange?: (val) => void
 }
