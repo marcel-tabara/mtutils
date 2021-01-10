@@ -1,4 +1,4 @@
-type SchemaType = 'nextSeo' | 'other'
+type SchemaType = 'nextSeo' | 'gatsbyNextSeo'
 
 export interface GenericFormProps {
   initialData?: {}

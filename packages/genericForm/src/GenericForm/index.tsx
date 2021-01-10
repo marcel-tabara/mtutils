@@ -7,7 +7,7 @@ import { GenericFormProps } from './types'
 const GenericForm = ({
   initialData,
   onChange,
-  type='nextSeo',
+  type='gatsbyNextSeo',
   schema,
 }: GenericFormProps) => {
   const genericFormSchema = type ? schemas[type] : schema ? schema : {}
