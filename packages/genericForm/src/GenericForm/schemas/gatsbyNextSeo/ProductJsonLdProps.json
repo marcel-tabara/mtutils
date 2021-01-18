@@ -1,0 +1,369 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/ProductJsonLdProps",
+  "definitions": {
+    "ProductJsonLdProps": {
+      "title": "ProductJsonLdProps",
+      "type": "object",
+      "description": "Component props for the Product JSON LD.",
+      "properties": {
+        "productName": {
+          "type": "string",
+          "description": "Warning: This API is now obsolete.",
+          "default": ""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the product.",
+          "default": ""
+        },
+        "images": {
+          "description": "The URL(s) of a product photo. Pictures clearly showing the product (for example, against a white background) are preferred. This property is required for Google Images and recommended for Google Search. Additional image guidelines: Every page must contain at least one image (whether or not you include markup). Google will pick the best image to display in Search results based on the aspect ratio and resolution. - Image URLs must be crawlable and indexable. - Images must represent the marked up content. - Images must be in .jpg, .png, or. gif format. - For best results, provide multiple high-resolution images (minimum of 50K pixels when multiplying width and height) with the following aspect ratios: 16x9, 4x3, and 1x1. For example: const props = { `image`: [`https://example.com/photos/1x1/photo.jpg`, `https://example.com/photos/4x3/photo.jpg`,  `https://example.com/photos/16x9/photo.jpg` ] }",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "Product description.",
+          "default": ""
+        },
+        "brand": {
+          "type": "string",
+          "description": "The brand of the product.",
+          "default": ""
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "aggregateRating": {
+          "$ref": "#/definitions/AggregateRating"
+        },
+        "offers": {
+          "$ref": "#/definitions/Offers"
+        },
+        "offersType": {
+          "type": "string",
+          "enum": ["Offer", "AggregateOffer"],
+          "description": "",
+          "default": "Select"
+        },
+        "gtin": {
+          "description": "A Global Trade Item Number (GTIN). GTINs identify trade items, including products and services, using numeric identification codes. The gtin property generalizes the earlier gtin8, gtin12, gtin13, and gtin14 properties. The GS1 digital link specifications express GTINs as URLs. A correct gtin value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a `GS1 Digital Link` URL based on such a string. The numeric component should also have a valid GS1 check digit and meet the other rules for valid GTINs. See also GS1's GTIN Summary and Wikipedia for more details. Left-padding of the gtin values is not required or encouraged.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "gtin12": {
+          "description": "The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary for more details.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "gtin13": {
+          "description": "The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "gtin14": {
+          "description": "The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary for more details.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "gtin8": {
+          "description": "The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary for more details.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "mpn": {
+          "description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "sku": {
+          "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Review": {
+      "type": "object",
+      "description": "A nested Review of the product.",
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "datePublished": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "reviewBody": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "name": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "reviewRating": {
+          "$ref": "#/definitions/ReviewRating"
+        }
+      },
+      "required": ["author", "reviewRating"],
+      "additionalProperties": false
+    },
+    "ReviewRating": {
+      "type": "object",
+      "properties": {
+        "bestRating": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "ratingValue": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "worstRating": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        }
+      },
+      "required": ["ratingValue"],
+      "additionalProperties": false
+    },
+    "AggregateRating": {
+      "type": "object",
+      "properties": {
+        "bestRating": {
+          "type": ["number", "string"],
+          "description": "The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.",
+          "default": ""
+        },
+        "ratingExplanation": {
+          "type": "string",
+          "description": "A short explanation (e.g. one to two sentences) providing background context and other information that led to the conclusion expressed in the rating. This is particularly applicable to ratings associated with `fact check` markup using {@link http://schema.org/ClaimReview ClaimReview}.",
+          "default": ""
+        },
+        "ratingValue": {
+          "type": ["number", "string"],
+          "description": "The rating for the content. Usage guidelines: - Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols. - Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
+          "default": ""
+        },
+        "reviewAspect": {
+          "type": "string",
+          "description": "This Review or Rating is relevant to this part or facet of the itemReviewed.",
+          "default": ""
+        },
+        "worstRating": {
+          "type": ["number", "string"],
+          "description": "The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.",
+          "default": ""
+        },
+        "ratingCount": {
+          "type": "number",
+          "description": "The count of total number of ratings.",
+          "default": ""
+        },
+        "reviewCount": {
+          "type": "number",
+          "description": "The count of total number of reviews.",
+          "default": ""
+        }
+      },
+      "additionalProperties": false
+    },
+    "Offers": {
+      "type": "object",
+      "description": "An offer to sell the product. Includes a nested Offer or AggregateOffer.",
+      "properties": {
+        "price": {
+          "type": "string",
+          "description": "The price of the product.",
+          "default": ""
+        },
+        "priceCurrency": {
+          "type": "string",
+          "description": "The currency used to describe the product price, in three-letter ISO 4217 format.",
+          "default": ""
+        },
+        "priceValidUntil": {
+          "type": "string",
+          "description": "The date (in ISO 8601 date format) after which the price will no longer be available. Your product snippet may not display if the priceValidUtil property indicates a past date.",
+          "default": ""
+        },
+        "itemCondition": {
+          "$ref": "#/definitions/ItemCondition"
+        },
+        "availability": {
+          "$ref": "#/definitions/OfferAvailability"
+        },
+        "url": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "seller": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Person", "Organization"],
+              "description": "The seller type",
+              "default": "Select"
+            },
+            "name": {
+              "type": "string",
+              "description": "The seller name",
+              "default": ""
+            }
+          },
+          "required": ["name"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["price", "priceCurrency"],
+      "additionalProperties": false
+    },
+    "ItemCondition": {
+      "type": "string",
+      "enum": [
+        "DamagedCondition",
+        "NewCondition",
+        "RefurbishedCondition",
+        "UsedCondition"
+      ],
+      "description": "The item condition",
+      "default": "Select"
+    },
+    "OfferAvailability": {
+      "type": "string",
+      "enum": [
+        "Discontinued",
+        "InStock",
+        "InStoreOnly",
+        "LimitedAvailability",
+        "OnlineOnly",
+        "OutOfStock",
+        "PreOrder",
+        "PreSale",
+        "SoldOut"
+      ],
+      "description": "Value is taken from a constrained list of options, expressed in markup using URL links. Google also understands their short names (for example InStock or OutOfStock, without the full URL scope.) This property is required for the Related Items feature in Google Images and is recommended for Google Search.",
+      "default": "Select"
+    }
+  }
+}

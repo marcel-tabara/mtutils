@@ -1,0 +1,510 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/AllSeoProps",
+  "definitions": {
+    "AllSeoProps": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "defer": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether or not to defer the addition of the head tag."
+        },
+        "noindex": {
+          "type": "boolean",
+          "default": false,
+          "description": "Sets whether page should be indexed or not."
+        },
+        "nofollow": {
+          "type": "boolean",
+          "default": false,
+          "description": "Sets whether page should be followed or not."
+        },
+        "dangerouslySetAllPagesToNoIndex": {
+          "type": "boolean",
+          "default": false,
+          "description": "It has the prefix of dangerously because it will noindex all pages. As this is an SEO plugin, that is kinda dangerous action. It is **not** bad to use this, just please be sure you want to noindex **EVERY** page. You can still override this at a page level if you have a use case to index a page. This can be done by setting noindex: false."
+        },
+        "dangerouslySetAllPagesToNoFollow": {
+          "type": "boolean",
+          "default": false,
+          "description": "It has the prefix of dangerously because it will nofollow all pages. As this is an SEO plugin, that is kinda dangerous action. It is **not** bad to use this, just please be sure you want to nofollow **EVERY** page. You can still override this at a page level if you have a use case to follow a page. This can be done by setting nofollow: false."
+        },
+        "language": {
+          "type": "string",
+          "default": "",
+          "description": "The language being used for the current page.This adds the lang attribute to the <html /> e.g. tag https://web.dev/html-has-lang/."
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "Set the meta title of the page"
+        },
+        "titleTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "Allows you to set default title template that will be added to your title."
+        },
+        "description": {
+          "type": "string",
+          "default": "",
+          "description": "Set the page meta description."
+        },
+        "canonical": {
+          "type": "string",
+          "default": "",
+          "description": "Set the page canonical url."
+        },
+        "mobileAlternate": {
+          "type": "object",
+          "description": "Mobile configuration object. This link relation is used to indicate a relation between a desktop and a mobile website to search engines.",
+          "properties": {
+            "media": {
+              "type": "string",
+              "default": "",
+              "description": ""
+            },
+            "href": {
+              "type": "string",
+              "default": "",
+              "description": ""
+            }
+          },
+          "required": ["media", "href"],
+          "additionalProperties": false
+        },
+        "languageAlternates": {
+          "type": "array",
+          "description": "Set the language of the alternate urls.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hrefLang": {
+                "type": "string",
+                "default": "",
+                "description": ""
+              },
+              "href": {
+                "type": "string",
+                "default": "",
+                "description": ""
+              }
+            },
+            "required": ["hrefLang", "href"],
+            "additionalProperties": false
+          }
+        },
+        "openGraph": {
+          "$ref": "#/definitions/OpenGraph"
+        },
+        "facebook": {
+          "type": "object",
+          "description": "The facebook configuration object.",
+          "properties": {
+            "appId": {
+              "type": "string",
+              "default": "",
+              "description": "Used for Facebook Insights, you must add a facebook app ID to your page to for it."
+            }
+          },
+          "required": ["appId"],
+          "additionalProperties": false
+        },
+        "twitter": {
+          "$ref": "#/definitions/Twitter"
+        },
+        "defaultOpenGraphImageWidth": {
+          "type": "number",
+          "default": "",
+          "description": "The default open graph image width."
+        },
+        "defaultOpenGraphImageHeight": {
+          "type": "number",
+          "default": "",
+          "description": "The default open graph image height."
+        },
+        "defaultOpenGraphVideoWidth": {
+          "type": "number",
+          "default": "",
+          "description": "The default open graph video width."
+        },
+        "defaultOpenGraphVideoHeight": {
+          "type": "number",
+          "default": "",
+          "description": "The default open graph video height."
+        },
+        "metaTags": {
+          "type": "array",
+          "description": "Allows you to add a meta tags.  Invalid if they contain property and name on the same entry. Example: mobileAlternate={{ media: `only screen and (max-width: 640px)`, href: `https://m.canonical.ie`}}",
+          "items": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "default": "",
+                "description": ""
+              },
+              "name": {
+                "type": "string",
+                "default": "",
+                "description": ""
+              },
+              "property": {
+                "type": "string",
+                "default": "",
+                "description": ""
+              }
+            },
+            "required": ["content", "name"],
+            "additionalProperties": false
+          }
+        },
+        "linkTags": {
+          "type": "array",
+          "description": "Allows you to add a link tags.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "link": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "OpenGraph": {
+      "type": "object",
+      "description": "The open graph configuration object.",
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": "The canonical URL of your object that will be used as its permanent ID in the graph."
+        },
+        "type": {
+          "type": "string",
+          "default": "",
+          "description": "The type of your object. Depending on the type you specify, other properties may also be required."
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "The open graph title, this can be different than your meta title."
+        },
+        "description": {
+          "type": "string",
+          "default": "",
+          "description": "The open graph description, this can be different than your meta description."
+        },
+        "defaultImageHeight": {
+          "type": "number",
+          "default": "",
+          "description": "The default height for the image used."
+        },
+        "defaultImageWidth": {
+          "type": "number",
+          "default": "",
+          "description": "The default width of the image used."
+        },
+        "locale": {
+          "type": "string",
+          "default": "",
+          "description": "The locale the open graph tags are marked up in. Of the format language_TERRITORY."
+        },
+        "site_name": {
+          "type": "string",
+          "default": "",
+          "description": "If your object is part of a larger web site, the name which should be displayed for the overall site."
+        },
+        "images": {
+          "type": "array",
+          "description": "An array of images (object) to be used by social media platforms, slack etc as a preview. If multiple supplied you can choose one when sharing.",
+          "items": {
+            "$ref": "#/definitions/OpenGraphImages"
+          }
+        },
+        "videos": {
+          "type": "array",
+          "description": "An array of videos.",
+          "items": {
+            "$ref": "#/definitions/OpenGraphVideos"
+          }
+        },
+        "profile": {
+          "$ref": "#/definitions/OpenGraphProfile"
+        },
+        "book": {
+          "$ref": "#/definitions/OpenGraphBook"
+        },
+        "article": {
+          "$ref": "#/definitions/OpenGraphArticle"
+        },
+        "video": {
+          "$ref": "#/definitions/OpenGraphVideo"
+        }
+      },
+      "additionalProperties": false
+    },
+    "OpenGraphImages": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        },
+        "width": {
+          "type": "number",
+          "default": "",
+          "description": ""
+        },
+        "height": {
+          "type": "number",
+          "default": "",
+          "description": ""
+        },
+        "alt": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        }
+      },
+      "required": ["url"],
+      "additionalProperties": false
+    },
+    "OpenGraphVideos": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        },
+        "width": {
+          "type": "number",
+          "default": "",
+          "description": ""
+        },
+        "height": {
+          "type": "number",
+          "default": "",
+          "description": ""
+        },
+        "alt": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        }
+      },
+      "required": ["url"],
+      "additionalProperties": false
+    },
+    "OpenGraphProfile": {
+      "type": "object",
+      "description": "The open graph profile configuration object.",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "default": "",
+          "description": "Person's first name."
+        },
+        "lastName": {
+          "type": "string",
+          "default": "",
+          "description": "Person's last name."
+        },
+        "username": {
+          "type": "string",
+          "default": "",
+          "description": "Person's username."
+        },
+        "gender": {
+          "type": "string",
+          "default": "",
+          "description": "Person's gender."
+        }
+      },
+      "additionalProperties": false
+    },
+    "OpenGraphBook": {
+      "type": "object",
+      "description": "The open graph book configuration object.",
+      "properties": {
+        "isbn": {
+          "type": "string",
+          "default": "",
+          "description": "The International Standard Book Number which identifies the book."
+        },
+        "releaseDate": {
+          "type": "string",
+          "default": "",
+          "description": "The books release date."
+        },
+        "authors": {
+          "type": "array",
+          "description": "The list of author names for the book.",
+          "items": {
+            "type": "string",
+            "default": ""
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Tags used to further describe the book.",
+          "items": {
+            "type": "string",
+            "default": ""
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "OpenGraphArticle": {
+      "type": "object",
+      "description": "The open graph article configuration object.",
+      "properties": {
+        "publishedTime": {
+          "type": "string",
+          "default": "",
+          "description": "When the article was first published."
+        },
+        "modifiedTime": {
+          "type": "string",
+          "default": "",
+          "description": "When the article was last changed."
+        },
+        "expirationTime": {
+          "type": "string",
+          "default": "",
+          "description": "When the article is out of date after."
+        },
+        "section": {
+          "type": "string",
+          "default": "",
+          "description": "A high-level section name. E.g. Technology"
+        },
+        "authors": {
+          "type": "array",
+          "description": "The list of author names for the article.",
+          "items": {
+            "type": "string",
+            "default": "",
+            "description": "Writers of the article."
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Tags used to further describe the article.",
+          "items": {
+            "type": "string",
+            "default": "",
+            "description": "Tag words associated with this article."
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "OpenGraphVideo": {
+      "type": "object",
+      "description": "The open graph video configuration object.",
+      "properties": {
+        "duration": {
+          "type": "number",
+          "default": "",
+          "description": " The movie's length in seconds."
+        },
+        "releaseDate": {
+          "type": "string",
+          "default": "",
+          "description": "The date the movie was released."
+        },
+        "series": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        },
+        "actors": {
+          "type": "array",
+          "description": "Actors in the movie.",
+          "items": {
+            "$ref": "#/definitions/OpenGraphVideoActors"
+          }
+        },
+        "directors": {
+          "type": "array",
+          "description": "Directors of the movie.",
+          "items": {
+            "type": "string",
+            "default": "",
+            "description": ""
+          }
+        },
+        "writers": {
+          "type": "array",
+          "description": "Writers of the movie.",
+          "items": {
+            "type": "string",
+            "default": "",
+            "description": ""
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Tag words associated with this movie.",
+          "items": {
+            "type": "string",
+            "default": ""
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "OpenGraphVideoActors": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        },
+        "role": {
+          "type": "string",
+          "default": "",
+          "description": ""
+        }
+      },
+      "required": ["profile"],
+      "additionalProperties": false
+    },
+    "Twitter": {
+      "type": "object",
+      "description": "The twitter configuration object.",
+      "properties": {
+        "handle": {
+          "type": "string",
+          "default": "",
+          "description": "@username for the content creator / author (outputs as twitter:creator)."
+        },
+        "site": {
+          "type": "string",
+          "default": "",
+          "description": "@username for the website used in the card footer."
+        },
+        "cardType": {
+          "$ref": "#/definitions/TwitterCardType",
+          "description": "The card type, which will be one of summary, summary_large_image, app, or player."
+        }
+      },
+      "additionalProperties": false
+    },
+    "TwitterCardType": {
+      "type": "string",
+      "enum": ["summary", "summary_large_image", "app", "player"],
+      "description": "",
+      "default": ""
+    }
+  }
+}

@@ -1,0 +1,21 @@
+import * as gatsbyNextSeo_AllSeoProps from './gatsbyNextSeo/AllSeoProps.json';
+import * as gatsbyNextSeo_BlogJsonLdProps from './gatsbyNextSeo/BlogJsonLdProps.json';
+import * as gatsbyNextSeo_BreadcrumbJsonLdProps from './gatsbyNextSeo/BreadcrumbJsonLdProps.json';
+import * as gatsbyNextSeo_CorporateContactJsonLdProps from './gatsbyNextSeo/CorporateContactJsonLdProps.json';
+import * as gatsbyNextSeo_CourseJsonLdProps from './gatsbyNextSeo/CourseJsonLdProps.json';
+import * as gatsbyNextSeo_FAQJsonLdProps from './gatsbyNextSeo/FAQJsonLdProps.json';
+import * as gatsbyNextSeo_LocalBusinessAddress from './gatsbyNextSeo/LocalBusinessAddress.json';
+import * as gatsbyNextSeo_LogoJsonLdProps from './gatsbyNextSeo/LogoJsonLdProps.json';
+import * as gatsbyNextSeo_ProductJsonLdProps from './gatsbyNextSeo/ProductJsonLdProps.json';
+import * as gatsbyNextSeo_SocialProfileJsonLdProps from './gatsbyNextSeo/SocialProfileJsonLdProps.json';
+
+export { gatsbyNextSeo_AllSeoProps };
+export { gatsbyNextSeo_CourseJsonLdProps };
+export { gatsbyNextSeo_FAQJsonLdProps };
+export { gatsbyNextSeo_LogoJsonLdProps };
+export { gatsbyNextSeo_ProductJsonLdProps };
+export { gatsbyNextSeo_SocialProfileJsonLdProps };
+export { gatsbyNextSeo_LocalBusinessAddress };
+export { gatsbyNextSeo_CorporateContactJsonLdProps };
+export { gatsbyNextSeo_BreadcrumbJsonLdProps };
+export { gatsbyNextSeo_BlogJsonLdProps };

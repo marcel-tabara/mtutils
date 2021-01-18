@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/BlogJsonLdProps",
+  "definitions": {
+    "BlogJsonLdProps": {
+      "title": "BlogJsonLdProps",
+      "type": "object",
+      "description": "The Blog JSON LD props.",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "",
+          "default": "The canonical URL of the article page."
+        },
+        "headline": {
+          "description": "The headline of the article.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        },
+        "images": {
+          "type": "array",
+          "description": "The images URLs that is representative of the article or AMP story.",
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        },
+        "datePublished": {
+          "type": "string",
+          "description": "The date and time the article was first published, in ISO 8601 format.",
+          "default": ""
+        },
+        "dateModified": {
+          "type": "string",
+          "description": "The date and time the article was most recently modified, in ISO 8601 format.",
+          "default": ""
+        },
+        "authorName": {
+          "type": "string",
+          "description": "The name of the author.",
+          "default": ""
+        },
+        "authorType": {
+          "type": "string",
+          "description": "The type of author for this article.",
+          "default": "Select",
+          "enum": ["Person", "Organization"]
+        },
+        "description": {
+          "type": "string",
+          "description": "A short description of the article.",
+          "default": ""
+        },
+        "publisherName": {
+          "type": "string",
+          "description": "The name of the publisher.",
+          "default": ""
+        },
+        "publisherLogo": {
+          "type": "string",
+          "description": "The url of the publisher logo.",
+          "default": ""
+        },
+        "posts": {
+          "type": "array",
+          "description": "A posting that is part of this blog.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "headline": {
+                "type": "string",
+                "description": "Headline of the blog post.",
+                "default": ""
+              },
+              "datePublished": {
+                "type": "string",
+                "description": "The date and time the article was first published, in ISO 8601 format. Best practices: - The date shouldn't change over time. - We recommend including the hour information in addition to the day in the timestamp. - The value for dateModified should be more recent than the value for datePublished.",
+                "default": ""
+              },
+              "image": {
+                "type": "string",
+                "description": "An image URL that is representative of the blog post.",
+                "default": ""
+              }
+            },
+            "required": ["headline"],
+            "additionalProperties": false
+          }
+        },
+        "issn": {
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+                "default": ""
+              }
+            }
+          ]
+        }
+      },
+      "required": ["url", "headline"],
+      "additionalProperties": false
+    }
+  }
+}
