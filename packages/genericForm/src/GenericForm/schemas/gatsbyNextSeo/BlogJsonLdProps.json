@@ -7,51 +7,15 @@
       "type": "object",
       "description": "The Blog JSON LD props.",
       "properties": {
-        "url": {
-          "type": "string",
-          "description": "",
-          "default": "The canonical URL of the article page."
-        },
-        "headline": {
-          "description": "The headline of the article.",
-          "anyOf": [
-            {
-              "type": "string",
-              "description": "",
-              "default": ""
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "description": "",
-                "default": ""
-              }
-            }
-          ]
-        },
         "title": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "keywords": {
-          "type": "array",
-          "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
-          "items": {
-            "type": "string",
-            "description": "",
-            "default": ""
-          }
-        },
-        "images": {
-          "type": "array",
-          "description": "The images URLs that is representative of the article or AMP story.",
-          "items": {
-            "type": "string",
-            "description": "",
-            "default": ""
-          }
+        "url": {
+          "type": "string",
+          "description": "The canonical URL of the article page.",
+          "default": ""
         },
         "datePublished": {
           "type": "string",
@@ -89,6 +53,44 @@
           "description": "The url of the publisher logo.",
           "default": ""
         },
+        "headline": {
+          "description": "The headline of the article.",
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "headline as string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "title": "headline as array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        },
+        "images": {
+          "type": "array",
+          "description": "The images URLs that is representative of the article or AMP story.",
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        },
         "posts": {
           "type": "array",
           "description": "A posting that is part of this blog.",
@@ -116,17 +118,18 @@
           }
         },
         "issn": {
+          "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
           "anyOf": [
             {
               "type": "string",
-              "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+              "title": "issn as string",
               "default": ""
             },
             {
               "type": "array",
               "items": {
                 "type": "string",
-                "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+                "title": "issn as array",
                 "default": ""
               }
             }

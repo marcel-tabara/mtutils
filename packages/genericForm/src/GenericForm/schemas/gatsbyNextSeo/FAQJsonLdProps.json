@@ -9,6 +9,7 @@
       "properties": {
         "questions": {
           "type": "array",
+          "description": "An array of Question elements which comprise the list of answered questions that this FAQPage is about.",
           "items": {
             "$ref": "#/definitions/Question"
           }
@@ -19,7 +20,6 @@
     },
     "Question": {
       "type": "object",
-      "description": "An array of Question elements which comprise the list of answered questions that this FAQPage is about.",
       "properties": {
         "question": {
           "type": "string",

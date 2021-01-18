@@ -49,11 +49,13 @@
           "anyOf": [
             {
               "type": "string",
+              "title": "areaServed as string",
               "description": "",
               "default": ""
             },
             {
               "type": "array",
+              "title": "areaServed as array",
               "items": {
                 "type": "string",
                 "description": "",
@@ -66,11 +68,13 @@
           "anyOf": [
             {
               "type": "string",
+              "title": "availableLanguage as string",
               "description": "",
               "default": ""
             },
             {
               "type": "array",
+              "title": "availableLanguage as array",
               "items": {
                 "type": "string",
                 "description": "",
@@ -83,11 +87,13 @@
           "anyOf": [
             {
               "type": "string",
+              "title": "contactOption as string",
               "description": "",
               "default": ""
             },
             {
               "type": "array",
+              "title": "contactOption as array",
               "items": {
                 "type": "string",
                 "description": "",
