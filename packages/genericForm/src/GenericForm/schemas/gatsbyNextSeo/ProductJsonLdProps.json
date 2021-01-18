@@ -39,6 +39,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "Images as Array",
               "items": {
                 "type": "string",
@@ -50,6 +51,7 @@
         },
         "reviews": {
           "type": "array",
+          "default": [],
           "description": "A nested Review of the product.",
           "items": {
             "$ref": "#/definitions/Review"
@@ -79,6 +81,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "gtin as Array",
               "items": {
                 "type": "string",
@@ -97,6 +100,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "gtin8 as Array",
               "items": {
                 "type": "string",
@@ -115,6 +119,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "gtin12 as Array",
               "items": {
                 "type": "string",
@@ -133,6 +138,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "gtin13 as Array",
               "items": {
                 "type": "string",
@@ -151,6 +157,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "gtin14 as Array",
               "items": {
                 "type": "string",
@@ -169,6 +176,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "mpn as Array",
               "items": {
                 "type": "string",
@@ -187,6 +195,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "sku as Array",
               "items": {
                 "type": "string",
@@ -361,7 +370,7 @@
               "type": "string",
               "enum": ["Person", "Organization"],
               "description": "The seller type",
-              "default": "Select"
+              "default": ""
             },
             "name": {
               "type": "string",

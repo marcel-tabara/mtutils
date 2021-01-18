@@ -9,6 +9,7 @@
       "properties": {
         "itemListElements": {
           "type": "array",
+          "default": [],
           "description": "An array of breadcrumbs listed in a specific order. Specify each breadcrumb with a ListItem",
           "items": {
             "$ref": "#/definitions/ItemListElements"

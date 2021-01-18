@@ -24,6 +24,7 @@
         },
         "contactPoint": {
           "type": "array",
+          "default": [],
           "items": {
             "$ref": "#/definitions/ContactPoint"
           }
@@ -55,6 +56,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "areaServed as array",
               "items": {
                 "type": "string",
@@ -74,6 +76,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "availableLanguage as array",
               "items": {
                 "type": "string",
@@ -93,6 +96,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "contactOption as array",
               "items": {
                 "type": "string",

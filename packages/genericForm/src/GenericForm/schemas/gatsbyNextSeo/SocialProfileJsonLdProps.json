@@ -29,6 +29,7 @@
         },
         "sameAs": {
           "type": "array",
+          "default": [],
           "items": {
             "type": "string",
             "description": "",

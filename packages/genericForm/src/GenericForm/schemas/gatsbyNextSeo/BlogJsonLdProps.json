@@ -35,7 +35,7 @@
         "authorType": {
           "type": "string",
           "description": "The type of author for this article.",
-          "default": "Select",
+          "default": "",
           "enum": ["Person", "Organization"]
         },
         "description": {
@@ -64,6 +64,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "title": "headline as array",
               "items": {
                 "type": "string",
@@ -75,6 +76,7 @@
         },
         "keywords": {
           "type": "array",
+          "default": [],
           "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
           "items": {
             "type": "string",
@@ -84,6 +86,7 @@
         },
         "images": {
           "type": "array",
+          "default": [],
           "description": "The images URLs that is representative of the article or AMP story.",
           "items": {
             "type": "string",
@@ -93,6 +96,7 @@
         },
         "posts": {
           "type": "array",
+          "default": [],
           "description": "A posting that is part of this blog.",
           "items": {
             "type": "object",
@@ -127,6 +131,7 @@
             },
             {
               "type": "array",
+              "default": [],
               "items": {
                 "type": "string",
                 "title": "issn as array",
