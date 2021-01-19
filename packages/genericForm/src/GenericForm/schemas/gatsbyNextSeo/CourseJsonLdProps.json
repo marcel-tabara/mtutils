@@ -7,27 +7,27 @@
       "type": "object",
       "description": "The Course JSON LD Component props.",
       "properties": {
-        "courseName": {
+        "courseJsonLdProps_courseName": {
           "type": "string",
           "description": "The course name",
           "default": ""
         },
-        "name": {
+        "courseJsonLdProps_name": {
           "type": "string",
           "description": "The title of the course.",
           "default": ""
         },
-        "description": {
+        "courseJsonLdProps_description": {
           "type": "string",
           "description": "A description of the course. Display limit of 60 characters.",
           "default": ""
         },
-        "providerName": {
+        "courseJsonLdProps_providerName": {
           "type": "string",
           "description": "The name of the provider.",
           "default": ""
         },
-        "providerUrl": {
+        "courseJsonLdProps_providerUrl": {
           "type": "string",
           "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
           "default": ""

@@ -14,7 +14,7 @@ const GenericForm = ({
   const onValueChange = ({ formData }) => onChange && onChange(formData);
 
   return (
-    <div style={{ padding: 50 }}>
+    <div style={{ padding: 10 }}>
       <Form
         schema={genericFormSchema as JSONSchema7}
         onChange={onValueChange}

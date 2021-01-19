@@ -7,7 +7,7 @@
       "description": "The FAQPage JSON LD Component props.",
       "type": "object",
       "properties": {
-        "questions": {
+        "faqJsonLdProps_questions": {
           "type": "array",
           "default": [],
           "description": "An array of Question elements which comprise the list of answered questions that this FAQPage is about.",

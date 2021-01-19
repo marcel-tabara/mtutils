@@ -7,32 +7,32 @@
       "type": "object",
       "description": "The LocalBusiness JSON LD Component props.",
       "properties": {
-        "addressCountry": {
+        "localBusinessAddress_addressCountry": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "addressLocality": {
+        "localBusinessAddress_addressLocality": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "addressRegion": {
+        "localBusinessAddress_addressRegion": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "postalCode": {
+        "localBusinessAddress_postalCode": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "postOfficeBoxNumber": {
+        "localBusinessAddress_postOfficeBoxNumber": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "streetAddress": {
+        "localBusinessAddress_streetAddress": {
           "type": "string",
           "description": "",
           "default": ""

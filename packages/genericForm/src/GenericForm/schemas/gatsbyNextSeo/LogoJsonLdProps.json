@@ -7,12 +7,12 @@
       "type": "object",
       "description": "The Logo JSON LD component properties.",
       "properties": {
-        "logo": {
+        "logoJsonLdProps_logo": {
           "type": "string",
           "description": "URL of a logo that is representative of the organization.",
           "default": ""
         },
-        "url": {
+        "logoJsonLdProps_url": {
           "type": "string",
           "description": "The URL of the website associated with the logo.",
           "default": ""

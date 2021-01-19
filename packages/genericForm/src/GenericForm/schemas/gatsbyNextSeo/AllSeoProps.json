@@ -6,57 +6,57 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "defer": {
+        "allSeoProps_defer": {
           "type": "boolean",
           "default": false,
           "description": "Whether or not to defer the addition of the head tag."
         },
-        "noindex": {
+        "allSeoProps_noindex": {
           "type": "boolean",
           "default": false,
           "description": "Sets whether page should be indexed or not."
         },
-        "nofollow": {
+        "allSeoProps_nofollow": {
           "type": "boolean",
           "default": false,
           "description": "Sets whether page should be followed or not."
         },
-        "dangerouslySetAllPagesToNoIndex": {
+        "allSeoProps_dangerouslySetAllPagesToNoIndex": {
           "type": "boolean",
           "default": false,
           "description": "It has the prefix of dangerously because it will noindex all pages. As this is an SEO plugin, that is kinda dangerous action. It is **not** bad to use this, just please be sure you want to noindex **EVERY** page. You can still override this at a page level if you have a use case to index a page. This can be done by setting noindex: false."
         },
-        "dangerouslySetAllPagesToNoFollow": {
+        "allSeoProps_dangerouslySetAllPagesToNoFollow": {
           "type": "boolean",
           "default": false,
           "description": "It has the prefix of dangerously because it will nofollow all pages. As this is an SEO plugin, that is kinda dangerous action. It is **not** bad to use this, just please be sure you want to nofollow **EVERY** page. You can still override this at a page level if you have a use case to follow a page. This can be done by setting nofollow: false."
         },
-        "language": {
+        "allSeoProps_language": {
           "type": "string",
           "default": "",
           "description": "The language being used for the current page.This adds the lang attribute to the <html /> e.g. tag https://web.dev/html-has-lang/."
         },
-        "title": {
+        "allSeoProps_title": {
           "type": "string",
           "default": "",
           "description": "Set the meta title of the page"
         },
-        "titleTemplate": {
+        "allSeoProps_titleTemplate": {
           "type": "string",
           "default": "",
           "description": "Allows you to set default title template that will be added to your title."
         },
-        "description": {
+        "allSeoProps_description": {
           "type": "string",
           "default": "",
           "description": "Set the page meta description."
         },
-        "canonical": {
+        "allSeoProps_canonical": {
           "type": "string",
           "default": "",
           "description": "Set the page canonical url."
         },
-        "mobileAlternate": {
+        "allSeoProps_mobileAlternate": {
           "type": "object",
           "description": "Mobile configuration object. This link relation is used to indicate a relation between a desktop and a mobile website to search engines.",
           "properties": {
@@ -74,7 +74,7 @@
           "required": ["media", "href"],
           "additionalProperties": false
         },
-        "languageAlternates": {
+        "allSeoProps_languageAlternates": {
           "type": "array",
           "default": [],
           "description": "Set the language of the alternate urls.",
@@ -96,10 +96,10 @@
             "additionalProperties": false
           }
         },
-        "openGraph": {
+        "allSeoProps_openGraph": {
           "$ref": "#/definitions/OpenGraph"
         },
-        "facebook": {
+        "allSeoProps_facebook": {
           "type": "object",
           "description": "The facebook configuration object.",
           "properties": {
@@ -112,30 +112,30 @@
           "required": ["appId"],
           "additionalProperties": false
         },
-        "twitter": {
+        "allSeoProps_twitter": {
           "$ref": "#/definitions/Twitter"
         },
-        "defaultOpenGraphImageWidth": {
+        "allSeoProps_defaultOpenGraphImageWidth": {
           "type": "number",
           "default": "",
           "description": "The default open graph image width."
         },
-        "defaultOpenGraphImageHeight": {
+        "allSeoProps_defaultOpenGraphImageHeight": {
           "type": "number",
           "default": "",
           "description": "The default open graph image height."
         },
-        "defaultOpenGraphVideoWidth": {
+        "allSeoProps_defaultOpenGraphVideoWidth": {
           "type": "number",
           "default": "",
           "description": "The default open graph video width."
         },
-        "defaultOpenGraphVideoHeight": {
+        "allSeoProps_defaultOpenGraphVideoHeight": {
           "type": "number",
           "default": "",
           "description": "The default open graph video height."
         },
-        "metaTags": {
+        "allSeoProps_metaTags": {
           "type": "array",
           "default": [],
           "description": "Allows you to add a meta tags.  Invalid if they contain property and name on the same entry. Example: mobileAlternate={{ media: `only screen and (max-width: 640px)`, href: `https://m.canonical.ie`}}",
@@ -162,7 +162,7 @@
             "additionalProperties": false
           }
         },
-        "linkTags": {
+        "allSeoProps_linkTags": {
           "type": "array",
           "default": [],
           "description": "Allows you to add a link tags.",

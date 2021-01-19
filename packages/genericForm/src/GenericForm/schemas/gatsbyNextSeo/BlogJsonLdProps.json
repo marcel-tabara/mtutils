@@ -7,53 +7,53 @@
       "type": "object",
       "description": "The Blog JSON LD props.",
       "properties": {
-        "title": {
+        "blogJsonLdProps_title": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "url": {
+        "blogJsonLdProps_url": {
           "type": "string",
           "description": "The canonical URL of the article page.",
           "default": ""
         },
-        "datePublished": {
+        "blogJsonLdProps_datePublished": {
           "type": "string",
           "description": "The date and time the article was first published, in ISO 8601 format.",
           "default": ""
         },
-        "dateModified": {
+        "blogJsonLdProps_dateModified": {
           "type": "string",
           "description": "The date and time the article was most recently modified, in ISO 8601 format.",
           "default": ""
         },
-        "authorName": {
+        "blogJsonLdProps_authorName": {
           "type": "string",
           "description": "The name of the author.",
           "default": ""
         },
-        "authorType": {
+        "blogJsonLdProps_authorType": {
           "type": "string",
           "description": "The type of author for this article.",
           "default": "",
           "enum": ["Person", "Organization"]
         },
-        "description": {
+        "blogJsonLdProps_description": {
           "type": "string",
           "description": "A short description of the article.",
           "default": ""
         },
-        "publisherName": {
+        "blogJsonLdProps_publisherName": {
           "type": "string",
           "description": "The name of the publisher.",
           "default": ""
         },
-        "publisherLogo": {
+        "blogJsonLdProps_publisherLogo": {
           "type": "string",
           "description": "The url of the publisher logo.",
           "default": ""
         },
-        "headline": {
+        "blogJsonLdProps_headline": {
           "description": "The headline of the article.",
           "anyOf": [
             {
@@ -74,7 +74,7 @@
             }
           ]
         },
-        "keywords": {
+        "blogJsonLdProps_keywords": {
           "type": "array",
           "default": [],
           "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
@@ -84,7 +84,7 @@
             "default": ""
           }
         },
-        "images": {
+        "blogJsonLdProps_images": {
           "type": "array",
           "default": [],
           "description": "The images URLs that is representative of the article or AMP story.",
@@ -94,7 +94,7 @@
             "default": ""
           }
         },
-        "posts": {
+        "blogJsonLdProps_posts": {
           "type": "array",
           "default": [],
           "description": "A posting that is part of this blog.",
@@ -121,7 +121,7 @@
             "additionalProperties": false
           }
         },
-        "issn": {
+        "blogJsonLdProps_issn": {
           "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
           "anyOf": [
             {

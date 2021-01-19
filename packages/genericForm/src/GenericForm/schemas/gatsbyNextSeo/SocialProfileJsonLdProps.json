@@ -7,27 +7,27 @@
       "type": "object",
       "description": "The SocialProfile JSON LD props.",
       "properties": {
-        "defer": {
+        "socialProfileJsonLdProps_defer": {
           "type": "boolean",
           "description": "",
           "default": ""
         },
-        "type": {
+        "socialProfileJsonLdProps_type": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "name": {
+        "socialProfileJsonLdProps_name": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "url": {
+        "socialProfileJsonLdProps_url": {
           "type": "string",
           "description": "",
           "default": ""
         },
-        "sameAs": {
+        "socialProfileJsonLdProps_sameAs": {
           "type": "array",
           "default": [],
           "items": {

@@ -7,27 +7,27 @@
       "type": "object",
       "description": "Component props for the Product JSON LD.",
       "properties": {
-        "productName": {
+        "productJsonLdProps_productName": {
           "type": "string",
           "description": "Warning: This API is now obsolete.",
           "default": ""
         },
-        "name": {
+        "productJsonLdProps_name": {
           "type": "string",
           "description": "The name of the product.",
           "default": ""
         },
-        "description": {
+        "productJsonLdProps_description": {
           "type": "string",
           "description": "Product description.",
           "default": ""
         },
-        "brand": {
+        "productJsonLdProps_brand": {
           "type": "string",
           "description": "The brand of the product.",
           "default": ""
         },
-        "images": {
+        "productJsonLdProps_images": {
           "title": "Images",
           "description": "The URL(s) of a product photo. Pictures clearly showing the product (for example, against a white background) are preferred. This property is required for Google Images and recommended for Google Search. Additional image guidelines: Every page must contain at least one image (whether or not you include markup). Google will pick the best image to display in Search results based on the aspect ratio and resolution. - Image URLs must be crawlable and indexable. - Images must represent the marked up content. - Images must be in .jpg, .png, or. gif format. - For best results, provide multiple high-resolution images (minimum of 50K pixels when multiplying width and height) with the following aspect ratios: 16x9, 4x3, and 1x1. For example: const props = { `image`: [`https://example.com/photos/1x1/photo.jpg`, `https://example.com/photos/4x3/photo.jpg`,  `https://example.com/photos/16x9/photo.jpg` ] }",
           "anyOf": [
@@ -49,7 +49,7 @@
             }
           ]
         },
-        "reviews": {
+        "productJsonLdProps_reviews": {
           "type": "array",
           "default": [],
           "description": "A nested Review of the product.",
@@ -57,21 +57,21 @@
             "$ref": "#/definitions/Review"
           }
         },
-        "aggregateRating": {
+        "productJsonLdProps_aggregateRating": {
           "description": "A nested aggregateRating of the product.",
           "$ref": "#/definitions/AggregateRating"
         },
-        "offers": {
+        "productJsonLdProps_offers": {
           "description": "An offer to sell the product. Includes a nested Offer or AggregateOffer.",
           "$ref": "#/definitions/Offers"
         },
-        "offersType": {
+        "productJsonLdProps_offersType": {
           "type": "string",
           "enum": ["Offer", "AggregateOffer"],
           "description": "",
           "default": ""
         },
-        "gtin": {
+        "productJsonLdProps_gtin": {
           "description": "A Global Trade Item Number (GTIN). GTINs identify trade items, including products and services, using numeric identification codes. The gtin property generalizes the earlier gtin8, gtin12, gtin13, and gtin14 properties. The GS1 digital link specifications express GTINs as URLs. A correct gtin value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a `GS1 Digital Link` URL based on such a string. The numeric component should also have a valid GS1 check digit and meet the other rules for valid GTINs. See also GS1's GTIN Summary and Wikipedia for more details. Left-padding of the gtin values is not required or encouraged.",
           "anyOf": [
             {
@@ -90,7 +90,7 @@
             }
           ]
         },
-        "gtin8": {
+        "productJsonLdProps_gtin8": {
           "description": "The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary for more details.",
           "anyOf": [
             {
@@ -109,7 +109,7 @@
             }
           ]
         },
-        "gtin12": {
+        "productJsonLdProps_gtin12": {
           "description": "The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary for more details.",
           "anyOf": [
             {
@@ -128,7 +128,7 @@
             }
           ]
         },
-        "gtin13": {
+        "productJsonLdProps_gtin13": {
           "description": "The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.",
           "anyOf": [
             {
@@ -147,7 +147,7 @@
             }
           ]
         },
-        "gtin14": {
+        "productJsonLdProps_gtin14": {
           "description": "The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary for more details.",
           "anyOf": [
             {
@@ -166,7 +166,7 @@
             }
           ]
         },
-        "mpn": {
+        "productJsonLdProps_mpn": {
           "description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.",
           "anyOf": [
             {
@@ -185,7 +185,7 @@
             }
           ]
         },
-        "sku": {
+        "productJsonLdProps_sku": {
           "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.",
           "anyOf": [
             {

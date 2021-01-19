@@ -1,3 +1,5 @@
+import { JSONSchema7 } from 'json-schema';
+
 type SchemaType =
   | 'nextSeo'
   | 'gatsbyNextSeo_AllSeoProps'
@@ -12,8 +14,8 @@ type SchemaType =
   | 'gatsbyNextSeo_BlogJsonLdProps';
 
 export interface GenericFormProps {
-  initialData?: {};
+  initialData?: JSONSchema7;
   schema?: string;
   type?: SchemaType;
-  onChange?: (val) => void;
+  onChange?: (val: () => void) => void;
 }
