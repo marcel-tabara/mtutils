@@ -76,7 +76,7 @@
         },
         "blogJsonLdProps_keywords": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
           "items": {
             "type": "string",
@@ -86,7 +86,7 @@
         },
         "blogJsonLdProps_images": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "The images URLs that is representative of the article or AMP story.",
           "items": {
             "type": "string",
@@ -96,7 +96,7 @@
         },
         "blogJsonLdProps_posts": {
           "type": "array",
-          "default": [],
+          "default": [{ "headline": "", "datePublished": "", "image": "" }],
           "description": "A posting that is part of this blog.",
           "items": {
             "type": "object",

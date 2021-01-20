@@ -9,7 +9,7 @@
       "properties": {
         "faqJsonLdProps_questions": {
           "type": "array",
-          "default": [],
+          "default": [{ "question": "", "answer": "" }],
           "description": "An array of Question elements which comprise the list of answered questions that this FAQPage is about.",
           "items": {
             "$ref": "#/definitions/Question"

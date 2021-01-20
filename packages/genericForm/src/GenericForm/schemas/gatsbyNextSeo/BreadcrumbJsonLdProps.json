@@ -9,7 +9,7 @@
       "properties": {
         "breadcrumbJsonLdProps_itemListElements": {
           "type": "array",
-          "default": [],
+          "default": [{ "item": "", "name": "", "position": "" }],
           "description": "An array of breadcrumbs listed in a specific order. Specify each breadcrumb with a ListItem",
           "items": {
             "$ref": "#/definitions/ItemListElements"

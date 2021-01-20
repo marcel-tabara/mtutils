@@ -10,7 +10,7 @@
         "socialProfileJsonLdProps_defer": {
           "type": "boolean",
           "description": "",
-          "default": ""
+          "default": false
         },
         "socialProfileJsonLdProps_type": {
           "type": "string",
@@ -29,7 +29,7 @@
         },
         "socialProfileJsonLdProps_sameAs": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "items": {
             "type": "string",
             "description": "",

@@ -76,7 +76,7 @@
         },
         "allSeoProps_languageAlternates": {
           "type": "array",
-          "default": [],
+          "default": [{ "hrefLang": "", "href": "" }],
           "description": "Set the language of the alternate urls.",
           "items": {
             "type": "object",
@@ -137,7 +137,7 @@
         },
         "allSeoProps_metaTags": {
           "type": "array",
-          "default": [],
+          "default": [{ "content": "", "name": "", "property": "" }],
           "description": "Allows you to add a meta tags.  Invalid if they contain property and name on the same entry. Example: mobileAlternate={{ media: `only screen and (max-width: 640px)`, href: `https://m.canonical.ie`}}",
           "items": {
             "type": "object",
@@ -164,7 +164,7 @@
         },
         "allSeoProps_linkTags": {
           "type": "array",
-          "default": [],
+          "default": [{ "link": "" }],
           "description": "Allows you to add a link tags.",
           "items": {
             "type": "object",
@@ -224,7 +224,7 @@
         },
         "images": {
           "type": "array",
-          "default": [],
+          "default": [{ "url": "", "width": "", "height": "", "alt": "" }],
           "description": "An array of images (object) to be used by social media platforms, slack etc as a preview. If multiple supplied you can choose one when sharing.",
           "items": {
             "$ref": "#/definitions/OpenGraphImages"
@@ -232,7 +232,7 @@
         },
         "videos": {
           "type": "array",
-          "default": [],
+          "default": [{ "url": "", "width": "", "height": "", "alt": "" }],
           "description": "An array of videos.",
           "items": {
             "$ref": "#/definitions/OpenGraphVideos"
@@ -350,7 +350,7 @@
         },
         "authors": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "The list of author names for the book.",
           "items": {
             "type": "string",
@@ -359,7 +359,7 @@
         },
         "tags": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "Tags used to further describe the book.",
           "items": {
             "type": "string",
@@ -395,7 +395,7 @@
         },
         "authors": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "The list of author names for the article.",
           "items": {
             "type": "string",
@@ -405,7 +405,7 @@
         },
         "tags": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "Tags used to further describe the article.",
           "items": {
             "type": "string",
@@ -437,7 +437,7 @@
         },
         "actors": {
           "type": "array",
-          "default": [],
+          "default": [{ "profile": "", "role": "" }],
           "description": "Actors in the movie.",
           "items": {
             "$ref": "#/definitions/OpenGraphVideoActors"
@@ -445,7 +445,7 @@
         },
         "directors": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "Directors of the movie.",
           "items": {
             "type": "string",
@@ -455,7 +455,7 @@
         },
         "writers": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "Writers of the movie.",
           "items": {
             "type": "string",
@@ -465,7 +465,7 @@
         },
         "tags": {
           "type": "array",
-          "default": [],
+          "default": [""],
           "description": "Tag words associated with this movie.",
           "items": {
             "type": "string",

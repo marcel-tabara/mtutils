@@ -39,7 +39,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "Images as Array",
               "items": {
                 "type": "string",
@@ -51,7 +51,19 @@
         },
         "productJsonLdProps_reviews": {
           "type": "array",
-          "default": [],
+          "default": [
+            {
+              "author": "",
+              "datePublished": "",
+              "reviewBody": "",
+              "name": "",
+              "reviewRating": {
+                "bestRating": "",
+                "ratingValue": "",
+                "worstRating": ""
+              }
+            }
+          ],
           "description": "A nested Review of the product.",
           "items": {
             "$ref": "#/definitions/Review"
@@ -81,7 +93,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "gtin as Array",
               "items": {
                 "type": "string",
@@ -100,7 +112,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "gtin8 as Array",
               "items": {
                 "type": "string",
@@ -119,7 +131,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "gtin12 as Array",
               "items": {
                 "type": "string",
@@ -138,7 +150,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "gtin13 as Array",
               "items": {
                 "type": "string",
@@ -157,7 +169,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "gtin14 as Array",
               "items": {
                 "type": "string",
@@ -176,7 +188,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "mpn as Array",
               "items": {
                 "type": "string",
@@ -195,7 +207,7 @@
             },
             {
               "type": "array",
-              "default": [],
+              "default": [""],
               "title": "sku as Array",
               "items": {
                 "type": "string",

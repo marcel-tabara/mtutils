@@ -24,7 +24,15 @@
         },
         "corporateContactJsonLdProps_contactPoint": {
           "type": "array",
-          "default": [],
+          "default": [
+            {
+              "contactType": "",
+              "telephone": "",
+              "areaServed": "",
+              "availableLanguage": "",
+              "contactOption": ""
+            }
+          ],
           "items": {
             "$ref": "#/definitions/ContactPoint"
           }
