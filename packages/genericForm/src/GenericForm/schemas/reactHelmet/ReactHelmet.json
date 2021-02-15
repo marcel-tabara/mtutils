@@ -95,12 +95,12 @@
         },
         "defer": {
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "(optional) set to false to not use requestAnimationFrame and instead update the DOM as soon as possible. Useful if you want to update the title when the tab is out of focus."
         },
         "encodeSpecialCharacters": {
           "type": "boolean",
-          "default": "true",
+          "default": true,
           "description": "(optional) set to false to disable string encoding (server-only)"
         }
       },

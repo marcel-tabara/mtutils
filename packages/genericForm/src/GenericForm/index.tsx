@@ -4,7 +4,6 @@ import React from 'react';
 import * as schemas from './schemas';
 import { GenericFormProps } from './types';
 
-console.log(schemas)
 const GenericForm = ({
   initialData,
   onChange,
