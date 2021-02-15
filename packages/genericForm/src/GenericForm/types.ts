@@ -11,7 +11,8 @@ type SchemaType =
   | 'gatsbyNextSeo_LocalBusinessAddress'
   | 'gatsbyNextSeo_CorporateContactJsonLdProps'
   | 'gatsbyNextSeo_BreadcrumbJsonLdProps'
-  | 'gatsbyNextSeo_BlogJsonLdProps';
+  | 'gatsbyNextSeo_BlogJsonLdProps'
+  | 'reactHelmet';
 
 export interface GenericFormProps {
   initialData?: JSONSchema7;

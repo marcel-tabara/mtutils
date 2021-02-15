@@ -25,7 +25,7 @@ export const defaultTree = [
     subtitle: 'Array',
     expanded: true,
   },
-]
+];
 
 export const allTypes = [
   'String',
@@ -34,16 +34,16 @@ export const allTypes = [
   'Boolean',
   'Object',
   'Array',
-]
-export const booleanWidgetEnum = ['radio', 'select', 'checkbox', 'hidden']
+];
+export const booleanWidgetEnum = ['radio', 'select', 'checkbox', 'hidden'];
 export const stringWidgetEnumDefault = [
   'color',
   'password',
   'text',
   'textarea',
   'hidden',
-]
-export const integerWidgetEnum = ['updown', 'range', 'radio', 'hidden']
+];
+export const integerWidgetEnum = ['updown', 'range', 'radio', 'hidden'];
 export const html5InputTypesEnum = [
   'text',
   'password',
@@ -65,7 +65,7 @@ export const html5InputTypesEnum = [
   'url',
   'week',
   'hidden',
-]
+];
 
 export const defaultForm = {
   type: 'object',
@@ -81,7 +81,7 @@ export const defaultForm = {
       },
     },
   },
-}
+};
 
 export const prettierOptions = {
   useTabs: false,
@@ -95,7 +95,7 @@ export const prettierOptions = {
   arrowParens: 'avoid',
   proseWrap: 'preserve',
   parser: 'json',
-}
+};
 
 export const fieldsTypeEnum = [
   'boolean',
@@ -104,7 +104,7 @@ export const fieldsTypeEnum = [
   'number',
   'object',
   'array',
-]
+];
 export const stringFormatWidgetEnum = [
   'default',
   'email',
@@ -112,7 +112,7 @@ export const stringFormatWidgetEnum = [
   'data-url',
   'date',
   'date-time',
-]
+];
 
 export const infoFormSchema = {
   type: 'object',
@@ -130,7 +130,7 @@ export const infoFormSchema = {
       default: '',
     },
   },
-}
+};
 
 export const uiInfoFormUiSchema = {
   uiWidget: {
@@ -146,4 +146,4 @@ export const uiInfoFormUiSchema = {
     uiPlaceholder: { 'ui:placeholder': 'Choose' },
     uiAutofocus: { 'ui:placeholder': 'Choose' },
   },
-}
+};

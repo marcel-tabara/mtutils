@@ -8,6 +8,7 @@ import * as gatsbyNextSeo_LocalBusinessAddress from './gatsbyNextSeo/LocalBusine
 import * as gatsbyNextSeo_LogoJsonLdProps from './gatsbyNextSeo/LogoJsonLdProps.json';
 import * as gatsbyNextSeo_ProductJsonLdProps from './gatsbyNextSeo/ProductJsonLdProps.json';
 import * as gatsbyNextSeo_SocialProfileJsonLdProps from './gatsbyNextSeo/SocialProfileJsonLdProps.json';
+import * as reactHelmet from './reactHelmet/ReactHelmet.json';
 
 export { gatsbyNextSeo_AllSeoProps };
 export { gatsbyNextSeo_CourseJsonLdProps };
@@ -19,3 +20,4 @@ export { gatsbyNextSeo_LocalBusinessAddress };
 export { gatsbyNextSeo_CorporateContactJsonLdProps };
 export { gatsbyNextSeo_BreadcrumbJsonLdProps };
 export { gatsbyNextSeo_BlogJsonLdProps };
+export { reactHelmet };

@@ -4,10 +4,11 @@ import React from 'react';
 import * as schemas from './schemas';
 import { GenericFormProps } from './types';
 
+console.log(schemas)
 const GenericForm = ({
   initialData,
   onChange,
-  type = 'gatsbyNextSeo_AllSeoProps',
+  type = 'reactHelmet',
   schema,
 }: GenericFormProps) => {
   const genericFormSchema = type ? schemas[type].default : schema ? schema : {};
