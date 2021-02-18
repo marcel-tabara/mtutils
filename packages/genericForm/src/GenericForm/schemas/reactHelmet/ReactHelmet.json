@@ -6,9 +6,7 @@
       "type": "object",
       "properties": {
         "base": {
-          "title": "base",
           "type": "object",
-          "description": "The base element.",
           "properties": {
             "target": { "type": "string", "default": "_blank" },
             "href": { "type": "string", "default": "http://mysite.com/" }
@@ -16,9 +14,7 @@
         },
         "title": { "type": "string", "default": "" },
         "titleAttributes": {
-          "title": "titleAttributes",
           "type": "object",
-          "description": "The title attributes and value.",
           "properties": {
             "itemprop": { "type": "string", "default": "" }
           }
@@ -34,17 +30,13 @@
           "description": "(optional) Useful when you want titles to inherit from a template."
         },
         "bodyAttributes": {
-          "title": "bodyAttributes",
           "type": "object",
-          "description": "The bodyAttributes.",
           "properties": {
             "className": { "type": "string", "default": "root" }
           }
         },
         "htmlAttributes": {
-          "title": "htmlAttributes",
           "type": "object",
-          "description": "The htmlAttributes.",
           "properties": {
             "lang": { "type": "string", "default": "en" },
             "amp": { "type": "string", "default": "" }
@@ -54,15 +46,16 @@
           "type": "array",
           "default": [""],
           "items": {
-            "rel": {
-              "type": "string",
-              "description": "",
-              "default": ""
-            },
-            "href": {
-              "type": "string",
-              "description": "",
-              "default": ""
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string",
+                "default": ""
+              },
+              "href": {
+                "type": "string",
+                "default": ""
+              }
             }
           }
         },
@@ -70,15 +63,16 @@
           "type": "array",
           "default": [""],
           "items": {
-            "name": {
-              "type": "string",
-              "description": "",
-              "default": ""
-            },
-            "content": {
-              "type": "string",
-              "description": "",
-              "default": ""
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "default": ""
+              },
+              "content": {
+                "type": "string",
+                "default": ""
+              }
             }
           }
         },
@@ -86,10 +80,12 @@
           "type": "array",
           "default": [""],
           "items": {
-            "innerHTML": {
-              "type": "string",
-              "description": "",
-              "default": ""
+            "type": "object",
+            "properties": {
+              "innerHTML": {
+                "type": "string",
+                "default": ""
+              }
             }
           }
         },
