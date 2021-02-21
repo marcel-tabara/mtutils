@@ -1,0 +1,39 @@
+{
+  "name": "@mtutils/nlp",
+  "version": "0.0.1",
+  "description": "mtutils/nlp",
+  "author": "Marcel Tabara <marcel.tabara@gmail.com>",
+  "homepage": "https://github.com/marcel-tabara/mtutils#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcel-tabara/mtutils.git"
+  },
+  "scripts": {
+    "compile": "rollup -c",
+    "compile:watch": "rollup -c -w",
+    "docs:dev": "npm run compile:watch"
+  },
+  "bugs": {
+    "url": "https://github.com/marcel-tabara/mtutils/issues"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@rjsf/bootstrap-4": "^2.4.2",
+    "@rjsf/core": "^2.4.2",
+    "@rjsf/material-ui": "^2.4.2",
+    "@tensorflow/tfjs": "^2.8.6",
+    "@types/react-jsonschema-form": "^1.7.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.12.17",
+    "@rollup/plugin-json": "^4.1.0",
+    "postcss": "^8.2.6",
+    "rollup-plugin-postcss": "^4.0.0"
+  }
+}
