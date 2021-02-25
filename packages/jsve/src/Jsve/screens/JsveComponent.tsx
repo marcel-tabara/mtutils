@@ -1,24 +1,24 @@
-import AppBar from '@material-ui/core/AppBar'
-import Box from '@material-ui/core/Box'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Tab from '@material-ui/core/Tab'
-import Tabs from '@material-ui/core/Tabs'
-import Typography from '@material-ui/core/Typography'
-import React, { useState } from 'react'
-import 'react-sortable-tree/style.css'
-import SwipeableViews from 'react-swipeable-views'
-import CodeView from '../components/CodeView'
-import Preview from '../components/Preview'
-import { useJsve } from '../shared/useJsve'
-import '../styles.css'
-import Editor from './Editor'
+import AppBar from '@material-ui/core/AppBar';
+import Box from '@material-ui/core/Box';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import Typography from '@material-ui/core/Typography';
+import React, { useState } from 'react';
+import 'react-sortable-tree/style.css';
+import SwipeableViews from 'react-swipeable-views';
+import CodeView from '../components/CodeView';
+import Preview from '../components/Preview';
+import { useJsve } from '../shared/useJsve';
+import '../styles.css';
+import Editor from './Editor';
 
-const TabPanel = props => {
-  const { children, tab, index, ...other } = props
+const TabPanel = (props) => {
+  const { children, tab, index, ...other } = props;
 
   return (
     <div
-      role='tabpanel'
+      role="tabpanel"
       hidden={tab !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
@@ -30,46 +30,46 @@ const TabPanel = props => {
         </Box>
       )}
     </div>
-  )
-}
+  );
+};
 
-const a11yProps = index => {
+const a11yProps = (index) => {
   return {
     id: `full-width-tab-${index}`,
     'aria-controls': `full-width-tabpanel-${index}`,
-  }
-}
+  };
+};
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
   },
-}))
+}));
 
 export const JsveComponent = () => {
-  const { jsve, setJsve } = useJsve()
-  const classes = useStyles()
-  const theme = useTheme()
-  const [tab, setTab] = useState(0)
+  const { jsve, setJsve } = useJsve();
+  const classes = useStyles();
+  const theme = useTheme();
+  const [tab, setTab] = useState(0);
 
-  const handleTabChange = (event, newValue) => setTab(newValue)
-  const handleTabChangeIndex = index => setTab(index)
+  const handleTabChange = (event, newValue) => setTab(newValue);
+  const handleTabChangeIndex = (index) => setTab(index);
 
   const renderTabs = () => {
     return (
       <div className={classes.root}>
-        <AppBar position='static' color='default'>
+        <AppBar position="static" color="default">
           <Tabs
             value={tab}
             onChange={handleTabChange}
-            indicatorColor='primary'
-            textColor='primary'
-            variant='fullWidth'
-            aria-label='full width tabs example'
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+            aria-label="full width tabs example"
           >
-            <Tab label='Editor' {...a11yProps(0)} />
-            <Tab label='Code' {...a11yProps(1)} />
-            <Tab label='Preview' {...a11yProps(2)} />
+            <Tab label="Editor" {...a11yProps(0)} />
+            <Tab label="Code" {...a11yProps(1)} />
+            <Tab label="Preview" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -88,8 +88,8 @@ export const JsveComponent = () => {
           </TabPanel>
         </SwipeableViews>
       </div>
-    )
-  }
+    );
+  };
 
   const renderContent = () =>
     tab === 0 ? (
@@ -98,12 +98,12 @@ export const JsveComponent = () => {
       <CodeView jsve={jsve} />
     ) : tab === 2 ? (
       <Preview jsve={jsve} />
-    ) : null
+    ) : null;
 
   return (
     <>
       {renderTabs()}
       {renderContent()}
     </>
-  )
-}
+  );
+};

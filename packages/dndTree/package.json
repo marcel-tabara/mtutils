@@ -1,0 +1,40 @@
+{
+  "name": "@mtutils/dndtree",
+  "version": "0.0.1",
+  "description": "mtutils/dndtree",
+  "author": "Marcel Tabara <marcel.tabara@gmail.com>",
+  "homepage": "https://github.com/marcel-tabara/mtutils#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcel-tabara/mtutils.git"
+  },
+  "scripts": {
+    "compile": "rollup -c",
+    "compile:watch": "rollup -c -w",
+    "docs:dev": "npm run compile:watch"
+  },
+  "bugs": {
+    "url": "https://github.com/marcel-tabara/mtutils/issues"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@types/react": "^17.0.2",
+    "immutability-helper": "^3.1.1",
+    "react-dnd": "^13.1.1",
+    "react-dnd-html5-backend": "^12.1.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "postcss": "^8.2.6",
+    "rollup-plugin-postcss": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
+  }
+}
