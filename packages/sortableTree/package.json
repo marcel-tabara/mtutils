@@ -1,7 +1,7 @@
 {
-  "name": "@mtutils/dndtree",
+  "name": "@mtutils/sortabletree",
   "version": "0.0.1",
-  "description": "mtutils/dndtree",
+  "description": "mtutils/sortabletree",
   "author": "Marcel Tabara <marcel.tabara@gmail.com>",
   "homepage": "https://github.com/marcel-tabara/mtutils#readme",
   "license": "ISC",
@@ -26,8 +26,11 @@
     "@material-ui/icons": "^4.11.2",
     "@types/react": "^17.0.2",
     "immutability-helper": "^3.1.1",
+    "memoize-one": "^5.1.1",
     "react-dnd": "^13.1.1",
-    "react-dnd-html5-backend": "^12.1.1"
+    "react-dnd-html5-backend": "^12.1.1",
+    "react-flip-toolkit": "^7.0.13",
+    "use-debounce": "^5.2.1"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
