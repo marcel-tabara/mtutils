@@ -18,15 +18,12 @@ import update from 'immutability-helper';
 import { ItemRenderer } from './ItemRenderer';
 
 type Item = {
-  name: string;
+  title: string;
   isNew?: boolean;
 };
 const ITEMS: ItemData<Item>[] = [
-  { id: 1, name: 'Priscilla Cormier', depth: 0 },
-  { id: 2, name: 'Miss Erich Bartoletti', depth: 0 },
-  // { id: 3, name: 'Alison Friesen', depth: 1 },
-  // { id: 4, name: 'Bernita Mayert', depth: 2 },
-  // { id: 5, name: 'Garfield Berge', depth: 0 },
+  { id: 1, title: 'Priscilla Cormier', depth: 0 },
+  { id: 2, title: 'Miss Erich Bartoletti', depth: 0 },
 ];
 
 const MySortableTree = () => {
@@ -34,11 +31,11 @@ const MySortableTree = () => {
   const handleChange = (newItems: ItemData<Item>[]) => {
     setItems(newItems);
   };
-  const handleChangeName = (id: ID, name: string) => {
+  const handleChangeName = (id: ID, title: string) => {
     const index = items.findIndex((item) => item.id === id);
     setItems(
       update(items, {
-        [index]: { name: { $set: name } },
+        [index]: { title: { $set: title } },
       }),
     );
   };
@@ -50,7 +47,7 @@ const MySortableTree = () => {
     setItems(
       add(items, {
         id: Date.now(),
-        name: 'asa',
+        title: 'asa',
         isNew: true,
       }),
     );
@@ -62,7 +59,7 @@ const MySortableTree = () => {
         items,
         {
           id: Date.now(),
-          name: 'ada',
+          title: 'ada',
           isNew: true,
         },
         index,

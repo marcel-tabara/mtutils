@@ -5,7 +5,7 @@ import {
   useDrop,
   useIsClosestDragging,
 } from './SortableTree';
-import React from 'react';
+import React, { memo } from 'react';
 import {
   Theme,
   IconButton,
@@ -15,13 +15,14 @@ import {
 } from '@material-ui/core';
 import ReorderIcon from '@material-ui/icons/Reorder';
 import CloseIcon from '@material-ui/icons/Close';
+import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 import { Flipped } from 'react-flip-toolkit';
 
 const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
   (theme: Theme) => ({
     root: (props) => ({
       position: 'relative',
-      marginBottom: theme.spacing(1.5),
+      marginBottom: theme.spacing(0.5),
       zIndex: props.muted ? 1 : 0,
     }),
     body: (props) => ({
@@ -35,11 +36,20 @@ const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
   }),
 );
 
-const ItemRenderer = (props) => {
+type ItemItemRendererProps = ItemRendererProps<{
+  title: string;
+  isNew?: boolean;
+}> & {
+  onChangeName: (id: ID, title: string) => void;
+  onDelete: (id: ID) => void;
+  onReturn: (id: ID) => void;
+};
+
+const ItemRenderer = memo((props: ItemItemRendererProps) => {
   const {
     id,
     depth,
-    data: { name, isNew },
+    data: { title, isNew },
     onChangeName,
     onDelete,
     onReturn,
@@ -82,19 +92,25 @@ const ItemRenderer = (props) => {
           <Box display="flex" flex={1} px={1}>
             <InputBase
               fullWidth
-              defaultValue={name}
+              defaultValue={title}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
               autoFocus={isNew}
             />
           </Box>
           <IconButton onClick={handleClickDelete}>
+            <AspectRatioIcon />
+          </IconButton>
+          <IconButton onClick={handleClickDelete}>
             <CloseIcon />
           </IconButton>
+        </div>
+        <div className={classes.body}>
+          sdasfasfsagfddfgdfgdfgdfgdfgdfgdfgfdgdfgfdgfdgfd
         </div>
       </div>
     </Flipped>
   );
-};
+});
 
 export { ItemRenderer };
