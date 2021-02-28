@@ -12,7 +12,11 @@ type SchemaType =
   | 'gatsbyNextSeo_CorporateContactJsonLdProps'
   | 'gatsbyNextSeo_BreadcrumbJsonLdProps'
   | 'gatsbyNextSeo_BlogJsonLdProps'
-  | 'reactHelmet';
+  | 'reactHelmet'
+  | 'rjsf_string'
+  | 'rjsf_objectt'
+  | 'rjsf_number'
+  | 'rjsf_array';
 
 export interface GenericFormProps {
   initialData?: JSONSchema7;

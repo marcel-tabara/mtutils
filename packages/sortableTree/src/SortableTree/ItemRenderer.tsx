@@ -5,7 +5,7 @@ import {
   useDrop,
   useIsClosestDragging,
 } from 'react-sortly';
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import {
   Theme,
   IconButton,
@@ -17,6 +17,7 @@ import ReorderIcon from '@material-ui/icons/Reorder';
 import CloseIcon from '@material-ui/icons/Close';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 import { Flipped } from 'react-flip-toolkit';
+import { GenericForm, GenericFormSchemas } from '@mtutils/genericform';
 
 const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
   (theme: Theme) => ({
@@ -38,8 +39,11 @@ const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
 
 type ItemItemRendererProps = ItemRendererProps<{
   title: string;
+  type: string;
   isNew?: boolean;
+  schemaData?: object;
 }> & {
+  onChangeData: (id: ID, schemaData: object) => void;
   onChangeName: (id: ID, title: string) => void;
   onDelete: (id: ID) => void;
   onReturn: (id: ID) => void;
@@ -49,37 +53,55 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   const {
     id,
     depth,
-    data: { title, isNew },
+    data: { title, type, isNew, schemaData },
     onChangeName,
+    onChangeData,
     onDelete,
     onReturn,
   } = props;
+  const [visible, setVisible] = useState({ id: null });
   const [{ isDragging }, drag, preview] = useDrag({
     collect: (monitor) => ({ isDragging: monitor.isDragging() }),
   });
   const [, drop] = useDrop();
+
+  console.log('########## visible', visible);
 
   const classes = useStyles({
     muted: useIsClosestDragging() || isDragging,
     depth,
   });
 
-  const handleClickDelete = () => {
+  const handleClickDelete = useCallback(() => {
     onDelete(id);
-  };
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>,
-  ) => {
-    if (e.key === 'Enter') {
-      onReturn(id);
-    }
-  };
+  }, []);
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        onReturn(id);
+      }
+    },
+    [],
+  );
 
   //const [handleChangeName] = useDebouncedCallback(onChangeName, 500);
-  const handleChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-  ) => {
-    onChangeName(id, e.target.value);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      onChangeName(id, e.target.value);
+    },
+    [],
+  );
+
+  const handleDataChange = useCallback((e: any) => {
+    onChangeData(id, e);
+  }, []);
+
+  const handleClickVisible = () => {
+    visible.id === id ? setVisible({ id: null }) : setVisible({ id });
+  };
+
+  const getVisibility = (id) => {
+    return visible.id === id ? {} : { display: 'none' };
   };
 
   return (
@@ -96,17 +118,22 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
               onChange={handleChange}
               onKeyDown={handleKeyDown}
               autoFocus={isNew}
+              name={type}
             />
           </Box>
-          <IconButton onClick={handleClickDelete}>
+          <IconButton onClick={handleClickVisible}>
             <AspectRatioIcon />
           </IconButton>
           <IconButton onClick={handleClickDelete}>
             <CloseIcon />
           </IconButton>
         </div>
-        <div className={classes.body}>
-          sdasfasfsagfddfgdfgdfgdfgdfgdfgdfgfdgdfgfdgfdgfd
+        <div className={classes.body} style={getVisibility(id)}>
+          <GenericForm
+            type={`rjsf_${type}`}
+            onChange={handleDataChange}
+            initialData={schemaData}
+          />
         </div>
       </div>
     </Flipped>

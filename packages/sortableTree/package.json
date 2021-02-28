@@ -24,6 +24,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "@mtutils/genericform": "0.0.1",
     "@types/react": "^17.0.2",
     "immutability-helper": "^3.1.1",
     "memoize-one": "^5.1.1",

@@ -19,17 +19,39 @@ import { ItemRenderer } from './ItemRenderer';
 
 type Item = {
   title: string;
+  type: string;
   isNew?: boolean;
+  schemaData: object;
 };
 const ITEMS: ItemData<Item>[] = [
-  { id: 1, title: 'Priscilla Cormier', depth: 0 },
-  { id: 2, title: 'Miss Erich Bartoletti', depth: 0 },
+  {
+    id: 1,
+    title: 'Priscilla Cormier',
+    type: 'string',
+    depth: 0,
+    schemaData: {},
+  },
+  {
+    id: 2,
+    title: 'Miss Erich Bartoletti',
+    type: 'number',
+    depth: 0,
+    schemaData: {},
+  },
 ];
 
 const MySortableTree = () => {
   const [items, setItems] = React.useState(ITEMS);
   const handleChange = (newItems: ItemData<Item>[]) => {
     setItems(newItems);
+  };
+  const handleChangeData = (id: ID, schemaData: object) => {
+    const index = items.findIndex((item) => item.id === id);
+    setItems(
+      update(items, {
+        [index]: { schemaData: { $set: schemaData } },
+      }),
+    );
   };
   const handleChangeName = (id: ID, title: string) => {
     const index = items.findIndex((item) => item.id === id);
@@ -48,7 +70,9 @@ const MySortableTree = () => {
       add(items, {
         id: Date.now(),
         title: 'asa',
+        type: 'string',
         isNew: true,
+        schemaData: {},
       }),
     );
   };
@@ -60,12 +84,16 @@ const MySortableTree = () => {
         {
           id: Date.now(),
           title: 'ada',
+          type: 'string',
           isNew: true,
+          schemaData: {},
         },
         index,
       ),
     );
   };
+
+  console.log('########## items', items);
 
   return (
     <Box width={{ md: 600 }}>
@@ -75,6 +103,7 @@ const MySortableTree = () => {
             <ItemRenderer
               {...props}
               onChangeName={handleChangeName}
+              onChangeData={handleChangeData}
               onDelete={handleDelete}
               onReturn={handleReturn}
             />
