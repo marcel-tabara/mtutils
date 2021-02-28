@@ -4,7 +4,7 @@ import {
   useDrag,
   useDrop,
   useIsClosestDragging,
-} from './SortableTree';
+} from 'react-sortly';
 import React, { memo } from 'react';
 import {
   Theme,
