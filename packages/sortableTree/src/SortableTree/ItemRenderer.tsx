@@ -38,13 +38,10 @@ const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
 );
 
 type ItemItemRendererProps = ItemRendererProps<{
-  title: string;
   type: string;
-  isNew?: boolean;
   schemaData?: object;
 }> & {
   onChangeData: (id: ID, schemaData: object) => void;
-  onChangeName: (id: ID, title: string) => void;
   onDelete: (id: ID) => void;
   onReturn: (id: ID) => void;
 };
@@ -53,8 +50,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   const {
     id,
     depth,
-    data: { title, type, isNew, schemaData },
-    onChangeName,
+    data: { type, schemaData },
     onChangeData,
     onDelete,
     onReturn,
@@ -65,8 +61,6 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   });
   const [, drop] = useDrop();
 
-  console.log('########## visible', visible);
-
   const classes = useStyles({
     muted: useIsClosestDragging() || isDragging,
     depth,
@@ -75,6 +69,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   const handleClickDelete = useCallback(() => {
     onDelete(id);
   }, []);
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       if (e.key === 'Enter') {
@@ -87,7 +82,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   //const [handleChangeName] = useDebouncedCallback(onChangeName, 500);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-      onChangeName(id, e.target.value);
+      onChangeData(id, { ...schemaData, title: e.target.value });
     },
     [],
   );
@@ -114,10 +109,10 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
           <Box display="flex" flex={1} px={1}>
             <InputBase
               fullWidth
-              defaultValue={title}
+              defaultValue={'Default'}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
-              autoFocus={isNew}
+              //autoFocus={isNew}
               name={type}
             />
           </Box>

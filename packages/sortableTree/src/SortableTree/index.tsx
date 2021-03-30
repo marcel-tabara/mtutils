@@ -4,7 +4,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import Sortly, {
   ContextProvider,
   useDrag,
-  useDrop,
+  buildTree,
   ID,
   ItemData,
   add,
@@ -18,27 +18,10 @@ import update from 'immutability-helper';
 import { ItemRenderer } from './ItemRenderer';
 
 type Item = {
-  title: string;
   type: string;
-  isNew?: boolean;
   schemaData: object;
 };
-const ITEMS: ItemData<Item>[] = [
-  {
-    id: 1,
-    title: 'Priscilla Cormier',
-    type: 'string',
-    depth: 0,
-    schemaData: {},
-  },
-  {
-    id: 2,
-    title: 'Miss Erich Bartoletti',
-    type: 'number',
-    depth: 0,
-    schemaData: {},
-  },
-];
+const ITEMS: ItemData<Item>[] = [];
 
 const MySortableTree = () => {
   const [items, setItems] = React.useState(ITEMS);
@@ -57,7 +40,7 @@ const MySortableTree = () => {
     const index = items.findIndex((item) => item.id === id);
     setItems(
       update(items, {
-        [index]: { title: { $set: title } },
+        [index]: { schemaData: { title: { $set: title } } },
       }),
     );
   };
@@ -69,9 +52,7 @@ const MySortableTree = () => {
     setItems(
       add(items, {
         id: Date.now(),
-        title: 'asa',
         type: 'string',
-        isNew: true,
         schemaData: {},
       }),
     );
@@ -83,9 +64,7 @@ const MySortableTree = () => {
         items,
         {
           id: Date.now(),
-          title: 'ada',
           type: 'string',
-          isNew: true,
           schemaData: {},
         },
         index,
@@ -93,7 +72,7 @@ const MySortableTree = () => {
     );
   };
 
-  console.log('########## items', items);
+  console.log('########## items', buildTree(items));
 
   return (
     <Box width={{ md: 600 }}>
@@ -102,7 +81,7 @@ const MySortableTree = () => {
           {(props) => (
             <ItemRenderer
               {...props}
-              onChangeName={handleChangeName}
+              //onChangeName={handleChangeName}
               onChangeData={handleChangeData}
               onDelete={handleDelete}
               onReturn={handleReturn}
