@@ -17,7 +17,8 @@ import ReorderIcon from '@material-ui/icons/Reorder';
 import CloseIcon from '@material-ui/icons/Close';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 import { Flipped } from 'react-flip-toolkit';
-import { GenericForm, GenericFormSchemas } from '@mtutils/genericform';
+import { GenericForm } from '@mtutils/genericform';
+import { JSONSchema7 } from 'json-schema';
 
 const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
   (theme: Theme) => ({
@@ -38,10 +39,11 @@ const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
 );
 
 type ItemItemRendererProps = ItemRendererProps<{
-  type: string;
-  schemaData?: object;
+  type?: string;
+  initialData?: object;
+  schema?: JSONSchema7;
 }> & {
-  onChangeData: (id: ID, schemaData: object) => void;
+  onChangeData: (id: ID, initialData: object, depth: number) => void;
   onDelete: (id: ID) => void;
   onReturn: (id: ID) => void;
 };
@@ -50,7 +52,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   const {
     id,
     depth,
-    data: { type, schemaData },
+    data: { type, schema, initialData },
     onChangeData,
     onDelete,
     onReturn,
@@ -68,7 +70,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
 
   const handleClickDelete = useCallback(() => {
     onDelete(id);
-  }, []);
+  }, [id]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -76,20 +78,23 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
         onReturn(id);
       }
     },
-    [],
+    [id],
   );
 
   //const [handleChangeName] = useDebouncedCallback(onChangeName, 500);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-      onChangeData(id, { ...schemaData, title: e.target.value });
+      onChangeData(id, { ...initialData, title: e.target.value }, depth);
     },
     [],
   );
 
-  const handleDataChange = useCallback((e: any) => {
-    onChangeData(id, e);
-  }, []);
+  const handleDataChange = useCallback(
+    (e: any) => {
+      onChangeData(id, e, depth);
+    },
+    [id, depth],
+  );
 
   const handleClickVisible = () => {
     visible.id === id ? setVisible({ id: null }) : setVisible({ id });
@@ -125,9 +130,10 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
         </div>
         <div className={classes.body} style={getVisibility(id)}>
           <GenericForm
-            type={`rjsf_${type}`}
+            type={type}
+            schema={schema}
             onChange={handleDataChange}
-            initialData={schemaData}
+            initialData={initialData}
           />
         </div>
       </div>
