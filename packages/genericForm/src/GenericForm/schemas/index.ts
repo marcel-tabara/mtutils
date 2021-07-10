@@ -13,6 +13,7 @@ import * as rjsf_string from './rjsf/String.json';
 import * as rjsf_object from './rjsf/Object.json';
 import * as rjsf_array from './rjsf/Array.json';
 import * as rjsf_number from './rjsf/Number.json';
+import * as nextSeo from './nextSeo/nextSeo.json';
 
 export { gatsbyNextSeo_AllSeoProps };
 export { gatsbyNextSeo_CourseJsonLdProps };
@@ -29,3 +30,4 @@ export { rjsf_string };
 export { rjsf_object };
 export { rjsf_number };
 export { rjsf_array };
+export { nextSeo };
