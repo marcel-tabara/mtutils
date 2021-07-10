@@ -14,7 +14,7 @@ type SchemaType =
   | 'gatsbyNextSeo_BlogJsonLdProps'
   | 'reactHelmet'
   | 'rjsf_string'
-  | 'rjsf_objectt'
+  | 'rjsf_object'
   | 'rjsf_number'
   | 'rjsf_array';
 

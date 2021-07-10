@@ -7,10 +7,14 @@ import { GenericFormProps } from './types';
 const GenericForm = ({
   initialData,
   onChange,
-  type = 'reactHelmet',
+  type,
   schema,
 }: GenericFormProps) => {
-  const genericFormSchema = type ? schemas[type].default : schema ? schema : {};
+  const genericFormSchema = type
+    ? schemas[type]
+    : schema
+    ? schema
+    : schemas.reactHelmet.definitions.ReactHelmet;
   const onValueChange = ({ formData }) => onChange && onChange(formData);
 
   return (

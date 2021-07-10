@@ -25,8 +25,11 @@ type Item = {
 const SortableTreeWrapper = ({ initialData, schema, type, onChange }) => {
   const ITEMS: ItemData<Item>[] = initialData || [];
   const [items, setItems] = React.useState(ITEMS);
-  const handleChange = (newItems) => setItems(newItems);
-  const handleChangeData = (id: ID, initialData: object, depth: number) => {
+  const handleChange = (newItems) => {
+    onChange(newItems);
+    setItems(newItems);
+  };
+  const handleChangeData = (id: ID, initialData: object) => {
     const index = items.findIndex((item) => item.id === id);
 
     setItems(
@@ -56,6 +59,8 @@ const SortableTreeWrapper = ({ initialData, schema, type, onChange }) => {
         getIndex(id),
       ),
     );
+
+  console.log('########## items-sortable-tree', items);
 
   return (
     <Box width={{ md: 600 }}>

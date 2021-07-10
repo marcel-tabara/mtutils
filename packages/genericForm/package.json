@@ -22,16 +22,16 @@
     "url": "https://github.com/marcel-tabara/mtutils/issues"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
+    "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
-    "@rjsf/bootstrap-4": "^2.4.2",
-    "@rjsf/core": "^2.4.2",
-    "@rjsf/material-ui": "^2.4.2",
-    "@types/react-jsonschema-form": "^1.7.4"
+    "@rjsf/bootstrap-4": "^3.0.0",
+    "@rjsf/core": "^3.0.0",
+    "@rjsf/material-ui": "^3.0.0",
+    "@types/react-jsonschema-form": "^1.7.6"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
-    "postcss": "^8.2.6",
+    "postcss": "^8.3.5",
     "rollup-plugin-postcss": "^4.0.0"
   }
 }
