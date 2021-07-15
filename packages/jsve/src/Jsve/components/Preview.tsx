@@ -1,22 +1,22 @@
-import Form from '@rjsf/material-ui'
-import isEmpty from 'lodash/isEmpty'
-import React from 'react'
+import Form from '@rjsf/material-ui';
+import isEmpty from 'lodash/isEmpty';
+import React from 'react';
 
 const Preview = ({ jsve }) => {
-  const { schemaCode, uiSchemaCode } = jsve
-  if (isEmpty(schemaCode)) return null
+  const { schemaCode, uiSchemaCode } = jsve;
+  if (isEmpty(schemaCode)) return null;
 
-  const getSchema = code => {
+  const getSchema = (code) => {
     try {
-      return JSON.parse(code)
+      return JSON.parse(code);
     } catch (error) {
-      return {}
+      return {};
     }
-  }
+  };
 
   const showFormPreview = () => {
-    const onChange = () => undefined
-    const onSubmit = () => undefined
+    const onChange = () => undefined;
+    const onSubmit = () => undefined;
     return (
       <Form
         schema={getSchema(schemaCode)}
@@ -25,11 +25,11 @@ const Preview = ({ jsve }) => {
         onSubmit={onSubmit}
         showErrorList={true}
       >
-        <button type='submit'>Submit</button>
+        <button type="submit">Submit</button>
       </Form>
-    )
-  }
-  return showFormPreview()
-}
+    );
+  };
+  return showFormPreview();
+};
 
-export default Preview
+export default Preview;

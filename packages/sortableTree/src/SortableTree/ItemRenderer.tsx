@@ -40,10 +40,10 @@ const useStyles = makeStyles<Theme, { muted: boolean; depth: number }>(
 
 type ItemItemRendererProps = ItemRendererProps<{
   type?: string;
-  initialData?: object;
+  data?: object;
   schema?: JSONSchema7;
 }> & {
-  onChangeData: (id: ID, initialData: object, depth: number) => void;
+  onChangeData: (id: ID, data: object, depth: number) => void;
   onDelete: (id: ID) => void;
   onReturn: (id: ID) => void;
 };
@@ -52,7 +52,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   const {
     id,
     depth,
-    data: { type, schema, initialData },
+    data: { type, schema, data },
     onChangeData,
     onDelete,
     onReturn,
@@ -84,7 +84,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
   //const [handleChangeName] = useDebouncedCallback(onChangeName, 500);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-      onChangeData(id, { ...initialData, title: e.target.value }, depth);
+      onChangeData(id, { ...data, title: e.target.value }, depth);
     },
     [],
   );
@@ -133,7 +133,7 @@ const ItemRenderer = memo((props: ItemItemRendererProps) => {
             type={type}
             schema={schema}
             onChange={handleDataChange}
-            initialData={initialData}
+            data={data}
           />
         </div>
       </div>

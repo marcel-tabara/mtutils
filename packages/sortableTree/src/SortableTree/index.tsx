@@ -6,15 +6,15 @@ import { SortableTreeWrapper } from './SortableTreeWrapper';
 import { SortableTreeProps } from './types';
 
 const SortableTree = ({
-  initialData,
-  onChange = (val) => undefined,
+  data,
+  onChange = (val) => val,
   schema,
   type,
 }: SortableTreeProps) => (
   <DndProvider backend={HTML5Backend}>
     <ContextProvider>
       <SortableTreeWrapper
-        initialData={initialData}
+        data={data}
         onChange={onChange}
         schema={schema}
         type={type}

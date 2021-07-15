@@ -1,25 +1,30 @@
-import React from 'react'
-import Form from '@rjsf/material-ui'
-import {changeNodeAtPath} from 'react-sortable-tree'
-import get from 'lodash/get'
-import {generateJsonUISchemaCode} from '../shared/helpers/jsonUISchema'
-import {getNodeKey, getWidgetEnum} from '../shared/helper'
-import {stringWidgetEnumDefault, html5InputTypesEnum, uiInfoFormUiSchema} from '../shared/constants'
+import React from 'react';
+import Form from '@rjsf/material-ui';
+import { changeNodeAtPath } from 'react-sortable-tree';
+import get from 'lodash/get';
+import { generateJsonUISchemaCode } from '../shared/helpers/jsonUISchema';
+import { getNodeKey, getWidgetEnum } from '../shared/helper';
+import {
+  stringWidgetEnumDefault,
+  html5InputTypesEnum,
+  uiInfoFormUiSchema,
+} from '../shared/constants';
+import { JSONSchema7 } from 'json-schema';
 
-const UiInfoForm = ({jsve, setJsve}) => {
-  const {tree, currentUINode} = jsve
+const UiInfoForm = ({ jsve, setJsve }) => {
+  const { tree, currentUINode } = jsve;
 
-  let stringWidgetEnum = stringWidgetEnumDefault
-  const {node, path} = currentUINode
-  const currentType = get(currentUINode, 'node.type', '')
+  let stringWidgetEnum = stringWidgetEnumDefault;
+  const { node, path } = currentUINode;
+  const currentType = get(currentUINode, 'node.type', '');
   //const hasInline = !isEmpty(node) && (node.type === 'string' || node.type === 'integer' || node.type === 'number') && !isEmpty(node.enumVal)
 
   if (currentType === 'string') {
-    stringWidgetEnum = stringWidgetEnum.filter((e) => e !== 'file')
-    stringWidgetEnum.push('file')
+    stringWidgetEnum = stringWidgetEnum.filter((e) => e !== 'file');
+    stringWidgetEnum.push('file');
   }
 
-  const currentUiSchema = get(node, 'uiSchema', {})
+  const currentUiSchema = get(node, 'uiSchema', {});
   const schema = {
     type: 'object',
     properties: {
@@ -97,7 +102,7 @@ const UiInfoForm = ({jsve, setJsve}) => {
             properties: {
               uiWidget: {
                 properties: {
-                  widget: {enum: ['color']},
+                  widget: { enum: ['color'] },
                 },
               },
             },
@@ -106,7 +111,7 @@ const UiInfoForm = ({jsve, setJsve}) => {
             properties: {
               uiWidget: {
                 properties: {
-                  widget: {enum: ['textarea']},
+                  widget: { enum: ['textarea'] },
                 },
               },
               uiOptions: {
@@ -123,7 +128,7 @@ const UiInfoForm = ({jsve, setJsve}) => {
         ],
       },
     },
-  }
+  };
 
   // const uiSchema = {
   //   uiWidget: {
@@ -141,7 +146,11 @@ const UiInfoForm = ({jsve, setJsve}) => {
   //   },
   // }
 
-  if (currentType !== 'boolean' && currentType !== 'object' && currentType !== 'array') {
+  if (
+    currentType !== 'boolean' &&
+    currentType !== 'object' &&
+    currentType !== 'array'
+  ) {
     schema.properties.uiOthers.properties = {
       ...schema.properties.uiOthers.properties,
       uiPlaceholder: {
@@ -149,7 +158,7 @@ const UiInfoForm = ({jsve, setJsve}) => {
         title: 'ui:placeholder',
         default: get(currentUiSchema, 'uiOthers.uiPlaceholder', ''),
       },
-    }
+    };
   }
 
   // if (hasInline) {
@@ -166,29 +175,29 @@ const UiInfoForm = ({jsve, setJsve}) => {
   if (currentType === 'object') {
     schema.properties.uiOptions.properties = {
       ...schema.properties.uiOptions.properties,
-      expandable: {type: 'boolean', title: 'expandable'},
-    }
+      expandable: { type: 'boolean', title: 'expandable' },
+    };
 
     schema.properties = {
       ...schema.properties,
       uiWidget: {},
       uiOthers: {},
       uiMore: {},
-    }
+    };
   }
   if (currentType === 'array') {
     schema.properties.uiOptions.properties = {
       ...schema.properties.uiOptions.properties,
-      orderable: {type: 'boolean', title: 'orderable'},
-      addable: {type: 'boolean', title: 'addable'},
-      removable: {type: 'boolean', title: 'removable'},
-    }
+      orderable: { type: 'boolean', title: 'orderable' },
+      addable: { type: 'boolean', title: 'addable' },
+      removable: { type: 'boolean', title: 'removable' },
+    };
     schema.properties = {
       ...schema.properties,
       uiWidget: {},
       uiOthers: {},
       uiMore: {},
-    }
+    };
   }
 
   if (currentType !== 'array' && currentType !== 'object') {
@@ -215,43 +224,43 @@ const UiInfoForm = ({jsve, setJsve}) => {
         title: 'backgroundColor',
         default: get(currentUiSchema, 'uiOptions.backgroundColor', ''),
       },
-    }
+    };
   }
 
   const onChange = (data) => {
-    console.log('JsonFormUISettingsForm changed', data, schema)
-  }
+    console.log('JsonFormUISettingsForm changed', data, schema);
+  };
 
   const onSubmit = (data) => {
-    const {formData} = data
-    const newNode = {...node}
-    newNode.uiSchema = formData
+    const { formData } = data;
+    const newNode = { ...node };
+    newNode.uiSchema = formData;
 
     const newTree = changeNodeAtPath({
       treeData: tree,
       path,
       getNodeKey,
       newNode,
-    })
+    });
 
     setJsve({
       ...jsve,
       tree: newTree,
       currentUINode: {},
-      uiSchemaCode: generateJsonUISchemaCode({tree: newTree}),
-    })
-  }
+      uiSchemaCode: generateJsonUISchemaCode({ tree: newTree }),
+    });
+  };
 
   return (
     <Form
-      schema={schema}
+      schema={schema as JSONSchema7}
       uiSchema={uiInfoFormUiSchema}
       onChange={onChange}
       onSubmit={onSubmit}
       formData={currentUiSchema}
       showErrorList={true}
     />
-  )
-}
+  );
+};
 
-export default UiInfoForm
+export default UiInfoForm;

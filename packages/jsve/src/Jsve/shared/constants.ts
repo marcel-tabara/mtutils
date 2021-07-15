@@ -1,4 +1,10 @@
-export const defaultTree = [
+interface DefaultTreeType {
+  title: string;
+  subtitle: string;
+  expanded?: boolean;
+}
+
+export const defaultTree: DefaultTreeType[] = [
   {
     title: '',
     subtitle: 'String',
@@ -27,7 +33,7 @@ export const defaultTree = [
   },
 ];
 
-export const allTypes = [
+export const allTypes: string[] = [
   'String',
   'Number',
   'Integer',
@@ -35,16 +41,42 @@ export const allTypes = [
   'Object',
   'Array',
 ];
-export const booleanWidgetEnum = ['radio', 'select', 'checkbox', 'hidden'];
-export const stringWidgetEnumDefault = [
+export const booleanWidgetEnum: string[] = [
+  'radio',
+  'select',
+  'checkbox',
+  'hidden',
+];
+export const stringWidgetEnumDefault: string[] = [
   'color',
   'password',
   'text',
   'textarea',
   'hidden',
 ];
-export const integerWidgetEnum = ['updown', 'range', 'radio', 'hidden'];
-export const html5InputTypesEnum = [
+export const integerWidgetEnum: string[] = [
+  'updown',
+  'range',
+  'radio',
+  'hidden',
+];
+export const fieldsTypeEnum: string[] = [
+  'boolean',
+  'string',
+  'integer',
+  'number',
+  'object',
+  'array',
+];
+export const stringFormatWidgetEnum: string[] = [
+  'default',
+  'email',
+  'uri',
+  'data-url',
+  'date',
+  'date-time',
+];
+export const html5InputTypesEnum: string[] = [
   'text',
   'password',
   'submit',
@@ -83,37 +115,6 @@ export const defaultForm = {
   },
 };
 
-export const prettierOptions = {
-  useTabs: false,
-  printWidth: 60,
-  tabWidth: 2,
-  semi: true,
-  singleQuote: true,
-  bracketSpacing: false,
-  jsxBracketSameLine: true,
-  trailingComma: 'none',
-  arrowParens: 'avoid',
-  proseWrap: 'preserve',
-  parser: 'json',
-};
-
-export const fieldsTypeEnum = [
-  'boolean',
-  'string',
-  'integer',
-  'number',
-  'object',
-  'array',
-];
-export const stringFormatWidgetEnum = [
-  'default',
-  'email',
-  'uri',
-  'data-url',
-  'date',
-  'date-time',
-];
-
 export const infoFormSchema = {
   type: 'object',
   required: ['title'],
@@ -146,4 +147,18 @@ export const uiInfoFormUiSchema = {
     uiPlaceholder: { 'ui:placeholder': 'Choose' },
     uiAutofocus: { 'ui:placeholder': 'Choose' },
   },
+};
+
+export const prettierOptions = {
+  useTabs: false,
+  printWidth: 60,
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+  bracketSpacing: false,
+  jsxBracketSameLine: true,
+  trailingComma: 'none',
+  arrowParens: 'avoid',
+  proseWrap: 'preserve',
+  parser: 'json',
 };

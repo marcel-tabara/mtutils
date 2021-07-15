@@ -51,7 +51,7 @@ export const JsveComponent = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [tab, setTab] = useState(0);
-
+  console.log('########## jsve', jsve);
   const handleTabChange = (event, newValue) => setTab(newValue);
   const handleTabChangeIndex = (index) => setTab(index);
 

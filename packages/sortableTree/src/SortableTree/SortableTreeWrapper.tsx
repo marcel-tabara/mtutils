@@ -17,24 +17,24 @@ import { JSONSchema7 } from 'json-schema';
 
 type Item = {
   type?: string;
-  initialData?: object;
+  data?: object;
   schema?: JSONSchema7;
   onChange?: (val) => void;
 };
 
-const SortableTreeWrapper = ({ initialData, schema, type, onChange }) => {
-  const ITEMS: ItemData<Item>[] = initialData || [];
+const SortableTreeWrapper = ({ data, schema, type, onChange }) => {
+  const ITEMS: ItemData<Item>[] = data || [];
   const [items, setItems] = React.useState(ITEMS);
   const handleChange = (newItems) => {
     onChange(newItems);
     setItems(newItems);
   };
-  const handleChangeData = (id: ID, initialData: object) => {
+  const handleChangeData = (id: ID, data: object) => {
     const index = items.findIndex((item) => item.id === id);
 
     setItems(
       update(items, {
-        [index]: { initialData: { $set: initialData } },
+        [index]: { data: { $set: data } },
       }),
     );
   };
