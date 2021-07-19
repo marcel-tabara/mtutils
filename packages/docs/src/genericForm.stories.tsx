@@ -1,5 +1,5 @@
-import { GenericForm } from '@mtutils/genericform/src/GenericForm';
-import React from 'react';
+import { GenericForm } from '@mtutils/genericform/src/GenericForm'
+import React from 'react'
 
 export default {
   title: '@mtutils/genericForm',
@@ -39,8 +39,8 @@ export default {
       onChange: { action: 'clicked' },
     },
   },
-};
+}
 
-const Template = (args) => <GenericForm {...args} />;
+const Template = (args: any) => <GenericForm {...args} />
 
-export const genericForm = Template.bind({});
+export const genericForm = Template.bind({})

@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import { GenericFormSchemas } from '@mtutils/jsonschema-collection'
 import React, {
   ChangeEvent,
   FC,
@@ -166,45 +167,17 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
     <span style={{ fontFamily: 'Arial', fontSize: 12 }}>{label}</span>
   )
 
-  const schema = {
-    $schema: 'http://json-schema.org/draft-07/schema#',
-    $ref: '#/definitions/String',
-    definitions: {
-      String: {
-        type: 'object',
-        properties: {
-          title: { type: 'string', default: '', description: '' },
-          description: { type: 'string', default: '', description: '' },
-          default: { type: 'string', default: '', description: '' },
-          maxItems: {
-            type: 'integer',
-            description:
-              'The value of this keyword MUST be a non-negative integer. An array instance is valid against `maxItems` if its size is less than, or equal to, the value of this keyword.',
-          },
-          minItems: {
-            type: 'integer',
-            description:
-              'The value of this keyword MUST be a non-negative integer. An array instance is valid against `minItems` if its size is greater than, or equal to, the value of this keyword. Omitting this keyword has the same behavior as a value of 0.',
-          },
-          uniqueItems: {
-            type: 'boolean',
-            description:
-              'The value of this keyword MUST be a boolean. If this keyword has boolean value false, the instance validates successfully.  If it has boolean value true, the instance validates successfully if all of its elements are unique. Omitting this keyword has the same behavior as a value of false.',
-          },
-        },
-        additionalProperties: false,
-      },
-    },
-  }
-
   const addNew = () => {
     onChange([
       {
         label: genericLabel(type),
         open: true,
-        schema: schema,
         data: { title: type },
         type,
+        schema:
+          GenericFormSchemas[`rjsf_${type}`].definitions[
+            type.replace(/^\w/, (c) => c.toUpperCase())
+          ],
       },
       ...data,
     ])

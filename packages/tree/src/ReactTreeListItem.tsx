@@ -220,9 +220,11 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
         {item.icon && <Icon>{item.icon}</Icon>}
         <Row>
           <Label>{item.data.title}</Label>
-          <IconButton aria-label="close" onClick={handleClickVisible}>
-            <AllOutIcon />
-          </IconButton>
+          {Boolean(item?.schema) && (
+            <IconButton aria-label="close" onClick={handleClickVisible}>
+              <AllOutIcon />
+            </IconButton>
+          )}
           <IconButton aria-label="close" onClick={onDelete}>
             <CloseIcon />
           </IconButton>
@@ -239,17 +241,19 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
         <AfterDropArea ref={AfterDropAreaRef} {...afterDropArea} />
         <AfterDropAreaHighlight />
       </Root>
-      <div style={getVisibility()}>
-        <Form
-          schema={(item?.schema ?? {}) as JSONSchema7}
-          onChange={onData_Change}
-          formData={item?.data ?? {}}
-        >
-          <button type="submit" style={{ visibility: 'hidden' }}>
-            Submit
-          </button>
-        </Form>
-      </div>
+      {Boolean(item?.schema) && (
+        <div style={getVisibility()}>
+          <Form
+            schema={(item?.schema ?? {}) as JSONSchema7}
+            onChange={onData_Change}
+            formData={item?.data ?? {}}
+          >
+            <button type="submit" style={{ visibility: 'hidden' }}>
+              Submit
+            </button>
+          </Form>
+        </div>
+      )}
     </>
   )
 }

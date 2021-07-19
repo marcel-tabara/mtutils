@@ -40,6 +40,7 @@
     "react-dom": ">=16"
   },
   "dependencies": {
+    "@mtutils/jsonschema-collection": "0.0.1",
     "babel-register": "^6.26.0",
     "styled-components": "^5.1.1"
   }
