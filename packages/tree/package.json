@@ -1,7 +1,7 @@
 {
-  "name": "@mtutils/sortabletree",
+  "name": "@mtutils/tree",
   "version": "0.0.1",
-  "description": "mtutils/sortabletree",
+  "description": "mtutils/genericform",
   "author": "Marcel Tabara <marcel.tabara@gmail.com>",
   "homepage": "https://github.com/marcel-tabara/mtutils#readme",
   "license": "ISC",
@@ -21,25 +21,26 @@
   "bugs": {
     "url": "https://github.com/marcel-tabara/mtutils/issues"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
-    "@mtutils/genericform": "0.0.1",
-    "@types/react": "^17.0.14",
-    "immutability-helper": "^3.1.1",
-    "memoize-one": "^5.1.1",
-    "react-dnd": "^13.1.1",
-    "react-dnd-html5-backend": "^12.1.1",
-    "react-flip-toolkit": "^7.0.13",
-    "react-sortly": "^3.0.4",
-    "use-debounce": "^5.2.1"
-  },
-  "devDependencies": {
-    "@rollup/plugin-json": "^4.1.0",
-    "postcss": "^8.2.6",
-    "rollup-plugin-postcss": "^4.0.0"
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@rjsf/core": "^3.0.0",
+    "@rjsf/material-ui": "^3.0.0",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-jsonschema-form": "^1.7.6",
+    "@types/styled-components": "^5.1.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^3.9.7"
   },
   "peerDependencies": {
-    "react": "^17.0.1"
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "styled-components": "^5.1.1"
   }
 }

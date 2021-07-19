@@ -1,7 +1,7 @@
-import json from '@rollup/plugin-json';
-import babel from 'rollup-plugin-babel';
-import postcss from 'rollup-plugin-postcss';
-import typescript from 'rollup-plugin-typescript';
+import json from '@rollup/plugin-json'
+import babel from 'rollup-plugin-babel'
+// import postcss from 'rollup-plugin-postcss';
+import typescript from 'rollup-plugin-typescript'
 
 const plugins = [
   typescript(),
@@ -10,11 +10,11 @@ const plugins = [
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     rootMode: 'upward',
   }),
-  postcss({
-    modules: true,
-  }),
+  // postcss({
+  //   modules: true,
+  // }),
   json(),
-];
+]
 
 export default [
   {
@@ -25,4 +25,4 @@ export default [
       format: 'esm',
     },
   },
-];
+]
