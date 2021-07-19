@@ -67,7 +67,7 @@ export interface ReactTreeListItemType extends BaseItemType {
    * initial form data
    *
    */
-  data?: object
+  data?: any
 
   /**
    * Schema used by the form

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/SocialProfileJsonLdProps",
+  "definitions": {
+    "SocialProfileJsonLdProps": {
+      "title": "SocialProfileJsonLdProps",
+      "type": "object",
+      "description": "The SocialProfile JSON LD props.",
+      "properties": {
+        "socialProfileJsonLdProps_defer": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "socialProfileJsonLdProps_type": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "socialProfileJsonLdProps_name": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "socialProfileJsonLdProps_url": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "socialProfileJsonLdProps_sameAs": {
+          "type": "array",
+          "default": [""],
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        }
+      },
+      "required": ["type", "name", "url", "sameAs"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/String",
+  "definitions": {
+    "String": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "default": "" },
+        "description": { "type": "string", "default": "" },
+        "default": { "type": "string", "default": "" },
+        "enum": {
+          "type": "string",
+          "default": "[]",
+          "description": "All base schema types support the enum attribute, which restricts the user to select among a list of options."
+        },
+        "enumNames ": {
+          "type": "string",
+          "default": "[]",
+          "description": "This library supports a custom enumNames property for enum fields, which, however is not JSON-Schema compliant (see below for a compliant approach). The enumNames property allows defining custom labels for each option of an enum"
+        },
+        "required": { "type": "boolean", "default": false },
+        "minLength": { "type": "integer" },
+        "maxLength": { "type": "integer" },
+        "pattern": { "type": "string" },
+        "format": {
+          "type": "string",
+          "enum": ["default", "email", "uri", "data-url", "date", "date-time"]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

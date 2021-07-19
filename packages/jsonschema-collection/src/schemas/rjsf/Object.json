@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Object",
+  "definitions": {
+    "Object": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "default": "" },
+        "description": { "type": "string", "default": "" },
+        "required": {
+          "type": "boolean",
+          "default": false,
+          "description": "The value of this keyword MUST be an array.  Elements of this array, if any, MUST be strings, and MUST be unique. An object instance is valid against this keyword if every item in the array is the name of a property in the instance. Omitting this keyword has the same behavior as an empty array."
+        },
+        "maxProperties": {
+          "type": "integer",
+          "description": "The value of this keyword MUST be a non-negative integer. An object instance is valid against  maxProperties if its number of properties is less than, or equal to, the value of this keyword."
+        },
+        "minProperties": {
+          "type": "integer",
+          "description": "The value of this keyword MUST be a non-negative integer. An object instance is valid against minProperties if its number of properties is greater than, or equal to, the value of this keyword. Omitting this keyword has the same behavior as a value of 0."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

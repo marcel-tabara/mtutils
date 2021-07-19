@@ -1,4 +1,17 @@
-import React, { FC, ReactNode, useEffect, useRef } from 'react'
+import FormControl from '@material-ui/core/FormControl'
+import IconButton from '@material-ui/core/IconButton'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import Select from '@material-ui/core/Select'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import React, {
+  ChangeEvent,
+  FC,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import styled from 'styled-components'
 import { useUniqueId } from './hooks/useUniqueId'
 import { ReactTreeListItem } from './ReactTreeListItem'
@@ -31,6 +44,8 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
   onChange,
   itemDefaults,
 }) => {
+  const [type, setType] = useState('')
+  const [dataVisible, setDataVisible] = useState<string[]>([])
   const { generate: generateUniqueId } = useUniqueId()
   const lastOpenState = useRef(false)
 
@@ -71,6 +86,7 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
 
     data.forEach(recursiveRemoveId)
 
+    onChange(data)
     return returnItem
   }
 
@@ -149,6 +165,7 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
   const genericLabel = (label: string) => (
     <span style={{ fontFamily: 'Arial', fontSize: 12 }}>{label}</span>
   )
+
   const schema = {
     $schema: 'http://json-schema.org/draft-07/schema#',
     $ref: '#/definitions/String',
@@ -179,19 +196,57 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
       },
     },
   }
+
   const addNew = () => {
     onChange([
       {
-        label: genericLabel('Array'),
+        label: genericLabel(type),
         open: true,
         schema: schema,
-        data: { title: 'Array' },
+        data: { title: type },
+        type,
       },
       ...data,
     ])
+    setDataVisible([])
   }
 
-  const renderAdd = () => <button onClick={addNew}>Add</button>
+  const handleTypeChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setType(e.target.value)
+
+  const renderAdd = () => {
+    return (
+      <>
+        <FormControl variant="outlined">
+          <InputLabel id="demo-simple-select-required-label">Type</InputLabel>
+          <Select
+            labelId="demo-simple-select-outlined-label"
+            id="demo-simple-select-outlined"
+            value={type}
+            onChange={handleTypeChange}
+            label="Age"
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={'string'}>string</MenuItem>
+            <MenuItem value={'number'}>number</MenuItem>
+            <MenuItem value={'integer'}>integer</MenuItem>
+            <MenuItem value={'array'}>array</MenuItem>
+            <MenuItem value={'object'}>object</MenuItem>
+          </Select>
+        </FormControl>
+
+        <IconButton
+          aria-label="close"
+          onClick={addNew}
+          disabled={!Boolean(type)}
+        >
+          <AddCircleOutlineIcon />
+        </IconButton>
+      </>
+    )
+  }
   const renderContent = () => {
     /**
      * The children will be rendered as flat, contrary to the tree
@@ -222,6 +277,8 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
       if (parentOpen) {
         children.push(
           <ReactTreeListItem
+            onRemove={removeByIdWithoutOnChange}
+            datavisibility={{ dataVisible, setDataVisible }}
             key={item.id}
             item={{ ...itemDefaults, ...item }}
             indent={indent}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/BreadcrumbJsonLdProps",
+  "definitions": {
+    "BreadcrumbJsonLdProps": {
+      "type": "object",
+      "title": "BreadcrumbJsonLdProps",
+      "description": "The Breadcrumb JSON LD Component props.",
+      "properties": {
+        "breadcrumbJsonLdProps_itemListElements": {
+          "type": "array",
+          "default": [{ "item": "", "name": "", "position": "" }],
+          "description": "An array of breadcrumbs listed in a specific order. Specify each breadcrumb with a ListItem",
+          "items": {
+            "$ref": "#/definitions/ItemListElements"
+          }
+        }
+      },
+      "required": ["itemListElements"],
+      "additionalProperties": false
+    },
+    "ItemListElements": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "string",
+          "description": "The URL to the webpage that represents the breadcrumb.",
+          "default": ""
+        },
+        "name": {
+          "type": "string",
+          "description": "The title of the breadcrumb displayed for the user.",
+          "default": ""
+        },
+        "position": {
+          "type": "number",
+          "description": "The position of the breadcrumb in the breadcrumb trail. Position 1 signifies the beginning of the trail.",
+          "default": ""
+        }
+      },
+      "required": ["item", "name", "position"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/ReactHelmet",
+  "definitions": {
+    "ReactHelmet": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "object",
+          "properties": {
+            "target": { "type": "string", "default": "_blank" },
+            "href": { "type": "string", "default": "http://mysite.com/" }
+          }
+        },
+        "title": { "type": "string", "default": "" },
+        "titleAttributes": {
+          "type": "object",
+          "properties": {
+            "itemprop": { "type": "string", "default": "" }
+          }
+        },
+        "defaultTitle": {
+          "type": "string",
+          "default": "",
+          "description": "(optional) used as a fallback when a template exists but a title is not defined."
+        },
+        "titleTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "(optional) Useful when you want titles to inherit from a template."
+        },
+        "bodyAttributes": {
+          "type": "object",
+          "properties": {
+            "className": { "type": "string", "default": "root" }
+          }
+        },
+        "htmlAttributes": {
+          "type": "object",
+          "properties": {
+            "lang": { "type": "string", "default": "en" },
+            "amp": { "type": "string", "default": "" }
+          }
+        },
+        "link": {
+          "type": "array",
+          "default": [""],
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string",
+                "default": ""
+              },
+              "href": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "meta": {
+          "type": "array",
+          "default": [""],
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "default": ""
+              },
+              "content": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "noscript": {
+          "type": "array",
+          "default": [""],
+          "items": {
+            "type": "object",
+            "properties": {
+              "innerHTML": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "defer": {
+          "type": "boolean",
+          "default": true,
+          "description": "(optional) set to false to not use requestAnimationFrame and instead update the DOM as soon as possible. Useful if you want to update the title when the tab is out of focus."
+        },
+        "encodeSpecialCharacters": {
+          "type": "boolean",
+          "default": true,
+          "description": "(optional) set to false to disable string encoding (server-only)"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

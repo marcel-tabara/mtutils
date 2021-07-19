@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/LocalBusinessAddress",
+  "definitions": {
+    "LocalBusinessAddress": {
+      "title": "LocalBusinessAddress",
+      "type": "object",
+      "description": "The LocalBusiness JSON LD Component props.",
+      "properties": {
+        "localBusinessAddress_addressCountry": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "localBusinessAddress_addressLocality": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "localBusinessAddress_addressRegion": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "localBusinessAddress_postalCode": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "localBusinessAddress_postOfficeBoxNumber": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "localBusinessAddress_streetAddress": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        }
+      },
+      "required": ["addressCountry", "postalCode", "streetAddress"],
+      "additionalProperties": false
+    }
+  }
+}

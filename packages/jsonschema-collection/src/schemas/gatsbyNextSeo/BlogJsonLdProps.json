@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/BlogJsonLdProps",
+  "definitions": {
+    "BlogJsonLdProps": {
+      "title": "BlogJsonLdProps",
+      "type": "object",
+      "description": "The Blog JSON LD props.",
+      "properties": {
+        "blogJsonLdProps_title": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "blogJsonLdProps_url": {
+          "type": "string",
+          "description": "The canonical URL of the article page.",
+          "default": ""
+        },
+        "blogJsonLdProps_datePublished": {
+          "type": "string",
+          "description": "The date and time the article was first published, in ISO 8601 format.",
+          "default": ""
+        },
+        "blogJsonLdProps_dateModified": {
+          "type": "string",
+          "description": "The date and time the article was most recently modified, in ISO 8601 format.",
+          "default": ""
+        },
+        "blogJsonLdProps_authorName": {
+          "type": "string",
+          "description": "The name of the author.",
+          "default": ""
+        },
+        "blogJsonLdProps_authorType": {
+          "type": "string",
+          "description": "The type of author for this article.",
+          "default": "",
+          "enum": ["Person", "Organization"]
+        },
+        "blogJsonLdProps_description": {
+          "type": "string",
+          "description": "A short description of the article.",
+          "default": ""
+        },
+        "blogJsonLdProps_publisherName": {
+          "type": "string",
+          "description": "The name of the publisher.",
+          "default": ""
+        },
+        "blogJsonLdProps_publisherLogo": {
+          "type": "string",
+          "description": "The url of the publisher logo.",
+          "default": ""
+        },
+        "blogJsonLdProps_headline": {
+          "description": "The headline of the article.",
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "headline as string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "default": [],
+              "title": "headline as array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "blogJsonLdProps_keywords": {
+          "type": "array",
+          "default": [""],
+          "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        },
+        "blogJsonLdProps_images": {
+          "type": "array",
+          "default": [""],
+          "description": "The images URLs that is representative of the article or AMP story.",
+          "items": {
+            "type": "string",
+            "description": "",
+            "default": ""
+          }
+        },
+        "blogJsonLdProps_posts": {
+          "type": "array",
+          "default": [{ "headline": "", "datePublished": "", "image": "" }],
+          "description": "A posting that is part of this blog.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "headline": {
+                "type": "string",
+                "description": "Headline of the blog post.",
+                "default": ""
+              },
+              "datePublished": {
+                "type": "string",
+                "description": "The date and time the article was first published, in ISO 8601 format. Best practices: - The date shouldn't change over time. - We recommend including the hour information in addition to the day in the timestamp. - The value for dateModified should be more recent than the value for datePublished.",
+                "default": ""
+              },
+              "image": {
+                "type": "string",
+                "description": "An image URL that is representative of the blog post.",
+                "default": ""
+              }
+            },
+            "required": ["headline"],
+            "additionalProperties": false
+          }
+        },
+        "blogJsonLdProps_issn": {
+          "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "issn as string",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "default": [],
+              "items": {
+                "type": "string",
+                "title": "issn as array",
+                "default": ""
+              }
+            }
+          ]
+        }
+      },
+      "required": ["url", "headline"],
+      "additionalProperties": false
+    }
+  }
+}

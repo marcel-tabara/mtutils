@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/CorporateContactJsonLdProps",
+  "definitions": {
+    "CorporateContactJsonLdProps": {
+      "title": "CorporateContactJsonLdProps",
+      "type": "object",
+      "description": "The CorporateContact JSON LD Component props.",
+      "properties": {
+        "corporateContactJsonLdProps_defer": {
+          "type": "boolean",
+          "description": "",
+          "default": false
+        },
+        "corporateContactJsonLdProps_url": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "corporateContactJsonLdProps_logo": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "corporateContactJsonLdProps_contactPoint": {
+          "type": "array",
+          "default": [
+            {
+              "contactType": "",
+              "telephone": "",
+              "areaServed": "",
+              "availableLanguage": "",
+              "contactOption": ""
+            }
+          ],
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          }
+        }
+      },
+      "required": ["url", "contactPoint"],
+      "additionalProperties": false
+    },
+    "ContactPoint": {
+      "type": "object",
+      "properties": {
+        "contactType": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "telephone": {
+          "type": "string",
+          "description": "",
+          "default": ""
+        },
+        "areaServed": {
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "areaServed as string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "default": [],
+              "title": "areaServed as array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "availableLanguage": {
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "availableLanguage as string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "default": [],
+              "title": "availableLanguage as array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        },
+        "contactOption": {
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "contactOption as string",
+              "description": "",
+              "default": ""
+            },
+            {
+              "type": "array",
+              "default": [],
+              "title": "contactOption as array",
+              "items": {
+                "type": "string",
+                "description": "",
+                "default": ""
+              }
+            }
+          ]
+        }
+      },
+      "required": ["contactType", "telephone"],
+      "additionalProperties": false
+    }
+  }
+}

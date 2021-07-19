@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/FAQJsonLdProps",
+  "definitions": {
+    "FAQJsonLdProps": {
+      "title": "FAQJsonLdProps",
+      "description": "The FAQPage JSON LD Component props.",
+      "type": "object",
+      "properties": {
+        "faqJsonLdProps_questions": {
+          "type": "array",
+          "default": [{ "question": "", "answer": "" }],
+          "description": "An array of Question elements which comprise the list of answered questions that this FAQPage is about.",
+          "items": {
+            "$ref": "#/definitions/Question"
+          }
+        }
+      },
+      "required": ["questions"],
+      "additionalProperties": false
+    },
+    "Question": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "description": "The full text of the question. For example, How long does it take to process a refund?",
+          "default": ""
+        },
+        "answer": {
+          "type": "string",
+          "description": "The answer to the question. There must be one answer per question.",
+          "default": ""
+        }
+      },
+      "required": ["question", "answer"],
+      "additionalProperties": false
+    }
+  }
+}

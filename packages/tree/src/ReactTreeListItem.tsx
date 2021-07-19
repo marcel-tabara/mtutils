@@ -1,3 +1,6 @@
+import IconButton from '@material-ui/core/IconButton'
+import AllOutIcon from '@material-ui/icons/AllOut'
+import CloseIcon from '@material-ui/icons/Close'
 import Form from '@rjsf/material-ui'
 import { JSONSchema7 } from 'json-schema'
 import React, {
@@ -5,6 +8,7 @@ import React, {
   forwardRef,
   HTMLAttributes,
   RefObject,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -16,6 +20,11 @@ export interface ReactTreeListItemProps {
   item: ReactTreeListItemType
   indent: number
   allowDropBefore?: boolean
+  datavisibility: {
+    dataVisible: string[]
+    setDataVisible(value: string[]): void
+  }
+  onRemove(id: string): void
   onDataChange(data: any): void
   onFocusEnter?(item: ReactTreeListItemType): void
   onArrowClick?(item: ReactTreeListItemType): void
@@ -26,6 +35,8 @@ export interface ReactTreeListItemProps {
 }
 
 export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
+  onRemove,
+  datavisibility,
   onDataChange,
   onDragging,
   onDropInside,
@@ -35,7 +46,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
   ...props
 }: ReactTreeListItemProps) => {
   const { item } = props
-  const { label } = item
+  const { dataVisible, setDataVisible } = datavisibility
 
   const RootRef = useRef<HTMLDivElement>(null)
   const DropAreaRef = useRef<HTMLDivElement>(null)
@@ -44,9 +55,6 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
 
   const [dragging, setDragging] = useState(false)
   const [isDragged, setIsDragged] = useState(false)
-  const [visible, setVisible] = useState<{ id: string }>({
-    id: '',
-  })
 
   const setDragOver = (dragOver: boolean) => {
     if (dragOver) {
@@ -176,15 +184,21 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
     onDragLeave: () => setAfterDropAreaDragOver(false),
   }
 
-  const handleClickVisible = () => {
-    visible.id === props.item.id
-      ? setVisible({ id: '' })
-      : setVisible({ id: props?.item?.id ?? '' })
-  }
+  const handleClickVisible = useCallback(() => {
+    dataVisible.includes(props.item.id)
+      ? setDataVisible(dataVisible.filter((e) => e !== props.item.id))
+      : setDataVisible([...dataVisible, props.item.id])
+  }, [dataVisible, props.item.id])
 
-  const getVisibility = (id: number) =>
-    visible.id === props.item.id ? {} : { display: 'none' }
+  const getVisibility = () =>
+    dataVisible.includes(props.item.id)
+      ? { padding: '2rem' }
+      : { display: 'none' }
   const onData_Change = ({ formData }: any) => onDataChange(formData)
+  const onDelete = () => {
+    onRemove(item.id)
+    handleClickVisible()
+  }
 
   return (
     <>
@@ -199,11 +213,20 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
         onDragEnd={onDragEnd}
         onKeyPress={onFocusKeyPress}
         onDataChange={onDataChange}
+        datavisibility={datavisibility}
+        onRemove={onRemove}
       >
         {item.arrow && <Arrow onClick={onArrowClick}>{item.arrow}</Arrow>}
         {item.icon && <Icon>{item.icon}</Icon>}
-
-        <Label onClick={handleClickVisible}>{item.data.title}</Label>
+        <Row>
+          <Label>{item.data.title}</Label>
+          <IconButton aria-label="close" onClick={handleClickVisible}>
+            <AllOutIcon />
+          </IconButton>
+          <IconButton aria-label="close" onClick={onDelete}>
+            <CloseIcon />
+          </IconButton>
+        </Row>
 
         {allowDropBefore && (
           <div>
@@ -216,7 +239,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
         <AfterDropArea ref={AfterDropAreaRef} {...afterDropArea} />
         <AfterDropAreaHighlight />
       </Root>
-      <div style={getVisibility(parseInt(props?.item?.id ?? ''))}>
+      <div style={getVisibility()}>
         <Form
           schema={(item?.schema ?? {}) as JSONSchema7}
           onChange={onData_Change}
@@ -263,6 +286,7 @@ const RootComponent = forwardRef<
 
 const Arrow = styled.div``
 const Icon = styled.div``
+const Row = styled.div``
 const Label = styled.div``
 const DropArea = styled.div``
 const BeforeDropArea = styled.div``
@@ -289,7 +313,10 @@ const Root = styled(RootComponent)`
   ${Arrow}, ${Arrow} *,
   ${Icon}, ${Icon} *,
   ${Label}, ${Label} * {
+    display: flex;
     pointer-events: ${({ dragging }) => (dragging ? 'none' : '')};
+    width: 95%;
+    align-items: center;
   }
 
   &:focus {
@@ -308,6 +335,11 @@ const Root = styled(RootComponent)`
   ${Icon} {
     display: flex;
     transition: 100ms;
+  }
+
+  ${Row} {
+    display: flex;
+    justify-content: 'flex-end';
   }
 
   ${DropArea} {

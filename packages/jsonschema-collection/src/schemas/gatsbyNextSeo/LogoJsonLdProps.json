@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/LogoJsonLdProps",
+  "definitions": {
+    "LogoJsonLdProps": {
+      "title": "LogoJsonLdProps",
+      "type": "object",
+      "description": "The Logo JSON LD component properties.",
+      "properties": {
+        "logoJsonLdProps_logo": {
+          "type": "string",
+          "description": "URL of a logo that is representative of the organization.",
+          "default": ""
+        },
+        "logoJsonLdProps_url": {
+          "type": "string",
+          "description": "The URL of the website associated with the logo.",
+          "default": ""
+        }
+      },
+      "required": ["logo", "url"],
+      "additionalProperties": false
+    }
+  }
+}
