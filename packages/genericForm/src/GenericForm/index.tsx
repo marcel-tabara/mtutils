@@ -4,12 +4,12 @@ import React from 'react'
 import * as schemas from './schemas'
 import { GenericFormProps } from './types'
 
-const GenericForm = ({
+const GenericForm = <T,>({
   initialData,
   onChange,
   type,
   schema,
-}: GenericFormProps) => {
+}: GenericFormProps<T>): JSX.Element => {
   const genericFormSchema = schema
     ? schema
     : type

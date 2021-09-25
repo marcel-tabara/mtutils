@@ -1,6 +1,6 @@
-import { JSONSchema7 } from 'json-schema';
+import { JSONSchema7 } from 'json-schema'
 
-type SchemaType =
+export type SchemaType =
   | 'nextSeo'
   | 'gatsbyNextSeo_AllSeoProps'
   | 'gatsbyNextSeo_CourseJsonLdProps'
@@ -16,11 +16,11 @@ type SchemaType =
   | 'rjsf_string'
   | 'rjsf_object'
   | 'rjsf_number'
-  | 'rjsf_array';
+  | 'rjsf_array'
 
-export interface GenericFormProps {
-  initialData?: JSONSchema7;
-  schema?: string;
-  type?: SchemaType;
-  onChange?: (val: () => void) => void;
+export interface GenericFormProps<T> {
+  initialData?: T
+  schema?: JSONSchema7
+  type?: SchemaType
+  onChange?: (val: () => void) => void
 }

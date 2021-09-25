@@ -1,5 +1,7 @@
 import { GenericForm } from '@mtutils/genericform/src/GenericForm'
-import { GenericFormProps } from '@mtutils/genericform/src/GenericForm/types'
+import { SchemaType } from '@mtutils/genericform/src/GenericForm/types'
+import { Meta } from '@storybook/react'
+import { JSONSchema7 } from 'json-schema'
 import React from 'react'
 
 export default {
@@ -40,8 +42,18 @@ export default {
       onChange: { action: 'clicked' },
     },
   },
-}
+} as Meta
 
-const Template = (args: GenericFormProps) => <GenericForm {...args} />
-
-export const genericForm = Template.bind({})
+export const basic = (args: {
+  initialData?: object
+  schema?: JSONSchema7
+  type?: SchemaType
+  onChange: (val: any) => void
+}) => (
+  <GenericForm<object>
+    initialData={args.initialData}
+    schema={args.schema}
+    type={args.type}
+    onChange={(data) => console.log('data: ', data)}
+  />
+)
