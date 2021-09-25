@@ -24,7 +24,7 @@ export interface ReactTreeListItemProps {
     dataVisible: string[]
     setDataVisible(value: string[]): void
   }
-  onRemove(id: string): void
+  remove(id: string): void
   onDataChange(data: any): void
   onFocusEnter?(item: ReactTreeListItemType): void
   onArrowClick?(item: ReactTreeListItemType): void
@@ -35,7 +35,7 @@ export interface ReactTreeListItemProps {
 }
 
 export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
-  onRemove,
+  remove,
   datavisibility,
   onDataChange,
   onDragging,
@@ -192,11 +192,15 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
 
   const getVisibility = () =>
     dataVisible.includes(props.item.id)
-      ? { padding: '2rem' }
+      ? {
+          padding: '0 0 0 1rem',
+          margin: '0 0 0 1rem',
+          border: '1px solid #ededed',
+        }
       : { display: 'none' }
   const onData_Change = ({ formData }: any) => onDataChange(formData)
   const onDelete = () => {
-    onRemove(item.id)
+    remove(item.id)
     handleClickVisible()
   }
 
@@ -205,7 +209,6 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
       <Root
         ref={RootRef}
         {...props}
-        // Custom properties
         dragging={dragging}
         isDragged={isDragged}
         onDrag={onDrag}
@@ -214,7 +217,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
         onKeyPress={onFocusKeyPress}
         onDataChange={onDataChange}
         datavisibility={datavisibility}
-        onRemove={onRemove}
+        remove={remove}
       >
         {item.arrow && <Arrow onClick={onArrowClick}>{item.arrow}</Arrow>}
         {item.icon && <Icon>{item.icon}</Icon>}
@@ -298,12 +301,14 @@ const BeforeDropAreaHighlight = styled.div``
 const AfterDropArea = styled.div``
 const AfterDropAreaHighlight = styled.div``
 const Root = styled(RootComponent)`
+  background-color: gray;
   position: relative;
   display: grid;
   grid-template-columns: auto auto 1fr;
   grid-column-gap: 8px;
   padding: 4px;
   padding-left: ${({ indent }) => indent * 24 + 12}px;
+  margin-left: ${({ indent }) => indent * 24 + 12}px;
   align-items: center;
   border-radius: 4px;
   transition: background 100ms;

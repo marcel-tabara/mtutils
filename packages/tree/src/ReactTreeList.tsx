@@ -21,27 +21,13 @@ import { useGetItemById } from './utils/useGetItemById'
 import { useUpdateItemById } from './utils/useUpdateItemById'
 
 export interface ReactTreeListProps {
-  /**
-   * TODO: Make a good documentation for this
-   */
   data: ReactTreeListItemType[]
-
-  /**
-   * TODO: Make a good documentation for this
-   */
   onChange(data: ReactTreeListItemType[]): void
-
-  /**
-   * Defines the default values for item object
-   *
-   * Eg. `itemDefaults={{ open: true }}` will make all items open by default unless specified otherwise
-   * inside each item separately.
-   */
   itemDefaults?: Partial<Omit<ReactTreeListItemType, 'id'>>
 }
 
 export const ReactTreeList: FC<ReactTreeListProps> = ({
-  data,
+  data = [],
   onChange,
   itemDefaults,
 }) => {
@@ -56,10 +42,6 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
     onChange,
   )
 
-  /**
-   * To make sure the event runs only once, we store in this variable
-   * whether the event should run.
-   */
   let triggerOnChange = false
 
   const removeByIdWithoutOnChange = (
@@ -197,7 +179,8 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
             id="demo-simple-select-outlined"
             value={type}
             onChange={handleTypeChange}
-            label="Age"
+            label="Type"
+            style={{ width: '10rem' }}
           >
             <MenuItem value="">
               <em>None</em>
@@ -221,14 +204,7 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
     )
   }
   const renderContent = () => {
-    /**
-     * The children will be rendered as flat, contrary to the tree
-     * structure of data.
-     */
     const children: ReactNode[] = []
-    /**
-     * A counter for the indentation of items
-     */
     let indent = 0
 
     const renderItem = (
@@ -250,7 +226,7 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
       if (parentOpen) {
         children.push(
           <ReactTreeListItem
-            onRemove={removeByIdWithoutOnChange}
+            remove={removeByIdWithoutOnChange}
             datavisibility={{ dataVisible, setDataVisible }}
             key={item.id}
             item={{ ...itemDefaults, ...item }}
@@ -280,7 +256,6 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
       }
 
       if (item.children) {
-        // Indent up before processing children
         indent += 1
 
         item.children.forEach((nestedListItem, nestedIndex, nestedArray) =>
@@ -292,7 +267,6 @@ export const ReactTreeList: FC<ReactTreeListProps> = ({
           ),
         )
 
-        // Indent down after children processed
         indent -= 1
       }
     }
