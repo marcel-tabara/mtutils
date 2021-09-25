@@ -9,12 +9,10 @@ import React, {
   HTMLAttributes,
   RefObject,
   useCallback,
-  useEffect,
-  useRef,
-  useState,
 } from 'react'
 import styled from 'styled-components'
-import { ReactTreeListItemType } from './types/ItemTypes'
+import { useReactTreeListItem } from './hooks/useReactTreeListItem'
+import { ReactTreeListItemType } from './types/types'
 
 export interface ReactTreeListItemProps {
   item: ReactTreeListItemType
@@ -48,13 +46,15 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
   const { item } = props
   const { dataVisible, setDataVisible } = datavisibility
 
-  const RootRef = useRef<HTMLDivElement>(null)
-  const DropAreaRef = useRef<HTMLDivElement>(null)
-  const BeforeDropAreaRef = useRef<HTMLDivElement>(null)
-  const AfterDropAreaRef = useRef<HTMLDivElement>(null)
-
-  const [dragging, setDragging] = useState(false)
-  const [isDragged, setIsDragged] = useState(false)
+  const {
+    RootRef,
+    DropAreaRef,
+    BeforeDropAreaRef,
+    AfterDropAreaRef,
+    dragging,
+    isDragged,
+    setIsDragged,
+  } = useReactTreeListItem()
 
   const setDragOver = (dragOver: boolean) => {
     if (dragOver) {
@@ -81,7 +81,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
   }
 
   const onDrag: HTMLAttributes<HTMLDivElement>['onDrag'] = () => {
-    // setIsDragged(true);
+    setIsDragged(true)
   }
 
   const onDragStart: HTMLAttributes<HTMLDivElement>['onDragStart'] = (
@@ -107,23 +107,6 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
   }
 
   const onArrowClick = () => props.onArrowClick && props.onArrowClick(item)
-
-  useEffect(() => {
-    const dragStartHandler = () => {
-      setDragging(true)
-    }
-    const dragEndHandler = () => {
-      setDragging(false)
-      setIsDragged(false)
-    }
-
-    document.addEventListener('dragstart', dragStartHandler)
-    document.addEventListener('dragend', dragEndHandler)
-    return () => {
-      document.removeEventListener('dragstart', dragStartHandler)
-      document.removeEventListener('dragend', dragEndHandler)
-    }
-  }, [])
 
   const dropArea: HTMLAttributes<HTMLDivElement> = {
     onDrop: (event) => {
@@ -198,7 +181,8 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
           border: '1px solid #ededed',
         }
       : { display: 'none' }
-  const onData_Change = ({ formData }: any) => onDataChange(formData)
+
+  const onData_Change = ({ formData }) => onDataChange(formData)
   const onDelete = () => {
     remove(item.id)
     handleClickVisible()

@@ -1,2 +1,2 @@
-export * from "./types/ItemTypes";
-export * from "./ReactTreeList";
+export * from './ReactTreeList'
+export * from './types/types'

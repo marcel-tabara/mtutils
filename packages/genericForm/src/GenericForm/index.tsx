@@ -1,8 +1,8 @@
-import Form from '@rjsf/material-ui';
-import { JSONSchema7 } from 'json-schema';
-import React from 'react';
-import * as schemas from './schemas';
-import { GenericFormProps } from './types';
+import Form from '@rjsf/material-ui'
+import { JSONSchema7 } from 'json-schema'
+import React from 'react'
+import * as schemas from './schemas'
+import { GenericFormProps } from './types'
 
 const GenericForm = ({
   initialData,
@@ -10,12 +10,12 @@ const GenericForm = ({
   type,
   schema,
 }: GenericFormProps) => {
-  const genericFormSchema = type
-    ? schemas[type]
-    : schema
+  const genericFormSchema = schema
     ? schema
-    : schemas.reactHelmet.definitions.ReactHelmet;
-  const onValueChange = ({ formData }) => onChange && onChange(formData);
+    : type
+    ? schemas[type]
+    : schemas.reactHelmet.definitions.ReactHelmet
+  const onValueChange = ({ formData }) => onChange && onChange(formData)
 
   return (
     <div style={{ padding: 10 }}>
@@ -29,7 +29,7 @@ const GenericForm = ({
         </button>
       </Form>
     </div>
-  );
-};
+  )
+}
 
-export { GenericForm };
+export { GenericForm }

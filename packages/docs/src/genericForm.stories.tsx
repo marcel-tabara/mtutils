@@ -1,4 +1,5 @@
 import { GenericForm } from '@mtutils/genericform/src/GenericForm'
+import { GenericFormProps } from '@mtutils/genericform/src/GenericForm/types'
 import React from 'react'
 
 export default {
@@ -41,6 +42,6 @@ export default {
   },
 }
 
-const Template = (args: any) => <GenericForm {...args} />
+const Template = (args: GenericFormProps) => <GenericForm {...args} />
 
 export const genericForm = Template.bind({})

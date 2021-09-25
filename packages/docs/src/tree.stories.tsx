@@ -1,4 +1,5 @@
-import { ReactTreeList, ReactTreeListProps } from '@mtutils/tree'
+import { ReactTreeList } from '@mtutils/tree/src/index'
+import { ReactTreeListItemType } from '@mtutils/tree/src/types/types'
 import {
   Description,
   Primary,
@@ -8,6 +9,7 @@ import {
 } from '@storybook/addon-docs/blocks'
 import { withInfo } from '@storybook/addon-info'
 import { Meta } from '@storybook/react'
+import { JSONSchema7 } from 'json-schema'
 import React, { useState } from 'react'
 
 export default {
@@ -89,7 +91,7 @@ export const basic = () => {
     <span style={{ fontFamily: 'Arial', fontSize: 12 }}>Span</span>
   )
 
-  const schema = {
+  const schema: JSONSchema7 = {
     $schema: 'http://json-schema.org/draft-07/schema#',
     $ref: '#/definitions/String',
     definitions: {
@@ -120,31 +122,31 @@ export const basic = () => {
     },
   }
 
-  const [data, setData] = useState<ReactTreeListProps['data']>([
+  const initialData: ReactTreeListItemType[] = [
     // {
     //   label: divLabel,
     //   open: true,
-    //   data: { test: 1 },
+    //   data: { test: 1 } as JSONSchema7,
     //   schema,
     //   children: [
     //     {
     //       label: divLabel,
     //       open: true,
-    //       data: { test: 2 },
+    //       data: { test: 2 } as JSONSchema7,
     //       schema,
     //       children: [
     //         {
     //           label: divLabel,
     //           open: true,
     //           schema,
-    //           data: { test: 3 },
+    //           data: { test: 3 } as JSONSchema7,
     //           children: [
     //             {
     //               label: spanLabel,
     //               icon: textIcon,
     //               open: true,
     //               schema,
-    //               data: { test: 4 },
+    //               data: { test: 4 } as JSONSchema7,
     //             },
     //           ],
     //         },
@@ -152,11 +154,13 @@ export const basic = () => {
     //     },
     //   ],
     // },
-  ])
+  ]
+
+  const [data, setData] = useState<ReactTreeListItemType[]>(initialData)
 
   return (
     <ReactTreeList
-      data={data}
+      initialData={data}
       onChange={setData}
       itemDefaults={{
         open: true,

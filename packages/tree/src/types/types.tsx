@@ -1,4 +1,11 @@
+import { JSONSchema7 } from 'json-schema'
 import { ReactNode } from 'react'
+
+export interface ReactTreeListProps {
+  initialData: ReactTreeListItemType[]
+  onChange(data: ReactTreeListItemType[]): void
+  itemDefaults?: Partial<Omit<ReactTreeListItemType, 'id'>>
+}
 
 export interface BaseItemType {
   /**
@@ -67,13 +74,13 @@ export interface ReactTreeListItemType extends BaseItemType {
    * initial form data
    *
    */
-  data?: any
+  data?: T
 
   /**
    * Schema used by the form
    *
    */
-  schema?: object
+  schema?: JSONSchema7
 
   /**
    * Schema type
