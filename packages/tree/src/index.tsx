@@ -1,2 +1,2 @@
 export * from './TreeList'
-export * from './types/types'
+export * from './types'

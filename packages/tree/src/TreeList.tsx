@@ -9,7 +9,7 @@ import React, { ChangeEvent, ReactNode } from 'react'
 import styled from 'styled-components'
 import { useTreeList } from './hooks/useTreeList'
 import { TreeListItem } from './TreeListItem'
-import { TreeListItemType, TreeListProps } from './types/types'
+import { TreeListItemType, TreeListProps } from './types'
 
 export const TreeList = ({
   initialData = [],

@@ -12,7 +12,7 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 import { useTreeListItem } from './hooks/useTreeListItem'
-import { TreeListItemType } from './types/types'
+import { TreeListItemType } from './types'
 
 export interface TreeListItemProps {
   item: TreeListItemType

@@ -1,4 +1,4 @@
-import { BaseItemType } from '../types/types'
+import { BaseItemType } from '../types'
 
 export const useGetItemById = <T extends BaseItemType>(data: T[]) => {
   return (id: string): T | undefined => {
