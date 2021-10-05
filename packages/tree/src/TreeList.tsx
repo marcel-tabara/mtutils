@@ -7,15 +7,15 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import { GenericFormSchemas } from '@mtutils/jsonschema-collection'
 import React, { ChangeEvent, ReactNode } from 'react'
 import styled from 'styled-components'
-import { useReactTreeList } from './hooks/useReactTreeList'
-import { ReactTreeListItem } from './ReactTreeListItem'
-import { ReactTreeListItemType, ReactTreeListProps } from './types/types'
+import { useTreeList } from './hooks/useTreeList'
+import { TreeListItem } from './TreeListItem'
+import { TreeListItemType, TreeListProps } from './types/types'
 
-export const ReactTreeList = ({
+export const TreeList = ({
   initialData = [],
   onChange,
   itemDefaults,
-}: ReactTreeListProps) => {
+}: TreeListProps) => {
   const {
     setTriggerOnChange,
     type,
@@ -29,7 +29,7 @@ export const ReactTreeList = ({
     moveIdTo,
     moveIdAfter,
     moveIdBefore,
-  } = useReactTreeList({
+  } = useTreeList({
     initialData,
     onChange,
   })
@@ -97,9 +97,9 @@ export const ReactTreeList = ({
     let indent = 0
 
     const renderItem = (
-      listItem: ReactTreeListItemType,
+      listItem: TreeListItemType,
       index: number,
-      array: ReactTreeListItemType[],
+      array: TreeListItemType[],
       parentOpen?: boolean,
       isFirstLoop?: boolean,
     ) => {
@@ -114,7 +114,7 @@ export const ReactTreeList = ({
 
       if (parentOpen) {
         children.push(
-          <ReactTreeListItem
+          <TreeListItem
             remove={removeByIdWithoutOnChange}
             datavisibility={{ dataVisible, setDataVisible }}
             key={item.id}

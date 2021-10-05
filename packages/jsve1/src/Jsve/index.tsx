@@ -1,4 +1,4 @@
-import { ReactTreeList } from '@mtutils/tree'
+import { TreeList } from '@mtutils/tree'
 import React from 'react'
 
 interface JsveProps {
@@ -11,7 +11,7 @@ const baseOnChange = () => undefined
 const Jsve = ({ data, onChange = baseOnChange }: JsveProps) => {
   return (
     <div style={{ padding: 10 }}>
-      <ReactTreeList data={data} onChange={onChange} />
+      <TreeList data={data} onChange={onChange} />
     </div>
   )
 }

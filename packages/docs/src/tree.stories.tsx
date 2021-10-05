@@ -1,5 +1,5 @@
-import { ReactTreeList } from '@mtutils/tree/src/index'
-import { ReactTreeListItemType } from '@mtutils/tree/src/types/types'
+import { TreeList } from '@mtutils/tree/src/index'
+import { TreeListItemType } from '@mtutils/tree/src/types/types'
 import {
   Description,
   Primary,
@@ -13,8 +13,8 @@ import { JSONSchema7 } from 'json-schema'
 import React, { useState } from 'react'
 
 export default {
-  title: '@mtutils/tree',
-  component: ReactTreeList,
+  title: '@mtutils/treelist',
+  component: TreeList,
   decorators: [withInfo],
   parameters: {
     docs: {
@@ -122,7 +122,7 @@ export const basic = () => {
     },
   }
 
-  const initialData: ReactTreeListItemType[] = [
+  const initialData: TreeListItemType[] = [
     // {
     //   label: divLabel,
     //   open: true,
@@ -156,10 +156,10 @@ export const basic = () => {
     // },
   ]
 
-  const [data, setData] = useState<ReactTreeListItemType[]>(initialData)
+  const [data, setData] = useState<TreeListItemType[]>(initialData)
 
   return (
-    <ReactTreeList
+    <TreeList
       initialData={data}
       onChange={setData}
       itemDefaults={{

@@ -11,11 +11,11 @@ import React, {
   useCallback,
 } from 'react'
 import styled from 'styled-components'
-import { useReactTreeListItem } from './hooks/useReactTreeListItem'
-import { ReactTreeListItemType } from './types/types'
+import { useTreeListItem } from './hooks/useTreeListItem'
+import { TreeListItemType } from './types/types'
 
-export interface ReactTreeListItemProps {
-  item: ReactTreeListItemType
+export interface TreeListItemProps {
+  item: TreeListItemType
   indent: number
   allowDropBefore?: boolean
   datavisibility: {
@@ -24,15 +24,15 @@ export interface ReactTreeListItemProps {
   }
   remove(id: string): void
   onDataChange(data: any): void
-  onFocusEnter?(item: ReactTreeListItemType): void
-  onArrowClick?(item: ReactTreeListItemType): void
+  onFocusEnter?(item: TreeListItemType): void
+  onArrowClick?(item: TreeListItemType): void
   onDragging?(dragging: boolean): void
   onDropInside?(id: string, toId: string): void
   onDropBefore?(id: string, toId: string): void
   onDropAfter?(id: string, toId: string): void
 }
 
-export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
+export const TreeListItem: FC<TreeListItemProps> = ({
   remove,
   datavisibility,
   onDataChange,
@@ -42,7 +42,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
   onDropAfter,
   allowDropBefore,
   ...props
-}: ReactTreeListItemProps) => {
+}: TreeListItemProps) => {
   const { item } = props
   const { dataVisible, setDataVisible } = datavisibility
 
@@ -54,7 +54,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
     dragging,
     isDragged,
     setIsDragged,
-  } = useReactTreeListItem()
+  } = useTreeListItem()
 
   const setDragOver = (dragOver: boolean) => {
     if (dragOver) {
@@ -247,7 +247,7 @@ export const ReactTreeListItem: FC<ReactTreeListItemProps> = ({
 
 const RootComponent = forwardRef<
   HTMLDivElement,
-  ReactTreeListItemProps &
+  TreeListItemProps &
     HTMLAttributes<HTMLDivElement> & {
       ref?: RefObject<HTMLDivElement>
       dragging?: boolean

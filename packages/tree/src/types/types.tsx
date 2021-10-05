@@ -1,10 +1,10 @@
 import { JSONSchema7 } from 'json-schema'
 import { ReactNode } from 'react'
 
-export interface ReactTreeListProps {
-  initialData: ReactTreeListItemType[]
-  onChange(data: ReactTreeListItemType[]): void
-  itemDefaults?: Partial<Omit<ReactTreeListItemType, 'id'>>
+export interface TreeListProps {
+  initialData: TreeListItemType[]
+  onChange(data: TreeListItemType[]): void
+  itemDefaults?: Partial<Omit<TreeListItemType, 'id'>>
 }
 
 export interface BaseItemType {
@@ -16,7 +16,7 @@ export interface BaseItemType {
   children?: BaseItemType[]
 }
 
-export interface ReactTreeListItemType extends BaseItemType {
+export interface TreeListItemType extends BaseItemType {
   /**
    * Text or custom component to be rendered as label/content of item
    */
@@ -25,7 +25,7 @@ export interface ReactTreeListItemType extends BaseItemType {
   /**
    * TODO:
    */
-  children?: ReactTreeListItemType[]
+  children?: TreeListItemType[]
 
   /**
    * Defines whether `children` should be displayed on screen
@@ -74,7 +74,7 @@ export interface ReactTreeListItemType extends BaseItemType {
    * initial form data
    *
    */
-  data?: T
+  data?: any
 
   /**
    * Schema used by the form

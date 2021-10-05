@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
-import { ReactTreeListItemType } from '..'
+import { TreeListItemType } from '..'
 import { useGetItemById } from '../utils/useGetItemById'
+import { useUniqueId } from '../utils/useUniqueId'
 import { useUpdateItemById } from '../utils/useUpdateItemById'
-import { useUniqueId } from './useUniqueId'
 
-export const useReactTreeList = ({ initialData, onChange }) => {
+export const useTreeList = ({ initialData, onChange }) => {
   const [triggerOnChange, setTriggerOnChange] = useState<boolean>(false)
   const [type, setType] = useState('')
   const [dataVisible, setDataVisible] = useState<string[]>([])
   const { generate: generateUniqueId } = useUniqueId()
   const lastOpenState = useRef(false)
 
-  const getItemById = useGetItemById<ReactTreeListItemType>(initialData)
-  const updateItemById = useUpdateItemById<ReactTreeListItemType>(
+  const getItemById = useGetItemById<TreeListItemType>(initialData)
+  const updateItemById = useUpdateItemById<TreeListItemType>(
     initialData,
     onChange,
   )
@@ -25,13 +25,13 @@ export const useReactTreeList = ({ initialData, onChange }) => {
 
   const removeByIdWithoutOnChange = (
     id: string,
-  ): ReactTreeListItemType | undefined => {
-    let returnItem: ReactTreeListItemType | undefined = undefined
+  ): TreeListItemType | undefined => {
+    let returnItem: TreeListItemType | undefined = undefined
 
     const recursiveRemoveId = (
-      item: ReactTreeListItemType,
+      item: TreeListItemType,
       index: number,
-      array: ReactTreeListItemType[],
+      array: TreeListItemType[],
     ) => {
       if (returnItem) return
 
@@ -77,9 +77,9 @@ export const useReactTreeList = ({ initialData, onChange }) => {
     if (!copyOfItem) return
 
     const recursiveMoveIdAfter = (
-      item: ReactTreeListItemType,
+      item: TreeListItemType,
       index: number,
-      array: ReactTreeListItemType[],
+      array: TreeListItemType[],
     ) => {
       if (breakRecursion) return
 
@@ -102,9 +102,9 @@ export const useReactTreeList = ({ initialData, onChange }) => {
     if (!copyOfItem) return
 
     const recursiveMoveIdAfter = (
-      item: ReactTreeListItemType,
+      item: TreeListItemType,
       index: number,
-      array: ReactTreeListItemType[],
+      array: TreeListItemType[],
     ) => {
       if (breakRecursion) return
 
