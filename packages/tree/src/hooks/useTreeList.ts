@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { TreeListItemType } from '..'
 import { useGetItemById } from '../utils/useGetItemById'
 import { useUniqueId } from '../utils/useUniqueId'
@@ -120,7 +120,11 @@ export const useTreeList = ({ initialData, onChange }) => {
     setTriggerOnChange(true)
   }
 
+  const handleTypeChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setType(e.target.value)
+
   return {
+    handleTypeChange,
     triggerOnChange,
     setTriggerOnChange,
     type,

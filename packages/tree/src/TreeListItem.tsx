@@ -12,25 +12,7 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 import { useTreeListItem } from './hooks/useTreeListItem'
-import { TreeListItemType } from './types'
-
-export interface TreeListItemProps {
-  item: TreeListItemType
-  indent: number
-  allowDropBefore?: boolean
-  datavisibility: {
-    dataVisible: string[]
-    setDataVisible(value: string[]): void
-  }
-  remove(id: string): void
-  onDataChange(data: any): void
-  onFocusEnter?(item: TreeListItemType): void
-  onArrowClick?(item: TreeListItemType): void
-  onDragging?(dragging: boolean): void
-  onDropInside?(id: string, toId: string): void
-  onDropBefore?(id: string, toId: string): void
-  onDropAfter?(id: string, toId: string): void
-}
+import { TreeListItemProps } from './types'
 
 export const TreeListItem: FC<TreeListItemProps> = ({
   remove,

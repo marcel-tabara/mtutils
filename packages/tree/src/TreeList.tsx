@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import { GenericFormSchemas } from '@mtutils/jsonschema-collection'
-import React, { ChangeEvent, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { useTreeList } from './hooks/useTreeList'
 import { TreeListItem } from './TreeListItem'
@@ -19,7 +19,7 @@ export const TreeList = ({
   const {
     setTriggerOnChange,
     type,
-    setType,
+    handleTypeChange,
     dataVisible,
     setDataVisible,
     generateUniqueId,
@@ -54,9 +54,7 @@ export const TreeList = ({
     ])
     setDataVisible([])
   }
-
-  const handleTypeChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setType(e.target.value)
+  const dataTypes = ['string', 'number', 'array', 'object']
 
   const renderAdd = () => {
     return (
@@ -74,10 +72,9 @@ export const TreeList = ({
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={'string'}>string</MenuItem>
-            <MenuItem value={'number'}>number</MenuItem>
-            <MenuItem value={'array'}>array</MenuItem>
-            <MenuItem value={'object'}>object</MenuItem>
+            {dataTypes.map((e) => (
+              <MenuItem value={e}>{e}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 
