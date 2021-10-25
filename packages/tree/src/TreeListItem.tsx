@@ -4,7 +4,6 @@ import CloseIcon from '@material-ui/icons/Close'
 import Form from '@rjsf/material-ui'
 import { JSONSchema7 } from 'json-schema'
 import React, {
-  FC,
   forwardRef,
   HTMLAttributes,
   RefObject,
@@ -14,7 +13,7 @@ import styled from 'styled-components'
 import { useTreeListItem } from './hooks/useTreeListItem'
 import { TreeListItemProps } from './types'
 
-export const TreeListItem: FC<TreeListItemProps> = ({
+export const TreeListItem = <T extends { title: string }>({
   remove,
   datavisibility,
   onDataChange,
@@ -24,10 +23,10 @@ export const TreeListItem: FC<TreeListItemProps> = ({
   onDropAfter,
   allowDropBefore,
   ...props
-}: TreeListItemProps) => {
+}: TreeListItemProps<T>) => {
   const { item } = props
   const { dataVisible, setDataVisible } = datavisibility
-
+  const onArrowClick = () => props.onArrowClick && props.onArrowClick(item)
   const {
     RootRef,
     DropAreaRef,
@@ -35,119 +34,21 @@ export const TreeListItem: FC<TreeListItemProps> = ({
     AfterDropAreaRef,
     dragging,
     isDragged,
-    setIsDragged,
-  } = useTreeListItem()
-
-  const setDragOver = (dragOver: boolean) => {
-    if (dragOver) {
-      RootRef.current?.classList.add('dragOver')
-    } else if (RootRef.current?.classList.contains('dragOver')) {
-      RootRef.current?.classList.remove('dragOver')
-    }
-  }
-
-  const setBeforeDropAreaDragOver = (dragOver: boolean) => {
-    if (dragOver) {
-      BeforeDropAreaRef.current?.classList.add('dragOver')
-    } else if (BeforeDropAreaRef.current?.classList.contains('dragOver')) {
-      BeforeDropAreaRef.current?.classList.remove('dragOver')
-    }
-  }
-
-  const setAfterDropAreaDragOver = (dragOver: boolean) => {
-    if (dragOver) {
-      AfterDropAreaRef.current?.classList.add('dragOver')
-    } else if (AfterDropAreaRef.current?.classList.contains('dragOver')) {
-      AfterDropAreaRef.current?.classList.remove('dragOver')
-    }
-  }
-
-  const onDrag: HTMLAttributes<HTMLDivElement>['onDrag'] = () => {
-    setIsDragged(true)
-  }
-
-  const onDragStart: HTMLAttributes<HTMLDivElement>['onDragStart'] = (
-    event,
-  ) => {
-    onDragging && onDragging(true)
-
-    if (item.id) {
-      event.dataTransfer.setData('itemId', item.id)
-    }
-  }
-
-  const onDragEnd: HTMLAttributes<HTMLDivElement>['onDragEnd'] = () => {
-    onDragging && onDragging(false)
-  }
-
-  const onFocusKeyPress: HTMLAttributes<HTMLDivElement>['onKeyPress'] = (
-    event,
-  ) => {
-    if (event.which === 13) {
-      onArrowClick()
-    }
-  }
-
-  const onArrowClick = () => props.onArrowClick && props.onArrowClick(item)
-
-  const dropArea: HTMLAttributes<HTMLDivElement> = {
-    onDrop: (event) => {
-      if (
-        event.dataTransfer.getData('itemId') !== item.id &&
-        onDropInside &&
-        item.id
-      ) {
-        onDropInside(event.dataTransfer.getData('itemId'), item.id)
-      }
-
-      setDragOver(false)
-    },
-    onDragOver: (event) => event.preventDefault(),
-    onDragEnter: () => setDragOver(true),
-    onDragLeave: () => setDragOver(false),
-  }
-
-  const beforeDropArea: HTMLAttributes<HTMLDivElement> = {
-    onDrop: (event) => {
-      if (
-        event.dataTransfer.getData('itemId') !== item.id &&
-        onDropBefore &&
-        item.id
-      ) {
-        onDropBefore(event.dataTransfer.getData('itemId'), item.id)
-      }
-
-      setBeforeDropAreaDragOver(false)
-    },
-    onDragOver: (event) => event.preventDefault(),
-    onDragEnter: () => setBeforeDropAreaDragOver(true),
-    onDragLeave: () => setBeforeDropAreaDragOver(false),
-  }
-
-  const afterDropArea: HTMLAttributes<HTMLDivElement> = {
-    onDrop: (event) => {
-      if (
-        item.children &&
-        item.children.length &&
-        item.open &&
-        onDropInside &&
-        item.id
-      ) {
-        onDropInside(event.dataTransfer.getData('itemId'), item.id)
-      } else if (
-        event.dataTransfer.getData('itemId') !== item.id &&
-        onDropAfter &&
-        item.id
-      ) {
-        onDropAfter(event.dataTransfer.getData('itemId'), item.id)
-      }
-
-      setAfterDropAreaDragOver(false)
-    },
-    onDragOver: (event) => event.preventDefault(),
-    onDragEnter: () => setAfterDropAreaDragOver(true),
-    onDragLeave: () => setAfterDropAreaDragOver(false),
-  }
+    onDrag,
+    onDragStart,
+    onDragEnd,
+    onFocusKeyPress,
+    dropArea,
+    beforeDropArea,
+    afterDropArea,
+  } = useTreeListItem({
+    item,
+    onDragging,
+    onArrowClick,
+    onDropInside,
+    onDropBefore,
+    onDropAfter,
+  })
 
   const handleClickVisible = useCallback(() => {
     dataVisible.includes(props.item.id)
@@ -229,7 +130,7 @@ export const TreeListItem: FC<TreeListItemProps> = ({
 
 const RootComponent = forwardRef<
   HTMLDivElement,
-  TreeListItemProps &
+  TreeListItemProps<T> &
     HTMLAttributes<HTMLDivElement> & {
       ref?: RefObject<HTMLDivElement>
       dragging?: boolean
@@ -257,6 +158,7 @@ const RootComponent = forwardRef<
   },
 )
 
+const FormWrapper = styled.div``
 const Arrow = styled.div``
 const Icon = styled.div``
 const Row = styled.div``
@@ -267,7 +169,7 @@ const BeforeDropAreaHighlight = styled.div``
 const AfterDropArea = styled.div``
 const AfterDropAreaHighlight = styled.div``
 const Root = styled(RootComponent)`
-  background-color: gray;
+  background-color: 'e0e0e0';
   position: relative;
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -308,6 +210,11 @@ const Root = styled(RootComponent)`
   }
 
   ${Icon} {
+    display: flex;
+    transition: 100ms;
+  }
+
+  ${FormWrapper} {
     display: flex;
     transition: 100ms;
   }

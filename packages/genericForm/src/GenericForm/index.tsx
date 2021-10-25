@@ -4,7 +4,7 @@ import React from 'react'
 import * as schemas from './schemas'
 import { GenericFormProps } from './types'
 
-const GenericForm = <T,>({
+const GenericForm = <T extends { title: string }>({
   initialData,
   onChange,
   type,

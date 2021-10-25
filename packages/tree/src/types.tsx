@@ -1,14 +1,14 @@
 import { JSONSchema7 } from 'json-schema'
 import { ReactNode } from 'react'
 
-export interface TreeListProps {
-  initialData: TreeListItemType[]
-  onChange(data: TreeListItemType[]): void
-  itemDefaults?: Partial<Omit<TreeListItemType, 'id'>>
+export interface TreeListProps<T extends { title: string }> {
+  initialData: TreeListItemType<T>[]
+  onChange(data: TreeListItemType<T>[]): void
+  itemDefaults?: Partial<Omit<TreeListItemType<T>, 'id'>>
 }
 
-export interface TreeListItemProps {
-  item: TreeListItemType
+export interface TreeListItemProps<T extends { title: string }> {
+  item: TreeListItemType<T>
   indent: number
   allowDropBefore?: boolean
   datavisibility: {
@@ -17,8 +17,8 @@ export interface TreeListItemProps {
   }
   remove(id: string): void
   onDataChange(data: any): void
-  onFocusEnter?(item: TreeListItemType): void
-  onArrowClick?(item: TreeListItemType): void
+  onFocusEnter?(item: TreeListItemType<T>): void
+  onArrowClick?(item: TreeListItemType<T>): void
   onDragging?(dragging: boolean): void
   onDropInside?(id: string, toId: string): void
   onDropBefore?(id: string, toId: string): void
@@ -34,7 +34,7 @@ export interface BaseItemType {
   children?: BaseItemType[]
 }
 
-export interface TreeListItemType extends BaseItemType {
+export interface TreeListItemType<T> extends BaseItemType {
   /**
    * Text or custom component to be rendered as label/content of item
    */
@@ -43,7 +43,7 @@ export interface TreeListItemType extends BaseItemType {
   /**
    * TODO:
    */
-  children?: TreeListItemType[]
+  children?: TreeListItemType<T>[]
 
   /**
    * Defines whether `children` should be displayed on screen
@@ -92,7 +92,7 @@ export interface TreeListItemType extends BaseItemType {
    * initial form data
    *
    */
-  data?: any
+  data?: T
 
   /**
    * Schema used by the form

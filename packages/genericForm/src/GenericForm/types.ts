@@ -18,7 +18,7 @@ export type SchemaType =
   | 'rjsf_number'
   | 'rjsf_array'
 
-export interface GenericFormProps<T> {
+export interface GenericFormProps<T extends { title: string }> {
   initialData?: T
   schema?: JSONSchema7
   type?: SchemaType
