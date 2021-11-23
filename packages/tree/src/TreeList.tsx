@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { useTreeList } from './hooks/useTreeList'
 import { TreeListItem } from './TreeListItem'
-import { TreeListItemType, TreeListProps } from './types'
+import { BaseTreeElement, TreeListItemType, TreeListProps } from './types'
 import { TypeSelector } from './TypeSelector'
 
-export const TreeList = <T extends { title: string }>({
+export const TreeList = <T extends BaseTreeElement>({
   initialData = [],
   onChange,
   itemDefaults,
@@ -63,7 +63,7 @@ export const TreeList = <T extends { title: string }>({
             onArrowClick={() => updateItemById(item.id, { open: !item.open })}
             onDragging={(drag) => {
               if (drag) {
-                lastOpenState.current = !!item.open
+                lastOpenState.current = !Boolean(item.open)
                 updateItemById(item.id, { open: false })
               } else {
                 updateItemById(item.id, { open: lastOpenState.current })

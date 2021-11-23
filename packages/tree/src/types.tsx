@@ -106,3 +106,7 @@ export interface TreeListItemType<T> extends BaseItemType {
    */
   type?: string
 }
+
+export interface BaseTreeElement {
+  title: string
+}

@@ -11,9 +11,9 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 import { useTreeListItem } from './hooks/useTreeListItem'
-import { TreeListItemProps } from './types'
+import { BaseTreeElement, TreeListItemProps } from './types'
 
-export const TreeListItem = <T extends { title: string }>({
+export const TreeListItem = <T extends BaseTreeElement>({
   remove,
   datavisibility,
   onDataChange,

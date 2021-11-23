@@ -23,7 +23,7 @@ const plugins = [
 
 export default [
   {
-    input: 'src/index.tsx',
+    input: 'src/index.ts',
     external: { lodash: 'lodash' },
     plugins,
     output: {

@@ -45,7 +45,7 @@ export const TypeSelector = ({
           id="demo-simple-select-outlined"
           value={type}
           onChange={handleTypeChange}
-          label="Type"
+          label="Select Type"
           style={{ width: '10rem' }}
         >
           <MenuItem value="" key="menu-ite-none">
