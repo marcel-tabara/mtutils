@@ -1,0 +1,28 @@
+{
+  "name": "@mtutils/js2jsonschema",
+  "version": "0.0.1",
+  "description": "mtutils/js2jsonschema",
+  "author": "Marcel Tabara <marcel.tabara@gmail.com>",
+  "homepage": "https://github.com/marcel-tabara/mtutils#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcel-tabara/mtutils.git"
+  },
+  "scripts": {
+    "compile": "rollup -c",
+    "compile:watch": "rollup -c -w",
+    "docs:dev": "npm run compile:watch"
+  },
+  "bugs": {
+    "url": "https://github.com/marcel-tabara/mtutils/issues"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@rollup/plugin-json": "^4.1.0"
+  }
+}

@@ -23,5 +23,6 @@
     "dev": "lerna run docs:dev  --parallel -- babel",
     "build": "lerna run compile  --parallel",
     "clean": "lerna clean --yes && lerna exec -- rimraf dist --parallel"
-  }
+  },
+  "dependencies": {}
 }
