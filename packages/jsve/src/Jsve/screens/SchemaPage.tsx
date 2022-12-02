@@ -1,52 +1,49 @@
-import React from 'react';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline'
+import StorageIcon from '@material-ui/icons/Storage'
+import isEmpty from 'lodash/isEmpty'
+import React from 'react'
 import SortableTree, {
   getFlatDataFromTree,
   removeNodeAtPath,
-} from 'react-sortable-tree';
-import 'react-sortable-tree/style.css';
-
-import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-import StorageIcon from '@material-ui/icons/Storage';
-
-import isEmpty from 'lodash/isEmpty';
-
-import { defaultTree } from '../shared/constants';
-import { isPrimitive, prepareFirst } from '../shared/helper';
-
-import { generateJsonSchemaCode } from '../shared/helpers/jsonSchema';
-import { generateJsonUISchemaCode } from '../shared/helpers/jsonUISchema';
-
+} from 'react-sortable-tree'
+import 'react-sortable-tree/style.css'
+import { defaultTree } from '../shared/constants'
 import {
   externalNodeType,
-  shouldCopyOnOutsideDrop,
   getNodeKey,
-} from '../shared/helper';
+  isPrimitive,
+  prepareFirst,
+  shouldCopyOnOutsideDrop,
+} from '../shared/helper'
+import { generateJsonSchemaCode } from '../shared/helpers/jsonSchema'
+import { generateJsonUISchemaCode } from '../shared/helpers/jsonUISchema'
 
 const SchemaPage = ({ jsve, setJsve }) => {
   const { tree, currentNode, currentUINode, schemaCode, uiSchemaCode, error } =
-    jsve;
+    jsve
 
   const remove = (path) => {
     const newTree = removeNodeAtPath({
       treeData: tree,
       path,
       getNodeKey,
-    });
-    setJsve({ ...jsve, tree: newTree });
-  };
+    })
+    setJsve({ ...jsve, tree: newTree })
+  }
 
   const validateJsonForm = (jsonForm) => {
-    if (jsonForm.length > 1) return jsonForm;
+    if (jsonForm.length > 1) return jsonForm
     const flatData = getFlatDataFromTree({
       treeData: jsonForm,
       getNodeKey: ({ treeIndex }) => treeIndex,
       ignoreCollapsed: false,
-    });
+    })
 
     return flatData.find(
-      (el) => isPrimitive(el.node.subtitle) && !isEmpty(el.node.children),
-    );
-  };
+      (el) =>
+        isPrimitive(el.node.subtitle.toString()) && !isEmpty(el.node.children),
+    )
+  }
 
   const onChange = (treeData) => {
     if (isEmpty(validateJsonForm(treeData))) {
@@ -54,26 +51,26 @@ const SchemaPage = ({ jsve, setJsve }) => {
         treeData,
         getNodeKey: ({ treeIndex }) => treeIndex,
         ignoreCollapsed: false,
-      });
-      let newTree = treeData;
+      })
+      let newTree = treeData
 
       flatData.map((el) => {
-        newTree = prepareFirst(el.path, el.node, newTree);
-      });
+        newTree = prepareFirst(el.path, el.node, newTree)
+      })
 
       setJsve({
         ...jsve,
         tree: newTree,
         schemaCode: generateJsonSchemaCode({ tree: newTree }),
         uiSchemaCode: generateJsonUISchemaCode({ tree: newTree }),
-      });
+      })
     } else {
-      setJsve({ ...jsve, error: 'Not allowed.' });
+      setJsve({ ...jsve, error: 'Not allowed.' })
     }
-  };
+  }
 
   const setCurrentForm = (node, path) =>
-    setJsve({ ...jsve, currentNode: { node, path } });
+    setJsve({ ...jsve, currentNode: { node, path } })
 
   return (
     <div className="flex">
@@ -124,7 +121,7 @@ const SchemaPage = ({ jsve, setJsve }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SchemaPage;
+export default SchemaPage

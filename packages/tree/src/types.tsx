@@ -1,13 +1,17 @@
 import { JSONSchema7 } from 'json-schema'
 import { ReactNode } from 'react'
 
-export interface TreeListProps<T extends { title: string }> {
-  initialData: TreeListItemType<T>[]
-  onChange(data: TreeListItemType<T>[]): void
-  itemDefaults?: Partial<Omit<TreeListItemType<T>, 'id'>>
+export interface BaseTreeElement {
+  title: string
 }
 
-export interface TreeListItemProps<T extends { title: string }> {
+export interface TreeListProps<T extends BaseTreeElement> {
+  data: TreeListItemType<T>[]
+  onChange(data: TreeListItemType<T>[]): void
+  defaults?: Partial<Omit<TreeListItemType<T>, 'id'>>
+}
+
+export interface TreeListItemProps<T extends BaseTreeElement> {
   item: TreeListItemType<T>
   indent: number
   allowDropBefore?: boolean
@@ -15,7 +19,7 @@ export interface TreeListItemProps<T extends { title: string }> {
     dataVisible: string[]
     setDataVisible(value: string[]): void
   }
-  remove(id: string): void
+  onReset(id: string): void
   onDataChange(data: any): void
   onFocusEnter?(item: TreeListItemType<T>): void
   onArrowClick?(item: TreeListItemType<T>): void
@@ -26,11 +30,7 @@ export interface TreeListItemProps<T extends { title: string }> {
 }
 
 export interface BaseItemType {
-  /**
-   * Unique identificator of item. If not present, new one will be generated.
-   */
   id?: string
-
   children?: BaseItemType[]
 }
 
@@ -105,8 +105,4 @@ export interface TreeListItemType<T> extends BaseItemType {
    *
    */
   type?: string
-}
-
-export interface BaseTreeElement {
-  title: string
 }

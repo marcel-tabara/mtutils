@@ -4,34 +4,34 @@ import { useGetItemById } from '../utils/useGetItemById'
 import { useUniqueId } from '../utils/useUniqueId'
 import { useUpdateItemById } from '../utils/useUpdateItemById'
 
-export const useTreeList = ({ initialData, onChange }) => {
+export const useTreeList = ({ data, onChange }) => {
   const [triggerOnChange, setTriggerOnChange] = useState<boolean>(false)
   const [type, setType] = useState('')
   const [dataVisible, setDataVisible] = useState<string[]>([])
   const { generate: generateUniqueId } = useUniqueId()
   const lastOpenState = useRef(false)
 
-  const getItemById = useGetItemById<TreeListItemType>(initialData)
-  const updateItemById = useUpdateItemById<TreeListItemType>(
-    initialData,
+  const getItemById = useGetItemById<TreeListItemType<typeof data>>(data)
+  const updateItemById = useUpdateItemById<TreeListItemType<typeof data>>(
+    data,
     onChange,
   )
 
   useEffect(() => {
     if (triggerOnChange) {
-      onChange([...initialData])
+      onChange([...data])
     }
   }, [triggerOnChange])
 
   const removeByIdWithoutOnChange = (
     id: string,
-  ): TreeListItemType | undefined => {
-    let returnItem: TreeListItemType | undefined = undefined
+  ): TreeListItemType<typeof data> | undefined => {
+    let returnItem: TreeListItemType<typeof data> | undefined = undefined
 
     const recursiveRemoveId = (
-      item: TreeListItemType,
+      item: TreeListItemType<typeof data>,
       index: number,
-      array: TreeListItemType[],
+      array: TreeListItemType<typeof data>[],
     ) => {
       if (returnItem) return
 
@@ -44,9 +44,9 @@ export const useTreeList = ({ initialData, onChange }) => {
       }
     }
 
-    initialData.forEach(recursiveRemoveId)
+    data.forEach(recursiveRemoveId)
 
-    onChange(initialData)
+    onChange(data)
     return returnItem
   }
 
@@ -77,9 +77,9 @@ export const useTreeList = ({ initialData, onChange }) => {
     if (!copyOfItem) return
 
     const recursiveMoveIdAfter = (
-      item: TreeListItemType,
+      item: TreeListItemType<typeof data>,
       index: number,
-      array: TreeListItemType[],
+      array: TreeListItemType<typeof data>[],
     ) => {
       if (breakRecursion) return
 
@@ -91,7 +91,7 @@ export const useTreeList = ({ initialData, onChange }) => {
       }
     }
 
-    initialData.forEach(recursiveMoveIdAfter)
+    data.forEach(recursiveMoveIdAfter)
     setTriggerOnChange(true)
   }
 
@@ -102,9 +102,9 @@ export const useTreeList = ({ initialData, onChange }) => {
     if (!copyOfItem) return
 
     const recursiveMoveIdAfter = (
-      item: TreeListItemType,
+      item: TreeListItemType<typeof data>,
       index: number,
-      array: TreeListItemType[],
+      array: TreeListItemType<typeof data>[],
     ) => {
       if (breakRecursion) return
 
@@ -116,7 +116,7 @@ export const useTreeList = ({ initialData, onChange }) => {
       }
     }
 
-    initialData.forEach(recursiveMoveIdAfter)
+    data.forEach(recursiveMoveIdAfter)
     setTriggerOnChange(true)
   }
 
@@ -124,20 +124,20 @@ export const useTreeList = ({ initialData, onChange }) => {
     setType(e.target.value)
 
   return {
-    handleTypeChange,
-    triggerOnChange,
-    setTriggerOnChange,
-    type,
-    setType,
-    dataVisible,
-    setDataVisible,
     generateUniqueId,
-    lastOpenState,
     getItemById,
-    updateItemById,
-    removeByIdWithoutOnChange,
-    moveIdTo,
+    handleTypeChange,
     moveIdAfter,
     moveIdBefore,
+    moveIdTo,
+    removeByIdWithoutOnChange,
+    setDataVisible,
+    setTriggerOnChange,
+    setType,
+    updateItemById,
+    dataVisible,
+    lastOpenState,
+    triggerOnChange,
+    type,
   }
 }

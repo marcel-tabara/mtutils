@@ -1,3 +1,4 @@
+import { GenericFormSchemas } from '@mtutils/jsonschema-collection'
 import { TreeList } from '@mtutils/tree/src/index'
 import { TreeListItemType } from '@mtutils/tree/src/types/types'
 import {
@@ -24,7 +25,6 @@ export default {
           <Subtitle />
           <Description />
           <Primary />
-          {/* <ArgsTable story={PRIMARY_STORY} /> */}
           <Stories />
         </>
       ),
@@ -54,25 +54,25 @@ export const basic = () => {
     </svg>
   )
 
-  const textIcon = (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M6 8C6 6.89543 6.89543 6 8 6H16C17.1046 6 18 6.89543 18 8V16C18 17.1046 17.1046 18 16 18H8C6.89543 18 6 17.1046 6 16V8Z"
-        fill="black"
-        fillOpacity="0.1"
-      />
-      <path
-        d="M10.184 9.896H12.052V15H12.796V9.896H14.56V9.216H10.184V9.896Z"
-        fill="black"
-      />
-    </svg>
-  )
+  // const textIcon = (
+  //   <svg
+  //     width="24"
+  //     height="24"
+  //     viewBox="0 0 24 24"
+  //     fill="none"
+  //     xmlns="http://www.w3.org/2000/svg"
+  //   >
+  //     <path
+  //       d="M6 8C6 6.89543 6.89543 6 8 6H16C17.1046 6 18 6.89543 18 8V16C18 17.1046 17.1046 18 16 18H8C6.89543 18 6 17.1046 6 16V8Z"
+  //       fill="black"
+  //       fillOpacity="0.1"
+  //     />
+  //     <path
+  //       d="M10.184 9.896H12.052V15H12.796V9.896H14.56V9.216H10.184V9.896Z"
+  //       fill="black"
+  //     />
+  //   </svg>
+  // )
 
   const openIcon = (
     <svg viewBox="0 0 20 20">
@@ -91,78 +91,49 @@ export const basic = () => {
     <span style={{ fontFamily: 'Arial', fontSize: 12 }}>Span</span>
   )
 
-  const schema: JSONSchema7 = {
-    $schema: 'http://json-schema.org/draft-07/schema#',
-    $ref: '#/definitions/String',
-    definitions: {
-      String: {
-        type: 'object',
-        properties: {
-          title: { type: 'string', default: '', description: '' },
-          description: { type: 'string', default: '', description: '' },
-          default: { type: 'string', default: '', description: '' },
-          maxItems: {
-            type: 'integer',
-            description:
-              'The value of this keyword MUST be a non-negative integer. An array instance is valid against `maxItems` if its size is less than, or equal to, the value of this keyword.',
-          },
-          minItems: {
-            type: 'integer',
-            description:
-              'The value of this keyword MUST be a non-negative integer. An array instance is valid against `minItems` if its size is greater than, or equal to, the value of this keyword. Omitting this keyword has the same behavior as a value of 0.',
-          },
-          uniqueItems: {
-            type: 'boolean',
-            description:
-              'The value of this keyword MUST be a boolean. If this keyword has boolean value false, the instance validates successfully.  If it has boolean value true, the instance validates successfully if all of its elements are unique. Omitting this keyword has the same behavior as a value of false.',
-          },
-        },
-        additionalProperties: false,
-      },
-    },
-  }
-
   const initialData: TreeListItemType[] = [
-    // {
-    //   label: divLabel,
-    //   open: true,
-    //   data: { test: 1 } as JSONSchema7,
-    //   schema,
-    //   children: [
-    //     {
-    //       label: divLabel,
-    //       open: true,
-    //       data: { test: 2 } as JSONSchema7,
-    //       schema,
-    //       children: [
-    //         {
-    //           label: divLabel,
-    //           open: true,
-    //           schema,
-    //           data: { test: 3 } as JSONSchema7,
-    //           children: [
-    //             {
-    //               label: spanLabel,
-    //               icon: textIcon,
-    //               open: true,
-    //               schema,
-    //               data: { test: 4 } as JSONSchema7,
-    //             },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
+    {
+      //label: divLabel,
+      open: true,
+      data: { test: 1, title: 'aaa' } as JSONSchema7,
+      schema: GenericFormSchemas[`rjsf_string`].definitions['String'],
+      children: [
+        {
+          //label: divLabel,
+          open: true,
+          data: { title: 'bbb', test: 2 } as JSONSchema7,
+          schema: GenericFormSchemas[`rjsf_object`].definitions['Object'],
+          children: [
+            {
+              //label: divLabel,
+              open: true,
+              schema: GenericFormSchemas[`rjsf_number`].definitions['Number'],
+              data: { title: 'ccc', test: 3 } as JSONSchema7,
+              children: [],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      // label: spanLabel,
+      // icon: textIcon,
+      open: true,
+      schema: GenericFormSchemas[`rjsf_array`].definitions['Array'],
+      data: { title: 'ddd', test: 4 } as JSONSchema7,
+    },
   ]
 
-  const [data, setData] = useState<TreeListItemType[]>(initialData)
-
+  const [data, setData] = useState<TreeListItemType<typeof initialData>[]>(
+    initialData,
+  )
+  console.log('########## data', data)
+  //console.log('########## js2jsonSchema(data)', js2jsonSchema(data))
   return (
     <TreeList
-      initialData={data}
+      data={data}
       onChange={setData}
-      itemDefaults={{
+      defaults={{
         open: true,
         arrow: (
           <svg
@@ -180,7 +151,7 @@ export const basic = () => {
             />
           </svg>
         ),
-        icon: blockIcon,
+        // icon: textIcon,
       }}
     />
   )

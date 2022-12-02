@@ -14,40 +14,40 @@ import { useTreeListItem } from './hooks/useTreeListItem'
 import { BaseTreeElement, TreeListItemProps } from './types'
 
 export const TreeListItem = <T extends BaseTreeElement>({
-  remove,
-  datavisibility,
+  onReset,
   onDataChange,
   onDragging,
   onDropInside,
   onDropBefore,
   onDropAfter,
   allowDropBefore,
+  datavisibility,
   ...props
 }: TreeListItemProps<T>) => {
   const { item } = props
   const { dataVisible, setDataVisible } = datavisibility
   const onArrowClick = () => props.onArrowClick && props.onArrowClick(item)
   const {
-    RootRef,
-    DropAreaRef,
-    BeforeDropAreaRef,
-    AfterDropAreaRef,
-    dragging,
-    isDragged,
-    onDrag,
-    onDragStart,
-    onDragEnd,
-    onFocusKeyPress,
-    dropArea,
-    beforeDropArea,
     afterDropArea,
+    AfterDropAreaRef,
+    beforeDropArea,
+    BeforeDropAreaRef,
+    dragging,
+    dropArea,
+    DropAreaRef,
+    isDragged,
+    RootRef,
+    onDrag,
+    onDragEnd,
+    onDragStart,
+    onFocusKeyPress,
   } = useTreeListItem({
     item,
-    onDragging,
     onArrowClick,
-    onDropInside,
-    onDropBefore,
+    onDragging,
     onDropAfter,
+    onDropBefore,
+    onDropInside,
   })
 
   const handleClickVisible = useCallback(() => {
@@ -56,19 +56,23 @@ export const TreeListItem = <T extends BaseTreeElement>({
       : setDataVisible([...dataVisible, props.item.id])
   }, [dataVisible, props.item.id])
 
-  const getVisibility = () =>
+  const getVisibility = (indent: number) =>
     dataVisible.includes(props.item.id)
       ? {
           padding: '0 0 0 1rem',
           margin: '0 0 0 1rem',
           border: '1px solid #ededed',
+          marginLeft: indent * 24 + 12,
         }
       : { display: 'none' }
 
-  const onData_Change = ({ formData }) => onDataChange(formData)
   const onDelete = () => {
-    remove(item.id)
+    onReset(item.id)
     handleClickVisible()
+  }
+  const onClickArrow = () => {
+    handleClickVisible()
+    onArrowClick()
   }
 
   return (
@@ -84,10 +88,10 @@ export const TreeListItem = <T extends BaseTreeElement>({
         onKeyPress={onFocusKeyPress}
         onDataChange={onDataChange}
         datavisibility={datavisibility}
-        remove={remove}
+        onReset={() => undefined}
       >
-        {item.arrow && <Arrow onClick={onArrowClick}>{item.arrow}</Arrow>}
-        {item.icon && <Icon>{item.icon}</Icon>}
+        {item.arrow && <Arrow onClick={onClickArrow}>{item.arrow}</Arrow>}
+        {item.icon ? <Icon>{item.icon}</Icon> : <span />}
         <Row>
           <Label>{item.data.title}</Label>
           {Boolean(item?.schema) && (
@@ -112,10 +116,10 @@ export const TreeListItem = <T extends BaseTreeElement>({
         <AfterDropAreaHighlight />
       </Root>
       {Boolean(item?.schema) && (
-        <div style={getVisibility()}>
+        <div style={getVisibility(props.indent)}>
           <Form
             schema={(item?.schema ?? {}) as JSONSchema7}
-            onChange={onData_Change}
+            onChange={({ formData }) => onDataChange(formData)}
             formData={item?.data ?? {}}
           >
             <button type="submit" style={{ visibility: 'hidden' }}>
@@ -130,7 +134,7 @@ export const TreeListItem = <T extends BaseTreeElement>({
 
 const RootComponent = forwardRef<
   HTMLDivElement,
-  TreeListItemProps<T> &
+  TreeListItemProps<any> &
     HTMLAttributes<HTMLDivElement> & {
       ref?: RefObject<HTMLDivElement>
       dragging?: boolean
@@ -139,26 +143,21 @@ const RootComponent = forwardRef<
 >(
   (
     {
-      indent,
-      item,
+      onArrowClick,
       onDataChange,
       onFocusEnter,
-      onArrowClick,
       dragging,
+      indent,
       isDragged,
+      item,
       ...props
     },
     ref,
   ) => {
-    return (
-      <>
-        <div ref={ref} draggable={true} tabIndex={0} {...props} />
-      </>
-    )
+    return <div ref={ref} draggable={true} tabIndex={0} {...props} />
   },
 )
 
-const FormWrapper = styled.div``
 const Arrow = styled.div``
 const Icon = styled.div``
 const Row = styled.div``
@@ -170,6 +169,8 @@ const AfterDropArea = styled.div``
 const AfterDropAreaHighlight = styled.div``
 const Root = styled(RootComponent)`
   background-color: 'e0e0e0';
+  background: ${({ datavisibility, item }) =>
+    datavisibility.dataVisible.includes(item.id) ? 'aliceblue' : 'white'};
   position: relative;
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -210,11 +211,6 @@ const Root = styled(RootComponent)`
   }
 
   ${Icon} {
-    display: flex;
-    transition: 100ms;
-  }
-
-  ${FormWrapper} {
     display: flex;
     transition: 100ms;
   }
@@ -272,15 +268,17 @@ const Root = styled(RootComponent)`
             24 +
           12}px
     );
-    margin-left: ${({ indent, item }) =>
-      (indent + (item.open && item.children && item.children.length ? 1 : 0)) *
-        24 +
-      12}px;
-  }
+    margin-left: ${
+      ({ indent, item }) => '0px'
+      // (indent + (item.open && item.children && item.children.length ? 1 : 0)) *
+      //   24 +
+      // 12}px;
+    }
   ${BeforeDropAreaHighlight} {
     top: -1px;
   }
   ${AfterDropAreaHighlight} {
     bottom: -1px;
+    border: 1px solid yellow;
   }
 `

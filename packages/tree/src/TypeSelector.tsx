@@ -8,7 +8,7 @@ import { GenericFormSchemas } from '@mtutils/jsonschema-collection'
 import React from 'react'
 
 export const TypeSelector = ({
-  initialData = [],
+  data = [],
   onChange,
   handleTypeChange,
   setDataVisible,
@@ -30,7 +30,7 @@ export const TypeSelector = ({
             type.replace(/^\w/, (c) => c.toUpperCase())
           ],
       },
-      ...initialData,
+      ...data,
     ])
     setDataVisible([])
   }
