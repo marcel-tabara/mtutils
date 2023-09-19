@@ -1,0 +1,91 @@
+{
+  "service_name": "elastic-inference",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/index.html",
+  "service_commands": [
+    {
+      "command_name": "describe-accelerator-offerings",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/describe-accelerator-offerings.html",
+      "command_description": "Description\n\nDescribes the locations in which a given accelerator type or set of types is present in a given region.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-accelerator-offerings\n--location-type <value>\n[--accelerator-types <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--location-type <value>",
+        "[--accelerator-types <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--location-type (string)\n\nThe location type that you want to describe accelerator type offerings for. It can assume the following values: region: will return the accelerator type offering at the regional level. availability-zone: will return the accelerator type offering at the availability zone level. availability-zone-id: will return the accelerator type offering at the availability zone level returning the availability zone id.\n\nPossible values:\n\nregion\n\navailability-zone\n\navailability-zone-id\n\n--accelerator-types (list)\n\nThe list of accelerator types to describe.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nacceleratorTypeOfferings -> (list)\n\nThe list of accelerator type offerings for a specific location.\n\n(structure)\n\nThe offering for an Elastic Inference Accelerator type.\n\nacceleratorType -> (string)\n\nThe name of the Elastic Inference Accelerator type.\n\nlocationType -> (string)\n\nThe location type for the offering. It can assume the following values: region: defines that the offering is at the regional level. availability-zone: defines that the offering is at the availability zone level. availability-zone-id: defines that the offering is at the availability zone level, defined by the availability zone id.\n\nlocation -> (string)\n\nThe location for the offering. It will return either the region, availability zone or availability zone id for the offering depending on the locationType value."
+    },
+    {
+      "command_name": "describe-accelerator-types",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/describe-accelerator-types.html",
+      "command_description": "Description\n\nDescribes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-accelerator-types\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nacceleratorTypes -> (list)\n\nThe available accelerator types.\n\n(structure)\n\nThe details of an Elastic Inference Accelerator type.\n\nacceleratorTypeName -> (string)\n\nThe name of the Elastic Inference Accelerator type.\n\nmemoryInfo -> (structure)\n\nThe memory information of the Elastic Inference Accelerator type.\n\nsizeInMiB -> (integer)\n\nThe size in mebibytes of the Elastic Inference Accelerator type.\n\nthroughputInfo -> (list)\n\nThe throughput information of the Elastic Inference Accelerator type.\n\n(structure)\n\nA throughput entry for an Elastic Inference Accelerator type.\n\nkey -> (string)\n\nThe throughput value of the Elastic Inference Accelerator type. It can assume the following values: TFLOPS16bit: the throughput expressed in 16bit TeraFLOPS. TFLOPS32bit: the throughput expressed in 32bit TeraFLOPS.\n\nvalue -> (integer)\n\nThe throughput value of the Elastic Inference Accelerator type."
+    },
+    {
+      "command_name": "describe-accelerators",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/describe-accelerators.html",
+      "command_description": "Description\n\nDescribes information over a provided set of accelerators belonging to an account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\ndescribe-accelerators is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: acceleratorSet",
+      "command_synopsis": "Synopsis\n  describe-accelerators\n[--accelerator-ids <value>]\n[--filters <value>]\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--accelerator-ids <value>]",
+        "[--filters <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--accelerator-ids (list)\n\nThe IDs of the accelerators to describe.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--filters (list)\n\nOne or more filters. Filter names and values are case-sensitive. Valid filter names are: accelerator-types: can provide a list of accelerator type names to filter for. instance-id: can provide a list of EC2 instance ids to filter for.\n\n(structure)\n\nA filter expression for the Elastic Inference Accelerator list.\n\nname -> (string)\n\nThe filter name for the Elastic Inference Accelerator list. It can assume the following values: accelerator-type: the type of Elastic Inference Accelerator to filter for. instance-id: an EC2 instance id to filter for.\n\nvalues -> (list)\n\nThe values for the filter of the Elastic Inference Accelerator list.\n\n(string)\n\nShorthand Syntax:\n\nname=string,values=string,string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"name\": \"string\",\n    \"values\": [\"string\", ...]\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nacceleratorSet -> (list)\n\nThe details of the Elastic Inference Accelerators.\n\n(structure)\n\nThe details of an Elastic Inference Accelerator.\n\nacceleratorHealth -> (structure)\n\nThe health of the Elastic Inference Accelerator.\n\nstatus -> (string)\n\nThe health status of the Elastic Inference Accelerator.\n\nacceleratorType -> (string)\n\nThe type of the Elastic Inference Accelerator.\n\nacceleratorId -> (string)\n\nThe ID of the Elastic Inference Accelerator.\n\navailabilityZone -> (string)\n\nThe availability zone where the Elastic Inference Accelerator is present.\n\nattachedResource -> (string)\n\nThe ARN of the resource that the Elastic Inference Accelerator is attached to.\n\nnextToken -> (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/list-tags-for-resource.html",
+      "command_description": "Description\n\nReturns all tags of an Elastic Inference Accelerator.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the Elastic Inference Accelerator to list the tags for.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (map)\n\nThe tags of the Elastic Inference Accelerator.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/tag-resource.html",
+      "command_description": "Description\n\nAdds the specified tags to an Elastic Inference Accelerator.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the Elastic Inference Accelerator to tag.\n\n--tags (map)\n\nThe tags to add to the Elastic Inference Accelerator.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elastic-inference/untag-resource.html",
+      "command_description": "Description\n\nRemoves the specified tags from an Elastic Inference Accelerator.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the Elastic Inference Accelerator to untag.\n\n--tag-keys (list)\n\nThe list of tags to remove from the Elastic Inference Accelerator.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nElastic Inference public APIs."
+}

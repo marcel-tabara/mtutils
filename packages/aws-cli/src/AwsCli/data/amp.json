@@ -1,0 +1,263 @@
+{
+  "service_name": "amp",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-alert-manager-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/create-alert-manager-definition.html",
+      "command_description": "Description\n\nCreate an alert manager definition.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-alert-manager-definition\n[--client-token <value>]\n--data <value>\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--data <value>",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--data (blob)\n\nThe alert manager definition data.\n\n--workspace-id (string)\n\nThe ID of the workspace in which to create the alert manager definition.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nstatus -> (structure)\n\nThe status of alert manager definition.\n\nstatusCode -> (string)\n\nStatus code of this definition.\n\nstatusReason -> (string)\n\nThe reason for failure if any."
+    },
+    {
+      "command_name": "create-rule-groups-namespace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/create-rule-groups-namespace.html",
+      "command_description": "Description\n\nCreate a rule group namespace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-rule-groups-namespace\n[--client-token <value>]\n--data <value>\n--name <value>\n[--tags <value>]\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--data <value>",
+        "--name <value>",
+        "[--tags <value>]",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--data (blob)\n\nThe namespace data that define the rule groups.\n\n--name (string)\n\nThe rule groups namespace name.\n\n--tags (map)\n\nOptional, user-provided tags for this rule groups namespace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--workspace-id (string)\n\nThe ID of the workspace in which to create the rule group namespace.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\narn -> (string)\n\nThe Amazon Resource Name (ARN) of this rule groups namespace.\n\nname -> (string)\n\nThe rule groups namespace name.\n\nstatus -> (structure)\n\nThe status of rule groups namespace.\n\nstatusCode -> (string)\n\nStatus code of this namespace.\n\nstatusReason -> (string)\n\nThe reason for failure if any.\n\ntags -> (map)\n\nThe tags of this rule groups namespace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @"
+    },
+    {
+      "command_name": "create-workspace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/create-workspace.html",
+      "command_description": "Description\n\nCreates a new AMP workspace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-workspace\n[--alias <value>]\n[--client-token <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--alias <value>]",
+        "[--client-token <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--alias (string)\n\nAn optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--tags (map)\n\nOptional, user-provided tags for this workspace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\narn -> (string)\n\nThe ARN of the workspace that was just created.\n\nstatus -> (structure)\n\nThe status of the workspace that was just created (usually CREATING).\n\nstatusCode -> (string)\n\nStatus code of this workspace.\n\ntags -> (map)\n\nThe tags of this workspace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n\nworkspaceId -> (string)\n\nThe generated ID of the workspace that was just created."
+    },
+    {
+      "command_name": "delete-alert-manager-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/delete-alert-manager-definition.html",
+      "command_description": "Description\n\nDeletes an alert manager definition.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-alert-manager-definition\n[--client-token <value>]\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--workspace-id (string)\n\nThe ID of the workspace in which to delete the alert manager definition.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-rule-groups-namespace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/delete-rule-groups-namespace.html",
+      "command_description": "Description\n\nDelete a rule groups namespace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-rule-groups-namespace\n[--client-token <value>]\n--name <value>\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--name <value>",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--name (string)\n\nThe rule groups namespace name.\n\n--workspace-id (string)\n\nThe ID of the workspace to delete rule group definition.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-workspace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/delete-workspace.html",
+      "command_description": "Description\n\nDeletes an AMP workspace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-workspace\n[--client-token <value>]\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--workspace-id (string)\n\nThe ID of the workspace to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-alert-manager-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/describe-alert-manager-definition.html",
+      "command_description": "Description\n\nDescribes an alert manager definition.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-alert-manager-definition\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--workspace-id (string)\n\nThe ID of the workspace to describe.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nalertManagerDefinition -> (structure)\n\nThe properties of the selected workspace’s alert manager definition.\n\ncreatedAt -> (timestamp)\n\nThe time when the alert manager definition was created.\n\ndata -> (blob)\n\nThe alert manager definition.\n\nmodifiedAt -> (timestamp)\n\nThe time when the alert manager definition was modified.\n\nstatus -> (structure)\n\nThe status of alert manager definition.\n\nstatusCode -> (string)\n\nStatus code of this definition.\n\nstatusReason -> (string)\n\nThe reason for failure if any."
+    },
+    {
+      "command_name": "describe-rule-groups-namespace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/describe-rule-groups-namespace.html",
+      "command_description": "Description\n\nDescribe a rule groups namespace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-rule-groups-namespace\n--name <value>\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe rule groups namespace.\n\n--workspace-id (string)\n\nThe ID of the workspace to describe.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nruleGroupsNamespace -> (structure)\n\nThe selected rule groups namespace.\n\narn -> (string)\n\nThe Amazon Resource Name (ARN) of this rule groups namespace.\n\ncreatedAt -> (timestamp)\n\nThe time when the rule groups namespace was created.\n\ndata -> (blob)\n\nThe rule groups namespace data.\n\nmodifiedAt -> (timestamp)\n\nThe time when the rule groups namespace was modified.\n\nname -> (string)\n\nThe rule groups namespace name.\n\nstatus -> (structure)\n\nThe status of rule groups namespace.\n\nstatusCode -> (string)\n\nStatus code of this namespace.\n\nstatusReason -> (string)\n\nThe reason for failure if any.\n\ntags -> (map)\n\nThe tags of this rule groups namespace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @"
+    },
+    {
+      "command_name": "describe-workspace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/describe-workspace.html",
+      "command_description": "Description\n\nDescribes an existing AMP workspace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-workspace\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--workspace-id (string)\n\nThe ID of the workspace to describe.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nworkspace -> (structure)\n\nThe properties of the selected workspace.\n\nalias -> (string)\n\nAlias of this workspace.\n\narn -> (string)\n\nThe Amazon Resource Name (ARN) of this workspace.\n\ncreatedAt -> (timestamp)\n\nThe time when the workspace was created.\n\nprometheusEndpoint -> (string)\n\nPrometheus endpoint URI.\n\nstatus -> (structure)\n\nThe status of this workspace.\n\nstatusCode -> (string)\n\nStatus code of this workspace.\n\ntags -> (map)\n\nThe tags of this workspace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n\nworkspaceId -> (string)\n\nUnique string identifying this workspace."
+    },
+    {
+      "command_name": "list-rule-groups-namespaces",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/list-rule-groups-namespaces.html",
+      "command_description": "Description\n\nLists rule groups namespaces.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-rule-groups-namespaces is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: ruleGroupsNamespaces",
+      "command_synopsis": "Synopsis\n  list-rule-groups-namespaces\n[--name <value>]\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nOptional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.\n\n--workspace-id (string)\n\nThe ID of the workspace.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nnextToken -> (string)\n\nPagination token to use when requesting the next page in this list.\n\nruleGroupsNamespaces -> (list)\n\nThe list of the selected rule groups namespaces.\n\n(structure)\n\nRepresents a summary of the rule groups namespace.\n\narn -> (string)\n\nThe Amazon Resource Name (ARN) of this rule groups namespace.\n\ncreatedAt -> (timestamp)\n\nThe time when the rule groups namespace was created.\n\nmodifiedAt -> (timestamp)\n\nThe time when the rule groups namespace was modified.\n\nname -> (string)\n\nThe rule groups namespace name.\n\nstatus -> (structure)\n\nThe status of rule groups namespace.\n\nstatusCode -> (string)\n\nStatus code of this namespace.\n\nstatusReason -> (string)\n\nThe reason for failure if any.\n\ntags -> (map)\n\nThe tags of this rule groups namespace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @"
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags you have assigned to the resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (map)\n\nThe list of tags assigned to the resource.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @"
+    },
+    {
+      "command_name": "list-workspaces",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/list-workspaces.html",
+      "command_description": "Description\n\nLists all AMP workspaces, including workspaces being created or deleted.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-workspaces is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: workspaces",
+      "command_synopsis": "Synopsis\n  list-workspaces\n[--alias <value>]\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--alias <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--alias (string)\n\nOptional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nnextToken -> (string)\n\nPagination token to use when requesting the next page in this list.\n\nworkspaces -> (list)\n\nThe list of existing workspaces, including those undergoing creation or deletion.\n\n(structure)\n\nRepresents a summary of the properties of a workspace.\n\nalias -> (string)\n\nAlias of this workspace.\n\narn -> (string)\n\nThe AmazonResourceName of this workspace.\n\ncreatedAt -> (timestamp)\n\nThe time when the workspace was created.\n\nstatus -> (structure)\n\nThe status of this workspace.\n\nstatusCode -> (string)\n\nStatus code of this workspace.\n\ntags -> (map)\n\nThe tags of this workspace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n\nworkspaceId -> (string)\n\nUnique string identifying this workspace."
+    },
+    {
+      "command_name": "put-alert-manager-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/put-alert-manager-definition.html",
+      "command_description": "Description\n\nUpdate an alert manager definition.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-alert-manager-definition\n[--client-token <value>]\n--data <value>\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--data <value>",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--data (blob)\n\nThe alert manager definition data.\n\n--workspace-id (string)\n\nThe ID of the workspace in which to update the alert manager definition.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nstatus -> (structure)\n\nThe status of alert manager definition.\n\nstatusCode -> (string)\n\nStatus code of this definition.\n\nstatusReason -> (string)\n\nThe reason for failure if any."
+    },
+    {
+      "command_name": "put-rule-groups-namespace",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/put-rule-groups-namespace.html",
+      "command_description": "Description\n\nUpdate a rule groups namespace.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-rule-groups-namespace\n[--client-token <value>]\n--data <value>\n--name <value>\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--data <value>",
+        "--name <value>",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--data (blob)\n\nThe namespace data that define the rule groups.\n\n--name (string)\n\nThe rule groups namespace name.\n\n--workspace-id (string)\n\nThe ID of the workspace in which to update the rule group namespace.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\narn -> (string)\n\nThe Amazon Resource Name (ARN) of this rule groups namespace.\n\nname -> (string)\n\nThe rule groups namespace name.\n\nstatus -> (structure)\n\nThe status of rule groups namespace.\n\nstatusCode -> (string)\n\nStatus code of this namespace.\n\nstatusReason -> (string)\n\nThe reason for failure if any.\n\ntags -> (map)\n\nThe tags of this rule groups namespace.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/tag-resource.html",
+      "command_description": "Description\n\nCreates tags for the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tags (map)\n\nThe list of tags assigned to the resource.\n\nkey -> (string)\n\nThe key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ May not begin with aws: .\n\nvalue -> (string)\n\nThe value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/untag-resource.html",
+      "command_description": "Description\n\nDeletes tags from the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tag-keys (list)\n\nOne or more tag keys\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-workspace-alias",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/update-workspace-alias.html",
+      "command_description": "Description\n\nUpdates an AMP workspace alias.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-workspace-alias\n[--alias <value>]\n[--client-token <value>]\n--workspace-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--alias <value>]",
+        "[--client-token <value>]",
+        "--workspace-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--alias (string)\n\nThe new alias of the workspace.\n\n--client-token (string)\n\nOptional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.\n\n--workspace-id (string)\n\nThe ID of the workspace being updated.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "wait",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amp/wait/index.html",
+      "command_description": "Description\n\nWait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_options": []
+    }
+  ],
+  "service_description": "Description\n\nAmazon Managed Service for Prometheus"
+}

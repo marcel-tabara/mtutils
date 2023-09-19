@@ -1,0 +1,477 @@
+{
+  "service_name": "worklink",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/index.html",
+  "service_commands": [
+    {
+      "command_name": "associate-domain",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/associate-domain.html",
+      "command_description": "Description\n\nSpecifies a domain to be associated to Amazon WorkLink.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  associate-domain\n--fleet-arn <value>\n--domain-name <value>\n[--display-name <value>]\n--acm-certificate-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--domain-name <value>",
+        "[--display-name <value>]",
+        "--acm-certificate-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe Amazon Resource Name (ARN) of the fleet.\n\n--domain-name (string)\n\nThe fully qualified domain name (FQDN).\n\n--display-name (string)\n\nThe name to display.\n\n--acm-certificate-arn (string)\n\nThe ARN of an issued ACM certificate that is valid for the domain being associated.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "associate-website-authorization-provider",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/associate-website-authorization-provider.html",
+      "command_description": "Description\n\nAssociates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  associate-website-authorization-provider\n--fleet-arn <value>\n--authorization-provider-type <value>\n[--domain-name <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--authorization-provider-type <value>",
+        "[--domain-name <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--authorization-provider-type (string)\n\nThe authorization provider type.\n\nPossible values:\n\nSAML\n\n--domain-name (string)\n\nThe domain name of the authorization provider. This applies only to SAML-based authorization providers.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAuthorizationProviderId -> (string)\n\nA unique identifier for the authorization provider."
+    },
+    {
+      "command_name": "associate-website-certificate-authority",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/associate-website-certificate-authority.html",
+      "command_description": "Description\n\nImports the root certificate of a certificate authority (CA) used to obtain TLS certificates used by associated websites within the company network.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  associate-website-certificate-authority\n--fleet-arn <value>\n--certificate <value>\n[--display-name <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--certificate <value>",
+        "[--display-name <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--certificate (string)\n\nThe root certificate of the CA.\n\n--display-name (string)\n\nThe certificate name to display.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nWebsiteCaId -> (string)\n\nA unique identifier for the CA."
+    },
+    {
+      "command_name": "create-fleet",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/create-fleet.html",
+      "command_description": "Description\n\nCreates a fleet. A fleet consists of resources and the configuration that delivers associated websites to authorized users who download and set up the Amazon WorkLink app.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-fleet\n--fleet-name <value>\n[--display-name <value>]\n[--optimize-for-end-user-location | --no-optimize-for-end-user-location]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-name <value>",
+        "[--display-name <value>]",
+        "[--optimize-for-end-user-location | --no-optimize-for-end-user-location]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-name (string)\n\nA unique name for the fleet.\n\n--display-name (string)\n\nThe fleet name to display.\n\n--optimize-for-end-user-location | --no-optimize-for-end-user-location (boolean)\n\nThe option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.\n\n--tags (map)\n\nThe tags to add to the resource. A tag is a key-value pair.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nFleetArn -> (string)\n\nThe Amazon Resource Name (ARN) of the fleet."
+    },
+    {
+      "command_name": "delete-fleet",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/delete-fleet.html",
+      "command_description": "Description\n\nDeletes a fleet. Prevents users from accessing previously associated websites.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-fleet\n--fleet-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-audit-stream-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-audit-stream-configuration.html",
+      "command_description": "Description\n\nDescribes the configuration for delivering audit streams to the customer account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-audit-stream-configuration\n--fleet-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAuditStreamArn -> (string)\n\nThe ARN of the Amazon Kinesis data stream that will receive the audit events."
+    },
+    {
+      "command_name": "describe-company-network-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-company-network-configuration.html",
+      "command_description": "Description\n\nDescribes the networking configuration to access the internal websites associated with the specified fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-company-network-configuration\n--fleet-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nVpcId -> (string)\n\nThe VPC with connectivity to associated websites.\n\nSubnetIds -> (list)\n\nThe subnets used for X-ENI connections from Amazon WorkLink rendering containers.\n\n(string)\n\nSecurityGroupIds -> (list)\n\nThe security groups associated with access to the provided subnets.\n\n(string)"
+    },
+    {
+      "command_name": "describe-device",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-device.html",
+      "command_description": "Description\n\nProvides information about a user’s device.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-device\n--fleet-arn <value>\n--device-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--device-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--device-id (string)\n\nA unique identifier for a registered user’s device.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (string)\n\nThe current state of the device.\n\nModel -> (string)\n\nThe model of the device.\n\nManufacturer -> (string)\n\nThe manufacturer of the device.\n\nOperatingSystem -> (string)\n\nThe operating system of the device.\n\nOperatingSystemVersion -> (string)\n\nThe operating system version of the device.\n\nPatchLevel -> (string)\n\nThe operating system patch level of the device.\n\nFirstAccessedTime -> (timestamp)\n\nThe date that the device first signed in to Amazon WorkLink.\n\nLastAccessedTime -> (timestamp)\n\nThe date that the device last accessed Amazon WorkLink.\n\nUsername -> (string)\n\nThe user name associated with the device."
+    },
+    {
+      "command_name": "describe-device-policy-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-device-policy-configuration.html",
+      "command_description": "Description\n\nDescribes the device policy configuration for the specified fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-device-policy-configuration\n--fleet-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceCaCertificate -> (string)\n\nThe certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates."
+    },
+    {
+      "command_name": "describe-domain",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-domain.html",
+      "command_description": "Description\n\nProvides information about the domain.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-domain\n--fleet-arn <value>\n--domain-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--domain-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--domain-name (string)\n\nThe name of the domain.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDomainName -> (string)\n\nThe name of the domain.\n\nDisplayName -> (string)\n\nThe name to display.\n\nCreatedTime -> (timestamp)\n\nThe time that the domain was added.\n\nDomainStatus -> (string)\n\nThe current state for the domain.\n\nAcmCertificateArn -> (string)\n\nThe ARN of an issued ACM certificate that is valid for the domain being associated."
+    },
+    {
+      "command_name": "describe-fleet-metadata",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-fleet-metadata.html",
+      "command_description": "Description\n\nProvides basic information for the specified fleet, excluding identity provider, networking, and device configuration details.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-fleet-metadata\n--fleet-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe Amazon Resource Name (ARN) of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nCreatedTime -> (timestamp)\n\nThe time that the fleet was created.\n\nLastUpdatedTime -> (timestamp)\n\nThe time that the fleet was last updated.\n\nFleetName -> (string)\n\nThe name of the fleet.\n\nDisplayName -> (string)\n\nThe name to display.\n\nOptimizeForEndUserLocation -> (boolean)\n\nThe option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.\n\nCompanyCode -> (string)\n\nThe identifier used by users to sign in to the Amazon WorkLink app.\n\nFleetStatus -> (string)\n\nThe current state of the fleet.\n\nTags -> (map)\n\nThe tags attached to the resource. A tag is a key-value pair.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-identity-provider-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-identity-provider-configuration.html",
+      "command_description": "Description\n\nDescribes the identity provider configuration of the specified fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-identity-provider-configuration\n--fleet-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nIdentityProviderType -> (string)\n\nThe type of identity provider.\n\nServiceProviderSamlMetadata -> (string)\n\nThe SAML metadata document uploaded to the user’s identity provider.\n\nIdentityProviderSamlMetadata -> (string)\n\nThe SAML metadata document provided by the user’s identity provider."
+    },
+    {
+      "command_name": "describe-website-certificate-authority",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/describe-website-certificate-authority.html",
+      "command_description": "Description\n\nProvides information about the certificate authority.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-website-certificate-authority\n--fleet-arn <value>\n--website-ca-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--website-ca-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--website-ca-id (string)\n\nA unique identifier for the certificate authority.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nCertificate -> (string)\n\nThe root certificate of the certificate authority.\n\nCreatedTime -> (timestamp)\n\nThe time that the certificate authority was added.\n\nDisplayName -> (string)\n\nThe certificate name to display."
+    },
+    {
+      "command_name": "disassociate-domain",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/disassociate-domain.html",
+      "command_description": "Description\n\nDisassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  disassociate-domain\n--fleet-arn <value>\n--domain-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--domain-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--domain-name (string)\n\nThe name of the domain.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "disassociate-website-authorization-provider",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/disassociate-website-authorization-provider.html",
+      "command_description": "Description\n\nDisassociates a website authorization provider from a specified fleet. After the disassociation, users can’t load any associated websites that require this authorization provider.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  disassociate-website-authorization-provider\n--fleet-arn <value>\n--authorization-provider-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--authorization-provider-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--authorization-provider-id (string)\n\nA unique identifier for the authorization provider.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "disassociate-website-certificate-authority",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/disassociate-website-certificate-authority.html",
+      "command_description": "Description\n\nRemoves a certificate authority (CA).\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  disassociate-website-certificate-authority\n--fleet-arn <value>\n--website-ca-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--website-ca-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--website-ca-id (string)\n\nA unique identifier for the CA.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "list-devices",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/list-devices.html",
+      "command_description": "Description\n\nRetrieves a list of devices registered with the specified fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-devices\n--fleet-arn <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--next-token (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.\n\n--max-results (integer)\n\nThe maximum number of results to be included in the next page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDevices -> (list)\n\nInformation about the devices.\n\n(structure)\n\nThe summary of devices.\n\nDeviceId -> (string)\n\nThe ID of the device.\n\nDeviceStatus -> (string)\n\nThe status of the device.\n\nNextToken -> (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+    },
+    {
+      "command_name": "list-domains",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/list-domains.html",
+      "command_description": "Description\n\nRetrieves a list of domains associated to a specified fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-domains\n--fleet-arn <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--next-token (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.\n\n--max-results (integer)\n\nThe maximum number of results to be included in the next page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDomains -> (list)\n\nInformation about the domains.\n\n(structure)\n\nThe summary of the domain.\n\nDomainName -> (string)\n\nThe name of the domain.\n\nDisplayName -> (string)\n\nThe name to display.\n\nCreatedTime -> (timestamp)\n\nThe time that the domain was created.\n\nDomainStatus -> (string)\n\nThe status of the domain.\n\nNextToken -> (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+    },
+    {
+      "command_name": "list-fleets",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/list-fleets.html",
+      "command_description": "Description\n\nRetrieves a list of fleets for the current account and Region.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-fleets\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.\n\n--max-results (integer)\n\nThe maximum number of results to be included in the next page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nFleetSummaryList -> (list)\n\nThe summary list of the fleets.\n\n(structure)\n\nThe summary of the fleet.\n\nFleetArn -> (string)\n\nThe Amazon Resource Name (ARN) of the fleet.\n\nCreatedTime -> (timestamp)\n\nThe time when the fleet was created.\n\nLastUpdatedTime -> (timestamp)\n\nThe time when the fleet was last updated.\n\nFleetName -> (string)\n\nThe name of the fleet.\n\nDisplayName -> (string)\n\nThe name of the fleet to display.\n\nCompanyCode -> (string)\n\nThe identifier used by users to sign into the Amazon WorkLink app.\n\nFleetStatus -> (string)\n\nThe status of the fleet.\n\nTags -> (map)\n\nThe tags attached to the resource. A tag is a key-value pair.\n\nkey -> (string)\n\nvalue -> (string)\n\nNextToken -> (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/list-tags-for-resource.html",
+      "command_description": "Description\n\nRetrieves a list of tags for the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the fleet.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTags -> (map)\n\nThe tags attached to the resource. A tag is a key-value pair.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "list-website-authorization-providers",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/list-website-authorization-providers.html",
+      "command_description": "Description\n\nRetrieves a list of website authorization providers associated with a specified fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-website-authorization-providers\n--fleet-arn <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--next-token (string)\n\nThe pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.\n\n--max-results (integer)\n\nThe maximum number of results to be included in the next page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nWebsiteAuthorizationProviders -> (list)\n\nThe website authorization providers.\n\n(structure)\n\nThe summary of the website authorization provider.\n\nAuthorizationProviderId -> (string)\n\nA unique identifier for the authorization provider.\n\nAuthorizationProviderType -> (string)\n\nThe authorization provider type.\n\nDomainName -> (string)\n\nThe domain name of the authorization provider. This applies only to SAML-based authorization providers.\n\nCreatedTime -> (timestamp)\n\nThe time of creation.\n\nNextToken -> (string)\n\nThe pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+    },
+    {
+      "command_name": "list-website-certificate-authorities",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/list-website-certificate-authorities.html",
+      "command_description": "Description\n\nRetrieves a list of certificate authorities added for the current account and Region.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-website-certificate-authorities\n--fleet-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--max-results (integer)\n\nThe maximum number of results to be included in the next page.\n\n--next-token (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nWebsiteCertificateAuthorities -> (list)\n\nInformation about the certificates.\n\n(structure)\n\nThe summary of the certificate authority (CA).\n\nWebsiteCaId -> (string)\n\nA unique identifier for the CA.\n\nCreatedTime -> (timestamp)\n\nThe time when the CA was added.\n\nDisplayName -> (string)\n\nThe name to display.\n\nNextToken -> (string)\n\nThe pagination token used to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+    },
+    {
+      "command_name": "restore-domain-access",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/restore-domain-access.html",
+      "command_description": "Description\n\nMoves a domain to ACTIVE status if it was in the INACTIVE status.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  restore-domain-access\n--fleet-arn <value>\n--domain-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--domain-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--domain-name (string)\n\nThe name of the domain.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "revoke-domain-access",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/revoke-domain-access.html",
+      "command_description": "Description\n\nMoves a domain to INACTIVE status if it was in the ACTIVE status.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  revoke-domain-access\n--fleet-arn <value>\n--domain-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--domain-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--domain-name (string)\n\nThe name of the domain.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "sign-out-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/sign-out-user.html",
+      "command_description": "Description\n\nSigns the user out from all of their devices. The user can sign in again if they have valid credentials.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  sign-out-user\n--fleet-arn <value>\n--username <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--username <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--username (string)\n\nThe name of the user.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/tag-resource.html",
+      "command_description": "Description\n\nAdds or overwrites one or more tags for the specified resource, such as a fleet. Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the fleet.\n\n--tags (map)\n\nThe tags to add to the resource. A tag is a key-value pair.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/untag-resource.html",
+      "command_description": "Description\n\nRemoves one or more tags from the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the fleet.\n\n--tag-keys (list)\n\nThe list of tag keys to remove from the resource.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-audit-stream-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/update-audit-stream-configuration.html",
+      "command_description": "Description\n\nUpdates the audit stream configuration for the fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-audit-stream-configuration\n--fleet-arn <value>\n[--audit-stream-arn <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--audit-stream-arn <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--audit-stream-arn (string)\n\nThe ARN of the Amazon Kinesis data stream that receives the audit events.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-company-network-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/update-company-network-configuration.html",
+      "command_description": "Description\n\nUpdates the company network configuration for the fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-company-network-configuration\n--fleet-arn <value>\n--vpc-id <value>\n--subnet-ids <value>\n--security-group-ids <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--vpc-id <value>",
+        "--subnet-ids <value>",
+        "--security-group-ids <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--vpc-id (string)\n\nThe VPC with connectivity to associated websites.\n\n--subnet-ids (list)\n\nThe subnets used for X-ENI connections from Amazon WorkLink rendering containers.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--security-group-ids (list)\n\nThe security groups associated with access to the provided subnets.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-device-policy-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/update-device-policy-configuration.html",
+      "command_description": "Description\n\nUpdates the device policy configuration for the fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-device-policy-configuration\n--fleet-arn <value>\n[--device-ca-certificate <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--device-ca-certificate <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--device-ca-certificate (string)\n\nThe certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-domain-metadata",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/update-domain-metadata.html",
+      "command_description": "Description\n\nUpdates domain metadata, such as DisplayName.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-domain-metadata\n--fleet-arn <value>\n--domain-name <value>\n[--display-name <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--domain-name <value>",
+        "[--display-name <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--domain-name (string)\n\nThe name of the domain.\n\n--display-name (string)\n\nThe name to display.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-fleet-metadata",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/update-fleet-metadata.html",
+      "command_description": "Description\n\nUpdates fleet metadata, such as DisplayName.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-fleet-metadata\n--fleet-arn <value>\n[--display-name <value>]\n[--optimize-for-end-user-location | --no-optimize-for-end-user-location]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "[--display-name <value>]",
+        "[--optimize-for-end-user-location | --no-optimize-for-end-user-location]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--display-name (string)\n\nThe fleet name to display. The existing DisplayName is unset if null is passed.\n\n--optimize-for-end-user-location | --no-optimize-for-end-user-location (boolean)\n\nThe option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-identity-provider-configuration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/worklink/update-identity-provider-configuration.html",
+      "command_description": "Description\n\nUpdates the identity provider configuration for the fleet.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-identity-provider-configuration\n--fleet-arn <value>\n--identity-provider-type <value>\n[--identity-provider-saml-metadata <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--fleet-arn <value>",
+        "--identity-provider-type <value>",
+        "[--identity-provider-saml-metadata <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--fleet-arn (string)\n\nThe ARN of the fleet.\n\n--identity-provider-type (string)\n\nThe type of identity provider.\n\nPossible values:\n\nSAML\n\n--identity-provider-saml-metadata (string)\n\nThe SAML metadata document provided by the customer’s identity provider. The existing IdentityProviderSamlMetadata is unset if null is passed.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nAmazon WorkLink is a cloud-based service that provides secure access to internal websites and web apps from iOS and Android phones. In a single step, your users, such as employees, can access internal websites as efficiently as they access any other public website. They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink authenticates the user’s access and securely renders authorized internal web content in a secure rendering service in the AWS cloud. Amazon WorkLink doesn’t download or store any internal web content on mobile devices."
+}

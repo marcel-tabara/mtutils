@@ -1,0 +1,71 @@
+{
+  "service_name": "sso",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/index.html",
+  "service_commands": [
+    {
+      "command_name": "get-role-credentials",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/get-role-credentials.html",
+      "command_description": "Description\n\nReturns the STS short-term credentials for a given role name that is assigned to the user.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-role-credentials\n--role-name <value>\n--account-id <value>\n--access-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--role-name <value>",
+        "--account-id <value>",
+        "--access-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--role-name (string)\n\nThe friendly name of the role that is assigned to the user.\n\n--account-id (string)\n\nThe identifier for the AWS account that is assigned to the user.\n\n--access-token (string)\n\nThe token issued by the CreateToken API call. For more information, see CreateToken in the AWS SSO OIDC API Reference Guide .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nroleCredentials -> (structure)\n\nThe credentials for the role that is assigned to the user.\n\naccessKeyId -> (string)\n\nThe identifier used for the temporary security credentials. For more information, see Using Temporary Security Credentials to Request Access to AWS Resources in the AWS IAM User Guide .\n\nsecretAccessKey -> (string)\n\nThe key that is used to sign the request. For more information, see Using Temporary Security Credentials to Request Access to AWS Resources in the AWS IAM User Guide .\n\nsessionToken -> (string)\n\nThe token used for temporary credentials. For more information, see Using Temporary Security Credentials to Request Access to AWS Resources in the AWS IAM User Guide .\n\nexpiration -> (long)\n\nThe date on which temporary security credentials expire."
+    },
+    {
+      "command_name": "list-account-roles",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/list-account-roles.html",
+      "command_description": "Description\n\nLists all roles that are assigned to the user for a given AWS account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-account-roles is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: roleList",
+      "command_synopsis": "Synopsis\n  list-account-roles\n--access-token <value>\n--account-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--access-token <value>",
+        "--account-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--access-token (string)\n\nThe token issued by the CreateToken API call. For more information, see CreateToken in the AWS SSO OIDC API Reference Guide .\n\n--account-id (string)\n\nThe identifier for the AWS account that is assigned to the user.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nnextToken -> (string)\n\nThe page token client that is used to retrieve the list of accounts.\n\nroleList -> (list)\n\nA paginated response with the list of roles and the next token if more results are available.\n\n(structure)\n\nProvides information about the role that is assigned to the user.\n\nroleName -> (string)\n\nThe friendly name of the role that is assigned to the user.\n\naccountId -> (string)\n\nThe identifier of the AWS account assigned to the user."
+    },
+    {
+      "command_name": "list-accounts",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/list-accounts.html",
+      "command_description": "Description\n\nLists all AWS accounts assigned to the user. These AWS accounts are assigned by the administrator of the account. For more information, see Assign User Access in the AWS SSO User Guide . This operation returns a paginated response.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-accounts is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: accountList",
+      "command_synopsis": "Synopsis\n  list-accounts\n--access-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--access-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--access-token (string)\n\nThe token issued by the CreateToken API call. For more information, see CreateToken in the AWS SSO OIDC API Reference Guide .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nnextToken -> (string)\n\nThe page token client that is used to retrieve the list of accounts.\n\naccountList -> (list)\n\nA paginated response with the list of account information and the next token if more results are available.\n\n(structure)\n\nProvides information about your AWS account.\n\naccountId -> (string)\n\nThe identifier of the AWS account that is assigned to the user.\n\naccountName -> (string)\n\nThe display name of the AWS account that is assigned to the user.\n\nemailAddress -> (string)\n\nThe email address of the AWS account that is assigned to the user."
+    },
+    {
+      "command_name": "login",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/login.html",
+      "command_description": "Description\n\nRetrieves and caches an AWS SSO access token to exchange for AWS credentials. To login, the requested profile must have first been setup using aws configure sso. Each time the login command is called, a new SSO access token will be retrieved.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\nlogin\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nNone\n\nSee ‘aws help’ for descriptions of global parameters."
+    },
+    {
+      "command_name": "logout",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/logout.html",
+      "command_description": "Description\n\nRemoves all cached AWS SSO access tokens and any cached temporary AWS credentials retrieved with SSO access tokens across all profiles. To use these profiles again, run: aws sso login\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\nlogout\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nNone\n\nSee ‘aws help’ for descriptions of global parameters."
+    }
+  ],
+  "service_description": "Description\n\nAWS Single Sign-On Portal is a web service that makes it easy for you to assign user access to AWS SSO resources such as the user portal. Users can get AWS account applications and roles assigned to them and get federated into the application.\n\nFor general information about AWS SSO, see What is AWS Single Sign-On? in the AWS SSO User Guide .\n\nThis API reference guide describes the AWS SSO Portal operations that you can call programatically and includes detailed information on data types and errors.\n\nNote\n\nAWS provides SDKs that consist of libraries and sample code for various programming languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs provide a convenient way to create programmatic access to AWS SSO and other AWS services. For more information about the AWS SDKs, including how to download and install them, see Tools for Amazon Web Services ."
+}

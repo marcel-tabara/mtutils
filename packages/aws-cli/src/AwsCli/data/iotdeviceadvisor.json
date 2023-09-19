@@ -1,0 +1,191 @@
+{
+  "service_name": "iotdeviceadvisor",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-suite-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/create-suite-definition.html",
+      "command_description": "Description\n\nCreates a Device Advisor test suite.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-suite-definition\n[--suite-definition-configuration <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--suite-definition-configuration <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-configuration (structure)\n\nCreates a Device Advisor test suite with suite definition configuration.\n\nsuiteDefinitionName -> (string)\n\nGets Suite Definition Configuration name.\n\ndevices -> (list)\n\nGets the devices configured.\n\n(structure)\n\nLists all the devices under test\n\nthingArn -> (string)\n\nLists devices thing arn\n\ncertificateArn -> (string)\n\nLists devices certificate arn\n\nintendedForQualification -> (boolean)\n\nGets the tests intended for qualification in a suite.\n\nrootGroup -> (string)\n\nGets test suite root group.\n\ndevicePermissionRoleArn -> (string)\n\nGets device permission arn.\n\nShorthand Syntax:\n\nsuiteDefinitionName=string,devices=[{thingArn=string,certificateArn=string},{thingArn=string,certificateArn=string}],intendedForQualification=boolean,rootGroup=string,devicePermissionRoleArn=string\n\n\nJSON Syntax:\n\n{\n  \"suiteDefinitionName\": \"string\",\n  \"devices\": [\n    {\n      \"thingArn\": \"string\",\n      \"certificateArn\": \"string\"\n    }\n    ...\n  ],\n  \"intendedForQualification\": true|false,\n  \"rootGroup\": \"string\",\n  \"devicePermissionRoleArn\": \"string\"\n}\n\n\n--tags (map)\n\nThe tags to be attached to the suite definition.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteDefinitionId -> (string)\n\nCreates a Device Advisor test suite with suite UUID.\n\nsuiteDefinitionArn -> (string)\n\nCreates a Device Advisor test suite with Amazon Resource name.\n\nsuiteDefinitionName -> (string)\n\nCreates a Device Advisor test suite with suite definition name.\n\ncreatedAt -> (timestamp)\n\nCreates a Device Advisor test suite with TimeStamp of when it was created."
+    },
+    {
+      "command_name": "delete-suite-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/delete-suite-definition.html",
+      "command_description": "Description\n\nDeletes a Device Advisor test suite.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-suite-definition\n--suite-definition-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id of the test suite to be deleted.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "get-suite-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/get-suite-definition.html",
+      "command_description": "Description\n\nGets information about a Device Advisor test suite.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-suite-definition\n--suite-definition-id <value>\n[--suite-definition-version <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "[--suite-definition-version <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id of the test suite to get.\n\n--suite-definition-version (string)\n\nSuite definition version of the test suite to get.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteDefinitionId -> (string)\n\nSuite definition Id of the suite definition.\n\nsuiteDefinitionArn -> (string)\n\nThe ARN of the suite definition.\n\nsuiteDefinitionVersion -> (string)\n\nSuite definition version of the suite definition.\n\nlatestVersion -> (string)\n\nLatest suite definition version of the suite definition.\n\nsuiteDefinitionConfiguration -> (structure)\n\nSuite configuration of the suite definition.\n\nsuiteDefinitionName -> (string)\n\nGets Suite Definition Configuration name.\n\ndevices -> (list)\n\nGets the devices configured.\n\n(structure)\n\nLists all the devices under test\n\nthingArn -> (string)\n\nLists devices thing arn\n\ncertificateArn -> (string)\n\nLists devices certificate arn\n\nintendedForQualification -> (boolean)\n\nGets the tests intended for qualification in a suite.\n\nrootGroup -> (string)\n\nGets test suite root group.\n\ndevicePermissionRoleArn -> (string)\n\nGets device permission arn.\n\ncreatedAt -> (timestamp)\n\nDate (in Unix epoch time) when the suite definition was created.\n\nlastModifiedAt -> (timestamp)\n\nDate (in Unix epoch time) when the suite definition was last modified.\n\ntags -> (map)\n\nTags attached to the suite definition.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "get-suite-run",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/get-suite-run.html",
+      "command_description": "Description\n\nGets information about a Device Advisor test suite run.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-suite-run\n--suite-definition-id <value>\n--suite-run-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "--suite-run-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id for the test suite run.\n\n--suite-run-id (string)\n\nSuite run Id for the test suite run.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteDefinitionId -> (string)\n\nSuite definition Id for the test suite run.\n\nsuiteDefinitionVersion -> (string)\n\nSuite definition version for the test suite run.\n\nsuiteRunId -> (string)\n\nSuite run Id for the test suite run.\n\nsuiteRunArn -> (string)\n\nThe ARN of the suite run.\n\nsuiteRunConfiguration -> (structure)\n\nSuite run configuration for the test suite run.\n\nprimaryDevice -> (structure)\n\nGets the primary device for suite run.\n\nthingArn -> (string)\n\nLists devices thing arn\n\ncertificateArn -> (string)\n\nLists devices certificate arn\n\nselectedTestList -> (list)\n\nGets test case list.\n\n(string)\n\ntestResult -> (structure)\n\nTest results for the test suite run.\n\ngroups -> (list)\n\nShow each group of test results.\n\n(structure)\n\nShow Group Result.\n\ngroupId -> (string)\n\nGroup result Id.\n\ngroupName -> (string)\n\nGroup Result Name.\n\ntests -> (list)\n\nTests under Group Result.\n\n(structure)\n\nProvides test case run.\n\ntestCaseRunId -> (string)\n\nProvides test case run Id.\n\ntestCaseDefinitionId -> (string)\n\nProvides test case run definition Id.\n\ntestCaseDefinitionName -> (string)\n\nProvides test case run definition Name.\n\nstatus -> (string)\n\nProvides test case run status.\n\nstartTime -> (timestamp)\n\nProvides test case run start time.\n\nendTime -> (timestamp)\n\nProvides test case run end time.\n\nlogUrl -> (string)\n\nProvides test case run log Url.\n\nwarnings -> (string)\n\nProvides test case run warnings.\n\nfailure -> (string)\n\nProvides test case run failure result.\n\nstartTime -> (timestamp)\n\nDate (in Unix epoch time) when the test suite run was started.\n\nendTime -> (timestamp)\n\nDate (in Unix epoch time) when the test suite run ended.\n\nstatus -> (string)\n\nStatus for the test suite run.\n\nerrorReason -> (string)\n\nError reason for any test suite run failure.\n\ntags -> (map)\n\nThe tags attached to the suite run.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "get-suite-run-report",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/get-suite-run-report.html",
+      "command_description": "Description\n\nGets a report download link for a successful Device Advisor qualifying test suite run.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-suite-run-report\n--suite-definition-id <value>\n--suite-run-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "--suite-run-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id of the test suite.\n\n--suite-run-id (string)\n\nSuite run Id of the test suite run.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nqualificationReportDownloadUrl -> (string)\n\nDownload URL of the qualification report."
+    },
+    {
+      "command_name": "list-suite-definitions",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/list-suite-definitions.html",
+      "command_description": "Description\n\nLists the Device Advisor test suites you have created.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-suite-definitions\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--max-results (integer)\n\nThe maximum number of results to return at once.\n\n--next-token (string)\n\nA token used to get the next set of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteDefinitionInformationList -> (list)\n\nAn array of objects that provide summaries of information about the suite definitions in the list.\n\n(structure)\n\nInformation about the suite definition.\n\nsuiteDefinitionId -> (string)\n\nSuite definition Id of the test suite.\n\nsuiteDefinitionName -> (string)\n\nSuite name of the test suite.\n\ndefaultDevices -> (list)\n\nSpecifies the devices under test for the test suite.\n\n(structure)\n\nLists all the devices under test\n\nthingArn -> (string)\n\nLists devices thing arn\n\ncertificateArn -> (string)\n\nLists devices certificate arn\n\nintendedForQualification -> (boolean)\n\nSpecifies if the test suite is intended for qualification.\n\ncreatedAt -> (timestamp)\n\nDate (in Unix epoch time) when the test suite was created.\n\nnextToken -> (string)\n\nA token used to get the next set of results."
+    },
+    {
+      "command_name": "list-suite-runs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/list-suite-runs.html",
+      "command_description": "Description\n\nLists the runs of the specified Device Advisor test suite. You can list all runs of the test suite, or the runs of a specific version of the test suite.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-suite-runs\n[--suite-definition-id <value>]\n[--suite-definition-version <value>]\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--suite-definition-id <value>]",
+        "[--suite-definition-version <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nLists the test suite runs of the specified test suite based on suite definition Id.\n\n--suite-definition-version (string)\n\nMust be passed along with suiteDefinitionId. Lists the test suite runs of the specified test suite based on suite definition version.\n\n--max-results (integer)\n\nThe maximum number of results to return at once.\n\n--next-token (string)\n\nA token to retrieve the next set of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteRunsList -> (list)\n\nAn array of objects that provide summaries of information about the suite runs in the list.\n\n(structure)\n\nInformation about the suite run.\n\nsuiteDefinitionId -> (string)\n\nSuite definition Id of the suite run.\n\nsuiteDefinitionVersion -> (string)\n\nSuite definition version of the suite run.\n\nsuiteDefinitionName -> (string)\n\nSuite definition name of the suite run.\n\nsuiteRunId -> (string)\n\nSuite run Id of the suite run.\n\ncreatedAt -> (timestamp)\n\nDate (in Unix epoch time) when the suite run was created.\n\nstartedAt -> (timestamp)\n\nDate (in Unix epoch time) when the suite run was started.\n\nendAt -> (timestamp)\n\nDate (in Unix epoch time) when the suite run ended.\n\nstatus -> (string)\n\nStatus of the suite run.\n\npassed -> (integer)\n\nNumber of test cases that passed in the suite run.\n\nfailed -> (integer)\n\nNumber of test cases that failed in the suite run.\n\nnextToken -> (string)\n\nA token to retrieve the next set of results."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags attached to an IoT Device Advisor resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the IoT Device Advisor resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (map)\n\nThe tags attached to the IoT Device Advisor resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "start-suite-run",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/start-suite-run.html",
+      "command_description": "Description\n\nStarts a Device Advisor test suite run.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  start-suite-run\n--suite-definition-id <value>\n[--suite-definition-version <value>]\n[--suite-run-configuration <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "[--suite-definition-version <value>]",
+        "[--suite-run-configuration <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id of the test suite.\n\n--suite-definition-version (string)\n\nSuite definition version of the test suite.\n\n--suite-run-configuration (structure)\n\nSuite run configuration.\n\nprimaryDevice -> (structure)\n\nGets the primary device for suite run.\n\nthingArn -> (string)\n\nLists devices thing arn\n\ncertificateArn -> (string)\n\nLists devices certificate arn\n\nselectedTestList -> (list)\n\nGets test case list.\n\n(string)\n\nShorthand Syntax:\n\nprimaryDevice={thingArn=string,certificateArn=string},selectedTestList=string,string\n\n\nJSON Syntax:\n\n{\n  \"primaryDevice\": {\n    \"thingArn\": \"string\",\n    \"certificateArn\": \"string\"\n  },\n  \"selectedTestList\": [\"string\", ...]\n}\n\n\n--tags (map)\n\nThe tags to be attached to the suite run.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteRunId -> (string)\n\nSuite Run Id of the started suite run.\n\nsuiteRunArn -> (string)\n\nAmazon resource name of the started suite run.\n\ncreatedAt -> (timestamp)\n\nDate (in Unix epoch time) when the suite run was created."
+    },
+    {
+      "command_name": "stop-suite-run",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/stop-suite-run.html",
+      "command_description": "Description\n\nStops a Device Advisor test suite run that is currently running.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  stop-suite-run\n--suite-definition-id <value>\n--suite-run-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "--suite-run-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id of the test suite run to be stopped.\n\n--suite-run-id (string)\n\nSuite run Id of the test suite run to be stopped.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/tag-resource.html",
+      "command_description": "Description\n\nAdds to and modifies existing tags of an IoT Device Advisor resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN of an IoT Device Advisor resource.\n\n--tags (map)\n\nThe tags to be attached to the IoT Device Advisor resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/untag-resource.html",
+      "command_description": "Description\n\nRemoves tags from an IoT Device Advisor resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN of an IoT Device Advisor resource.\n\n--tag-keys (list)\n\nList of tag keys to remove from the IoT Device Advisor resource.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-suite-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotdeviceadvisor/update-suite-definition.html",
+      "command_description": "Description\n\nUpdates a Device Advisor test suite.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-suite-definition\n--suite-definition-id <value>\n[--suite-definition-configuration <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--suite-definition-id <value>",
+        "[--suite-definition-configuration <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--suite-definition-id (string)\n\nSuite definition Id of the test suite to be updated.\n\n--suite-definition-configuration (structure)\n\nUpdates a Device Advisor test suite with suite definition configuration.\n\nsuiteDefinitionName -> (string)\n\nGets Suite Definition Configuration name.\n\ndevices -> (list)\n\nGets the devices configured.\n\n(structure)\n\nLists all the devices under test\n\nthingArn -> (string)\n\nLists devices thing arn\n\ncertificateArn -> (string)\n\nLists devices certificate arn\n\nintendedForQualification -> (boolean)\n\nGets the tests intended for qualification in a suite.\n\nrootGroup -> (string)\n\nGets test suite root group.\n\ndevicePermissionRoleArn -> (string)\n\nGets device permission arn.\n\nShorthand Syntax:\n\nsuiteDefinitionName=string,devices=[{thingArn=string,certificateArn=string},{thingArn=string,certificateArn=string}],intendedForQualification=boolean,rootGroup=string,devicePermissionRoleArn=string\n\n\nJSON Syntax:\n\n{\n  \"suiteDefinitionName\": \"string\",\n  \"devices\": [\n    {\n      \"thingArn\": \"string\",\n      \"certificateArn\": \"string\"\n    }\n    ...\n  ],\n  \"intendedForQualification\": true|false,\n  \"rootGroup\": \"string\",\n  \"devicePermissionRoleArn\": \"string\"\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nsuiteDefinitionId -> (string)\n\nSuite definition Id of the updated test suite.\n\nsuiteDefinitionArn -> (string)\n\nAmazon Resource name of the updated test suite.\n\nsuiteDefinitionName -> (string)\n\nSuite definition name of the updated test suite.\n\nsuiteDefinitionVersion -> (string)\n\nSuite definition version of the updated test suite.\n\ncreatedAt -> (timestamp)\n\nTimestamp of when the test suite was created.\n\nlastUpdatedAt -> (timestamp)\n\nTimestamp of when the test suite was updated."
+    }
+  ],
+  "service_description": "Description\n\nAWS IoT Core Device Advisor is a cloud-based, fully managed test capability for validating IoT devices during device software development. Device Advisor provides pre-built tests that you can use to validate IoT devices for reliable and secure connectivity with AWS IoT Core before deploying devices to production. By using Device Advisor, you can confirm that your devices can connect to AWS IoT Core, follow security best practices and, if applicable, receive software updates from IoT Device Management. You can also download signed qualification reports to submit to the AWS Partner Network to get your device qualified for the AWS Partner Device Catalog without the need to send your device in and wait for it to be tested."
+}

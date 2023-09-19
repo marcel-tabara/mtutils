@@ -1,0 +1,38 @@
+{
+  "service_name": "sagemaker-edge",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker-edge/index.html",
+  "service_commands": [
+    {
+      "command_name": "get-device-registration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker-edge/get-device-registration.html",
+      "command_description": "Description\n\nUse to check if a device is registered with SageMaker Edge Manager.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-device-registration\n--device-name <value>\n--device-fleet-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--device-name <value>",
+        "--device-fleet-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-name (string)\n\nThe unique name of the device you want to get the registration status from.\n\n--device-fleet-name (string)\n\nThe name of the fleet that the device belongs to.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceRegistration -> (string)\n\nDescribes if the device is currently registered with SageMaker Edge Manager.\n\nCacheTTL -> (string)\n\nThe amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed."
+    },
+    {
+      "command_name": "send-heartbeat",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker-edge/send-heartbeat.html",
+      "command_description": "Description\n\nUse to get the current status of devices registered on SageMaker Edge Manager.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  send-heartbeat\n[--agent-metrics <value>]\n[--models <value>]\n--agent-version <value>\n--device-name <value>\n--device-fleet-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--agent-metrics <value>]",
+        "[--models <value>]",
+        "--agent-version <value>",
+        "--device-name <value>",
+        "--device-fleet-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--agent-metrics (list)\n\nFor internal use. Returns a list of SageMaker Edge Manager agent operating metrics.\n\n(structure)\n\nInformation required for edge device metrics.\n\nDimension -> (string)\n\nThe dimension of metrics published.\n\nMetricName -> (string)\n\nReturns the name of the metric.\n\nValue -> (double)\n\nReturns the value of the metric.\n\nTimestamp -> (timestamp)\n\nTimestamp of when the metric was requested.\n\nShorthand Syntax:\n\nDimension=string,MetricName=string,Value=double,Timestamp=timestamp ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Dimension\": \"string\",\n    \"MetricName\": \"string\",\n    \"Value\": double,\n    \"Timestamp\": timestamp\n  }\n  ...\n]\n\n\n--models (list)\n\nReturns a list of models deployed on the the device.\n\n(structure)\n\nInformation about a model deployed on an edge device that is registered with SageMaker Edge Manager.\n\nModelName -> (string)\n\nThe name of the model.\n\nModelVersion -> (string)\n\nThe version of the model.\n\nLatestSampleTime -> (timestamp)\n\nThe timestamp of the last data sample taken.\n\nLatestInference -> (timestamp)\n\nThe timestamp of the last inference that was made.\n\nModelMetrics -> (list)\n\nInformation required for model metrics.\n\n(structure)\n\nInformation required for edge device metrics.\n\nDimension -> (string)\n\nThe dimension of metrics published.\n\nMetricName -> (string)\n\nReturns the name of the metric.\n\nValue -> (double)\n\nReturns the value of the metric.\n\nTimestamp -> (timestamp)\n\nTimestamp of when the metric was requested.\n\nShorthand Syntax:\n\nModelName=string,ModelVersion=string,LatestSampleTime=timestamp,LatestInference=timestamp,ModelMetrics=[{Dimension=string,MetricName=string,Value=double,Timestamp=timestamp},{Dimension=string,MetricName=string,Value=double,Timestamp=timestamp}] ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"ModelName\": \"string\",\n    \"ModelVersion\": \"string\",\n    \"LatestSampleTime\": timestamp,\n    \"LatestInference\": timestamp,\n    \"ModelMetrics\": [\n      {\n        \"Dimension\": \"string\",\n        \"MetricName\": \"string\",\n        \"Value\": double,\n        \"Timestamp\": timestamp\n      }\n      ...\n    ]\n  }\n  ...\n]\n\n\n--agent-version (string)\n\nReturns the version of the agent.\n\n--device-name (string)\n\nThe unique name of the device.\n\n--device-fleet-name (string)\n\nThe name of the fleet that the device belongs to.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nSageMaker Edge Manager dataplane service for communicating with active agents."
+}

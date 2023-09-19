@@ -1,0 +1,106 @@
+{
+  "service_name": "iotsecuretunneling",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/index.html",
+  "service_commands": [
+    {
+      "command_name": "close-tunnel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/close-tunnel.html",
+      "command_description": "Description\n\nCloses a tunnel identified by the unique tunnel id. When a CloseTunnel request is received, we close the WebSocket connections between the client and proxy server so no data can be transmitted.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  close-tunnel\n--tunnel-id <value>\n[--delete | --no-delete]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--tunnel-id <value>",
+        "[--delete | --no-delete]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--tunnel-id (string)\n\nThe ID of the tunnel to close.\n\n--delete | --no-delete (boolean)\n\nWhen set to true, AWS IoT Secure Tunneling deletes the tunnel data immediately.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-tunnel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/describe-tunnel.html",
+      "command_description": "Description\n\nGets information about a tunnel identified by the unique tunnel id.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-tunnel\n--tunnel-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--tunnel-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--tunnel-id (string)\n\nThe tunnel to describe.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntunnel -> (structure)\n\nThe tunnel being described.\n\ntunnelId -> (string)\n\nA unique alpha-numeric ID that identifies a tunnel.\n\ntunnelArn -> (string)\n\nThe Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id>\n\nstatus -> (string)\n\nThe status of a tunnel. Valid values are: Open and Closed.\n\nsourceConnectionState -> (structure)\n\nThe connection state of the source application.\n\nstatus -> (string)\n\nThe connection status of the tunnel. Valid values are CONNECTED and DISCONNECTED .\n\nlastUpdatedAt -> (timestamp)\n\nThe last time the connection status was updated.\n\ndestinationConnectionState -> (structure)\n\nThe connection state of the destination application.\n\nstatus -> (string)\n\nThe connection status of the tunnel. Valid values are CONNECTED and DISCONNECTED .\n\nlastUpdatedAt -> (timestamp)\n\nThe last time the connection status was updated.\n\ndescription -> (string)\n\nA description of the tunnel.\n\ndestinationConfig -> (structure)\n\nThe destination configuration that specifies the thing name of the destination device and a service name that the local proxy uses to connect to the destination application.\n\nthingName -> (string)\n\nThe name of the IoT thing to which you want to connect.\n\nservices -> (list)\n\nA list of service names that identity the target application. The AWS IoT client running on the destination device reads this value and uses it to look up a port or an IP address and a port. The AWS IoT client instantiates the local proxy which uses this information to connect to the destination application.\n\n(string)\n\ntimeoutConfig -> (structure)\n\nTimeout configuration for the tunnel.\n\nmaxLifetimeTimeoutMinutes -> (integer)\n\nThe maximum amount of time (in minutes) a tunnel can remain open. If not specified, maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12 hours (720 minutes)\n\ntags -> (list)\n\nA list of tag metadata associated with the secure tunnel.\n\n(structure)\n\nAn arbitary key/value pair used to add searchable metadata to secure tunnel resources.\n\nkey -> (string)\n\nThe key of the tag.\n\nvalue -> (string)\n\nThe value of the tag.\n\ncreatedAt -> (timestamp)\n\nThe time when the tunnel was created.\n\nlastUpdatedAt -> (timestamp)\n\nThe last time the tunnel was updated."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags for the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (list)\n\nThe tags for the specified resource.\n\n(structure)\n\nAn arbitary key/value pair used to add searchable metadata to secure tunnel resources.\n\nkey -> (string)\n\nThe key of the tag.\n\nvalue -> (string)\n\nThe value of the tag."
+    },
+    {
+      "command_name": "list-tunnels",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/list-tunnels.html",
+      "command_description": "Description\n\nList all tunnels for an AWS account. Tunnels are listed by creation time in descending order, newer tunnels will be listed before older tunnels.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tunnels\n[--thing-name <value>]\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--thing-name <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--thing-name (string)\n\nThe name of the IoT thing associated with the destination device.\n\n--max-results (integer)\n\nThe maximum number of results to return at once.\n\n--next-token (string)\n\nA token to retrieve the next set of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntunnelSummaries -> (list)\n\nA short description of the tunnels in an AWS account.\n\n(structure)\n\nInformation about the tunnel.\n\ntunnelId -> (string)\n\nThe unique alpha-numeric identifier for the tunnel.\n\ntunnelArn -> (string)\n\nThe Amazon Resource Name of the tunnel. The tunnel ARN format is arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id>\n\nstatus -> (string)\n\nThe status of a tunnel. Valid values are: Open and Closed.\n\ndescription -> (string)\n\nA description of the tunnel.\n\ncreatedAt -> (timestamp)\n\nThe time the tunnel was created.\n\nlastUpdatedAt -> (timestamp)\n\nThe time the tunnel was last updated.\n\nnextToken -> (string)\n\nA token to used to retrieve the next set of results."
+    },
+    {
+      "command_name": "open-tunnel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/open-tunnel.html",
+      "command_description": "Description\n\nCreates a new tunnel, and returns two client access tokens for clients to use to connect to the AWS IoT Secure Tunneling proxy server.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  open-tunnel\n[--description <value>]\n[--tags <value>]\n[--destination-config <value>]\n[--timeout-config <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--description <value>]",
+        "[--tags <value>]",
+        "[--destination-config <value>]",
+        "[--timeout-config <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--description (string)\n\nA short text description of the tunnel.\n\n--tags (list)\n\nA collection of tag metadata.\n\n(structure)\n\nAn arbitary key/value pair used to add searchable metadata to secure tunnel resources.\n\nkey -> (string)\n\nThe key of the tag.\n\nvalue -> (string)\n\nThe value of the tag.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--destination-config (structure)\n\nThe destination configuration for the OpenTunnel request.\n\nthingName -> (string)\n\nThe name of the IoT thing to which you want to connect.\n\nservices -> (list)\n\nA list of service names that identity the target application. The AWS IoT client running on the destination device reads this value and uses it to look up a port or an IP address and a port. The AWS IoT client instantiates the local proxy which uses this information to connect to the destination application.\n\n(string)\n\nShorthand Syntax:\n\nthingName=string,services=string,string\n\n\nJSON Syntax:\n\n{\n  \"thingName\": \"string\",\n  \"services\": [\"string\", ...]\n}\n\n\n--timeout-config (structure)\n\nTimeout configuration for a tunnel.\n\nmaxLifetimeTimeoutMinutes -> (integer)\n\nThe maximum amount of time (in minutes) a tunnel can remain open. If not specified, maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12 hours (720 minutes)\n\nShorthand Syntax:\n\nmaxLifetimeTimeoutMinutes=integer\n\n\nJSON Syntax:\n\n{\n  \"maxLifetimeTimeoutMinutes\": integer\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntunnelId -> (string)\n\nA unique alpha-numeric tunnel ID.\n\ntunnelArn -> (string)\n\nThe Amazon Resource Name for the tunnel. The tunnel ARN format is arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id>\n\nsourceAccessToken -> (string)\n\nThe access token the source local proxy uses to connect to AWS IoT Secure Tunneling.\n\ndestinationAccessToken -> (string)\n\nThe access token the destination local proxy uses to connect to AWS IoT Secure Tunneling."
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/tag-resource.html",
+      "command_description": "Description\n\nA resource tag.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tags (list)\n\nThe tags for the resource.\n\n(structure)\n\nAn arbitary key/value pair used to add searchable metadata to secure tunnel resources.\n\nkey -> (string)\n\nThe key of the tag.\n\nvalue -> (string)\n\nThe value of the tag.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/untag-resource.html",
+      "command_description": "Description\n\nRemoves a tag from a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--tag-keys (list)\n\nThe keys of the tags to remove.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nAWS IoT Secure Tunnling enables you to create remote connections to devices deployed in the field.\n\nFor more information about how AWS IoT Secure Tunneling works, see AWS IoT Secure Tunneling ."
+}

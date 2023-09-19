@@ -1,0 +1,1016 @@
+{
+  "service_name": "frauddetector",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/index.html",
+  "service_commands": [
+    {
+      "command_name": "batch-create-variable",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/batch-create-variable.html",
+      "command_description": "Description\n\nCreates a batch of variables.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  batch-create-variable\n--variable-entries <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--variable-entries <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--variable-entries (list)\n\nThe list of variables for the batch create variable request.\n\n(structure)\n\nA variable in the list of variables for the batch create variable request.\n\nname -> (string)\n\nThe name of the variable.\n\ndataType -> (string)\n\nThe data type of the variable.\n\ndataSource -> (string)\n\nThe data source of the variable.\n\ndefaultValue -> (string)\n\nThe default value of the variable.\n\ndescription -> (string)\n\nThe description of the variable.\n\nvariableType -> (string)\n\nThe type of the variable. For more information see Variable types .\n\nValid Values: AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT\n\nShorthand Syntax:\n\nname=string,dataType=string,dataSource=string,defaultValue=string,description=string,variableType=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"name\": \"string\",\n    \"dataType\": \"string\",\n    \"dataSource\": \"string\",\n    \"defaultValue\": \"string\",\n    \"description\": \"string\",\n    \"variableType\": \"string\"\n  }\n  ...\n]\n\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nerrors -> (list)\n\nProvides the errors for the BatchCreateVariable request.\n\n(structure)\n\nProvides the error of the batch create variable API.\n\nname -> (string)\n\nThe name.\n\ncode -> (integer)\n\nThe error code.\n\nmessage -> (string)\n\nThe error message."
+    },
+    {
+      "command_name": "batch-get-variable",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/batch-get-variable.html",
+      "command_description": "Description\n\nGets a batch of variables.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  batch-get-variable\n--names <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--names <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--names (list)\n\nThe list of variable names to get.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nvariables -> (list)\n\nThe returned variables.\n\n(structure)\n\nThe variable.\n\nname -> (string)\n\nThe name of the variable.\n\ndataType -> (string)\n\nThe data type of the variable. For more information see Variable types .\n\ndataSource -> (string)\n\nThe data source of the variable.\n\ndefaultValue -> (string)\n\nThe default value of the variable.\n\ndescription -> (string)\n\nThe description of the variable.\n\nvariableType -> (string)\n\nThe variable type of the variable.\n\nValid Values: AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT\n\nlastUpdatedTime -> (string)\n\nThe time when variable was last updated.\n\ncreatedTime -> (string)\n\nThe time when the variable was created.\n\narn -> (string)\n\nThe ARN of the variable.\n\nerrors -> (list)\n\nThe errors from the request.\n\n(structure)\n\nProvides the error of the batch get variable API.\n\nname -> (string)\n\nThe error name.\n\ncode -> (integer)\n\nThe error code.\n\nmessage -> (string)\n\nThe error message."
+    },
+    {
+      "command_name": "cancel-batch-import-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/cancel-batch-import-job.html",
+      "command_description": "Description\n\nCancels an in-progress batch import job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  cancel-batch-import-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of an in-progress batch import job to cancel.\n\nAmazon Fraud Detector will throw an error if the batch import job is in FAILED , CANCELED , or COMPLETED state.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "cancel-batch-prediction-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/cancel-batch-prediction-job.html",
+      "command_description": "Description\n\nCancels the specified batch prediction job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  cancel-batch-prediction-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of the batch prediction job to cancel.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "create-batch-import-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-batch-import-job.html",
+      "command_description": "Description\n\nCreates a batch import job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-batch-import-job\n--job-id <value>\n--input-path <value>\n--output-path <value>\n--event-type-name <value>\n--iam-role-arn <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "--input-path <value>",
+        "--output-path <value>",
+        "--event-type-name <value>",
+        "--iam-role-arn <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of the batch import job. The ID cannot be of a past job, unless the job exists in CREATE_FAILED state.\n\n--input-path (string)\n\nThe URI that points to the Amazon S3 location of your data file.\n\n--output-path (string)\n\nThe URI that points to the Amazon S3 location for storing your results.\n\n--event-type-name (string)\n\nThe name of the event type.\n\n--iam-role-arn (string)\n\nThe ARN of the IAM role created for Amazon S3 bucket that holds your data file. The IAM role must have read and write permissions to both input and output S3 buckets.\n\n--tags (list)\n\nA collection of key-value pairs associated with this request.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "create-batch-prediction-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-batch-prediction-job.html",
+      "command_description": "Description\n\nCreates a batch prediction job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-batch-prediction-job\n--job-id <value>\n--input-path <value>\n--output-path <value>\n--event-type-name <value>\n--detector-name <value>\n[--detector-version <value>]\n--iam-role-arn <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "--input-path <value>",
+        "--output-path <value>",
+        "--event-type-name <value>",
+        "--detector-name <value>",
+        "[--detector-version <value>]",
+        "--iam-role-arn <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of the batch prediction job.\n\n--input-path (string)\n\nThe Amazon S3 location of your training file.\n\n--output-path (string)\n\nThe Amazon S3 location of your output file.\n\n--event-type-name (string)\n\nThe name of the event type.\n\n--detector-name (string)\n\nThe name of the detector.\n\n--detector-version (string)\n\nThe detector version.\n\n--iam-role-arn (string)\n\nThe ARN of the IAM role to use for this job request.\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "create-detector-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-detector-version.html",
+      "command_description": "Description\n\nCreates a detector version. The detector version starts in a DRAFT status.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-detector-version\n--detector-id <value>\n[--description <value>]\n[--external-model-endpoints <value>]\n--rules <value>\n[--model-versions <value>]\n[--rule-execution-mode <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "[--description <value>]",
+        "[--external-model-endpoints <value>]",
+        "--rules <value>",
+        "[--model-versions <value>]",
+        "[--rule-execution-mode <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe ID of the detector under which you want to create a new version.\n\n--description (string)\n\nThe description of the detector version.\n\n--external-model-endpoints (list)\n\nThe Amazon Sagemaker model endpoints to include in the detector version.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--rules (list)\n\nThe rules to include in the detector version.\n\n(structure)\n\nA rule.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version.\n\nShorthand Syntax:\n\ndetectorId=string,ruleId=string,ruleVersion=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"detectorId\": \"string\",\n    \"ruleId\": \"string\",\n    \"ruleVersion\": \"string\"\n  }\n  ...\n]\n\n\n--model-versions (list)\n\nThe model versions to include in the detector version.\n\n(structure)\n\nThe model version.\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number.\n\narn -> (string)\n\nThe model version ARN.\n\nShorthand Syntax:\n\nmodelId=string,modelType=string,modelVersionNumber=string,arn=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"modelId\": \"string\",\n    \"modelType\": \"ONLINE_FRAUD_INSIGHTS\"|\"TRANSACTION_FRAUD_INSIGHTS\",\n    \"modelVersionNumber\": \"string\",\n    \"arn\": \"string\"\n  }\n  ...\n]\n\n\n--rule-execution-mode (string)\n\nThe rule execution mode for the rules included in the detector version.\n\nYou can define and edit the rule mode at the detector version level, when it is in draft status.\n\nIf you specify FIRST_MATCHED , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.\n\nIf you specifiy ALL_MATCHED , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.\n\nThe default behavior is FIRST_MATCHED .\n\nPossible values:\n\nALL_MATCHED\n\nFIRST_MATCHED\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ndetectorId -> (string)\n\nThe ID for the created version’s parent detector.\n\ndetectorVersionId -> (string)\n\nThe ID for the created detector.\n\nstatus -> (string)\n\nThe status of the detector version."
+    },
+    {
+      "command_name": "create-model",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-model.html",
+      "command_description": "Description\n\nCreates a model using the specified model type.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-model\n--model-id <value>\n--model-type <value>\n[--description <value>]\n--event-type-name <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "[--description <value>]",
+        "--event-type-name <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--description (string)\n\nThe model description.\n\n--event-type-name (string)\n\nThe name of the event type.\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "create-model-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-model-version.html",
+      "command_description": "Description\n\nCreates a version of the model using the specified model type and model id.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-model-version\n--model-id <value>\n--model-type <value>\n--training-data-source <value>\n--training-data-schema <value>\n[--external-events-detail <value>]\n[--ingested-events-detail <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "--training-data-source <value>",
+        "--training-data-schema <value>",
+        "[--external-events-detail <value>]",
+        "[--ingested-events-detail <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--training-data-source (string)\n\nThe training data source location in Amazon S3.\n\nPossible values:\n\nEXTERNAL_EVENTS\n\nINGESTED_EVENTS\n\n--training-data-schema (structure)\n\nThe training data schema.\n\nmodelVariables -> (list)\n\nThe training data schema variables.\n\n(string)\n\nlabelSchema -> (structure)\n\nThe label schema.\n\nlabelMapper -> (map)\n\nThe label mapper maps the Amazon Fraud Detector supported model classification labels (FRAUD , LEGIT ) to the appropriate event type labels. For example, if “FRAUD ” and “LEGIT ” are Amazon Fraud Detector supported labels, this mapper could be: {\"FRAUD\" => [\"0\"] , \"LEGIT\" => [\"1\"]} or {\"FRAUD\" => [\"false\"] , \"LEGIT\" => [\"true\"]} or {\"FRAUD\" => [\"fraud\", \"abuse\"] , \"LEGIT\" => [\"legit\", \"safe\"]} . The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.\n\nkey -> (string)\n\nvalue -> (list)\n\n(string)\n\nunlabeledEventsTreatment -> (string)\n\nThe action to take for unlabeled events.\n\nShorthand Syntax:\n\nmodelVariables=string,string,labelSchema={labelMapper={KeyName1=[string,string],KeyName2=[string,string]},unlabeledEventsTreatment=string}\n\n\nJSON Syntax:\n\n{\n  \"modelVariables\": [\"string\", ...],\n  \"labelSchema\": {\n    \"labelMapper\": {\"string\": [\"string\", ...]\n      ...},\n    \"unlabeledEventsTreatment\": \"IGNORE\"|\"FRAUD\"|\"LEGIT\"\n  }\n}\n\n\n--external-events-detail (structure)\n\nDetails of the external events data used for model version training. Required if trainingDataSource is EXTERNAL_EVENTS .\n\ndataLocation -> (string)\n\nThe Amazon S3 bucket location for the data.\n\ndataAccessRoleArn -> (string)\n\nThe ARN of the role that provides Amazon Fraud Detector access to the data location.\n\nShorthand Syntax:\n\ndataLocation=string,dataAccessRoleArn=string\n\n\nJSON Syntax:\n\n{\n  \"dataLocation\": \"string\",\n  \"dataAccessRoleArn\": \"string\"\n}\n\n\n--ingested-events-detail (structure)\n\nDetails of the ingested events data used for model version training. Required if trainingDataSource is INGESTED_EVENTS .\n\ningestedEventsTimeWindow -> (structure)\n\nThe start and stop time of the ingested events.\n\nstartTime -> (string)\n\nTimestamp of the first ingensted event.\n\nendTime -> (string)\n\nTimestamp of the final ingested event.\n\nShorthand Syntax:\n\ningestedEventsTimeWindow={startTime=string,endTime=string}\n\n\nJSON Syntax:\n\n{\n  \"ingestedEventsTimeWindow\": {\n    \"startTime\": \"string\",\n    \"endTime\": \"string\"\n  }\n}\n\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number of the model version created.\n\nstatus -> (string)\n\nThe model version status."
+    },
+    {
+      "command_name": "create-rule",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-rule.html",
+      "command_description": "Description\n\nCreates a rule for use with the specified detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-rule\n--rule-id <value>\n--detector-id <value>\n[--description <value>]\n--expression <value>\n--language <value>\n--outcomes <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--rule-id <value>",
+        "--detector-id <value>",
+        "[--description <value>]",
+        "--expression <value>",
+        "--language <value>",
+        "--outcomes <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--rule-id (string)\n\nThe rule ID.\n\n--detector-id (string)\n\nThe detector ID for the rule’s parent detector.\n\n--description (string)\n\nThe rule description.\n\n--expression (string)\n\nThe rule expression.\n\n--language (string)\n\nThe language of the rule.\n\nPossible values:\n\nDETECTORPL\n\n--outcomes (list)\n\nThe outcome or outcomes returned when the rule expression matches.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nrule -> (structure)\n\nThe created rule.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version."
+    },
+    {
+      "command_name": "create-variable",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-variable.html",
+      "command_description": "Description\n\nCreates a variable.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-variable\n--name <value>\n--data-type <value>\n--data-source <value>\n--default-value <value>\n[--description <value>]\n[--variable-type <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "--data-type <value>",
+        "--data-source <value>",
+        "--default-value <value>",
+        "[--description <value>]",
+        "[--variable-type <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the variable.\n\n--data-type (string)\n\nThe data type.\n\nPossible values:\n\nSTRING\n\nINTEGER\n\nFLOAT\n\nBOOLEAN\n\n--data-source (string)\n\nThe source of the data.\n\nPossible values:\n\nEVENT\n\nMODEL_SCORE\n\nEXTERNAL_MODEL_SCORE\n\n--default-value (string)\n\nThe default value for the variable when no value is received.\n\n--description (string)\n\nThe description.\n\n--variable-type (string)\n\nThe variable type. For more information see Variable types .\n\nValid Values: AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-batch-import-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-batch-import-job.html",
+      "command_description": "Description\n\nDeletes data that was batch imported to Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-batch-import-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of the batch import job to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-batch-prediction-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-batch-prediction-job.html",
+      "command_description": "Description\n\nDeletes a batch prediction job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-batch-prediction-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of the batch prediction job to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-detector",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-detector.html",
+      "command_description": "Description\n\nDeletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.\n\nWhen you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-detector\n--detector-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe ID of the detector to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-detector-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-detector-version.html",
+      "command_description": "Description\n\nDeletes the detector version. You cannot delete detector versions that are in ACTIVE status.\n\nWhen you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-detector-version\n--detector-id <value>\n--detector-version-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "--detector-version-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe ID of the parent detector for the detector version to delete.\n\n--detector-version-id (string)\n\nThe ID of the detector version to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-entity-type",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-entity-type.html",
+      "command_description": "Description\n\nDeletes an entity type.\n\nYou cannot delete an entity type that is included in an event type.\n\nWhen you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-entity-type\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the entity type to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-event",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-event.html",
+      "command_description": "Description\n\nDeletes the specified event.\n\nWhen you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-event\n--event-id <value>\n--event-type-name <value>\n[--delete-audit-history | --no-delete-audit-history]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-id <value>",
+        "--event-type-name <value>",
+        "[--delete-audit-history | --no-delete-audit-history]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-id (string)\n\nThe ID of the event to delete.\n\n--event-type-name (string)\n\nThe name of the event type.\n\n--delete-audit-history | --no-delete-audit-history (boolean)\n\nSpecifies whether or not to delete any predictions associated with the event.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-event-type",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-event-type.html",
+      "command_description": "Description\n\nDeletes an event type.\n\nYou cannot delete an event type that is used in a detector or a model.\n\nWhen you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-event-type\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the event type to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-events-by-event-type",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-events-by-event-type.html",
+      "command_description": "Description\n\nDeletes all events of a particular event type.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-events-by-event-type\n--event-type-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-type-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-type-name (string)\n\nThe name of the event type.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\neventTypeName -> (string)\n\nName of event type for which to delete the events.\n\neventsDeletionStatus -> (string)\n\nThe status of the delete request."
+    },
+    {
+      "command_name": "delete-external-model",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-external-model.html",
+      "command_description": "Description\n\nRemoves a SageMaker model from Amazon Fraud Detector.\n\nYou can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-external-model\n--model-endpoint <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-endpoint <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-endpoint (string)\n\nThe endpoint of the Amazon Sagemaker model to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-label",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-label.html",
+      "command_description": "Description\n\nDeletes a label.\n\nYou cannot delete labels that are included in an event type in Amazon Fraud Detector.\n\nYou cannot delete a label assigned to an event ID. You must first delete the relevant event ID.\n\nWhen you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-label\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the label to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-model",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-model.html",
+      "command_description": "Description\n\nDeletes a model.\n\nYou can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.\n\nWhen you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-model\n--model-id <value>\n--model-type <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID of the model to delete.\n\n--model-type (string)\n\nThe model type of the model to delete.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-model-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-model-version.html",
+      "command_description": "Description\n\nDeletes a model version.\n\nYou can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.\n\nWhen you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-model-version\n--model-id <value>\n--model-type <value>\n--model-version-number <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "--model-version-number <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID of the model version to delete.\n\n--model-type (string)\n\nThe model type of the model version to delete.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--model-version-number (string)\n\nThe model version number of the model version to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-outcome",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-outcome.html",
+      "command_description": "Description\n\nDeletes an outcome.\n\nYou cannot delete an outcome that is used in a rule version.\n\nWhen you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-outcome\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the outcome to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-rule",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-rule.html",
+      "command_description": "Description\n\nDeletes the rule. You cannot delete a rule if it is used by an ACTIVE or INACTIVE detector version.\n\nWhen you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-rule\n--rule <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--rule <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--rule (structure)\n\nA rule.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version.\n\nShorthand Syntax:\n\ndetectorId=string,ruleId=string,ruleVersion=string\n\n\nJSON Syntax:\n\n{\n  \"detectorId\": \"string\",\n  \"ruleId\": \"string\",\n  \"ruleVersion\": \"string\"\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-variable",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/delete-variable.html",
+      "command_description": "Description\n\nDeletes a variable.\n\nYou can’t delete variables that are included in an event type in Amazon Fraud Detector.\n\nAmazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can’t delete these variables manually.\n\nWhen you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-variable\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the variable to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-detector",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/describe-detector.html",
+      "command_description": "Description\n\nGets all versions for a specified detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-detector\n--detector-id <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--next-token (string)\n\nThe next token from the previous response.\n\n--max-results (integer)\n\nThe maximum number of results to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ndetectorId -> (string)\n\nThe detector ID.\n\ndetectorVersionSummaries -> (list)\n\nThe status and description for each detector version.\n\n(structure)\n\nThe summary of the detector version.\n\ndetectorVersionId -> (string)\n\nThe detector version ID.\n\nstatus -> (string)\n\nThe detector version status.\n\ndescription -> (string)\n\nThe detector version description.\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the detector version was last updated.\n\nnextToken -> (string)\n\nThe next token to be used for subsequent requests.\n\narn -> (string)\n\nThe detector ARN."
+    },
+    {
+      "command_name": "describe-model-versions",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/describe-model-versions.html",
+      "command_description": "Description\n\nGets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-model-versions\n[--model-id <value>]\n[--model-version-number <value>]\n[--model-type <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--model-id <value>]",
+        "[--model-version-number <value>]",
+        "[--model-type <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-version-number (string)\n\nThe model version number.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--next-token (string)\n\nThe next token from the previous results.\n\n--max-results (integer)\n\nThe maximum number of results to return.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nmodelVersionDetails -> (list)\n\nThe model version details.\n\n(structure)\n\nThe details of the model version.\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number.\n\nstatus -> (string)\n\nThe status of the model version.\n\ntrainingDataSource -> (string)\n\nThe model version training data source.\n\ntrainingDataSchema -> (structure)\n\nThe training data schema.\n\nmodelVariables -> (list)\n\nThe training data schema variables.\n\n(string)\n\nlabelSchema -> (structure)\n\nThe label schema.\n\nlabelMapper -> (map)\n\nThe label mapper maps the Amazon Fraud Detector supported model classification labels (FRAUD , LEGIT ) to the appropriate event type labels. For example, if “FRAUD ” and “LEGIT ” are Amazon Fraud Detector supported labels, this mapper could be: {\"FRAUD\" => [\"0\"] , \"LEGIT\" => [\"1\"]} or {\"FRAUD\" => [\"false\"] , \"LEGIT\" => [\"true\"]} or {\"FRAUD\" => [\"fraud\", \"abuse\"] , \"LEGIT\" => [\"legit\", \"safe\"]} . The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.\n\nkey -> (string)\n\nvalue -> (list)\n\n(string)\n\nunlabeledEventsTreatment -> (string)\n\nThe action to take for unlabeled events.\n\nexternalEventsDetail -> (structure)\n\nThe external events data details. This will be populated if the trainingDataSource for the model version is specified as EXTERNAL_EVENTS .\n\ndataLocation -> (string)\n\nThe Amazon S3 bucket location for the data.\n\ndataAccessRoleArn -> (string)\n\nThe ARN of the role that provides Amazon Fraud Detector access to the data location.\n\ningestedEventsDetail -> (structure)\n\nThe ingested events data details. This will be populated if the trainingDataSource for the model version is specified as INGESTED_EVENTS .\n\ningestedEventsTimeWindow -> (structure)\n\nThe start and stop time of the ingested events.\n\nstartTime -> (string)\n\nTimestamp of the first ingensted event.\n\nendTime -> (string)\n\nTimestamp of the final ingested event.\n\ntrainingResult -> (structure)\n\nThe training results.\n\ndataValidationMetrics -> (structure)\n\nThe validation metrics.\n\nfileLevelMessages -> (list)\n\nThe file-specific model training validation messages.\n\n(structure)\n\nThe message details.\n\ntitle -> (string)\n\nThe message title.\n\ncontent -> (string)\n\nThe message content.\n\ntype -> (string)\n\nThe message type.\n\nfieldLevelMessages -> (list)\n\nThe field-specific model training validation messages.\n\n(structure)\n\nThe message details.\n\nfieldName -> (string)\n\nThe field name.\n\nidentifier -> (string)\n\nThe message ID.\n\ntitle -> (string)\n\nThe message title.\n\ncontent -> (string)\n\nThe message content.\n\ntype -> (string)\n\nThe message type.\n\ntrainingMetrics -> (structure)\n\nThe training metric details.\n\nauc -> (float)\n\nThe area under the curve. This summarizes true positive rate (TPR) and false positive rate (FPR) across all possible model score thresholds. A model with no predictive power has an AUC of 0.5, whereas a perfect model has a score of 1.0.\n\nmetricDataPoints -> (list)\n\nThe data points details.\n\n(structure)\n\nModel performance metrics data points.\n\nfpr -> (float)\n\nThe false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.\n\nprecision -> (float)\n\nThe percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.\n\ntpr -> (float)\n\nThe true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.\n\nthreshold -> (float)\n\nThe model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is labeled as fraud.\n\nvariableImportanceMetrics -> (structure)\n\nThe variable importance metrics.\n\nlogOddsMetrics -> (list)\n\nList of variable metrics.\n\n(structure)\n\nThe log odds metric details.\n\nvariableName -> (string)\n\nThe name of the variable.\n\nvariableType -> (string)\n\nThe type of variable.\n\nvariableImportance -> (float)\n\nThe relative importance of the variable. For more information, see Model variable importance .\n\nlastUpdatedTime -> (string)\n\nThe timestamp when the model was last updated.\n\ncreatedTime -> (string)\n\nThe timestamp when the model was created.\n\narn -> (string)\n\nThe model version ARN.\n\nnextToken -> (string)\n\nThe next token."
+    },
+    {
+      "command_name": "get-batch-import-jobs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-batch-import-jobs.html",
+      "command_description": "Description\n\nGets all batch import jobs or a specific job of the specified ID. This is a paginated API. If you provide a null maxResults , this action retrieves a maximum of 50 records per page. If you provide a maxResults , the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchImportJobsResponse as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-batch-import-jobs\n[--job-id <value>]\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--job-id <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe ID of the batch import job to get.\n\n--max-results (integer)\n\nThe maximum number of objects to return for request.\n\n--next-token (string)\n\nThe next token from the previous request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nbatchImports -> (list)\n\nAn array containing the details of each batch import job.\n\n(structure)\n\nThe batch import job details.\n\njobId -> (string)\n\nThe ID of the batch import job.\n\nstatus -> (string)\n\nThe status of the batch import job.\n\nfailureReason -> (string)\n\nThe reason batch import job failed.\n\nstartTime -> (string)\n\nTimestamp of when the batch import job started.\n\ncompletionTime -> (string)\n\nTimestamp of when batch import job completed.\n\ninputPath -> (string)\n\nThe Amazon S3 location of your data file for batch import.\n\noutputPath -> (string)\n\nThe Amazon S3 location of your output file.\n\neventTypeName -> (string)\n\nThe name of the event type.\n\niamRoleArn -> (string)\n\nThe ARN of the IAM role to use for this job request.\n\narn -> (string)\n\nThe ARN of the batch import job.\n\nprocessedRecordsCount -> (integer)\n\nThe number of records processed by batch import job.\n\nfailedRecordsCount -> (integer)\n\nThe number of records that failed to import.\n\ntotalRecordsCount -> (integer)\n\nThe total number of records in the batch import job.\n\nnextToken -> (string)\n\nThe next token for the subsequent resquest."
+    },
+    {
+      "command_name": "get-batch-prediction-jobs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-batch-prediction-jobs.html",
+      "command_description": "Description\n\nGets all batch prediction jobs or a specific job if you specify a job ID. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 50 records per page. If you provide a maxResults, the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchPredictionJobsResponse as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-batch-prediction-jobs\n[--job-id <value>]\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--job-id <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe batch prediction job for which to get the details.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--next-token (string)\n\nThe next token from the previous request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nbatchPredictions -> (list)\n\nAn array containing the details of each batch prediction job.\n\n(structure)\n\nThe batch prediction details.\n\njobId -> (string)\n\nThe job ID for the batch prediction.\n\nstatus -> (string)\n\nThe batch prediction status.\n\nfailureReason -> (string)\n\nThe reason a batch prediction job failed.\n\nstartTime -> (string)\n\nTimestamp of when the batch prediction job started.\n\ncompletionTime -> (string)\n\nTimestamp of when the batch prediction job completed.\n\nlastHeartbeatTime -> (string)\n\nTimestamp of most recent heartbeat indicating the batch prediction job was making progress.\n\ninputPath -> (string)\n\nThe Amazon S3 location of your training file.\n\noutputPath -> (string)\n\nThe Amazon S3 location of your output file.\n\neventTypeName -> (string)\n\nThe name of the event type.\n\ndetectorName -> (string)\n\nThe name of the detector.\n\ndetectorVersion -> (string)\n\nThe detector version.\n\niamRoleArn -> (string)\n\nThe ARN of the IAM role to use for this job request.\n\narn -> (string)\n\nThe ARN of batch prediction job.\n\nprocessedRecordsCount -> (integer)\n\nThe number of records processed by the batch prediction job.\n\ntotalRecordsCount -> (integer)\n\nThe total number of records in the batch prediction job.\n\nnextToken -> (string)\n\nThe next token for the subsequent request."
+    },
+    {
+      "command_name": "get-delete-events-by-event-type-status",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-delete-events-by-event-type-status.html",
+      "command_description": "Description\n\nRetrieves the status of a DeleteEventsByEventType action.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-delete-events-by-event-type-status\n--event-type-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-type-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-type-name (string)\n\nName of event type for which to get the deletion status.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\neventTypeName -> (string)\n\nThe event type name.\n\neventsDeletionStatus -> (string)\n\nThe deletion status."
+    },
+    {
+      "command_name": "get-detector-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-detector-version.html",
+      "command_description": "Description\n\nGets a particular detector version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-detector-version\n--detector-id <value>\n--detector-version-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "--detector-version-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--detector-version-id (string)\n\nThe detector version ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ndetectorId -> (string)\n\nThe detector ID.\n\ndetectorVersionId -> (string)\n\nThe detector version ID.\n\ndescription -> (string)\n\nThe detector version description.\n\nexternalModelEndpoints -> (list)\n\nThe Amazon SageMaker model endpoints included in the detector version.\n\n(string)\n\nmodelVersions -> (list)\n\nThe model versions included in the detector version.\n\n(structure)\n\nThe model version.\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number.\n\narn -> (string)\n\nThe model version ARN.\n\nrules -> (list)\n\nThe rules included in the detector version.\n\n(structure)\n\nA rule.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version.\n\nstatus -> (string)\n\nThe status of the detector version.\n\nlastUpdatedTime -> (string)\n\nThe timestamp when the detector version was last updated.\n\ncreatedTime -> (string)\n\nThe timestamp when the detector version was created.\n\nruleExecutionMode -> (string)\n\nThe execution mode of the rule in the dectector\n\nFIRST_MATCHED indicates that Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.\n\nALL_MATCHED indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.\n\narn -> (string)\n\nThe detector version ARN."
+    },
+    {
+      "command_name": "get-detectors",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-detectors.html",
+      "command_description": "Description\n\nGets all detectors or a single detector if a detectorId is specified. This is a paginated API. If you provide a null maxResults , this action retrieves a maximum of 10 records per page. If you provide a maxResults , the value must be between 5 and 10. To get the next page results, provide the pagination token from the GetDetectorsResponse as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-detectors\n[--detector-id <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--detector-id <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--next-token (string)\n\nThe next token for the subsequent request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ndetectors -> (list)\n\nThe detectors.\n\n(structure)\n\nThe detector.\n\ndetectorId -> (string)\n\nThe detector ID.\n\ndescription -> (string)\n\nThe detector description.\n\neventTypeName -> (string)\n\nThe name of the event type.\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the detector was last updated.\n\ncreatedTime -> (string)\n\nTimestamp of when the detector was created.\n\narn -> (string)\n\nThe detector ARN.\n\nnextToken -> (string)\n\nThe next page token."
+    },
+    {
+      "command_name": "get-entity-types",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-entity-types.html",
+      "command_description": "Description\n\nGets all entity types or a specific entity type if a name is specified. This is a paginated API. If you provide a null maxResults , this action retrieves a maximum of 10 records per page. If you provide a maxResults , the value must be between 5 and 10. To get the next page results, provide the pagination token from the GetEntityTypesResponse as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-entity-types\n[--name <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name.\n\n--next-token (string)\n\nThe next token for the subsequent request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nentityTypes -> (list)\n\nAn array of entity types.\n\n(structure)\n\nThe entity type details.\n\nname -> (string)\n\nThe entity type name.\n\ndescription -> (string)\n\nThe entity type description.\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the entity type was last updated.\n\ncreatedTime -> (string)\n\nTimestamp of when the entity type was created.\n\narn -> (string)\n\nThe entity type ARN.\n\nnextToken -> (string)\n\nThe next page token."
+    },
+    {
+      "command_name": "get-event",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-event.html",
+      "command_description": "Description\n\nRetrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-event\n--event-id <value>\n--event-type-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-id <value>",
+        "--event-type-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-id (string)\n\nThe ID of the event to retrieve.\n\n--event-type-name (string)\n\nThe event type of the event to retrieve.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nevent -> (structure)\n\nThe details of the event.\n\neventId -> (string)\n\nThe event ID.\n\neventTypeName -> (string)\n\nThe event type.\n\neventTimestamp -> (string)\n\nThe timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.\n\neventVariables -> (map)\n\nNames of the event type’s variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.\n\nkey -> (string)\n\nvalue -> (string)\n\ncurrentLabel -> (string)\n\nThe label associated with the event.\n\nlabelTimestamp -> (string)\n\nThe timestamp associated with the label to update. The timestamp must be specified using ISO 8601 standard in UTC.\n\nentities -> (list)\n\nThe event entities.\n\n(structure)\n\nThe entity details.\n\nentityType -> (string)\n\nThe entity type.\n\nentityId -> (string)\n\nThe entity ID. If you do not know the entityId , you can pass unknown , which is areserved string literal."
+    },
+    {
+      "command_name": "get-event-prediction",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-event-prediction.html",
+      "command_description": "Description\n\nEvaluates an event against a detector version. If a version ID is not provided, the detector’s (ACTIVE ) version is used.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-event-prediction\n--detector-id <value>\n[--detector-version-id <value>]\n--event-id <value>\n--event-type-name <value>\n--entities <value>\n--event-timestamp <value>\n--event-variables <value>\n[--external-model-endpoint-data-blobs <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "[--detector-version-id <value>]",
+        "--event-id <value>",
+        "--event-type-name <value>",
+        "--entities <value>",
+        "--event-timestamp <value>",
+        "--event-variables <value>",
+        "[--external-model-endpoint-data-blobs <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--detector-version-id (string)\n\nThe detector version ID.\n\n--event-id (string)\n\nThe unique ID used to identify the event.\n\n--event-type-name (string)\n\nThe event type associated with the detector specified for the prediction.\n\n--entities (list)\n\nThe entity type (associated with the detector’s event type) and specific entity ID representing who performed the event. If an entity id is not available, use “UNKNOWN.”\n\n(structure)\n\nThe entity details.\n\nentityType -> (string)\n\nThe entity type.\n\nentityId -> (string)\n\nThe entity ID. If you do not know the entityId , you can pass unknown , which is areserved string literal.\n\nShorthand Syntax:\n\nentityType=string,entityId=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"entityType\": \"string\",\n    \"entityId\": \"string\"\n  }\n  ...\n]\n\n\n--event-timestamp (string)\n\nTimestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.\n\n--event-variables (map)\n\nNames of the event type’s variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.\n\nWarning\n\nYou must provide at least one eventVariable\n\nTo ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:\n\nFor Amazon Fraud Detector trained models:\n\nIf a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map) with calculated default mean/medians for numeric variables and with special values for categorical variables.\n\nFor imported SageMaker models:\n\nIf a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules will use the default value that is provided for the variable.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--external-model-endpoint-data-blobs (map)\n\nThe Amazon SageMaker model endpoint input data blobs.\n\nkey -> (string)\n\nvalue -> (structure)\n\nA pre-formed Amazon SageMaker model input you can include if your detector version includes an imported Amazon SageMaker model endpoint with pass-through input configuration.\n\nbyteBuffer -> (blob)\n\nThe byte buffer of the Amazon SageMaker model endpoint input data blob.\n\ncontentType -> (string)\n\nThe content type of the Amazon SageMaker model endpoint input data blob.\n\nShorthand Syntax:\n\nKeyName1=byteBuffer=blob,contentType=string,KeyName2=byteBuffer=blob,contentType=string\n\n\nJSON Syntax:\n\n{\"string\": {\n      \"byteBuffer\": blob,\n      \"contentType\": \"string\"\n    }\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nmodelScores -> (list)\n\nThe model scores. Amazon Fraud Detector generates model scores between 0 and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model scores are directly related to the false positive rate (FPR). For example, a score of 600 corresponds to an estimated 10% false positive rate whereas a score of 900 corresponds to an estimated 2% false positive rate.\n\n(structure)\n\nThe fraud prediction scores.\n\nmodelVersion -> (structure)\n\nThe model version.\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number.\n\narn -> (string)\n\nThe model version ARN.\n\nscores -> (map)\n\nThe model’s fraud prediction scores.\n\nkey -> (string)\n\nvalue -> (float)\n\nruleResults -> (list)\n\nThe results from the rules.\n\n(structure)\n\nThe rule results.\n\nruleId -> (string)\n\nThe rule ID that was matched, based on the rule execution mode.\n\noutcomes -> (list)\n\nThe outcomes of the matched rule, based on the rule execution mode.\n\n(string)\n\nexternalModelOutputs -> (list)\n\nThe model scores for Amazon SageMaker models.\n\n(structure)\n\nThe fraud prediction scores from Amazon SageMaker model.\n\nexternalModel -> (structure)\n\nThe Amazon SageMaker model.\n\nmodelEndpoint -> (string)\n\nThe endpoint of the Amazon SageMaker model.\n\nmodelSource -> (string)\n\nThe source of the model.\n\noutputs -> (map)\n\nThe fraud prediction scores from Amazon SageMaker model.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "get-event-types",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-event-types.html",
+      "command_description": "Description\n\nGets all event types or a specific event type if name is provided. This is a paginated API. If you provide a null maxResults , this action retrieves a maximum of 10 records per page. If you provide a maxResults , the value must be between 5 and 10. To get the next page results, provide the pagination token from the GetEventTypesResponse as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-event-types\n[--name <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name.\n\n--next-token (string)\n\nThe next token for the subsequent request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\neventTypes -> (list)\n\nAn array of event types.\n\n(structure)\n\nThe event type details.\n\nname -> (string)\n\nThe event type name.\n\ndescription -> (string)\n\nThe event type description.\n\neventVariables -> (list)\n\nThe event type event variables.\n\n(string)\n\nlabels -> (list)\n\nThe event type labels.\n\n(string)\n\nentityTypes -> (list)\n\nThe event type entity types.\n\n(string)\n\neventIngestion -> (string)\n\nIf Enabled , Amazon Fraud Detector stores event data when you generate a prediction and uses that data to update calculated variables in near real-time. Amazon Fraud Detector uses this data, known as INGESTED_EVENTS , to train your model and improve fraud predictions.\n\ningestedEventStatistics -> (structure)\n\nData about the stored events.\n\nnumberOfEvents -> (long)\n\nThe number of stored events.\n\neventDataSizeInBytes -> (long)\n\nThe total size of the stored events.\n\nleastRecentEvent -> (string)\n\nThe oldest stored event.\n\nmostRecentEvent -> (string)\n\nThe newest stored event.\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the stored event was last updated.\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the event type was last updated.\n\ncreatedTime -> (string)\n\nTimestamp of when the event type was created.\n\narn -> (string)\n\nThe entity type ARN.\n\nnextToken -> (string)\n\nThe next page token."
+    },
+    {
+      "command_name": "get-external-models",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-external-models.html",
+      "command_description": "Description\n\nGets the details for one or more Amazon SageMaker models that have been imported into the service. This is a paginated API. If you provide a null maxResults , this actions retrieves a maximum of 10 records per page. If you provide a maxResults , the value must be between 5 and 10. To get the next page results, provide the pagination token from the GetExternalModelsResult as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-external-models\n[--model-endpoint <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--model-endpoint <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-endpoint (string)\n\nThe Amazon SageMaker model endpoint.\n\n--next-token (string)\n\nThe next page token for the request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nexternalModels -> (list)\n\nGets the Amazon SageMaker models.\n\n(structure)\n\nThe Amazon SageMaker model.\n\nmodelEndpoint -> (string)\n\nThe Amazon SageMaker model endpoints.\n\nmodelSource -> (string)\n\nThe source of the model.\n\ninvokeModelEndpointRoleArn -> (string)\n\nThe role used to invoke the model.\n\ninputConfiguration -> (structure)\n\nThe input configuration.\n\neventTypeName -> (string)\n\nThe event type name.\n\nformat -> (string)\n\nThe format of the model input configuration. The format differs depending on if it is passed through to SageMaker or constructed by Amazon Fraud Detector.\n\nuseEventVariables -> (boolean)\n\nThe event variables.\n\njsonInputTemplate -> (string)\n\nTemplate for constructing the JSON input-data sent to SageMaker. At event-evaluation, the placeholders for variable names in the template will be replaced with the variable values before being sent to SageMaker.\n\ncsvInputTemplate -> (string)\n\nTemplate for constructing the CSV input-data sent to SageMaker. At event-evaluation, the placeholders for variable-names in the template will be replaced with the variable values before being sent to SageMaker.\n\noutputConfiguration -> (structure)\n\nThe output configuration.\n\nformat -> (string)\n\nThe format of the model output configuration.\n\njsonKeyToVariableMap -> (map)\n\nA map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables.\n\nkey -> (string)\n\nvalue -> (string)\n\ncsvIndexToVariableMap -> (map)\n\nA map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables.\n\nkey -> (string)\n\nvalue -> (string)\n\nmodelEndpointStatus -> (string)\n\nThe Amazon Fraud Detector status for the external model endpoint\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the model was last updated.\n\ncreatedTime -> (string)\n\nTimestamp of when the model was last created.\n\narn -> (string)\n\nThe model ARN.\n\nnextToken -> (string)\n\nThe next page token to be used in subsequent requests."
+    },
+    {
+      "command_name": "get-kms-encryption-key",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-kms-encryption-key.html",
+      "command_description": "Description\n\nGets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-kms-encryption-key\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nkmsKey -> (structure)\n\nThe KMS encryption key.\n\nkmsEncryptionKeyArn -> (string)\n\nThe encryption key ARN."
+    },
+    {
+      "command_name": "get-labels",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-labels.html",
+      "command_description": "Description\n\nGets all labels or a specific label if name is provided. This is a paginated API. If you provide a null maxResults , this action retrieves a maximum of 50 records per page. If you provide a maxResults , the value must be between 10 and 50. To get the next page results, provide the pagination token from the GetGetLabelsResponse as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-labels\n[--name <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the label or labels to get.\n\n--next-token (string)\n\nThe next token for the subsequent request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nlabels -> (list)\n\nAn array of labels.\n\n(structure)\n\nThe label details.\n\nname -> (string)\n\nThe label name.\n\ndescription -> (string)\n\nThe label description.\n\nlastUpdatedTime -> (string)\n\nTimestamp of when the label was last updated.\n\ncreatedTime -> (string)\n\nTimestamp of when the event type was created.\n\narn -> (string)\n\nThe label ARN.\n\nnextToken -> (string)\n\nThe next page token."
+    },
+    {
+      "command_name": "get-model-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-model-version.html",
+      "command_description": "Description\n\nGets the details of the specified model version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-model-version\n--model-id <value>\n--model-type <value>\n--model-version-number <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "--model-version-number <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--model-version-number (string)\n\nThe model version number.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number.\n\ntrainingDataSource -> (string)\n\nThe training data source.\n\ntrainingDataSchema -> (structure)\n\nThe training data schema.\n\nmodelVariables -> (list)\n\nThe training data schema variables.\n\n(string)\n\nlabelSchema -> (structure)\n\nThe label schema.\n\nlabelMapper -> (map)\n\nThe label mapper maps the Amazon Fraud Detector supported model classification labels (FRAUD , LEGIT ) to the appropriate event type labels. For example, if “FRAUD ” and “LEGIT ” are Amazon Fraud Detector supported labels, this mapper could be: {\"FRAUD\" => [\"0\"] , \"LEGIT\" => [\"1\"]} or {\"FRAUD\" => [\"false\"] , \"LEGIT\" => [\"true\"]} or {\"FRAUD\" => [\"fraud\", \"abuse\"] , \"LEGIT\" => [\"legit\", \"safe\"]} . The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.\n\nkey -> (string)\n\nvalue -> (list)\n\n(string)\n\nunlabeledEventsTreatment -> (string)\n\nThe action to take for unlabeled events.\n\nexternalEventsDetail -> (structure)\n\nThe details of the external events data used for training the model version. This will be populated if the trainingDataSource is EXTERNAL_EVENTS\n\ndataLocation -> (string)\n\nThe Amazon S3 bucket location for the data.\n\ndataAccessRoleArn -> (string)\n\nThe ARN of the role that provides Amazon Fraud Detector access to the data location.\n\ningestedEventsDetail -> (structure)\n\nThe details of the ingested events data used for training the model version. This will be populated if the trainingDataSource is INGESTED_EVENTS .\n\ningestedEventsTimeWindow -> (structure)\n\nThe start and stop time of the ingested events.\n\nstartTime -> (string)\n\nTimestamp of the first ingensted event.\n\nendTime -> (string)\n\nTimestamp of the final ingested event.\n\nstatus -> (string)\n\nThe model version status.\n\nPossible values are:\n\nTRAINING_IN_PROGRESS\n\nTRAINING_COMPLETE\n\nACTIVATE_REQUESTED\n\nACTIVATE_IN_PROGRESS\n\nACTIVE\n\nINACTIVATE_REQUESTED\n\nINACTIVATE_IN_PROGRESS\n\nINACTIVE\n\nERROR\n\narn -> (string)\n\nThe model version ARN."
+    },
+    {
+      "command_name": "get-models",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-models.html",
+      "command_description": "Description\n\nGets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified.\n\nThis is a paginated API. If you provide a null maxResults , this action retrieves a maximum of 10 records per page. If you provide a maxResults , the value must be between 1 and 10. To get the next page results, provide the pagination token from the response as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-models\n[--model-id <value>]\n[--model-type <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--model-id <value>]",
+        "[--model-type <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--next-token (string)\n\nThe next token for the subsequent request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nnextToken -> (string)\n\nThe next page token to be used in subsequent requests.\n\nmodels -> (list)\n\nThe array of models.\n\n(structure)\n\nThe model.\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\ndescription -> (string)\n\nThe model description.\n\neventTypeName -> (string)\n\nThe name of the event type.\n\ncreatedTime -> (string)\n\nTimestamp of when the model was created.\n\nlastUpdatedTime -> (string)\n\nTimestamp of last time the model was updated.\n\narn -> (string)\n\nThe ARN of the model."
+    },
+    {
+      "command_name": "get-outcomes",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-outcomes.html",
+      "command_description": "Description\n\nGets one or more outcomes. This is a paginated API. If you provide a null maxResults , this actions retrieves a maximum of 100 records per page. If you provide a maxResults , the value must be between 50 and 100. To get the next page results, provide the pagination token from the GetOutcomesResult as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-outcomes\n[--name <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the outcome or outcomes to get.\n\n--next-token (string)\n\nThe next page token for the request.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\noutcomes -> (list)\n\nThe outcomes.\n\n(structure)\n\nThe outcome.\n\nname -> (string)\n\nThe outcome name.\n\ndescription -> (string)\n\nThe outcome description.\n\nlastUpdatedTime -> (string)\n\nThe timestamp when the outcome was last updated.\n\ncreatedTime -> (string)\n\nThe timestamp when the outcome was created.\n\narn -> (string)\n\nThe outcome ARN.\n\nnextToken -> (string)\n\nThe next page token for subsequent requests."
+    },
+    {
+      "command_name": "get-rules",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-rules.html",
+      "command_description": "Description\n\nGet all rules for a detector (paginated) if ruleId and ruleVersion are not specified. Gets all rules for the detector and the ruleId if present (paginated). Gets a specific rule if both the ruleId and the ruleVersion are specified.\n\nThis is a paginated API. Providing null maxResults results in retrieving maximum of 100 records per page. If you provide maxResults the value must be between 50 and 100. To get the next page result, a provide a pagination token from GetRulesResult as part of your request. Null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-rules\n[--rule-id <value>]\n--detector-id <value>\n[--rule-version <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--rule-id <value>]",
+        "--detector-id <value>",
+        "[--rule-version <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--rule-id (string)\n\nThe rule ID.\n\n--detector-id (string)\n\nThe detector ID.\n\n--rule-version (string)\n\nThe rule version.\n\n--next-token (string)\n\nThe next page token.\n\n--max-results (integer)\n\nThe maximum number of rules to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nruleDetails -> (list)\n\nThe details of the requested rule.\n\n(structure)\n\nThe details of the rule.\n\nruleId -> (string)\n\nThe rule ID.\n\ndescription -> (string)\n\nThe rule description.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleVersion -> (string)\n\nThe rule version.\n\nexpression -> (string)\n\nThe rule expression.\n\nlanguage -> (string)\n\nThe rule language.\n\noutcomes -> (list)\n\nThe rule outcomes.\n\n(string)\n\nlastUpdatedTime -> (string)\n\nTimestamp of the last time the rule was updated.\n\ncreatedTime -> (string)\n\nThe timestamp of when the rule was created.\n\narn -> (string)\n\nThe rule ARN.\n\nnextToken -> (string)\n\nThe next page token to be used in subsequent requests."
+    },
+    {
+      "command_name": "get-variables",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/get-variables.html",
+      "command_description": "Description\n\nGets all of the variables or the specific variable. This is a paginated API. Providing null maxSizePerPage results in retrieving maximum of 100 records per page. If you provide maxSizePerPage the value must be between 50 and 100. To get the next page result, a provide a pagination token from GetVariablesResult as part of your request. Null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-variables\n[--name <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the variable.\n\n--next-token (string)\n\nThe next page token of the get variable request.\n\n--max-results (integer)\n\nThe max size per page determined for the get variable request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nvariables -> (list)\n\nThe names of the variables returned.\n\n(structure)\n\nThe variable.\n\nname -> (string)\n\nThe name of the variable.\n\ndataType -> (string)\n\nThe data type of the variable. For more information see Variable types .\n\ndataSource -> (string)\n\nThe data source of the variable.\n\ndefaultValue -> (string)\n\nThe default value of the variable.\n\ndescription -> (string)\n\nThe description of the variable.\n\nvariableType -> (string)\n\nThe variable type of the variable.\n\nValid Values: AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT\n\nlastUpdatedTime -> (string)\n\nThe time when variable was last updated.\n\ncreatedTime -> (string)\n\nThe time when the variable was created.\n\narn -> (string)\n\nThe ARN of the variable.\n\nnextToken -> (string)\n\nThe next page token to be used in subsequent requests."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists all tags associated with the resource. This is a paginated API. To get the next page results, provide the pagination token from the response as part of your request. A null pagination token fetches the records from the beginning.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN that specifies the resource whose tags you want to list.\n\n--next-token (string)\n\nThe next token from the previous results.\n\n--max-results (integer)\n\nThe maximum number of objects to return for the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nnextToken -> (string)\n\nThe next token for subsequent requests."
+    },
+    {
+      "command_name": "put-detector",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-detector.html",
+      "command_description": "Description\n\nCreates or updates a detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-detector\n--detector-id <value>\n[--description <value>]\n--event-type-name <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "[--description <value>]",
+        "--event-type-name <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--description (string)\n\nThe description of the detector.\n\n--event-type-name (string)\n\nThe name of the event type.\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "put-entity-type",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-entity-type.html",
+      "command_description": "Description\n\nCreates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-entity-type\n--name <value>\n[--description <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the entity type.\n\n--description (string)\n\nThe description.\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "put-event-type",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-event-type.html",
+      "command_description": "Description\n\nCreates or updates an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-event-type\n--name <value>\n[--description <value>]\n--event-variables <value>\n[--labels <value>]\n--entity-types <value>\n[--event-ingestion <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "--event-variables <value>",
+        "[--labels <value>]",
+        "--entity-types <value>",
+        "[--event-ingestion <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name.\n\n--description (string)\n\nThe description of the event type.\n\n--event-variables (list)\n\nThe event type variables.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--labels (list)\n\nThe event type labels.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--entity-types (list)\n\nThe entity type for the event type. Example entity types: customer, merchant, account.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--event-ingestion (string)\n\nSpecifies if ingenstion is enabled or disabled.\n\nPossible values:\n\nENABLED\n\nDISABLED\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "put-external-model",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-external-model.html",
+      "command_description": "Description\n\nCreates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-external-model\n--model-endpoint <value>\n--model-source <value>\n--invoke-model-endpoint-role-arn <value>\n--input-configuration <value>\n--output-configuration <value>\n--model-endpoint-status <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-endpoint <value>",
+        "--model-source <value>",
+        "--invoke-model-endpoint-role-arn <value>",
+        "--input-configuration <value>",
+        "--output-configuration <value>",
+        "--model-endpoint-status <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-endpoint (string)\n\nThe model endpoints name.\n\n--model-source (string)\n\nThe source of the model.\n\nPossible values:\n\nSAGEMAKER\n\n--invoke-model-endpoint-role-arn (string)\n\nThe IAM role used to invoke the model endpoint.\n\n--input-configuration (structure)\n\nThe model endpoint input configuration.\n\neventTypeName -> (string)\n\nThe event type name.\n\nformat -> (string)\n\nThe format of the model input configuration. The format differs depending on if it is passed through to SageMaker or constructed by Amazon Fraud Detector.\n\nuseEventVariables -> (boolean)\n\nThe event variables.\n\njsonInputTemplate -> (string)\n\nTemplate for constructing the JSON input-data sent to SageMaker. At event-evaluation, the placeholders for variable names in the template will be replaced with the variable values before being sent to SageMaker.\n\ncsvInputTemplate -> (string)\n\nTemplate for constructing the CSV input-data sent to SageMaker. At event-evaluation, the placeholders for variable-names in the template will be replaced with the variable values before being sent to SageMaker.\n\nShorthand Syntax:\n\neventTypeName=string,format=string,useEventVariables=boolean,jsonInputTemplate=string,csvInputTemplate=string\n\n\nJSON Syntax:\n\n{\n  \"eventTypeName\": \"string\",\n  \"format\": \"TEXT_CSV\"|\"APPLICATION_JSON\",\n  \"useEventVariables\": true|false,\n  \"jsonInputTemplate\": \"string\",\n  \"csvInputTemplate\": \"string\"\n}\n\n\n--output-configuration (structure)\n\nThe model endpoint output configuration.\n\nformat -> (string)\n\nThe format of the model output configuration.\n\njsonKeyToVariableMap -> (map)\n\nA map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables.\n\nkey -> (string)\n\nvalue -> (string)\n\ncsvIndexToVariableMap -> (map)\n\nA map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nformat=string,jsonKeyToVariableMap={KeyName1=string,KeyName2=string},csvIndexToVariableMap={KeyName1=string,KeyName2=string}\n\n\nJSON Syntax:\n\n{\n  \"format\": \"TEXT_CSV\"|\"APPLICATION_JSONLINES\",\n  \"jsonKeyToVariableMap\": {\"string\": \"string\"\n    ...},\n  \"csvIndexToVariableMap\": {\"string\": \"string\"\n    ...}\n}\n\n\n--model-endpoint-status (string)\n\nThe model endpoint’s status in Amazon Fraud Detector.\n\nPossible values:\n\nASSOCIATED\n\nDISSOCIATED\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "put-kms-encryption-key",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-kms-encryption-key.html",
+      "command_description": "Description\n\nSpecifies the KMS key to be used to encrypt content in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-kms-encryption-key\n--kms-encryption-key-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--kms-encryption-key-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--kms-encryption-key-arn (string)\n\nThe KMS encryption key ARN.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "put-label",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-label.html",
+      "command_description": "Description\n\nCreates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-label\n--name <value>\n[--description <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe label name.\n\n--description (string)\n\nThe label description.\n\n--tags (list)\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "put-outcome",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-outcome.html",
+      "command_description": "Description\n\nCreates or updates an outcome.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-outcome\n--name <value>\n[--description <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the outcome.\n\n--description (string)\n\nThe outcome description.\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "send-event",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/send-event.html",
+      "command_description": "Description\n\nStores events in Amazon Fraud Detector without generating fraud predictions for those events. For example, you can use SendEvent to upload a historical dataset, which you can then later use to train a model.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  send-event\n--event-id <value>\n--event-type-name <value>\n--event-timestamp <value>\n--event-variables <value>\n[--assigned-label <value>]\n[--label-timestamp <value>]\n--entities <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-id <value>",
+        "--event-type-name <value>",
+        "--event-timestamp <value>",
+        "--event-variables <value>",
+        "[--assigned-label <value>]",
+        "[--label-timestamp <value>]",
+        "--entities <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-id (string)\n\nThe event ID to upload.\n\n--event-type-name (string)\n\nThe event type name of the event.\n\n--event-timestamp (string)\n\nThe timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.\n\n--event-variables (map)\n\nNames of the event type’s variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--assigned-label (string)\n\nThe label to associate with the event. Required if specifying labelTimestamp .\n\n--label-timestamp (string)\n\nThe timestamp associated with the label. Required if specifying assignedLabel .\n\n--entities (list)\n\nAn array of entities.\n\n(structure)\n\nThe entity details.\n\nentityType -> (string)\n\nThe entity type.\n\nentityId -> (string)\n\nThe entity ID. If you do not know the entityId , you can pass unknown , which is areserved string literal.\n\nShorthand Syntax:\n\nentityType=string,entityId=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"entityType\": \"string\",\n    \"entityId\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/tag-resource.html",
+      "command_description": "Description\n\nAssigns tags to a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--tags (list)\n\nThe tags to assign to the resource.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/untag-resource.html",
+      "command_description": "Description\n\nRemoves tags from a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource from which to remove the tag.\n\n--tag-keys (list)\n\nThe resource ARN.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-detector-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-detector-version.html",
+      "command_description": "Description\n\nUpdates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a DRAFT detector version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-detector-version\n--detector-id <value>\n--detector-version-id <value>\n--external-model-endpoints <value>\n--rules <value>\n[--description <value>]\n[--model-versions <value>]\n[--rule-execution-mode <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "--detector-version-id <value>",
+        "--external-model-endpoints <value>",
+        "--rules <value>",
+        "[--description <value>]",
+        "[--model-versions <value>]",
+        "[--rule-execution-mode <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe parent detector ID for the detector version you want to update.\n\n--detector-version-id (string)\n\nThe detector version ID.\n\n--external-model-endpoints (list)\n\nThe Amazon SageMaker model endpoints to include in the detector version.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--rules (list)\n\nThe rules to include in the detector version.\n\n(structure)\n\nA rule.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version.\n\nShorthand Syntax:\n\ndetectorId=string,ruleId=string,ruleVersion=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"detectorId\": \"string\",\n    \"ruleId\": \"string\",\n    \"ruleVersion\": \"string\"\n  }\n  ...\n]\n\n\n--description (string)\n\nThe detector version description.\n\n--model-versions (list)\n\nThe model versions to include in the detector version.\n\n(structure)\n\nThe model version.\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number.\n\narn -> (string)\n\nThe model version ARN.\n\nShorthand Syntax:\n\nmodelId=string,modelType=string,modelVersionNumber=string,arn=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"modelId\": \"string\",\n    \"modelType\": \"ONLINE_FRAUD_INSIGHTS\"|\"TRANSACTION_FRAUD_INSIGHTS\",\n    \"modelVersionNumber\": \"string\",\n    \"arn\": \"string\"\n  }\n  ...\n]\n\n\n--rule-execution-mode (string)\n\nThe rule execution mode to add to the detector.\n\nIf you specify FIRST_MATCHED , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.\n\nIf you specifiy ALL_MATCHED , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.\n\nThe default behavior is FIRST_MATCHED .\n\nPossible values:\n\nALL_MATCHED\n\nFIRST_MATCHED\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-detector-version-metadata",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-detector-version-metadata.html",
+      "command_description": "Description\n\nUpdates the detector version’s description. You can update the metadata for any detector version (DRAFT, ACTIVE, or INACTIVE ).\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-detector-version-metadata\n--detector-id <value>\n--detector-version-id <value>\n--description <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "--detector-version-id <value>",
+        "--description <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--detector-version-id (string)\n\nThe detector version ID.\n\n--description (string)\n\nThe description.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-detector-version-status",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-detector-version-status.html",
+      "command_description": "Description\n\nUpdates the detector version’s status. You can perform the following promotions or demotions using UpdateDetectorVersionStatus : DRAFT to ACTIVE , ACTIVE to INACTIVE , and INACTIVE to ACTIVE .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-detector-version-status\n--detector-id <value>\n--detector-version-id <value>\n--status <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--detector-id <value>",
+        "--detector-version-id <value>",
+        "--status <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--detector-id (string)\n\nThe detector ID.\n\n--detector-version-id (string)\n\nThe detector version ID.\n\n--status (string)\n\nThe new status.\n\nPossible values:\n\nDRAFT\n\nACTIVE\n\nINACTIVE\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-event-label",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-event-label.html",
+      "command_description": "Description\n\nUpdates the specified event with a new label.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-event-label\n--event-id <value>\n--event-type-name <value>\n--assigned-label <value>\n--label-timestamp <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-id <value>",
+        "--event-type-name <value>",
+        "--assigned-label <value>",
+        "--label-timestamp <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-id (string)\n\nThe ID of the event associated with the label to update.\n\n--event-type-name (string)\n\nThe event type of the event associated with the label to update.\n\n--assigned-label (string)\n\nThe new label to assign to the event.\n\n--label-timestamp (string)\n\nThe timestamp associated with the label. The timestamp must be specified using ISO 8601 standard in UTC.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-model",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-model.html",
+      "command_description": "Description\n\nUpdates model description.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-model\n--model-id <value>\n--model-type <value>\n[--description <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "[--description <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--description (string)\n\nThe new model description.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-model-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-model-version.html",
+      "command_description": "Description\n\nUpdates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-model-version\n--model-id <value>\n--model-type <value>\n--major-version-number <value>\n[--external-events-detail <value>]\n[--ingested-events-detail <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "--major-version-number <value>",
+        "[--external-events-detail <value>]",
+        "[--ingested-events-detail <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--major-version-number (string)\n\nThe major version number.\n\n--external-events-detail (structure)\n\nThe details of the external events data used for training the model version. Required if trainingDataSource is EXTERNAL_EVENTS .\n\ndataLocation -> (string)\n\nThe Amazon S3 bucket location for the data.\n\ndataAccessRoleArn -> (string)\n\nThe ARN of the role that provides Amazon Fraud Detector access to the data location.\n\nShorthand Syntax:\n\ndataLocation=string,dataAccessRoleArn=string\n\n\nJSON Syntax:\n\n{\n  \"dataLocation\": \"string\",\n  \"dataAccessRoleArn\": \"string\"\n}\n\n\n--ingested-events-detail (structure)\n\nThe details of the ingested event used for training the model version. Required if your trainingDataSource is INGESTED_EVENTS .\n\ningestedEventsTimeWindow -> (structure)\n\nThe start and stop time of the ingested events.\n\nstartTime -> (string)\n\nTimestamp of the first ingensted event.\n\nendTime -> (string)\n\nTimestamp of the final ingested event.\n\nShorthand Syntax:\n\ningestedEventsTimeWindow={startTime=string,endTime=string}\n\n\nJSON Syntax:\n\n{\n  \"ingestedEventsTimeWindow\": {\n    \"startTime\": \"string\",\n    \"endTime\": \"string\"\n  }\n}\n\n\n--tags (list)\n\nA collection of key and value pairs.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nmodelId -> (string)\n\nThe model ID.\n\nmodelType -> (string)\n\nThe model type.\n\nmodelVersionNumber -> (string)\n\nThe model version number of the model version updated.\n\nstatus -> (string)\n\nThe status of the updated model version."
+    },
+    {
+      "command_name": "update-model-version-status",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-model-version-status.html",
+      "command_description": "Description\n\nUpdates the status of a model version.\n\nYou can perform the following status updates:\n\nChange the TRAINING_COMPLETE status to ACTIVE .\n\nChange ACTIVE to INACTIVE .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-model-version-status\n--model-id <value>\n--model-type <value>\n--model-version-number <value>\n--status <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--model-id <value>",
+        "--model-type <value>",
+        "--model-version-number <value>",
+        "--status <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--model-id (string)\n\nThe model ID of the model version to update.\n\n--model-type (string)\n\nThe model type.\n\nPossible values:\n\nONLINE_FRAUD_INSIGHTS\n\nTRANSACTION_FRAUD_INSIGHTS\n\n--model-version-number (string)\n\nThe model version number.\n\n--status (string)\n\nThe model version status.\n\nPossible values:\n\nACTIVE\n\nINACTIVE\n\nTRAINING_CANCELLED\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-rule-metadata",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-rule-metadata.html",
+      "command_description": "Description\n\nUpdates a rule’s metadata. The description attribute can be updated.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-rule-metadata\n--rule <value>\n--description <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--rule <value>",
+        "--description <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--rule (structure)\n\nThe rule to update.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version.\n\nShorthand Syntax:\n\ndetectorId=string,ruleId=string,ruleVersion=string\n\n\nJSON Syntax:\n\n{\n  \"detectorId\": \"string\",\n  \"ruleId\": \"string\",\n  \"ruleVersion\": \"string\"\n}\n\n\n--description (string)\n\nThe rule description.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-rule-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-rule-version.html",
+      "command_description": "Description\n\nUpdates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 …).\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-rule-version\n--rule <value>\n[--description <value>]\n--expression <value>\n--language <value>\n--outcomes <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--rule <value>",
+        "[--description <value>]",
+        "--expression <value>",
+        "--language <value>",
+        "--outcomes <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--rule (structure)\n\nThe rule to update.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version.\n\nShorthand Syntax:\n\ndetectorId=string,ruleId=string,ruleVersion=string\n\n\nJSON Syntax:\n\n{\n  \"detectorId\": \"string\",\n  \"ruleId\": \"string\",\n  \"ruleVersion\": \"string\"\n}\n\n\n--description (string)\n\nThe description.\n\n--expression (string)\n\nThe rule expression.\n\n--language (string)\n\nThe language.\n\nPossible values:\n\nDETECTORPL\n\n--outcomes (list)\n\nThe outcomes.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--tags (list)\n\nThe tags to assign to the rule version.\n\n(structure)\n\nA key and value pair.\n\nkey -> (string)\n\nA tag key.\n\nvalue -> (string)\n\nA value assigned to a tag key.\n\nShorthand Syntax:\n\nkey=string,value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nrule -> (structure)\n\nThe new rule version that was created.\n\ndetectorId -> (string)\n\nThe detector for which the rule is associated.\n\nruleId -> (string)\n\nThe rule ID.\n\nruleVersion -> (string)\n\nThe rule version."
+    },
+    {
+      "command_name": "update-variable",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/update-variable.html",
+      "command_description": "Description\n\nUpdates a variable.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-variable\n--name <value>\n[--default-value <value>]\n[--description <value>]\n[--variable-type <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--default-value <value>]",
+        "[--description <value>]",
+        "[--variable-type <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the variable.\n\n--default-value (string)\n\nThe new default value of the variable.\n\n--description (string)\n\nThe new description.\n\n--variable-type (string)\n\nThe variable type. For more information see Variable types .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nThis is the Amazon Fraud Detector API Reference. This guide is for developers who need detailed information about Amazon Fraud Detector API actions, data types, and errors. For more information about Amazon Fraud Detector features, see the Amazon Fraud Detector User Guide ."
+}

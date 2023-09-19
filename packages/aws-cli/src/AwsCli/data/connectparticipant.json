@@ -1,0 +1,133 @@
+{
+  "service_name": "connectparticipant",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/index.html",
+  "service_commands": [
+    {
+      "command_name": "complete-attachment-upload",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/complete-attachment-upload.html",
+      "command_description": "Description\n\nAllows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  complete-attachment-upload\n--attachment-ids <value>\n[--client-token <value>]\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--attachment-ids <value>",
+        "[--client-token <value>]",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--attachment-ids (list)\n\nA list of unique identifiers for the attachments.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--client-token (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\n\n--connection-token (string)\n\nThe authentication token associated with the participant’s connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "create-participant-connection",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/create-participant-connection.html",
+      "command_description": "Description\n\nCreates the participant’s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.\n\nThe participant token is valid for the lifetime of the participant – until they are part of a contact.\n\nThe response URL for WEBSOCKET Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic.\n\nFor chat, you need to publish the following on the established websocket connection:\n\n{\"topic\":\"aws/subscribe\",\"content\":{\"topics\":[\"aws/chat\"]}}\n\nUpon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.\n\nMessage streaming support : This API can also be used together with the StartContactStreaming API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, Enable real-time chat message streaming in the Amazon Connect Administrator Guide .\n\nFeature specifications : For information about feature specifications, such as the allowed number of open websocket connections per participant, see Feature specifications in the Amazon Connect Administrator Guide .\n\nNote\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-participant-connection\n--type <value>\n--participant-token <value>\n[--connect-participant | --no-connect-participant]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--type <value>",
+        "--participant-token <value>",
+        "[--connect-participant | --no-connect-participant]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--type (list)\n\nType of connection information required.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\nWhere valid values are:\n  WEBSOCKET\n  CONNECTION_CREDENTIALS\n\n\n--participant-token (string)\n\nThis is a header parameter.\n\nThe ParticipantToken as obtained from StartChatContact API response.\n\n--connect-participant | --no-connect-participant (boolean)\n\nAmazon Connect Participant is used to mark the participant as connected for message streaming.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nWebsocket -> (structure)\n\nCreates the participant’s websocket connection.\n\nUrl -> (string)\n\nThe URL of the websocket.\n\nConnectionExpiry -> (string)\n\nThe URL expiration timestamp in ISO date format.\n\nIt’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.\n\nConnectionCredentials -> (structure)\n\nCreates the participant’s connection credentials. The authentication token associated with the participant’s connection.\n\nConnectionToken -> (string)\n\nThe connection token.\n\nExpiry -> (string)\n\nThe expiration of the token.\n\nIt’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z."
+    },
+    {
+      "command_name": "disconnect-participant",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/disconnect-participant.html",
+      "command_description": "Description\n\nDisconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  disconnect-participant\n[--client-token <value>]\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token <value>]",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\n\n--connection-token (string)\n\nThe authentication token associated with the participant’s connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "get-attachment",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/get-attachment.html",
+      "command_description": "Description\n\nProvides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-attachment\n--attachment-id <value>\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--attachment-id <value>",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--attachment-id (string)\n\nA unique identifier for the attachment.\n\n--connection-token (string)\n\nThe authentication token associated with the participant’s connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nUrl -> (string)\n\nThis is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to StartAttachmentUpload .\n\nUrlExpiry -> (string)\n\nThe expiration time of the URL in ISO timestamp. It’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z."
+    },
+    {
+      "command_name": "get-transcript",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/get-transcript.html",
+      "command_description": "Description\n\nRetrieves a transcript of the session, including details about any attachments. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-transcript\n[--contact-id <value>]\n[--max-results <value>]\n[--next-token <value>]\n[--scan-direction <value>]\n[--sort-order <value>]\n[--start-position <value>]\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--contact-id <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--scan-direction <value>]",
+        "[--sort-order <value>]",
+        "[--start-position <value>]",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--contact-id (string)\n\nThe contactId from the current contact chain for which transcript is needed.\n\n--max-results (integer)\n\nThe maximum number of results to return in the page. Default: 10.\n\n--next-token (string)\n\nThe pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.\n\n--scan-direction (string)\n\nThe direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition.\n\nPossible values:\n\nFORWARD\n\nBACKWARD\n\n--sort-order (string)\n\nThe sort order for the records. Default: DESCENDING.\n\nPossible values:\n\nDESCENDING\n\nASCENDING\n\n--start-position (structure)\n\nA filtering option for where to start.\n\nId -> (string)\n\nThe ID of the message or event where to start.\n\nAbsoluteTime -> (string)\n\nThe time in ISO format where to start.\n\nIt’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.\n\nMostRecent -> (integer)\n\nThe start position of the most recent message where you want to start.\n\nShorthand Syntax:\n\nId=string,AbsoluteTime=string,MostRecent=integer\n\n\nJSON Syntax:\n\n{\n  \"Id\": \"string\",\n  \"AbsoluteTime\": \"string\",\n  \"MostRecent\": integer\n}\n\n\n--connection-token (string)\n\nThe authentication token associated with the participant’s connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nInitialContactId -> (string)\n\nThe initial contact ID for the contact.\n\nTranscript -> (list)\n\nThe list of messages in the session.\n\n(structure)\n\nAn item - message or event - that has been sent.\n\nAbsoluteTime -> (string)\n\nThe time when the message or event was sent.\n\nIt’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.\n\nContent -> (string)\n\nThe content of the message or event.\n\nContentType -> (string)\n\nThe type of content of the item.\n\nId -> (string)\n\nThe ID of the item.\n\nType -> (string)\n\nType of the item: message or event.\n\nParticipantId -> (string)\n\nThe ID of the sender in the session.\n\nDisplayName -> (string)\n\nThe chat display name of the sender.\n\nParticipantRole -> (string)\n\nThe role of the sender. For example, is it a customer, agent, or system.\n\nAttachments -> (list)\n\nProvides information about the attachments.\n\n(structure)\n\nThe case-insensitive input to indicate standard MIME type that describes the format of the file that will be uploaded.\n\nContentType -> (string)\n\nDescribes the MIME file type of the attachment. For a list of supported file types, see Feature specifications in the Amazon Connect Administrator Guide .\n\nAttachmentId -> (string)\n\nA unique identifier for the attachment.\n\nAttachmentName -> (string)\n\nA case-sensitive name of the attachment being uploaded.\n\nStatus -> (string)\n\nStatus of the attachment.\n\nNextToken -> (string)\n\nThe pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results."
+    },
+    {
+      "command_name": "send-event",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/send-event.html",
+      "command_description": "Description\n\nSends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  send-event\n--content-type <value>\n[--content <value>]\n[--client-token <value>]\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--content-type <value>",
+        "[--content <value>]",
+        "[--client-token <value>]",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--content-type (string)\n\nThe content type of the request. Supported types are:\n\napplication/vnd.amazonaws.connect.event.typing\n\napplication/vnd.amazonaws.connect.event.connection.acknowledged\n\n--content (string)\n\nThe content of the event to be sent (for example, message text). This is not yet supported.\n\n--client-token (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\n\n--connection-token (string)\n\nThe authentication token associated with the participant’s connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nId -> (string)\n\nThe ID of the response.\n\nAbsoluteTime -> (string)\n\nThe time when the event was sent.\n\nIt’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z."
+    },
+    {
+      "command_name": "send-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/send-message.html",
+      "command_description": "Description\n\nSends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  send-message\n--content-type <value>\n--content <value>\n[--client-token <value>]\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--content-type <value>",
+        "--content <value>",
+        "[--client-token <value>]",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--content-type (string)\n\nThe type of the content. Supported types are text/plain.\n\n--content (string)\n\nThe content of the message.\n\n--client-token (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\n\n--connection-token (string)\n\nThe authentication token associated with the connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nId -> (string)\n\nThe ID of the message.\n\nAbsoluteTime -> (string)\n\nThe time when the message was sent.\n\nIt’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z."
+    },
+    {
+      "command_name": "start-attachment-upload",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connectparticipant/start-attachment-upload.html",
+      "command_description": "Description\n\nProvides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.\n\nThe Amazon Connect Participant Service APIs do not use Signature Version 4 authentication .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  start-attachment-upload\n--content-type <value>\n--attachment-size-in-bytes <value>\n--attachment-name <value>\n[--client-token <value>]\n--connection-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--content-type <value>",
+        "--attachment-size-in-bytes <value>",
+        "--attachment-name <value>",
+        "[--client-token <value>]",
+        "--connection-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--content-type (string)\n\nDescribes the MIME file type of the attachment. For a list of supported file types, see Feature specifications in the Amazon Connect Administrator Guide .\n\n--attachment-size-in-bytes (long)\n\nThe size of the attachment in bytes.\n\n--attachment-name (string)\n\nA case-sensitive name of the attachment being uploaded.\n\n--client-token (string)\n\nA unique case sensitive identifier to support idempotency of request.\n\n--connection-token (string)\n\nThe authentication token associated with the participant’s connection.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAttachmentId -> (string)\n\nA unique identifier for the attachment.\n\nUploadMetadata -> (structure)\n\nFields to be used while uploading the attachment.\n\nUrl -> (string)\n\nThis is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to StartAttachmentUpload .\n\nUrlExpiry -> (string)\n\nThe expiration time of the URL in ISO timestamp. It’s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.\n\nHeadersToInclude -> (map)\n\nThe headers to be provided while uploading the file to the URL.\n\nkey -> (string)\n\nvalue -> (string)"
+    }
+  ],
+  "service_description": "Description\n\nAmazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.\n\nAmazon Connect enables customer contacts through voice or chat.\n\nThe APIs described here are used by chat participants, such as agents and customers."
+}

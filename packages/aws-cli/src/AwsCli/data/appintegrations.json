@@ -1,0 +1,224 @@
+{
+  "service_name": "appintegrations",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-data-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/create-data-integration.html",
+      "command_description": "Description\n\nCreates and persists a DataIntegration resource.\n\nNote\n\nYou cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-data-integration\n--name <value>\n[--description <value>]\n[--kms-key <value>]\n[--source-uri <value>]\n[--schedule-config <value>]\n[--tags <value>]\n[--client-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "[--kms-key <value>]",
+        "[--source-uri <value>]",
+        "[--schedule-config <value>]",
+        "[--tags <value>]",
+        "[--client-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the DataIntegration.\n\n--description (string)\n\nA description of the DataIntegration.\n\n--kms-key (string)\n\nThe KMS key for the DataIntegration.\n\n--source-uri (string)\n\nThe URI of the data source.\n\n--schedule-config (structure)\n\nThe name of the data and how often it should be pulled from the source.\n\nFirstExecutionFrom -> (string)\n\nThe start date for objects to import in the first flow run.\n\nObject -> (string)\n\nThe name of the object to pull from the data source.\n\nScheduleExpression -> (string)\n\nHow often the data should be pulled from data source.\n\nShorthand Syntax:\n\nFirstExecutionFrom=string,Object=string,ScheduleExpression=string\n\n\nJSON Syntax:\n\n{\n  \"FirstExecutionFrom\": \"string\",\n  \"Object\": \"string\",\n  \"ScheduleExpression\": \"string\"\n}\n\n\n--tags (map)\n\nOne or more tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--client-token (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nArn -> (string)\n\nThe Amazon Resource Name (ARN)\n\nId -> (string)\n\nA unique identifier.\n\nName -> (string)\n\nThe name of the DataIntegration.\n\nDescription -> (string)\n\nA description of the DataIntegration.\n\nKmsKey -> (string)\n\nThe KMS key for the DataIntegration.\n\nSourceURI -> (string)\n\nThe URI of the data source.\n\nScheduleConfiguration -> (structure)\n\nThe name of the data and how often it should be pulled from the source.\n\nFirstExecutionFrom -> (string)\n\nThe start date for objects to import in the first flow run.\n\nObject -> (string)\n\nThe name of the object to pull from the data source.\n\nScheduleExpression -> (string)\n\nHow often the data should be pulled from data source.\n\nTags -> (map)\n\nOne or more tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nClientToken -> (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+    },
+    {
+      "command_name": "create-event-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/create-event-integration.html",
+      "command_description": "Description\n\nCreates an EventIntegration, given a specified name, description, and a reference to an Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No objects are created in the your account, only metadata that is persisted on the EventIntegration control plane.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-event-integration\n--name <value>\n[--description <value>]\n--event-filter <value>\n--event-bridge-bus <value>\n[--client-token <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "--event-filter <value>",
+        "--event-bridge-bus <value>",
+        "[--client-token <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the event integration.\n\n--description (string)\n\nThe description of the event integration.\n\n--event-filter (structure)\n\nThe event filter.\n\nSource -> (string)\n\nThe source of the events.\n\nShorthand Syntax:\n\nSource=string\n\n\nJSON Syntax:\n\n{\n  \"Source\": \"string\"\n}\n\n\n--event-bridge-bus (string)\n\nThe EventBridge bus.\n\n--client-token (string)\n\nA unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\n\n--tags (map)\n\nOne or more tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nEventIntegrationArn -> (string)\n\nThe Amazon Resource Name (ARN) of the event integration."
+    },
+    {
+      "command_name": "delete-data-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/delete-data-integration.html",
+      "command_description": "Description\n\nDeletes the DataIntegration. Only DataIntegrations that don’t have any DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the underlying Amazon AppFlow flow and service linked role.\n\nNote\n\nYou cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-data-integration\n--data-integration-identifier <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--data-integration-identifier <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--data-integration-identifier (string)\n\nA unique identifier for the DataIntegration.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-event-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/delete-event-integration.html",
+      "command_description": "Description\n\nDeletes the specified existing event integration. If the event integration is associated with clients, the request is rejected.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-event-integration\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the event integration.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "get-data-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/get-data-integration.html",
+      "command_description": "Description\n\nReturns information about the DataIntegration.\n\nNote\n\nYou cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-data-integration\n--identifier <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--identifier <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--identifier (string)\n\nA unique identifier.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nArn -> (string)\n\nThe Amazon Resource Name (ARN) for the DataIntegration.\n\nId -> (string)\n\nA unique identifier.\n\nName -> (string)\n\nThe name of the DataIntegration.\n\nDescription -> (string)\n\nThe KMS key for the DataIntegration.\n\nKmsKey -> (string)\n\nThe KMS key for the DataIntegration.\n\nSourceURI -> (string)\n\nThe URI of the data source.\n\nScheduleConfiguration -> (structure)\n\nThe name of the data and how often it should be pulled from the source.\n\nFirstExecutionFrom -> (string)\n\nThe start date for objects to import in the first flow run.\n\nObject -> (string)\n\nThe name of the object to pull from the data source.\n\nScheduleExpression -> (string)\n\nHow often the data should be pulled from data source.\n\nTags -> (map)\n\nOne or more tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "get-event-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/get-event-integration.html",
+      "command_description": "Description\n\nReturns information about the event integration.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-event-integration\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the event integration.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nName -> (string)\n\nThe name of the event integration.\n\nDescription -> (string)\n\nThe description of the event integration.\n\nEventIntegrationArn -> (string)\n\nThe Amazon Resource Name (ARN) for the event integration.\n\nEventBridgeBus -> (string)\n\nThe EventBridge bus.\n\nEventFilter -> (structure)\n\nThe event filter.\n\nSource -> (string)\n\nThe source of the events.\n\nTags -> (map)\n\nOne or more tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "list-data-integration-associations",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/list-data-integration-associations.html",
+      "command_description": "Description\n\nReturns a paginated list of DataIntegration associations in the account.\n\nNote\n\nYou cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-data-integration-associations\n--data-integration-identifier <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--data-integration-identifier <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--data-integration-identifier (string)\n\nA unique identifier for the DataIntegration.\n\n--next-token (string)\n\nThe token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.\n\n--max-results (integer)\n\nThe maximum number of results to return per page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDataIntegrationAssociations -> (list)\n\nThe Amazon Resource Name (ARN) and unique ID of the DataIntegration association.\n\n(structure)\n\nSummary information about the DataIntegration association.\n\nDataIntegrationAssociationArn -> (string)\n\nThe Amazon Resource Name (ARN) of the DataIntegration association.\n\nDataIntegrationArn -> (string)\n\nThe Amazon Resource Name (ARN)of the DataIntegration.\n\nClientId -> (string)\n\nThe identifier for teh client that is associated with the DataIntegration association.\n\nNextToken -> (string)\n\nIf there are additional results, this is the token for the next set of results."
+    },
+    {
+      "command_name": "list-data-integrations",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/list-data-integrations.html",
+      "command_description": "Description\n\nReturns a paginated list of DataIntegrations in the account.\n\nNote\n\nYou cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-data-integrations\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nThe token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.\n\n--max-results (integer)\n\nThe maximum number of results to return per page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDataIntegrations -> (list)\n\nThe DataIntegrations associated with this account.\n\n(structure)\n\nSummary information about the DataIntegration.\n\nArn -> (string)\n\nThe Amazon Resource Name (ARN) of the DataIntegration.\n\nName -> (string)\n\nThe name of the DataIntegration.\n\nSourceURI -> (string)\n\nThe URI of the data source.\n\nNextToken -> (string)\n\nIf there are additional results, this is the token for the next set of results."
+    },
+    {
+      "command_name": "list-event-integration-associations",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/list-event-integration-associations.html",
+      "command_description": "Description\n\nReturns a paginated list of event integration associations in the account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-event-integration-associations\n--event-integration-name <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--event-integration-name <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--event-integration-name (string)\n\nThe name of the event integration.\n\n--next-token (string)\n\nThe token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.\n\n--max-results (integer)\n\nThe maximum number of results to return per page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nEventIntegrationAssociations -> (list)\n\nThe event integration associations.\n\n(structure)\n\nThe event integration association.\n\nEventIntegrationAssociationArn -> (string)\n\nThe Amazon Resource Name (ARN) for the event integration association.\n\nEventIntegrationAssociationId -> (string)\n\nThe identifier for the event integration association.\n\nEventIntegrationName -> (string)\n\nThe name of the event integration.\n\nClientId -> (string)\n\nThe identifier for the client that is associated with the event integration.\n\nEventBridgeRuleName -> (string)\n\nThe name of the EventBridge rule.\n\nClientAssociationMetadata -> (map)\n\nThe metadata associated with the client.\n\nkey -> (string)\n\nvalue -> (string)\n\nNextToken -> (string)\n\nIf there are additional results, this is the token for the next set of results."
+    },
+    {
+      "command_name": "list-event-integrations",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/list-event-integrations.html",
+      "command_description": "Description\n\nReturns a paginated list of event integrations in the account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-event-integrations\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nThe token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.\n\n--max-results (integer)\n\nThe maximum number of results to return per page.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nEventIntegrations -> (list)\n\nThe event integrations.\n\n(structure)\n\nThe event integration.\n\nEventIntegrationArn -> (string)\n\nThe Amazon Resource Name (ARN) of the event integration.\n\nName -> (string)\n\nThe name of the event integration.\n\nDescription -> (string)\n\nThe event integration description.\n\nEventFilter -> (structure)\n\nThe event integration filter.\n\nSource -> (string)\n\nThe source of the events.\n\nEventBridgeBus -> (string)\n\nThe Amazon EventBridge bus for the event integration.\n\nTags -> (map)\n\nThe tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nNextToken -> (string)\n\nIf there are additional results, this is the token for the next set of results."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags for the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (map)\n\nInformation about the tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/tag-resource.html",
+      "command_description": "Description\n\nAdds the specified tags to the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the resource.\n\n--tags (map)\n\nOne or more tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/untag-resource.html",
+      "command_description": "Description\n\nRemoves the specified tags from the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the resource.\n\n--tag-keys (list)\n\nThe tag keys.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-data-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/update-data-integration.html",
+      "command_description": "Description\n\nUpdates the description of a DataIntegration.\n\nNote\n\nYou cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-data-integration\n--identifier <value>\n[--name <value>]\n[--description <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--identifier <value>",
+        "[--name <value>]",
+        "[--description <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--identifier (string)\n\nA unique identifier for the DataIntegration.\n\n--name (string)\n\nThe name of the DataIntegration.\n\n--description (string)\n\nA description of the DataIntegration.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-event-integration",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appintegrations/update-event-integration.html",
+      "command_description": "Description\n\nUpdates the description of an event integration.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-event-integration\n--name <value>\n[--description <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the event integration.\n\n--description (string)\n\nThe description of the event inegration.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nThe Amazon AppIntegrations service enables you to configure and reuse connections to external applications.\n\nFor information about how you can use external applications with Amazon Connect, see Set up pre-built integrations and Deliver information to agents using Amazon Connect Wisdom in the Amazon Connect Administrator Guide ."
+}

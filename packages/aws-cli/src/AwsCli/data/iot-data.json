@@ -1,0 +1,109 @@
+{
+  "service_name": "iot-data",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/index.html",
+  "service_commands": [
+    {
+      "command_name": "delete-thing-shadow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/delete-thing-shadow.html",
+      "command_description": "Description\n\nDeletes the shadow for the specified thing.\n\nRequires permission to access the DeleteThingShadow action.\n\nFor more information, see DeleteThingShadow in the IoT Developer Guide.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.",
+      "command_synopsis": "Synopsis\n  delete-thing-shadow\n--thing-name <value>\n[--shadow-name <value>]\n<outfile>\n",
+      "command_options": [
+        "--thing-name <value>",
+        "[--shadow-name <value>]",
+        "<outfile>"
+      ],
+      "command_options_description": "Options\n\n--thing-name (string)\n\nThe name of the thing.\n\n--shadow-name (string)\n\nThe name of the shadow.\n\noutfile (string) Filename where the content will be saved\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\npayload -> (blob)\n\nThe state information, in JSON format.",
+      "command_examples": "Examples\n\nTo delete a device’s shadow document\n\nThe following delete-thing-shadow example deletes the entire shadow document for the device named MyRPi.\n\naws iot-data delete-thing-shadow \\\n    --thing-name MyRPi \\\n    \"output.txt\"\n\n\nThe command produces no output on the display, but output.txt contains information that confirms the version and timestamp of the shadow document that you deleted.\n\n{\"version\":2,\"timestamp\":1560270384}\n\n\nFor more information, see Using Shadows in the AWS IoT Developers Guide."
+    },
+    {
+      "command_name": "get-retained-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/get-retained-message.html",
+      "command_description": "Description\n\nGets the details of a single retained message for the specified topic.\n\nThis action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call ListRetainedMessages .\n\nRequires permission to access the GetRetainedMessage action.\n\nFor more information about messaging costs, see IoT Core pricing - Messaging .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.",
+      "command_synopsis": "Synopsis\n  get-retained-message\n--topic <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--topic <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--topic (string)\n\nThe topic name of the retained message to retrieve.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntopic -> (string)\n\nThe topic name to which the retained message was published.\n\npayload -> (blob)\n\nThe Base64-encoded message payload of the retained message body.\n\nqos -> (integer)\n\nThe quality of service (QoS) level used to publish the retained message.\n\nlastModifiedTime -> (long)\n\nThe Epoch date and time, in milliseconds, when the retained message was stored by IoT."
+    },
+    {
+      "command_name": "get-thing-shadow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/get-thing-shadow.html",
+      "command_description": "Description\n\nGets the shadow for the specified thing.\n\nRequires permission to access the GetThingShadow action.\n\nFor more information, see GetThingShadow in the IoT Developer Guide.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.",
+      "command_synopsis": "Synopsis\n  get-thing-shadow\n--thing-name <value>\n[--shadow-name <value>]\n<outfile>\n",
+      "command_options": [
+        "--thing-name <value>",
+        "[--shadow-name <value>]",
+        "<outfile>"
+      ],
+      "command_options_description": "Options\n\n--thing-name (string)\n\nThe name of the thing.\n\n--shadow-name (string)\n\nThe name of the shadow.\n\noutfile (string) Filename where the content will be saved\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\npayload -> (blob)\n\nThe state information, in JSON format.",
+      "command_examples": "Examples\n\nTo get a thing shadow document\n\nThe following get-thing-shadow example gets the thing shadow document for the specified IoT thing.\n\naws iot-data get-thing-shadow \\\n    --thing-name MyRPi \\\n    output.txt\n\n\nThe command produces no output on the display, but the following shows the contents of output.txt:\n\n{\n  \"state\":{\n    \"reported\":{\n    \"moisture\":\"low\"\n    }\n  },\n  \"metadata\":{\n    \"reported\":{\n      \"moisture\":{\n        \"timestamp\":1560269319\n      }\n    }\n  },\n  \"version\":1,\"timestamp\":1560269405\n}\n\n\nFor more information, see Device Shadow Service Data Flow in the AWS IoT Developers Guide."
+    },
+    {
+      "command_name": "list-named-shadows-for-thing",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/list-named-shadows-for-thing.html",
+      "command_description": "Description\n\nLists the shadows for the specified thing.\n\nRequires permission to access the ListNamedShadowsForThing action.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.",
+      "command_synopsis": "Synopsis\n  list-named-shadows-for-thing\n--thing-name <value>\n[--next-token <value>]\n[--page-size <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--thing-name <value>",
+        "[--next-token <value>]",
+        "[--page-size <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--thing-name (string)\n\nThe name of the thing.\n\n--next-token (string)\n\nThe token to retrieve the next set of results.\n\n--page-size (integer)\n\nThe result page size.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nresults -> (list)\n\nThe list of shadows for the specified thing.\n\n(string)\n\nnextToken -> (string)\n\nThe token to use to get the next set of results, or null if there are no additional results.\n\ntimestamp -> (long)\n\nThe Epoch date and time the response was generated by IoT."
+    },
+    {
+      "command_name": "list-retained-messages",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/list-retained-messages.html",
+      "command_description": "Description\n\nLists summary information about the retained messages stored for the account.\n\nThis action returns only the topic names of the retained messages. It doesn’t return any message payloads. Although this action doesn’t return a message payload, it can still incur messaging costs.\n\nTo get the message payload of a retained message, call GetRetainedMessage with the topic name of the retained message.\n\nRequires permission to access the ListRetainedMessages action.\n\nFor more information about messaging costs, see IoT Core pricing - Messaging .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.\n\nlist-retained-messages is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: retainedTopics",
+      "command_synopsis": "Synopsis\n  list-retained-messages\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nretainedTopics -> (list)\n\nA summary list the account’s retained messages. The information returned doesn’t include the message payloads of the retained messages.\n\n(structure)\n\nInformation about a single retained message.\n\ntopic -> (string)\n\nThe topic name to which the retained message was published.\n\npayloadSize -> (long)\n\nThe size of the retained message’s payload in bytes.\n\nqos -> (integer)\n\nThe quality of service (QoS) level used to publish the retained message.\n\nlastModifiedTime -> (long)\n\nThe Epoch date and time, in milliseconds, when the retained message was stored by IoT.\n\nnextToken -> (string)\n\nThe token for the next set of results, or null if there are no additional results."
+    },
+    {
+      "command_name": "publish",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/publish.html",
+      "command_description": "Description\n\nPublishes an MQTT message.\n\nRequires permission to access the Publish action.\n\nFor more information about MQTT messages, see MQTT Protocol in the IoT Developer Guide.\n\nFor more information about messaging costs, see IoT Core pricing - Messaging .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.",
+      "command_synopsis": "Synopsis\n  publish\n--topic <value>\n[--qos <value>]\n[--retain | --no-retain]\n[--payload <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--topic <value>",
+        "[--qos <value>]",
+        "[--retain | --no-retain]",
+        "[--payload <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--topic (string)\n\nThe name of the MQTT topic.\n\n--qos (integer)\n\nThe Quality of Service (QoS) level.\n\n--retain | --no-retain (boolean)\n\nA Boolean value that determines whether to set the RETAIN flag when the message is published.\n\nSetting the RETAIN flag causes the message to be retained and sent to new subscribers to the topic.\n\nValid values: true | false\n\nDefault value: false\n\n--payload (blob)\n\nThe message body. MQTT accepts text, binary, and empty (null) message payloads.\n\nPublishing an empty (null) payload with retain = true deletes the retained message identified by topic from IoT Core.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-thing-shadow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot-data/update-thing-shadow.html",
+      "command_description": "Description\n\nUpdates the shadow for the specified thing.\n\nRequires permission to access the UpdateThingShadow action.\n\nFor more information, see UpdateThingShadow in the IoT Developer Guide.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service.",
+      "command_synopsis": "Synopsis\n  update-thing-shadow\n--thing-name <value>\n[--shadow-name <value>]\n--payload <value>\n<outfile>\n",
+      "command_options": [
+        "--thing-name <value>",
+        "[--shadow-name <value>]",
+        "--payload <value>",
+        "<outfile>"
+      ],
+      "command_options_description": "Options\n\n--thing-name (string)\n\nThe name of the thing.\n\n--shadow-name (string)\n\nThe name of the shadow.\n\n--payload (blob)\n\nThe state information, in JSON format.\n\noutfile (string) Filename where the content will be saved\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\npayload -> (blob)\n\nThe state information, in JSON format.",
+      "command_examples": "Examples\n\nTo update a thing shadow\n\nThe following update-thing-shadow example modifies the current state of the device shadow for the specified thing and saves it to the file output.txt.\n\naws iot-data update-thing-shadow \\\n    --cli-binary-format raw-in-base64-out \\\n    --thing-name MyRPi \\\n    --payload '{\"state\":{\"reported\":{\"moisture\":\"okay\"}}}' \\\n    \"output.txt\"\n\n\nThe command produces no output on the display, but the following shows the contents of output.txt:\n\n{\n    \"state\": {\n        \"reported\": {\n            \"moisture\": \"okay\"\n        }\n    },\n    \"metadata\": {\n        \"reported\": {\n            \"moisture\": {\n                \"timestamp\": 1560270036\n            }\n        }\n    },\n    \"version\": 2,\n    \"timestamp\": 1560270036\n}\n\n\nFor more information, see Device Shadow Service Data Flow in the AWS IoT Developers Guide."
+    }
+  ],
+  "service_description": "Description\n\nIoT data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a persistent representation of your things and their state in the Amazon Web Services cloud.\n\nFind the endpoint address for actions in IoT data by running this CLI command:\n\naws iot describe-endpoint --endpoint-type iot:Data-ATS\n\nThe service name used by Amazon Web ServicesSignature Version 4 to sign requests is: iotdevicegateway .\n\nNote\n\nThe default endpoint data.iot.[region].amazonaws.com is intended for testing purposes only. For production code it is strongly recommended to use the custom endpoint for your account (retrievable via the iot describe-endpoint command) to ensure best availability and reachability of the service."
+}

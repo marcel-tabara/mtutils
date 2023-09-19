@@ -1,0 +1,95 @@
+{
+  "service_name": "applicationcostprofiler",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/index.html",
+  "service_commands": [
+    {
+      "command_name": "delete-report-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/delete-report-definition.html",
+      "command_description": "Description\n\nDeletes the specified report definition in AWS Application Cost Profiler. This stops the report from being generated.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-report-definition\n--report-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--report-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--report-id (string)\n\nRequired. ID of the report to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nreportId -> (string)\n\nID of the report that was deleted."
+    },
+    {
+      "command_name": "get-report-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/get-report-definition.html",
+      "command_description": "Description\n\nRetrieves the definition of a report already configured in AWS Application Cost Profiler.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-report-definition\n--report-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--report-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--report-id (string)\n\nID of the report to retrieve.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nreportId -> (string)\n\nID of the report retrieved.\n\nreportDescription -> (string)\n\nDescription of the report.\n\nreportFrequency -> (string)\n\nCadence used to generate the report.\n\nformat -> (string)\n\nFormat of the generated report.\n\ndestinationS3Location -> (structure)\n\nAmazon Simple Storage Service (Amazon S3) location where the report is uploaded.\n\nbucket -> (string)\n\nName of the S3 bucket.\n\nprefix -> (string)\n\nPrefix for the location to write to.\n\ncreatedAt -> (timestamp)\n\nTimestamp (milliseconds) when this report definition was created.\n\nlastUpdated -> (timestamp)\n\nTimestamp (milliseconds) when this report definition was last updated."
+    },
+    {
+      "command_name": "import-application-usage",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/import-application-usage.html",
+      "command_description": "Description\n\nIngests application usage data from Amazon Simple Storage Service (Amazon S3).\n\nThe data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing asynchronously.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  import-application-usage\n--source-s3-location <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--source-s3-location <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--source-s3-location (structure)\n\nAmazon S3 location to import application usage data from.\n\nbucket -> (string)\n\nName of the bucket.\n\nkey -> (string)\n\nKey of the object.\n\nregion -> (string)\n\nRegion of the bucket. Only required for Regions that are disabled by default. For more infomration about Regions that are disabled by default, see Enabling a Region in the AWS General Reference guide .\n\nShorthand Syntax:\n\nbucket=string,key=string,region=string\n\n\nJSON Syntax:\n\n{\n  \"bucket\": \"string\",\n  \"key\": \"string\",\n  \"region\": \"ap-east-1\"|\"me-south-1\"|\"eu-south-1\"|\"af-south-1\"\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nimportId -> (string)\n\nID of the import request."
+    },
+    {
+      "command_name": "list-report-definitions",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/list-report-definitions.html",
+      "command_description": "Description\n\nRetrieves a list of all reports and their configurations for your AWS account.\n\nThe maximum number of reports is one.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-report-definitions is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: reportDefinitions",
+      "command_synopsis": "Synopsis\n  list-report-definitions\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nreportDefinitions -> (list)\n\nThe retrieved reports.\n\n(structure)\n\nThe configuration of a report in AWS Application Cost Profiler.\n\nreportId -> (string)\n\nThe ID of the report.\n\nreportDescription -> (string)\n\nDescription of the report\n\nreportFrequency -> (string)\n\nThe cadence at which the report is generated.\n\nformat -> (string)\n\nThe format used for the generated reports.\n\ndestinationS3Location -> (structure)\n\nThe location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.\n\nbucket -> (string)\n\nName of the S3 bucket.\n\nprefix -> (string)\n\nPrefix for the location to write to.\n\ncreatedAt -> (timestamp)\n\nTimestamp (milliseconds) when this report definition was created.\n\nlastUpdatedAt -> (timestamp)\n\nTimestamp (milliseconds) when this report definition was last updated.\n\nnextToken -> (string)\n\nThe value of the next token, if it exists. Null if there are no more results."
+    },
+    {
+      "command_name": "put-report-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/put-report-definition.html",
+      "command_description": "Description\n\nCreates the report definition for a report in Application Cost Profiler.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-report-definition\n--report-id <value>\n--report-description <value>\n--report-frequency <value>\n--format <value>\n--destination-s3-location <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--report-id <value>",
+        "--report-description <value>",
+        "--report-frequency <value>",
+        "--format <value>",
+        "--destination-s3-location <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--report-id (string)\n\nRequired. ID of the report. You can choose any valid string matching the pattern for the ID.\n\n--report-description (string)\n\nRequired. Description of the report.\n\n--report-frequency (string)\n\nRequired. The cadence to generate the report.\n\nPossible values:\n\nMONTHLY\n\nDAILY\n\nALL\n\n--format (string)\n\nRequired. The format to use for the generated report.\n\nPossible values:\n\nCSV\n\nPARQUET\n\n--destination-s3-location (structure)\n\nRequired. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the report.\n\nbucket -> (string)\n\nName of the S3 bucket.\n\nprefix -> (string)\n\nPrefix for the location to write to.\n\nShorthand Syntax:\n\nbucket=string,prefix=string\n\n\nJSON Syntax:\n\n{\n  \"bucket\": \"string\",\n  \"prefix\": \"string\"\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nreportId -> (string)\n\nID of the report."
+    },
+    {
+      "command_name": "update-report-definition",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/applicationcostprofiler/update-report-definition.html",
+      "command_description": "Description\n\nUpdates existing report in AWS Application Cost Profiler.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-report-definition\n--report-id <value>\n--report-description <value>\n--report-frequency <value>\n--format <value>\n--destination-s3-location <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--report-id <value>",
+        "--report-description <value>",
+        "--report-frequency <value>",
+        "--format <value>",
+        "--destination-s3-location <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--report-id (string)\n\nRequired. ID of the report to update.\n\n--report-description (string)\n\nRequired. Description of the report.\n\n--report-frequency (string)\n\nRequired. The cadence to generate the report.\n\nPossible values:\n\nMONTHLY\n\nDAILY\n\nALL\n\n--format (string)\n\nRequired. The format to use for the generated report.\n\nPossible values:\n\nCSV\n\nPARQUET\n\n--destination-s3-location (structure)\n\nRequired. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the report.\n\nbucket -> (string)\n\nName of the S3 bucket.\n\nprefix -> (string)\n\nPrefix for the location to write to.\n\nShorthand Syntax:\n\nbucket=string,prefix=string\n\n\nJSON Syntax:\n\n{\n  \"bucket\": \"string\",\n  \"prefix\": \"string\"\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nreportId -> (string)\n\nID of the report."
+    }
+  ],
+  "service_description": "Description\n\nThis reference provides descriptions of the AWS Application Cost Profiler API.\n\nThe AWS Application Cost Profiler API provides programmatic access to view, create, update, and delete application cost report definitions, as well as to import your usage data into the Application Cost Profiler service.\n\nFor more information about using this service, see the AWS Application Cost Profiler User Guide ."
+}

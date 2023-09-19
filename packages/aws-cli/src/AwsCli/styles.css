@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 0.8rem;
+  font-family: 'Monoid' !important;
+}
+
+div {
+  white-space: pre-wrap;
+  padding: '1rem';
+}
+
+.constainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.padTop {
+  padding: '1rem' !important;
+}

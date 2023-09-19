@@ -1,0 +1,355 @@
+{
+  "service_name": "chime-sdk-identity",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-app-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/create-app-instance.html",
+      "command_description": "Description\n\nCreates an Amazon Chime SDK messaging AppInstance under an AWS account. Only SDK messaging customers use this API. CreateAppInstance supports idempotency behavior as described in the AWS API Standard.\n\nidentity\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-app-instance\n--name <value>\n[--metadata <value>]\n[--client-request-token <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--metadata <value>]",
+        "[--client-request-token <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the AppInstance .\n\n--metadata (string)\n\nThe metadata of the AppInstance . Limited to a 1KB string in UTF-8.\n\n--client-request-token (string)\n\nThe ClientRequestToken of the AppInstance .\n\n--tags (list)\n\nTags assigned to the AppInstanceUser .\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceArn -> (string)\n\nThe Amazon Resource Number (ARN) of the AppInstance ."
+    },
+    {
+      "command_name": "create-app-instance-admin",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/create-app-instance-admin.html",
+      "command_description": "Description\n\nPromotes an AppInstanceUser to an AppInstanceAdmin . The promoted user can perform the following actions.\n\nChannelModerator actions across all channels in the AppInstance .\n\nDeleteChannelMessage actions.\n\nOnly an AppInstanceUser can be promoted to an AppInstanceAdmin role.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-app-instance-admin\n--app-instance-admin-arn <value>\n--app-instance-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-admin-arn <value>",
+        "--app-instance-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-admin-arn (string)\n\nThe ARN of the administrator of the current AppInstance .\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceAdmin -> (structure)\n\nThe name and ARN of the admin for the AppInstance .\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nAppInstanceArn -> (string)\n\nThe ARN of the of the admin for the AppInstance ."
+    },
+    {
+      "command_name": "create-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/create-app-instance-user.html",
+      "command_description": "Description\n\nCreates a user under an Amazon Chime AppInstance . The request consists of a unique appInstanceUserId and Name for that user.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-app-instance-user\n--app-instance-arn <value>\n--app-instance-user-id <value>\n--name <value>\n[--metadata <value>]\n[--client-request-token <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "--app-instance-user-id <value>",
+        "--name <value>",
+        "[--metadata <value>]",
+        "[--client-request-token <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance request.\n\n--app-instance-user-id (string)\n\nThe user ID of the AppInstance .\n\n--name (string)\n\nThe user’s name.\n\n--metadata (string)\n\nThe request’s metadata. Limited to a 1KB string in UTF-8.\n\n--client-request-token (string)\n\nThe token assigned to the user requesting an AppInstance .\n\n--tags (list)\n\nTags assigned to the AppInstanceUser .\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUserArn -> (string)\n\nThe user’s ARN."
+    },
+    {
+      "command_name": "delete-app-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/delete-app-instance.html",
+      "command_description": "Description\n\nDeletes an AppInstance and all associated data asynchronously.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-app-instance\n--app-instance-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-app-instance-admin",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/delete-app-instance-admin.html",
+      "command_description": "Description\n\nDemotes an AppInstanceAdmin to an AppInstanceUser . This action does not delete the user.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-app-instance-admin\n--app-instance-admin-arn <value>\n--app-instance-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-admin-arn <value>",
+        "--app-instance-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-admin-arn (string)\n\nThe ARN of the AppInstance ‘s administrator.\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/delete-app-instance-user.html",
+      "command_description": "Description\n\nDeletes an AppInstanceUser .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-app-instance-user\n--app-instance-user-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the user request being deleted.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "deregister-app-instance-user-endpoint",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/deregister-app-instance-user-endpoint.html",
+      "command_description": "Description\n\nDeregisters an AppInstanceUserEndpoint .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  deregister-app-instance-user-endpoint\n--app-instance-user-arn <value>\n--endpoint-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "--endpoint-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--endpoint-id (string)\n\nThe unique identifier of the AppInstanceUserEndpoint .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-app-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/describe-app-instance.html",
+      "command_description": "Description\n\nReturns the full details of an AppInstance .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-app-instance\n--app-instance-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstance -> (structure)\n\nThe ARN, metadata, created and last-updated timestamps, and the name of the AppInstance . All timestamps use epoch milliseconds.\n\nAppInstanceArn -> (string)\n\nThe ARN of the messaging instance.\n\nName -> (string)\n\nThe name of an AppInstance .\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which an AppInstance was created. In epoch milliseconds.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time an AppInstance was last updated. In epoch milliseconds.\n\nMetadata -> (string)\n\nThe metadata of an AppInstance ."
+    },
+    {
+      "command_name": "describe-app-instance-admin",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/describe-app-instance-admin.html",
+      "command_description": "Description\n\nReturns the full details of an AppInstanceAdmin .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-app-instance-admin\n--app-instance-admin-arn <value>\n--app-instance-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-admin-arn <value>",
+        "--app-instance-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-admin-arn (string)\n\nThe ARN of the AppInstanceAdmin .\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceAdmin -> (structure)\n\nThe ARN and name of the AppInstanceUser , the ARN of the AppInstance , and the created and last-updated timestamps. All timestamps use epoch milliseconds.\n\nAdmin -> (structure)\n\nThe AppInstanceAdmin data.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nAppInstanceArn -> (string)\n\nThe ARN of the AppInstance for which the user is an administrator.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which an administrator was created."
+    },
+    {
+      "command_name": "describe-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/describe-app-instance-user.html",
+      "command_description": "Description\n\nReturns the full details of an AppInstanceUser .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-app-instance-user\n--app-instance-user-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUser -> (structure)\n\nThe name of the AppInstanceUser .\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser .\n\nName -> (string)\n\nThe name of the AppInstanceUser .\n\nMetadata -> (string)\n\nThe metadata of the AppInstanceUser .\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the AppInstanceUser was created.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which the AppInstanceUser was last updated."
+    },
+    {
+      "command_name": "describe-app-instance-user-endpoint",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/describe-app-instance-user-endpoint.html",
+      "command_description": "Description\n\nReturns the full details of an AppInstanceUserEndpoint .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-app-instance-user-endpoint\n--app-instance-user-arn <value>\n--endpoint-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "--endpoint-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--endpoint-id (string)\n\nThe unique identifier of the AppInstanceUserEndpoint .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUserEndpoint -> (structure)\n\nThe full details of an AppInstanceUserEndpoint : the AppInstanceUserArn , ID, name, type, resource ARN, attributes, allow messages, state, and created and last updated timestamps. All timestamps use epoch milliseconds.\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser .\n\nEndpointId -> (string)\n\nThe unique identifier of the AppInstanceUserEndpoint .\n\nName -> (string)\n\nThe name of the AppInstanceUserEndpoint .\n\nType -> (string)\n\nThe type of the AppInstanceUserEndpoint .\n\nResourceArn -> (string)\n\nThe ARN of the resource to which the endpoint belongs.\n\nEndpointAttributes -> (structure)\n\nThe attributes of an Endpoint .\n\nDeviceToken -> (string)\n\nThe device token for the GCM, APNS, and APNS_SANDBOX endpoint types.\n\nVoipDeviceToken -> (string)\n\nThe VOIP device token for the APNS and APNS_SANDBOX endpoint types.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which an AppInstanceUserEndpoint was created.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which an AppInstanceUserEndpoint was last updated.\n\nAllowMessages -> (string)\n\nBoolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. ALL indicates the endpoint will receive all messages. NONE indicates the endpoint will receive no messages.\n\nEndpointState -> (structure)\n\nA read-only field that represents the state of an AppInstanceUserEndpoint . Supported values:\n\nACTIVE : The AppInstanceUserEndpoint is active and able to receive messages. When ACTIVE , the EndpointStatusReason remains empty.\n\nINACTIVE : The AppInstanceUserEndpoint is inactive and can’t receive message. When INACTIVE , the corresponding reason will be conveyed through EndpointStatusReason .\n\nINVALID_DEVICE_TOKEN indicates that an AppInstanceUserEndpoint is INACTIVE due to invalid device token\n\nINVALID_PINPOINT_ARN indicates that an AppInstanceUserEndpoint is INACTIVE due to an invalid pinpoint ARN that was input through the ResourceArn field.\n\nStatus -> (string)\n\nEnum that indicates the Status of an AppInstanceUserEndpoint .\n\nStatusReason -> (string)\n\nThe reason for the EndpointStatus ."
+    },
+    {
+      "command_name": "get-app-instance-retention-settings",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/get-app-instance-retention-settings.html",
+      "command_description": "Description\n\nGets the retention settings for an AppInstance .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-app-instance-retention-settings\n--app-instance-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceRetentionSettings -> (structure)\n\nThe retention settings for the AppInstance .\n\nChannelRetentionSettings -> (structure)\n\nThe length of time in days to retain the messages in a channel.\n\nRetentionDays -> (integer)\n\nThe time in days to retain the messages in a channel.\n\nInitiateDeletionTimestamp -> (timestamp)\n\nThe timestamp representing the time at which the specified items are retained, in Epoch Seconds."
+    },
+    {
+      "command_name": "list-app-instance-admins",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/list-app-instance-admins.html",
+      "command_description": "Description\n\nReturns a list of the administrators in the AppInstance .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-app-instance-admins\n--app-instance-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--max-results (integer)\n\nThe maximum number of administrators that you want to return.\n\n--next-token (string)\n\nThe token returned from previous API requests until the number of administrators is reached.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceArn -> (string)\n\nThe ARN of the AppInstance .\n\nAppInstanceAdmins -> (list)\n\nThe information for each administrator.\n\n(structure)\n\nSummary of the details of an AppInstanceAdmin .\n\nAdmin -> (structure)\n\nThe details of the AppInstanceAdmin .\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nNextToken -> (string)\n\nThe token returned from previous API requests until the number of administrators is reached."
+    },
+    {
+      "command_name": "list-app-instance-user-endpoints",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/list-app-instance-user-endpoints.html",
+      "command_description": "Description\n\nLists all the AppInstanceUserEndpoints created under a single AppInstanceUser .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-app-instance-user-endpoints\n--app-instance-user-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--max-results (integer)\n\nThe maximum number of endpoints that you want to return.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested endpoints are returned.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUserEndpoints -> (list)\n\nThe information for each requested AppInstanceUserEndpoint .\n\n(structure)\n\nSummary of the details of an AppInstanceUserEndpoint .\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser .\n\nEndpointId -> (string)\n\nThe unique identifier of the AppInstanceUserEndpoint .\n\nName -> (string)\n\nThe name of the AppInstanceUserEndpoint .\n\nType -> (string)\n\nThe type of the AppInstanceUserEndpoint .\n\nAllowMessages -> (string)\n\nBBoolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. ALL indicates the endpoint will receive all messages. NONE indicates the endpoint will receive no messages.\n\nEndpointState -> (structure)\n\nA read-only field that represent the state of an AppInstanceUserEndpoint .\n\nStatus -> (string)\n\nEnum that indicates the Status of an AppInstanceUserEndpoint .\n\nStatusReason -> (string)\n\nThe reason for the EndpointStatus .\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested endpoints are returned."
+    },
+    {
+      "command_name": "list-app-instance-users",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/list-app-instance-users.html",
+      "command_description": "Description\n\nList all AppInstanceUsers created under a single AppInstance .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-app-instance-users\n--app-instance-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--max-results (integer)\n\nThe maximum number of requests that you want returned.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested users are returned.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceArn -> (string)\n\nThe ARN of the AppInstance .\n\nAppInstanceUsers -> (list)\n\nThe information for each requested AppInstanceUser .\n\n(structure)\n\nSummary of the details of an AppInstanceUser .\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser .\n\nName -> (string)\n\nThe name of an AppInstanceUser .\n\nMetadata -> (string)\n\nThe metadata of the AppInstanceUser .\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested users are returned."
+    },
+    {
+      "command_name": "list-app-instances",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/list-app-instances.html",
+      "command_description": "Description\n\nLists all Amazon Chime AppInstance s created under a single AWS account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-app-instances\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--max-results (integer)\n\nThe maximum number of AppInstance s that you want to return.\n\n--next-token (string)\n\nThe token passed by previous API requests until you reach the maximum number of AppInstances .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstances -> (list)\n\nThe information for each AppInstance .\n\n(structure)\n\nSummary of the data for an AppInstance .\n\nAppInstanceArn -> (string)\n\nThe AppInstance ARN.\n\nName -> (string)\n\nThe name of the AppInstance .\n\nMetadata -> (string)\n\nThe metadata of the AppInstance .\n\nNextToken -> (string)\n\nThe token passed by previous API requests until the maximum number of AppInstance s is reached."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags applied to an Amazon Chime SDK identity resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTags -> (list)\n\nThe tag key-value pairs.\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag."
+    },
+    {
+      "command_name": "put-app-instance-retention-settings",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/put-app-instance-retention-settings.html",
+      "command_description": "Description\n\nSets the amount of time in days that a given AppInstance retains data.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-app-instance-retention-settings\n--app-instance-arn <value>\n--app-instance-retention-settings <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "--app-instance-retention-settings <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--app-instance-retention-settings (structure)\n\nThe time in days to retain data. Data type: number.\n\nChannelRetentionSettings -> (structure)\n\nThe length of time in days to retain the messages in a channel.\n\nRetentionDays -> (integer)\n\nThe time in days to retain the messages in a channel.\n\nShorthand Syntax:\n\nChannelRetentionSettings={RetentionDays=integer}\n\n\nJSON Syntax:\n\n{\n  \"ChannelRetentionSettings\": {\n    \"RetentionDays\": integer\n  }\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceRetentionSettings -> (structure)\n\nThe time in days to retain data. Data type: number.\n\nChannelRetentionSettings -> (structure)\n\nThe length of time in days to retain the messages in a channel.\n\nRetentionDays -> (integer)\n\nThe time in days to retain the messages in a channel.\n\nInitiateDeletionTimestamp -> (timestamp)\n\nThe time at which the API deletes data."
+    },
+    {
+      "command_name": "register-app-instance-user-endpoint",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/register-app-instance-user-endpoint.html",
+      "command_description": "Description\n\nRegisters an endpoint under an Amazon Chime AppInstanceUser . The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  register-app-instance-user-endpoint\n--app-instance-user-arn <value>\n[--name <value>]\n--type <value>\n--resource-arn <value>\n--endpoint-attributes <value>\n[--client-request-token <value>]\n[--allow-messages <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "[--name <value>]",
+        "--type <value>",
+        "--resource-arn <value>",
+        "--endpoint-attributes <value>",
+        "[--client-request-token <value>]",
+        "[--allow-messages <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--name (string)\n\nThe name of the AppInstanceUserEndpoint .\n\n--type (string)\n\nThe type of the AppInstanceUserEndpoint . Supported types:\n\nAPNS : The mobile notification service for an Apple device.\n\nAPNS_SANDBOX : The sandbox environment of the mobile notification service for an Apple device.\n\nGCM : The mobile notification service for an Android device.\n\nPopulate the ResourceArn value of each type as PinpointAppArn .\n\nPossible values:\n\nAPNS\n\nAPNS_SANDBOX\n\nGCM\n\n--resource-arn (string)\n\nThe ARN of the resource to which the endpoint belongs.\n\n--endpoint-attributes (structure)\n\nThe attributes of an Endpoint .\n\nDeviceToken -> (string)\n\nThe device token for the GCM, APNS, and APNS_SANDBOX endpoint types.\n\nVoipDeviceToken -> (string)\n\nThe VOIP device token for the APNS and APNS_SANDBOX endpoint types.\n\nShorthand Syntax:\n\nDeviceToken=string,VoipDeviceToken=string\n\n\nJSON Syntax:\n\n{\n  \"DeviceToken\": \"string\",\n  \"VoipDeviceToken\": \"string\"\n}\n\n\n--client-request-token (string)\n\nThe idempotency token for each client request.\n\n--allow-messages (string)\n\nBoolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. ALL indicates the endpoint receives all messages. NONE indicates the endpoint receives no messages.\n\nPossible values:\n\nALL\n\nNONE\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser .\n\nEndpointId -> (string)\n\nThe unique identifier of the AppInstanceUserEndpoint ."
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/tag-resource.html",
+      "command_description": "Description\n\nApplies the specified tags to the specified Amazon Chime SDK identity resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--tags (list)\n\nThe tag key-value pairs.\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/untag-resource.html",
+      "command_description": "Description\n\nRemoves the specified tags from the specified Amazon Chime SDK identity resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--tag-keys (list)\n\nThe tag keys.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-app-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/update-app-instance.html",
+      "command_description": "Description\n\nUpdates AppInstance metadata.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-app-instance\n--app-instance-arn <value>\n--name <value>\n--metadata <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "--name <value>",
+        "--metadata <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--name (string)\n\nThe name that you want to change.\n\n--metadata (string)\n\nThe metadata that you want to change.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceArn -> (string)\n\nThe ARN of the AppInstance ."
+    },
+    {
+      "command_name": "update-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/update-app-instance-user.html",
+      "command_description": "Description\n\nUpdates the details of an AppInstanceUser . You can update names and metadata.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-app-instance-user\n--app-instance-user-arn <value>\n--name <value>\n--metadata <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "--name <value>",
+        "--metadata <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--name (string)\n\nThe name of the AppInstanceUser .\n\n--metadata (string)\n\nThe metadata of the AppInstanceUser .\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser ."
+    },
+    {
+      "command_name": "update-app-instance-user-endpoint",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-identity/update-app-instance-user-endpoint.html",
+      "command_description": "Description\n\nUpdates the details of an AppInstanceUserEndpoint . You can update the name and AllowMessage values.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-app-instance-user-endpoint\n--app-instance-user-arn <value>\n--endpoint-id <value>\n[--name <value>]\n[--allow-messages <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-user-arn <value>",
+        "--endpoint-id <value>",
+        "[--name <value>]",
+        "[--allow-messages <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser .\n\n--endpoint-id (string)\n\nThe unique identifier of the AppInstanceUserEndpoint .\n\n--name (string)\n\nThe name of the AppInstanceUserEndpoint .\n\n--allow-messages (string)\n\nBoolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. ALL indicates the endpoint will receive all messages. NONE indicates the endpoint will receive no messages.\n\nPossible values:\n\nALL\n\nNONE\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAppInstanceUserArn -> (string)\n\nThe ARN of the AppInstanceUser .\n\nEndpointId -> (string)\n\nThe unique identifier of the AppInstanceUserEndpoint ."
+    }
+  ],
+  "service_description": "Description\n\nThe Amazon Chime SDK Identity APIs in this section allow software developers to create and manage unique instances of their messaging applications. These APIs provide the overarching framework for creating and sending messages. For more information about the identity APIs, refer to Amazon Chime SDK identity ."
+}

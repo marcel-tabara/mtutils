@@ -1,0 +1,34 @@
+{
+  "service_name": "workmailmessageflow",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/workmailmessageflow/index.html",
+  "service_commands": [
+    {
+      "command_name": "get-raw-message-content",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/workmailmessageflow/get-raw-message-content.html",
+      "command_description": "Description\n\nRetrieves the raw content of an in-transit email message, in MIME format.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-raw-message-content\n--message-id <value>\n<outfile>\n",
+      "command_options": [
+        "--message-id <value>",
+        "<outfile>"
+      ],
+      "command_options_description": "Options\n\n--message-id (string)\n\nThe identifier of the email message to retrieve.\n\noutfile (string) Filename where the content will be saved\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nmessageContent -> (blob)\n\nThe raw content of the email message, in MIME format.",
+      "command_examples": "Examples\n\nTo get the raw content of an email message\n\nThe following get-raw-message-content example gets the raw content of an in-transit email message and sends it to a text file named test.\n\naws workmailmessageflow get-raw-message-content \\\n    --message-id a1b2cd34-ef5g-6h7j-kl8m-npq9012345rs \\\n    test\n\n\nContents of file test after command runs:\n\nSubject: Hello World\nFrom: =?UTF-8?Q?marymajor_marymajor?= <marymajor@example.com>\nTo: =?UTF-8?Q?mateojackson=40example=2Enet?= <mateojackson@example.net>\nDate: Thu, 7 Nov 2019 19:22:46 +0000\nMime-Version: 1.0\nContent-Type: multipart/alternative;\n boundary=\"=_EXAMPLE+\"\nReferences: <mail.1ab23c45.5de6.7f890g123hj45678@storage.wm.amazon.com>\nX-Priority: 3 (Normal)\nX-Mailer: Amazon WorkMail\nThread-Index: EXAMPLE\nThread-Topic: Hello World\nMessage-Id: <mail.1ab23c45.5de6.7f890g123hj45678@storage.wm.amazon.com>\n\nThis is a multi-part message in MIME format. Your mail reader does not\nunderstand MIME message format.\n--=_EXAMPLE+\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 7bit\n\nhello world\n\n\n--=_EXAMPLE+\nContent-Type: text/html; charset=utf-8\nContent-Transfer-Encoding: quoted-printable\n\n<!DOCTYPE HTML><html>\n<head>\n<meta name=3D\"Generator\" content=3D\"Amazon WorkMail v3.0-4510\">\n<meta http-equiv=3D\"Content-Type\" content=3D\"text/html; charset=3Dutf-8\">=\n\n<title>testing</title>\n</head>\n<body>\n<p style=3D\"margin: 0px; font-family: Arial, Tahoma, Helvetica, sans-seri=\nf; font-size: small;\">hello world</p>\n</body>\n</html>\n--=_EXAMPLE+--\n\n\nFor more information, see Retrieving Message Content with AWS Lambda in the Amazon WorkMail Administrator Guide."
+    },
+    {
+      "command_name": "put-raw-message-content",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/workmailmessageflow/put-raw-message-content.html",
+      "command_description": "Description\n\nUpdates the raw content of an in-transit email message, in MIME format.\n\nThis example describes how to update in-transit email message. For more information and examples for using this API, see Updating message content with AWS Lambda .\n\nNote\n\nUpdates to an in-transit message only appear when you call PutRawMessageContent from an AWS Lambda function configured with a synchronous Run Lambda rule. If you call PutRawMessageContent on a delivered or sent message, the message remains unchanged, even though GetRawMessageContent returns an updated message.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-raw-message-content\n--message-id <value>\n--content <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--message-id <value>",
+        "--content <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--message-id (string)\n\nThe identifier of the email message being updated.\n\n--content (structure)\n\nDescribes the raw message content of the updated email message.\n\ns3Reference -> (structure)\n\nThe S3 reference of an email message.\n\nbucket -> (string)\n\nThe S3 bucket name.\n\nkey -> (string)\n\nThe S3 key object name.\n\nobjectVersion -> (string)\n\nIf you enable versioning for the bucket, you can specify the object version.\n\nShorthand Syntax:\n\ns3Reference={bucket=string,key=string,objectVersion=string}\n\n\nJSON Syntax:\n\n{\n  \"s3Reference\": {\n    \"bucket\": \"string\",\n    \"key\": \"string\",\n    \"objectVersion\": \"string\"\n  }\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nThe WorkMail Message Flow API provides access to email messages as they are being sent and received by a WorkMail organization."
+}

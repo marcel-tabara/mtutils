@@ -1,0 +1,701 @@
+{
+  "service_name": "chime-sdk-messaging",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/index.html",
+  "service_commands": [
+    {
+      "command_name": "associate-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/associate-channel-flow.html",
+      "command_description": "Description\n\nAssociates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the DisassociateChannelFlow API.\n\nNote\n\nOnly administrators or channel moderators can associate a channel flow. The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  associate-channel-flow\n--channel-arn <value>\n--channel-flow-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--channel-flow-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--channel-flow-arn (string)\n\nThe ARN of the channel flow.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user making the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "batch-create-channel-membership",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/batch-create-channel-membership.html",
+      "command_description": "Description\n\nAdds a specified number of users to a channel.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  batch-create-channel-membership\n--channel-arn <value>\n[--type <value>]\n--member-arns <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "[--type <value>]",
+        "--member-arns <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel to which you’re adding users.\n\n--type (string)\n\nThe membership type of a user, DEFAULT or HIDDEN . Default members are always returned as part of ListChannelMemberships . Hidden members are only returned if the type filter in ListChannelMemberships equals HIDDEN . Otherwise hidden members are not returned. This is only supported by moderators.\n\nPossible values:\n\nDEFAULT\n\nHIDDEN\n\n--member-arns (list)\n\nThe AppInstanceUserArn s of the members you want to add to the channel.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nBatchChannelMemberships -> (structure)\n\nThe list of channel memberships in the response.\n\nInvitedBy -> (structure)\n\nThe identifier of the member who invited another member.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nType -> (string)\n\nThe membership types set for the channel users.\n\nMembers -> (list)\n\nThe users successfully added to the request.\n\n(structure)\n\nThe details of a user.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nChannelArn -> (string)\n\nThe ARN of the channel to which you’re adding users.\n\nErrors -> (list)\n\nIf the action fails for one or more of the memberships in the request, a list of the memberships is returned, along with error codes and error messages.\n\n(structure)\n\nA list of failed member ARNs, error codes, and error messages.\n\nMemberArn -> (string)\n\nThe AppInstanceUserArn of the member that the service couldn’t add.\n\nErrorCode -> (string)\n\nThe error code.\n\nErrorMessage -> (string)\n\nThe error message."
+    },
+    {
+      "command_name": "channel-flow-callback",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/channel-flow-callback.html",
+      "command_description": "Description\n\nCalls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.\n\nYou can return one of the following processing responses:\n\nUpdate message content or metadata\n\nDeny a message\n\nMake no changes to the message\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  channel-flow-callback\n[--callback-id <value>]\n--channel-arn <value>\n[--delete-resource | --no-delete-resource]\n--channel-message <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--callback-id <value>]",
+        "--channel-arn <value>",
+        "[--delete-resource | --no-delete-resource]",
+        "--channel-message <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--callback-id (string)\n\nThe identifier passed to the processor by the service when invoked. Use the identifier to call back the service.\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--delete-resource | --no-delete-resource (boolean)\n\nWhen a processor determines that a message needs to be DENIED , pass this parameter with a value of true.\n\n--channel-message (structure)\n\nStores information about the processed message.\n\nMessageId -> (string)\n\nThe message ID.\n\nContent -> (string)\n\nThe message content.\n\nMetadata -> (string)\n\nThe message metadata.\n\nShorthand Syntax:\n\nMessageId=string,Content=string,Metadata=string\n\n\nJSON Syntax:\n\n{\n  \"MessageId\": \"string\",\n  \"Content\": \"string\",\n  \"Metadata\": \"string\"\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nCallbackId -> (string)\n\nThe call back ID passed in the request."
+    },
+    {
+      "command_name": "create-channel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/create-channel.html",
+      "command_description": "Description\n\nCreates a channel to which you can add users and send messages.\n\nRestriction : You can’t change a channel’s privacy.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-channel\n--app-instance-arn <value>\n--name <value>\n[--mode <value>]\n[--privacy <value>]\n[--metadata <value>]\n[--client-request-token <value>]\n[--tags <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "--name <value>",
+        "[--mode <value>]",
+        "[--privacy <value>]",
+        "[--metadata <value>]",
+        "[--client-request-token <value>]",
+        "[--tags <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the channel request.\n\n--name (string)\n\nThe name of the channel.\n\n--mode (string)\n\nThe channel mode: UNRESTRICTED or RESTRICTED . Administrators, moderators, and channel members can add themselves and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.\n\nPossible values:\n\nUNRESTRICTED\n\nRESTRICTED\n\n--privacy (string)\n\nThe channel’s privacy level: PUBLIC or PRIVATE . Private channels aren’t discoverable by users outside the channel. Public channels are discoverable by anyone in the AppInstance .\n\nPossible values:\n\nPUBLIC\n\nPRIVATE\n\n--metadata (string)\n\nThe metadata of the creation request. Limited to 1KB and UTF-8.\n\n--client-request-token (string)\n\nThe client token for the request. An Idempotency token.\n\n--tags (list)\n\nThe tags for the creation request.\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel."
+    },
+    {
+      "command_name": "create-channel-ban",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/create-channel-ban.html",
+      "command_description": "Description\n\nPermanently bans a member from a channel. Moderators can’t add banned members to a channel. To undo a ban, you first have to DeleteChannelBan , and then CreateChannelMembership . Bans are cleaned up when you delete users or channels.\n\nIf you ban a user who is already part of a channel, that user is automatically kicked from the channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-channel-ban\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the ban request.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member being banned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the response to the ban request.\n\nMember -> (structure)\n\nThe ChannelArn and BannedIdentity of the member in the ban response.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "create-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/create-channel-flow.html",
+      "command_description": "Description\n\nCreates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.\n\nChannel flows process the following items:\n\nNew and updated messages\n\nPersistent and non-persistent messages\n\nThe Standard message type\n\nNote\n\nChannel flows don’t process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to Message types in the Amazon Chime developer guide .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-channel-flow\n--app-instance-arn <value>\n--processors <value>\n--name <value>\n[--tags <value>]\n--client-request-token <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "--processors <value>",
+        "--name <value>",
+        "[--tags <value>]",
+        "--client-request-token <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the channel flow request.\n\n--processors (list)\n\nInformation about the processor Lambda functions.\n\n(structure)\n\nThe information about a processor in a channel flow.\n\nName -> (string)\n\nThe name of the channel flow.\n\nConfiguration -> (structure)\n\nThe information about the type of processor and its identifier.\n\nLambda -> (structure)\n\nIndicates that the processor is of type Lambda.\n\nResourceArn -> (string)\n\nThe ARN of the Lambda message processing function.\n\nInvocationType -> (string)\n\nControls how the Lambda function is invoked.\n\nExecutionOrder -> (integer)\n\nThe sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence. At this point, we support only 1 processor within a flow.\n\nFallbackAction -> (string)\n\nDetermines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of ABORT and communication with it fails, the processor sets the message status to FAILED and does not send the message to any recipients. Note that if the last processor in the channel flow sequence has a fallback action of CONTINUE and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.\n\nShorthand Syntax:\n\nName=string,Configuration={Lambda={ResourceArn=string,InvocationType=string}},ExecutionOrder=integer,FallbackAction=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Name\": \"string\",\n    \"Configuration\": {\n      \"Lambda\": {\n        \"ResourceArn\": \"string\",\n        \"InvocationType\": \"ASYNC\"\n      }\n    },\n    \"ExecutionOrder\": integer,\n    \"FallbackAction\": \"CONTINUE\"|\"ABORT\"\n  }\n  ...\n]\n\n\n--name (string)\n\nThe name of the channel flow.\n\n--tags (list)\n\nThe tags for the creation request.\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--client-request-token (string)\n\nThe client token for the request. An Idempotency token.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelFlowArn -> (string)\n\nThe ARN of the channel flow."
+    },
+    {
+      "command_name": "create-channel-membership",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/create-channel-membership.html",
+      "command_description": "Description\n\nAdds a user to a channel. The InvitedBy field in ChannelMembership is derived from the request header. A channel member can:\n\nList messages\n\nSend messages\n\nReceive messages\n\nEdit their own messages\n\nLeave the channel\n\nPrivacy settings impact this action as follows:\n\nPublic Channels: You do not need to be a member to list messages, but you must be a member to send messages.\n\nPrivate Channels: You must be a member to list or send messages.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-channel-membership\n--channel-arn <value>\n--member-arn <value>\n--type <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--type <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel to which you’re adding users.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member you want to add to the channel.\n\n--type (string)\n\nThe membership type of a user, DEFAULT or HIDDEN . Default members are always returned as part of ListChannelMemberships . Hidden members are only returned if the type filter in ListChannelMemberships equals HIDDEN . Otherwise hidden members are not returned. This is only supported by moderators.\n\nPossible values:\n\nDEFAULT\n\nHIDDEN\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMember -> (structure)\n\nThe ARN and metadata of the member being added.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "create-channel-moderator",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/create-channel-moderator.html",
+      "command_description": "Description\n\nCreates a new ChannelModerator . A channel moderator can:\n\nAdd and remove other members of the channel.\n\nAdd and remove other moderators of the channel.\n\nAdd and remove user bans for the channel.\n\nRedact messages in the channel.\n\nList messages in the channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-channel-moderator\n--channel-arn <value>\n--channel-moderator-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--channel-moderator-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--channel-moderator-arn (string)\n\nThe AppInstanceUserArn of the moderator.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nChannelModerator -> (structure)\n\nThe ARNs of the channel and the moderator.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "delete-channel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/delete-channel.html",
+      "command_description": "Description\n\nImmediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-channel\n--channel-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel being deleted.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-channel-ban",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/delete-channel-ban.html",
+      "command_description": "Description\n\nRemoves a user from a channel’s ban list.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-channel-ban\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel from which the AppInstanceUser was banned.\n\n--member-arn (string)\n\nThe ARN of the AppInstanceUser that you want to reinstate.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/delete-channel-flow.html",
+      "command_description": "Description\n\nDeletes a channel flow, an irreversible process. This is a developer API.\n\nNote\n\nThis API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the ListChannelsAssociatedWithChannelFlow API. Use the DisassociateChannelFlow API to disassociate a channel flow from all channels.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-channel-flow\n--channel-flow-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-flow-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-flow-arn (string)\n\nThe ARN of the channel flow.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-channel-membership",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/delete-channel-membership.html",
+      "command_description": "Description\n\nRemoves a member from a channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-channel-membership\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel from which you want to remove the user.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member that you’re removing from the channel.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-channel-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/delete-channel-message.html",
+      "command_description": "Description\n\nDeletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by UpdateChannelMessage .\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-channel-message\n--channel-arn <value>\n--message-id <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--message-id <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--message-id (string)\n\nThe ID of the message being deleted.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-channel-moderator",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/delete-channel-moderator.html",
+      "command_description": "Description\n\nDeletes a channel moderator.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-channel-moderator\n--channel-arn <value>\n--channel-moderator-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--channel-moderator-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--channel-moderator-arn (string)\n\nThe AppInstanceUserArn of the moderator being deleted.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-channel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel.html",
+      "command_description": "Description\n\nReturns the full details of a channel in an Amazon Chime AppInstance .\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel\n--channel-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannel -> (structure)\n\nThe channel details.\n\nName -> (string)\n\nThe name of a channel.\n\nChannelArn -> (string)\n\nThe ARN of a channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe channel’s privacy setting.\n\nMetadata -> (string)\n\nThe channel’s metadata.\n\nCreatedBy -> (structure)\n\nThe AppInstanceUser who created the channel.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the AppInstanceUser created the channel.\n\nLastMessageTimestamp -> (timestamp)\n\nThe time at which a member sent the last message in the channel.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which a channel was last updated.\n\nChannelFlowArn -> (string)\n\nThe ARN of the channel flow."
+    },
+    {
+      "command_name": "describe-channel-ban",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel-ban.html",
+      "command_description": "Description\n\nReturns the full details of a channel ban.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel-ban\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel from which the user is banned.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member being banned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelBan -> (structure)\n\nThe details of the ban.\n\nMember -> (structure)\n\nThe member being banned from the channel.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nChannelArn -> (string)\n\nThe ARN of the channel from which a member is being banned.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the ban was created.\n\nCreatedBy -> (structure)\n\nThe AppInstanceUser who created the ban.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "describe-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel-flow.html",
+      "command_description": "Description\n\nReturns the full details of a channel flow in an Amazon Chime AppInstance . This is a developer API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel-flow\n--channel-flow-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-flow-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-flow-arn (string)\n\nThe ARN of the channel flow.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelFlow -> (structure)\n\nThe channel flow details.\n\nChannelFlowArn -> (string)\n\nThe ARN of the channel flow.\n\nProcessors -> (list)\n\nInformation about the processor Lambda functions.\n\n(structure)\n\nThe information about a processor in a channel flow.\n\nName -> (string)\n\nThe name of the channel flow.\n\nConfiguration -> (structure)\n\nThe information about the type of processor and its identifier.\n\nLambda -> (structure)\n\nIndicates that the processor is of type Lambda.\n\nResourceArn -> (string)\n\nThe ARN of the Lambda message processing function.\n\nInvocationType -> (string)\n\nControls how the Lambda function is invoked.\n\nExecutionOrder -> (integer)\n\nThe sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence. At this point, we support only 1 processor within a flow.\n\nFallbackAction -> (string)\n\nDetermines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of ABORT and communication with it fails, the processor sets the message status to FAILED and does not send the message to any recipients. Note that if the last processor in the channel flow sequence has a fallback action of CONTINUE and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.\n\nName -> (string)\n\nThe name of the channel flow.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the channel flow was created.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which a channel flow was updated."
+    },
+    {
+      "command_name": "describe-channel-membership",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel-membership.html",
+      "command_description": "Description\n\nReturns the full details of a user’s channel membership.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel-membership\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelMembership -> (structure)\n\nThe details of the membership.\n\nInvitedBy -> (structure)\n\nThe identifier of the member who invited another member.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nType -> (string)\n\nThe membership type set for the channel member.\n\nMember -> (structure)\n\nThe data of the channel member.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nChannelArn -> (string)\n\nThe ARN of the member’s channel.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the channel membership was created.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which a channel membership was last updated."
+    },
+    {
+      "command_name": "describe-channel-membership-for-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel-membership-for-app-instance-user.html",
+      "command_description": "Description\n\nReturns the details of a channel based on the membership of the specified AppInstanceUser .\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel-membership-for-app-instance-user\n--channel-arn <value>\n--app-instance-user-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--app-instance-user-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel to which the user belongs.\n\n--app-instance-user-arn (string)\n\nThe ARN of the user in a channel.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelMembership -> (structure)\n\nThe channel to which a user belongs.\n\nChannelSummary -> (structure)\n\nReturns the channel data for an AppInstance .\n\nName -> (string)\n\nThe name of the channel.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe privacy setting of the channel.\n\nMetadata -> (string)\n\nThe metadata of the channel.\n\nLastMessageTimestamp -> (timestamp)\n\nThe time at which the last message in a channel was sent.\n\nAppInstanceUserMembershipSummary -> (structure)\n\nReturns the channel membership data for an AppInstance .\n\nType -> (string)\n\nThe type of ChannelMembership .\n\nReadMarkerTimestamp -> (timestamp)\n\nThe time at which a message was last read."
+    },
+    {
+      "command_name": "describe-channel-moderated-by-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel-moderated-by-app-instance-user.html",
+      "command_description": "Description\n\nReturns the full details of a channel moderated by the specified AppInstanceUser .\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel-moderated-by-app-instance-user\n--channel-arn <value>\n--app-instance-user-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--app-instance-user-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the moderated channel.\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser in the moderated channel.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannel -> (structure)\n\nThe moderated channel.\n\nChannelSummary -> (structure)\n\nSummary of the details of a Channel .\n\nName -> (string)\n\nThe name of the channel.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe privacy setting of the channel.\n\nMetadata -> (string)\n\nThe metadata of the channel.\n\nLastMessageTimestamp -> (timestamp)\n\nThe time at which the last message in a channel was sent."
+    },
+    {
+      "command_name": "describe-channel-moderator",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/describe-channel-moderator.html",
+      "command_description": "Description\n\nReturns the full details of a single ChannelModerator.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-channel-moderator\n--channel-arn <value>\n--channel-moderator-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--channel-moderator-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--channel-moderator-arn (string)\n\nThe AppInstanceUserArn of the channel moderator.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelModerator -> (structure)\n\nThe details of the channel moderator.\n\nModerator -> (structure)\n\nThe moderator’s data.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nChannelArn -> (string)\n\nThe ARN of the moderator’s channel.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the moderator was created.\n\nCreatedBy -> (structure)\n\nThe AppInstanceUser who created the moderator.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "disassociate-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/disassociate-channel-flow.html",
+      "command_description": "Description\n\nDisassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.\n\nNote\n\nOnly administrators or channel moderators can disassociate a channel flow. The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  disassociate-channel-flow\n--channel-arn <value>\n--channel-flow-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--channel-flow-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--channel-flow-arn (string)\n\nThe ARN of the channel flow.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user making the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "get-channel-membership-preferences",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/get-channel-membership-preferences.html",
+      "command_description": "Description\n\nGets the membership preferences of an AppInstanceUser for the specified channel. The AppInstanceUser must be a member of the channel. Only the AppInstanceUser who owns the membership can retrieve preferences. Users in the AppInstanceAdmin and channel moderator roles can’t retrieve preferences for other users. Banned users can’t retrieve membership preferences for the channel from which they are banned.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-channel-membership-preferences\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member retrieving the preferences.\n\n--chime-bearer (string)\n\nThe AppInstanceUserARN of the user making the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMember -> (structure)\n\nThe details of a user.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nPreferences -> (structure)\n\nThe channel membership preferences for an AppInstanceUser .\n\nPushNotifications -> (structure)\n\nThe push notification configuration of a message.\n\nAllowNotifications -> (string)\n\nEnum value that indicates which push notifications to send to the requested member of a channel. ALL sends all push notifications, NONE sends no push notifications, FILTERED sends only filtered push notifications.\n\nFilterRule -> (string)\n\nThe simple JSON object used to send a subset of a push notification to the requsted member."
+    },
+    {
+      "command_name": "get-channel-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/get-channel-message.html",
+      "command_description": "Description\n\nGets the full details of a channel message.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-channel-message\n--channel-arn <value>\n--message-id <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--message-id <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--message-id (string)\n\nThe ID of the message.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelMessage -> (structure)\n\nThe details of and content in the message.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMessageId -> (string)\n\nThe ID of a message.\n\nContent -> (string)\n\nThe message content.\n\nMetadata -> (string)\n\nThe message metadata.\n\nType -> (string)\n\nThe message type.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the message was created.\n\nLastEditedTimestamp -> (timestamp)\n\nThe time at which a message was edited.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which a message was updated.\n\nSender -> (structure)\n\nThe message sender.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nRedacted -> (boolean)\n\nHides the content of a message.\n\nPersistence -> (string)\n\nThe persistence setting for a channel message.\n\nStatus -> (structure)\n\nThe status of the channel message.\n\nValue -> (string)\n\nThe message status value.\n\nDetail -> (string)\n\nContains more details about the messasge status.\n\nMessageAttributes -> (map)\n\nThe attributes for the message, used for message filtering along with a FilterRule defined in the PushNotificationPreferences .\n\nkey -> (string)\n\nvalue -> (structure)\n\nA list of message attribute values.\n\nStringValues -> (list)\n\nThe strings in a message attribute value.\n\n(string)"
+    },
+    {
+      "command_name": "get-channel-message-status",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/get-channel-message-status.html",
+      "command_description": "Description\n\nGets message status for a specified messageId . Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn’t connected to a websocket.\n\nMessages can have any one of these statuses.\n\nSENT\n\nMessage processed successfully\n\nPENDING\n\nOngoing processing\n\nFAILED\n\nProcessing failed\n\nDENIED\n\nMessasge denied by the processor\n\nNote\n\nThis API does not return statuses for denied messages, because we don’t store them once the processor denies them.\n\nOnly the message sender can invoke this API.\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-channel-message-status\n--channel-arn <value>\n--message-id <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--message-id <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel\n\n--message-id (string)\n\nThe ID of the message.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user making the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (structure)\n\nThe message status and details.\n\nValue -> (string)\n\nThe message status value.\n\nDetail -> (string)\n\nContains more details about the messasge status."
+    },
+    {
+      "command_name": "get-messaging-session-endpoint",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/get-messaging-session-endpoint.html",
+      "command_description": "Description\n\nThe details of the endpoint for the messaging session.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-messaging-session-endpoint\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nEndpoint -> (structure)\n\nThe endpoint returned in the response.\n\nUrl -> (string)\n\nThe endpoint to which you establish a websocket connection."
+    },
+    {
+      "command_name": "list-channel-bans",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channel-bans.html",
+      "command_description": "Description\n\nLists all the users banned from a particular channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channel-bans\n--channel-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--max-results (integer)\n\nThe maximum number of bans that you want returned.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested bans are returned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested bans are returned.\n\nChannelBans -> (list)\n\nThe information for each requested ban.\n\n(structure)\n\nSummary of the details of a ChannelBan .\n\nMember -> (structure)\n\nThe member being banned from a channel.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "list-channel-flows",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channel-flows.html",
+      "command_description": "Description\n\nReturns a paginated lists of all the channel flows created under a single Chime. This is a developer API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channel-flows\n--app-instance-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the app instance.\n\n--max-results (integer)\n\nThe maximum number of channel flows that you want to return.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested channel flows are returned.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelFlows -> (list)\n\nThe information about each channel flow.\n\n(structure)\n\nSummary of details of a channel flow.\n\nChannelFlowArn -> (string)\n\nThe ARN of the channel flow.\n\nName -> (string)\n\nThe name of the channel flow.\n\nProcessors -> (list)\n\nInformation about the processor Lambda functions.\n\n(structure)\n\nThe information about a processor in a channel flow.\n\nName -> (string)\n\nThe name of the channel flow.\n\nConfiguration -> (structure)\n\nThe information about the type of processor and its identifier.\n\nLambda -> (structure)\n\nIndicates that the processor is of type Lambda.\n\nResourceArn -> (string)\n\nThe ARN of the Lambda message processing function.\n\nInvocationType -> (string)\n\nControls how the Lambda function is invoked.\n\nExecutionOrder -> (integer)\n\nThe sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence. At this point, we support only 1 processor within a flow.\n\nFallbackAction -> (string)\n\nDetermines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of ABORT and communication with it fails, the processor sets the message status to FAILED and does not send the message to any recipients. Note that if the last processor in the channel flow sequence has a fallback action of CONTINUE and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested channels are returned."
+    },
+    {
+      "command_name": "list-channel-memberships",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channel-memberships.html",
+      "command_description": "Description\n\nLists all channel memberships in a channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nIf you want to list the channels to which a specific app instance user belongs, see the ListChannelMembershipsForAppInstanceUser API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channel-memberships\n--channel-arn <value>\n[--type <value>]\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "[--type <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe maximum number of channel memberships that you want returned.\n\n--type (string)\n\nThe membership type of a user, DEFAULT or HIDDEN . Default members are always returned as part of ListChannelMemberships . Hidden members are only returned if the type filter in ListChannelMemberships equals HIDDEN . Otherwise hidden members are not returned.\n\nPossible values:\n\nDEFAULT\n\nHIDDEN\n\n--max-results (integer)\n\nThe maximum number of channel memberships that you want returned.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested channel memberships are returned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nChannelMemberships -> (list)\n\nThe information for the requested channel memberships.\n\n(structure)\n\nSummary of the details of a ChannelMembership .\n\nMember -> (structure)\n\nA member’s summary data.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested channel memberships are returned."
+    },
+    {
+      "command_name": "list-channel-memberships-for-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channel-memberships-for-app-instance-user.html",
+      "command_description": "Description\n\nLists all channels that a particular AppInstanceUser is a part of. Only an AppInstanceAdmin can call the API with a user ARN that is not their own.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channel-memberships-for-app-instance-user\n[--app-instance-user-arn <value>]\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--app-instance-user-arn <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the AppInstanceUser s\n\n--max-results (integer)\n\nThe maximum number of users that you want returned.\n\n--next-token (string)\n\nThe token returned from previous API requests until the number of channel memberships is reached.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelMemberships -> (list)\n\nThe token passed by previous API calls until all requested users are returned.\n\n(structure)\n\nSummary of the channel membership details of an AppInstanceUser .\n\nChannelSummary -> (structure)\n\nReturns the channel data for an AppInstance .\n\nName -> (string)\n\nThe name of the channel.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe privacy setting of the channel.\n\nMetadata -> (string)\n\nThe metadata of the channel.\n\nLastMessageTimestamp -> (timestamp)\n\nThe time at which the last message in a channel was sent.\n\nAppInstanceUserMembershipSummary -> (structure)\n\nReturns the channel membership data for an AppInstance .\n\nType -> (string)\n\nThe type of ChannelMembership .\n\nReadMarkerTimestamp -> (timestamp)\n\nThe time at which a message was last read.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested users are returned."
+    },
+    {
+      "command_name": "list-channel-messages",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channel-messages.html",
+      "command_description": "Description\n\nList all the messages in a channel. Returns a paginated list of ChannelMessages . By default, sorted by creation timestamp in descending order.\n\nNote\n\nRedacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.\n\nAlso, the x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channel-messages\n--channel-arn <value>\n[--sort-order <value>]\n[--not-before <value>]\n[--not-after <value>]\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "[--sort-order <value>]",
+        "[--not-before <value>]",
+        "[--not-after <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--sort-order (string)\n\nThe order in which you want messages sorted. Default is Descending, based on time created.\n\nPossible values:\n\nASCENDING\n\nDESCENDING\n\n--not-before (timestamp)\n\nThe initial or starting time stamp for your requested messages.\n\n--not-after (timestamp)\n\nThe final or ending time stamp for your requested messages.\n\n--max-results (integer)\n\nThe maximum number of messages that you want returned.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested messages are returned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel containing the requested messages.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested messages are returned.\n\nChannelMessages -> (list)\n\nThe information about, and content of, each requested message.\n\n(structure)\n\nSummary of the messages in a Channel .\n\nMessageId -> (string)\n\nThe ID of the message.\n\nContent -> (string)\n\nThe content of the message.\n\nMetadata -> (string)\n\nThe metadata of the message.\n\nType -> (string)\n\nThe type of message.\n\nCreatedTimestamp -> (timestamp)\n\nThe time at which the message summary was created.\n\nLastUpdatedTimestamp -> (timestamp)\n\nThe time at which a message was last updated.\n\nLastEditedTimestamp -> (timestamp)\n\nThe time at which a message was last edited.\n\nSender -> (structure)\n\nThe message sender.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nRedacted -> (boolean)\n\nIndicates whether a message was redacted.\n\nStatus -> (structure)\n\nThe message status. The status value is SENT for messages sent to a channel without a channel flow. For channels associated with channel flow, the value determines the processing stage.\n\nValue -> (string)\n\nThe message status value.\n\nDetail -> (string)\n\nContains more details about the messasge status.\n\nMessageAttributes -> (map)\n\nThe message attribues listed in a the summary of a channel message.\n\nkey -> (string)\n\nvalue -> (structure)\n\nA list of message attribute values.\n\nStringValues -> (list)\n\nThe strings in a message attribute value.\n\n(string)"
+    },
+    {
+      "command_name": "list-channel-moderators",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channel-moderators.html",
+      "command_description": "Description\n\nLists all the moderators for a channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channel-moderators\n--channel-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--max-results (integer)\n\nThe maximum number of moderators that you want returned.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested moderators are returned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested moderators are returned.\n\nChannelModerators -> (list)\n\nThe information about and names of each moderator.\n\n(structure)\n\nSummary of the details of a ChannelModerator .\n\nModerator -> (structure)\n\nThe data for a moderator.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity."
+    },
+    {
+      "command_name": "list-channels",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channels.html",
+      "command_description": "Description\n\nLists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.\n\nFunctionality & restrictions\n\nUse privacy = PUBLIC to retrieve all public channels in the account.\n\nOnly an AppInstanceAdmin can set privacy = PRIVATE to list the private channels in an account.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channels\n--app-instance-arn <value>\n[--privacy <value>]\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--app-instance-arn <value>",
+        "[--privacy <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-arn (string)\n\nThe ARN of the AppInstance .\n\n--privacy (string)\n\nThe privacy setting. PUBLIC retrieves all the public channels. PRIVATE retrieves private channels. Only an AppInstanceAdmin can retrieve private channels.\n\nPossible values:\n\nPUBLIC\n\nPRIVATE\n\n--max-results (integer)\n\nThe maximum number of channels that you want to return.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested channels are returned.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannels -> (list)\n\nThe information about each channel.\n\n(structure)\n\nSummary of the details of a Channel .\n\nName -> (string)\n\nThe name of the channel.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe privacy setting of the channel.\n\nMetadata -> (string)\n\nThe metadata of the channel.\n\nLastMessageTimestamp -> (timestamp)\n\nThe time at which the last message in a channel was sent.\n\nNextToken -> (string)\n\nThe token returned from previous API requests until the number of channels is reached."
+    },
+    {
+      "command_name": "list-channels-associated-with-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channels-associated-with-channel-flow.html",
+      "command_description": "Description\n\nLists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channels-associated-with-channel-flow\n--channel-flow-arn <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-flow-arn <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-flow-arn (string)\n\nThe ARN of the channel flow.\n\n--max-results (integer)\n\nThe maximum number of channels that you want to return.\n\n--next-token (string)\n\nThe token passed by previous API calls until all requested channels are returned.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannels -> (list)\n\nThe information about each channel.\n\n(structure)\n\nSummary of details of a channel associated with channel flow.\n\nName -> (string)\n\nThe name of the channel flow.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe channel’s privacy setting.\n\nMetadata -> (string)\n\nThe channel’s metadata.\n\nNextToken -> (string)\n\nThe token passed by previous API calls until all requested channels are returned."
+    },
+    {
+      "command_name": "list-channels-moderated-by-app-instance-user",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-channels-moderated-by-app-instance-user.html",
+      "command_description": "Description\n\nA list of the channels moderated by an AppInstanceUser .\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-channels-moderated-by-app-instance-user\n[--app-instance-user-arn <value>]\n[--max-results <value>]\n[--next-token <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--app-instance-user-arn <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--app-instance-user-arn (string)\n\nThe ARN of the user in the moderated channel.\n\n--max-results (integer)\n\nThe maximum number of channels in the request.\n\n--next-token (string)\n\nThe token returned from previous API requests until the number of channels moderated by the user is reached.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannels -> (list)\n\nThe moderated channels in the request.\n\n(structure)\n\nSummary of the details of a moderated channel.\n\nChannelSummary -> (structure)\n\nSummary of the details of a Channel .\n\nName -> (string)\n\nThe name of the channel.\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMode -> (string)\n\nThe mode of the channel.\n\nPrivacy -> (string)\n\nThe privacy setting of the channel.\n\nMetadata -> (string)\n\nThe metadata of the channel.\n\nLastMessageTimestamp -> (timestamp)\n\nThe time at which the last message in a channel was sent.\n\nNextToken -> (string)\n\nThe token returned from previous API requests until the number of channels moderated by the user is reached."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags applied to an Amazon Chime SDK messaging resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTags -> (list)\n\nThe tag key-value pairs.\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag."
+    },
+    {
+      "command_name": "put-channel-membership-preferences",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/put-channel-membership-preferences.html",
+      "command_description": "Description\n\nSets the membership preferences of an AppInstanceUser for the specified channel. The AppInstanceUser must be a member of the channel. Only the AppInstanceUser who owns the membership can set preferences. Users in the AppInstanceAdmin and channel moderator roles can’t set preferences for other users. Banned users can’t set membership preferences for the channel from which they are banned.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-channel-membership-preferences\n--channel-arn <value>\n--member-arn <value>\n--chime-bearer <value>\n--preferences <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--member-arn <value>",
+        "--chime-bearer <value>",
+        "--preferences <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--member-arn (string)\n\nThe AppInstanceUserArn of the member setting the preferences.\n\n--chime-bearer (string)\n\nThe AppInstanceUserARN of the user making the API call.\n\n--preferences (structure)\n\nThe channel membership preferences of an AppInstanceUser .\n\nPushNotifications -> (structure)\n\nThe push notification configuration of a message.\n\nAllowNotifications -> (string)\n\nEnum value that indicates which push notifications to send to the requested member of a channel. ALL sends all push notifications, NONE sends no push notifications, FILTERED sends only filtered push notifications.\n\nFilterRule -> (string)\n\nThe simple JSON object used to send a subset of a push notification to the requsted member.\n\nShorthand Syntax:\n\nPushNotifications={AllowNotifications=string,FilterRule=string}\n\n\nJSON Syntax:\n\n{\n  \"PushNotifications\": {\n    \"AllowNotifications\": \"ALL\"|\"NONE\"|\"FILTERED\",\n    \"FilterRule\": \"string\"\n  }\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMember -> (structure)\n\nThe details of a user.\n\nArn -> (string)\n\nThe ARN in an Identity.\n\nName -> (string)\n\nThe name in an Identity.\n\nPreferences -> (structure)\n\nThe ARN and metadata of the member being added.\n\nPushNotifications -> (structure)\n\nThe push notification configuration of a message.\n\nAllowNotifications -> (string)\n\nEnum value that indicates which push notifications to send to the requested member of a channel. ALL sends all push notifications, NONE sends no push notifications, FILTERED sends only filtered push notifications.\n\nFilterRule -> (string)\n\nThe simple JSON object used to send a subset of a push notification to the requsted member."
+    },
+    {
+      "command_name": "redact-channel-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/redact-channel-message.html",
+      "command_description": "Description\n\nRedacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  redact-channel-message\n--channel-arn <value>\n--message-id <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--message-id <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel containing the messages that you want to redact.\n\n--message-id (string)\n\nThe ID of the message being redacted.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel containing the messages that you want to redact.\n\nMessageId -> (string)\n\nThe ID of the message being redacted."
+    },
+    {
+      "command_name": "send-channel-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/send-channel-message.html",
+      "command_description": "Description\n\nSends a message to a particular channel that the member is a part of.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nAlso, STANDARD messages can contain 4KB of data and the 1KB of metadata. CONTROL messages can contain 30 bytes of data and no metadata.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  send-channel-message\n--channel-arn <value>\n--content <value>\n--type <value>\n--persistence <value>\n[--metadata <value>]\n[--client-request-token <value>]\n--chime-bearer <value>\n[--push-notification <value>]\n[--message-attributes <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--content <value>",
+        "--type <value>",
+        "--persistence <value>",
+        "[--metadata <value>]",
+        "[--client-request-token <value>]",
+        "--chime-bearer <value>",
+        "[--push-notification <value>]",
+        "[--message-attributes <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--content (string)\n\nThe content of the message.\n\n--type (string)\n\nThe type of message, STANDARD or CONTROL .\n\nPossible values:\n\nSTANDARD\n\nCONTROL\n\n--persistence (string)\n\nBoolean that controls whether the message is persisted on the back end. Required.\n\nPossible values:\n\nPERSISTENT\n\nNON_PERSISTENT\n\n--metadata (string)\n\nThe optional metadata for each message.\n\n--client-request-token (string)\n\nThe Idempotency token for each client request.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--push-notification (structure)\n\nThe push notification configuration of the message.\n\nTitle -> (string)\n\nThe title of the push notification.\n\nBody -> (string)\n\nThe body of the push notification.\n\nType -> (string)\n\nEnum value that indicates the type of the push notification for a message. DEFAULT : Normal mobile push notification. VOIP : VOIP mobile push notification.\n\nShorthand Syntax:\n\nTitle=string,Body=string,Type=string\n\n\nJSON Syntax:\n\n{\n  \"Title\": \"string\",\n  \"Body\": \"string\",\n  \"Type\": \"DEFAULT\"|\"VOIP\"\n}\n\n\n--message-attributes (map)\n\nThe attributes for the message, used for message filtering along with a FilterRule defined in the PushNotificationPreferences .\n\nkey -> (string)\n\nvalue -> (structure)\n\nA list of message attribute values.\n\nStringValues -> (list)\n\nThe strings in a message attribute value.\n\n(string)\n\nShorthand Syntax:\n\nKeyName1=StringValues=string,string,KeyName2=StringValues=string,string\n\n\nJSON Syntax:\n\n{\"string\": {\n      \"StringValues\": [\"string\", ...]\n    }\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMessageId -> (string)\n\nThe ID string assigned to each message.\n\nStatus -> (structure)\n\nThe status of the channel message.\n\nValue -> (string)\n\nThe message status value.\n\nDetail -> (string)\n\nContains more details about the messasge status."
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/tag-resource.html",
+      "command_description": "Description\n\nApplies the specified tags to the specified Amazon Chime SDK messaging resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--tags (list)\n\nThe tag key-value pairs.\n\n(structure)\n\nA tag object containing a key-value pair.\n\nKey -> (string)\n\nThe key in a tag.\n\nValue -> (string)\n\nThe value in a tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/untag-resource.html",
+      "command_description": "Description\n\nRemoves the specified tags from the specified Amazon Chime SDK messaging resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource ARN.\n\n--tag-keys (list)\n\nThe tag keys.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-channel",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/update-channel.html",
+      "command_description": "Description\n\nUpdate a channel’s attributes.\n\nRestriction : You can’t change a channel’s privacy.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-channel\n--channel-arn <value>\n--name <value>\n--mode <value>\n[--metadata <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--name <value>",
+        "--mode <value>",
+        "[--metadata <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--name (string)\n\nThe name of the channel.\n\n--mode (string)\n\nThe mode of the update request.\n\nPossible values:\n\nUNRESTRICTED\n\nRESTRICTED\n\n--metadata (string)\n\nThe metadata for the update request.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel."
+    },
+    {
+      "command_name": "update-channel-flow",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/update-channel-flow.html",
+      "command_description": "Description\n\nUpdates channel flow attributes. This is a developer API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-channel-flow\n--channel-flow-arn <value>\n--processors <value>\n--name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-flow-arn <value>",
+        "--processors <value>",
+        "--name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-flow-arn (string)\n\nThe ARN of the channel flow.\n\n--processors (list)\n\nInformation about the processor Lambda functions\n\n(structure)\n\nThe information about a processor in a channel flow.\n\nName -> (string)\n\nThe name of the channel flow.\n\nConfiguration -> (structure)\n\nThe information about the type of processor and its identifier.\n\nLambda -> (structure)\n\nIndicates that the processor is of type Lambda.\n\nResourceArn -> (string)\n\nThe ARN of the Lambda message processing function.\n\nInvocationType -> (string)\n\nControls how the Lambda function is invoked.\n\nExecutionOrder -> (integer)\n\nThe sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence. At this point, we support only 1 processor within a flow.\n\nFallbackAction -> (string)\n\nDetermines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of ABORT and communication with it fails, the processor sets the message status to FAILED and does not send the message to any recipients. Note that if the last processor in the channel flow sequence has a fallback action of CONTINUE and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.\n\nShorthand Syntax:\n\nName=string,Configuration={Lambda={ResourceArn=string,InvocationType=string}},ExecutionOrder=integer,FallbackAction=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Name\": \"string\",\n    \"Configuration\": {\n      \"Lambda\": {\n        \"ResourceArn\": \"string\",\n        \"InvocationType\": \"ASYNC\"\n      }\n    },\n    \"ExecutionOrder\": integer,\n    \"FallbackAction\": \"CONTINUE\"|\"ABORT\"\n  }\n  ...\n]\n\n\n--name (string)\n\nThe name of the channel flow.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelFlowArn -> (string)\n\nThe ARN of the channel flow."
+    },
+    {
+      "command_name": "update-channel-message",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/update-channel-message.html",
+      "command_description": "Description\n\nUpdates the content of a message.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-channel-message\n--channel-arn <value>\n--message-id <value>\n[--content <value>]\n[--metadata <value>]\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--message-id <value>",
+        "[--content <value>]",
+        "[--metadata <value>]",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--message-id (string)\n\nThe ID string of the message being updated.\n\n--content (string)\n\nThe content of the message being updated.\n\n--metadata (string)\n\nThe metadata of the message being updated.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel.\n\nMessageId -> (string)\n\nThe ID string of the message being updated.\n\nStatus -> (structure)\n\nThe status of the message update.\n\nValue -> (string)\n\nThe message status value.\n\nDetail -> (string)\n\nContains more details about the messasge status."
+    },
+    {
+      "command_name": "update-channel-read-marker",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/chime-sdk-messaging/update-channel-read-marker.html",
+      "command_description": "Description\n\nThe details of the time when a user last read messages in a channel.\n\nNote\n\nThe x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-channel-read-marker\n--channel-arn <value>\n--chime-bearer <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--chime-bearer <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the channel.\n\n--chime-bearer (string)\n\nThe AppInstanceUserArn of the user that makes the API call.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nChannelArn -> (string)\n\nThe ARN of the channel."
+    }
+  ],
+  "service_description": "Description\n\nThe Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see Amazon Chime SDK messaging"
+}

@@ -1,0 +1,6 @@
+{
+  "service_name": "cli-dev",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cli-dev/index.html",
+  "service_commands": [],
+  "service_description": "Description\n\nInternal commands for AWS CLI development. These commands are not intended for normal end usage. These commands are used to help develop and debug the AWS CLI. Do not rely on these commands, backwards compatibility is not guaranteed. Any of these commands under “aws cli-dev” may be removed in future versions.\n\nSee ‘aws help’ for descriptions of global parameters."
+}

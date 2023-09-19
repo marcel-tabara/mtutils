@@ -1,0 +1,475 @@
+{
+  "service_name": "schemas",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-discoverer",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/create-discoverer.html",
+      "command_description": "Description\n\nCreates a discoverer.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-discoverer\n[--description <value>]\n--source-arn <value>\n[--cross-account | --no-cross-account]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--description <value>]",
+        "--source-arn <value>",
+        "[--cross-account | --no-cross-account]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--description (string)\n\nA description for the discoverer.\n\n--source-arn (string)\n\nThe ARN of the event bus.\n\n--cross-account | --no-cross-account (boolean)\n\nSupport discovery of schemas in events sent to the bus from another account. (default: true).\n\n--tags (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the discoverer.\n\nDiscovererArn -> (string)\n\nThe ARN of the discoverer.\n\nDiscovererId -> (string)\n\nThe ID of the discoverer.\n\nSourceArn -> (string)\n\nThe ARN of the event bus.\n\nState -> (string)\n\nThe state of the discoverer.\n\nCrossAccount -> (boolean)\n\nThe Status if the discoverer will discover schemas from events sent from another account.\n\nTags -> (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "create-registry",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/create-registry.html",
+      "command_description": "Description\n\nCreates a registry.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-registry\n[--description <value>]\n--registry-name <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--description <value>]",
+        "--registry-name <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--description (string)\n\nA description of the registry to be created.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--tags (map)\n\nTags to associate with the registry.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the registry.\n\nRegistryArn -> (string)\n\nThe ARN of the registry.\n\nRegistryName -> (string)\n\nThe name of the registry.\n\nTags -> (map)\n\nTags associated with the registry.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "create-schema",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/create-schema.html",
+      "command_description": "Description\n\nCreates a schema definition.\n\nNote\n\nInactive schemas will be deleted after two years.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-schema\n--content <value>\n[--description <value>]\n--registry-name <value>\n--schema-name <value>\n[--tags <value>]\n--type <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--content <value>",
+        "[--description <value>]",
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--tags <value>]",
+        "--type <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--content (string)\n\nThe source of the schema definition.\n\n--description (string)\n\nA description of the schema.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--tags (map)\n\nTags associated with the schema.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--type (string)\n\nThe type of schema.\n\nPossible values:\n\nOpenApi3\n\nJSONSchemaDraft4\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the schema.\n\nLastModified -> (timestamp)\n\nThe date and time that schema was modified.\n\nSchemaArn -> (string)\n\nThe ARN of the schema.\n\nSchemaName -> (string)\n\nThe name of the schema.\n\nSchemaVersion -> (string)\n\nThe version number of the schema\n\nTags -> (map)\n\nKey-value pairs associated with a resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nType -> (string)\n\nThe type of the schema.\n\nVersionCreatedDate -> (timestamp)\n\nThe date the schema version was created."
+    },
+    {
+      "command_name": "delete-discoverer",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/delete-discoverer.html",
+      "command_description": "Description\n\nDeletes a discoverer.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-discoverer\n--discoverer-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--discoverer-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--discoverer-id (string)\n\nThe ID of the discoverer.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-registry",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/delete-registry.html",
+      "command_description": "Description\n\nDeletes a Registry.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-registry\n--registry-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-resource-policy",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/delete-resource-policy.html",
+      "command_description": "Description\n\nDelete the resource-based policy attached to the specified registry.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-resource-policy\n[--registry-name <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--registry-name <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-schema",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/delete-schema.html",
+      "command_description": "Description\n\nDelete a schema definition.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-schema\n--registry-name <value>\n--schema-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-schema-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/delete-schema-version.html",
+      "command_description": "Description\n\nDelete the schema version definition\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-schema-version\n--registry-name <value>\n--schema-name <value>\n--schema-version <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "--schema-version <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--schema-version (string) The version number of the schema\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-code-binding",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/describe-code-binding.html",
+      "command_description": "Description\n\nDescribe the code binding URI.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-code-binding\n--language <value>\n--registry-name <value>\n--schema-name <value>\n[--schema-version <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--language <value>",
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--schema-version <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--language (string)\n\nThe language of the code binding.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--schema-version (string)\n\nSpecifying this limits the results to only this schema version.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nCreationDate -> (timestamp)\n\nThe time and date that the code binding was created.\n\nLastModified -> (timestamp)\n\nThe date and time that code bindings were modified.\n\nSchemaVersion -> (string)\n\nThe version number of the schema.\n\nStatus -> (string)\n\nThe current status of code binding generation."
+    },
+    {
+      "command_name": "describe-discoverer",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/describe-discoverer.html",
+      "command_description": "Description\n\nDescribes the discoverer.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-discoverer\n--discoverer-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--discoverer-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--discoverer-id (string)\n\nThe ID of the discoverer.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the discoverer.\n\nDiscovererArn -> (string)\n\nThe ARN of the discoverer.\n\nDiscovererId -> (string)\n\nThe ID of the discoverer.\n\nSourceArn -> (string)\n\nThe ARN of the event bus.\n\nState -> (string)\n\nThe state of the discoverer.\n\nCrossAccount -> (boolean)\n\nThe Status if the discoverer will discover schemas from events sent from another account.\n\nTags -> (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-registry",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/describe-registry.html",
+      "command_description": "Description\n\nDescribes the registry.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-registry\n--registry-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the registry.\n\nRegistryArn -> (string)\n\nThe ARN of the registry.\n\nRegistryName -> (string)\n\nThe name of the registry.\n\nTags -> (map)\n\nTags associated with the registry.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-schema",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/describe-schema.html",
+      "command_description": "Description\n\nRetrieve the schema definition.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-schema\n--registry-name <value>\n--schema-name <value>\n[--schema-version <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--schema-version <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--schema-version (string)\n\nSpecifying this limits the results to only this schema version.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nContent -> (string)\n\nThe source of the schema definition.\n\nDescription -> (string)\n\nThe description of the schema.\n\nLastModified -> (timestamp)\n\nThe date and time that schema was modified.\n\nSchemaArn -> (string)\n\nThe ARN of the schema.\n\nSchemaName -> (string)\n\nThe name of the schema.\n\nSchemaVersion -> (string)\n\nThe version number of the schema\n\nTags -> (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nType -> (string)\n\nThe type of the schema.\n\nVersionCreatedDate -> (timestamp)\n\nThe date the schema version was created."
+    },
+    {
+      "command_name": "export-schema",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/export-schema.html",
+      "command_description": "Description\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  export-schema\n--registry-name <value>\n--schema-name <value>\n[--schema-version <value>]\n--type <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--schema-version <value>]",
+        "--type <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--schema-version (string)\n\nSpecifying this limits the results to only this schema version.\n\n--type (string)\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nContent -> (string)\n\nSchemaArn -> (string)\n\nSchemaName -> (string)\n\nSchemaVersion -> (string)\n\nType -> (string)"
+    },
+    {
+      "command_name": "get-code-binding-source",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/get-code-binding-source.html",
+      "command_description": "Description\n\nGet the code binding source URI.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-code-binding-source\n--language <value>\n--registry-name <value>\n--schema-name <value>\n[--schema-version <value>]\n<outfile>\n",
+      "command_options": [
+        "--language <value>",
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--schema-version <value>]",
+        "<outfile>"
+      ],
+      "command_options_description": "Options\n\n--language (string)\n\nThe language of the code binding.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--schema-version (string)\n\nSpecifying this limits the results to only this schema version.\n\noutfile (string) Filename where the content will be saved\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nBody -> (blob)"
+    },
+    {
+      "command_name": "get-discovered-schema",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/get-discovered-schema.html",
+      "command_description": "Description\n\nGet the discovered schema that was generated based on sampled events.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-discovered-schema\n--events <value>\n--type <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--events <value>",
+        "--type <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--events (list)\n\nAn array of strings where each string is a JSON event. These are the events that were used to generate the schema. The array includes a single type of event and has a maximum size of 10 events.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--type (string)\n\nThe type of event.\n\nPossible values:\n\nOpenApi3\n\nJSONSchemaDraft4\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nContent -> (string)\n\nThe source of the schema definition."
+    },
+    {
+      "command_name": "get-resource-policy",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/get-resource-policy.html",
+      "command_description": "Description\n\nRetrieves the resource-based policy attached to a given registry.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-resource-policy\n[--registry-name <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--registry-name <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPolicy -> (string)\n\nThe resource-based policy.\n\nRevisionId -> (string)\n\nThe revision ID."
+    },
+    {
+      "command_name": "list-discoverers",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/list-discoverers.html",
+      "command_description": "Description\n\nList the discoverers.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-discoverers is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: Discoverers",
+      "command_synopsis": "Synopsis\n  list-discoverers\n[--discoverer-id-prefix <value>]\n[--source-arn-prefix <value>]\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--discoverer-id-prefix <value>]",
+        "[--source-arn-prefix <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--discoverer-id-prefix (string)\n\nSpecifying this limits the results to only those discoverer IDs that start with the specified prefix.\n\n--source-arn-prefix (string)\n\nSpecifying this limits the results to only those ARNs that start with the specified prefix.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDiscoverers -> (list)\n\nAn array of DiscovererSummary information.\n\n(structure)\n\nDiscovererArn -> (string)\n\nThe ARN of the discoverer.\n\nDiscovererId -> (string)\n\nThe ID of the discoverer.\n\nSourceArn -> (string)\n\nThe ARN of the event bus.\n\nState -> (string)\n\nThe state of the discoverer.\n\nCrossAccount -> (boolean)\n\nThe Status if the discoverer will discover schemas from events sent from another account.\n\nTags -> (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nNextToken -> (string)\n\nThe token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts."
+    },
+    {
+      "command_name": "list-registries",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/list-registries.html",
+      "command_description": "Description\n\nList the registries.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-registries is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: Registries",
+      "command_synopsis": "Synopsis\n  list-registries\n[--registry-name-prefix <value>]\n[--scope <value>]\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--registry-name-prefix <value>]",
+        "[--scope <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name-prefix (string)\n\nSpecifying this limits the results to only those registry names that start with the specified prefix.\n\n--scope (string)\n\nCan be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNextToken -> (string)\n\nThe token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.\n\nRegistries -> (list)\n\nAn array of registry summaries.\n\n(structure)\n\nRegistryArn -> (string)\n\nThe ARN of the registry.\n\nRegistryName -> (string)\n\nThe name of the registry.\n\nTags -> (map)\n\nTags associated with the registry.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "list-schema-versions",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/list-schema-versions.html",
+      "command_description": "Description\n\nProvides a list of the schema versions and related information.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-schema-versions is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: SchemaVersions",
+      "command_synopsis": "Synopsis\n  list-schema-versions\n--registry-name <value>\n--schema-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNextToken -> (string)\n\nThe token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.\n\nSchemaVersions -> (list)\n\nAn array of schema version summaries.\n\n(structure)\n\nSchemaArn -> (string)\n\nThe ARN of the schema version.\n\nSchemaName -> (string)\n\nThe name of the schema.\n\nSchemaVersion -> (string)\n\nThe version number of the schema.\n\nType -> (string)\n\nThe type of schema."
+    },
+    {
+      "command_name": "list-schemas",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/list-schemas.html",
+      "command_description": "Description\n\nList the schemas.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-schemas is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: Schemas",
+      "command_synopsis": "Synopsis\n  list-schemas\n--registry-name <value>\n[--schema-name-prefix <value>]\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--registry-name <value>",
+        "[--schema-name-prefix <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name-prefix (string)\n\nSpecifying this limits the results to only those schema names that start with the specified prefix.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNextToken -> (string)\n\nThe token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.\n\nSchemas -> (list)\n\nAn array of schema summaries.\n\n(structure)\n\nA summary of schema details.\n\nLastModified -> (timestamp)\n\nThe date and time that schema was modified.\n\nSchemaArn -> (string)\n\nThe ARN of the schema.\n\nSchemaName -> (string)\n\nThe name of the schema.\n\nTags -> (map)\n\nTags associated with the schema.\n\nkey -> (string)\n\nvalue -> (string)\n\nVersionCount -> (long)\n\nThe number of versions available for the schema."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/list-tags-for-resource.html",
+      "command_description": "Description\n\nGet tags for resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTags -> (map)\n\nKey-value pairs associated with a resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "put-code-binding",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/put-code-binding.html",
+      "command_description": "Description\n\nPut code binding URI\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-code-binding\n--language <value>\n--registry-name <value>\n--schema-name <value>\n[--schema-version <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--language <value>",
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--schema-version <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--language (string)\n\nThe language of the code binding.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--schema-version (string)\n\nSpecifying this limits the results to only this schema version.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nCreationDate -> (timestamp)\n\nThe time and date that the code binding was created.\n\nLastModified -> (timestamp)\n\nThe date and time that code bindings were modified.\n\nSchemaVersion -> (string)\n\nThe version number of the schema.\n\nStatus -> (string)\n\nThe current status of code binding generation."
+    },
+    {
+      "command_name": "put-resource-policy",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/put-resource-policy.html",
+      "command_description": "Description\n\nThe name of the policy.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  put-resource-policy\n--policy <value>\n[--registry-name <value>]\n[--revision-id <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--policy <value>",
+        "[--registry-name <value>]",
+        "[--revision-id <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--policy (string)\n\nThe resource-based policy.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--revision-id (string)\n\nThe revision ID of the policy.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPolicy -> (string)\n\nThe resource-based policy.\n\nRevisionId -> (string)\n\nThe revision ID of the policy."
+    },
+    {
+      "command_name": "search-schemas",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/search-schemas.html",
+      "command_description": "Description\n\nSearch the schemas\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nsearch-schemas is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: Schemas",
+      "command_synopsis": "Synopsis\n  search-schemas\n--keywords <value>\n--registry-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--page-size <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--keywords <value>",
+        "--registry-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--page-size <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--keywords (string)\n\nSpecifying this limits the results to only schemas that include the provided keywords.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--page-size (integer)\n\nThe size of each page to get in the AWS service call. This does not affect the number of items returned in the command’s output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNextToken -> (string)\n\nThe token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.\n\nSchemas -> (list)\n\nAn array of SearchSchemaSummary information.\n\n(structure)\n\nRegistryName -> (string)\n\nThe name of the registry.\n\nSchemaArn -> (string)\n\nThe ARN of the schema.\n\nSchemaName -> (string)\n\nThe name of the schema.\n\nSchemaVersions -> (list)\n\nAn array of schema version summaries.\n\n(structure)\n\nCreatedDate -> (timestamp)\n\nThe date the schema version was created.\n\nSchemaVersion -> (string)\n\nThe version number of the schema\n\nType -> (string)\n\nThe type of schema."
+    },
+    {
+      "command_name": "start-discoverer",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/start-discoverer.html",
+      "command_description": "Description\n\nStarts the discoverer\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  start-discoverer\n--discoverer-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--discoverer-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--discoverer-id (string)\n\nThe ID of the discoverer.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDiscovererId -> (string)\n\nThe ID of the discoverer.\n\nState -> (string)\n\nThe state of the discoverer."
+    },
+    {
+      "command_name": "stop-discoverer",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/stop-discoverer.html",
+      "command_description": "Description\n\nStops the discoverer\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  stop-discoverer\n--discoverer-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--discoverer-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--discoverer-id (string)\n\nThe ID of the discoverer.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDiscovererId -> (string)\n\nThe ID of the discoverer.\n\nState -> (string)\n\nThe state of the discoverer."
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/tag-resource.html",
+      "command_description": "Description\n\nAdd tags to a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tags (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/untag-resource.html",
+      "command_description": "Description\n\nRemoves tags from a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tag-keys (list)\n\nKeys of key-value pairs.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-discoverer",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/update-discoverer.html",
+      "command_description": "Description\n\nUpdates the discoverer\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-discoverer\n[--description <value>]\n--discoverer-id <value>\n[--cross-account | --no-cross-account]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--description <value>]",
+        "--discoverer-id <value>",
+        "[--cross-account | --no-cross-account]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--description (string)\n\nThe description of the discoverer to update.\n\n--discoverer-id (string)\n\nThe ID of the discoverer.\n\n--cross-account | --no-cross-account (boolean)\n\nSupport discovery of schemas in events sent to the bus from another account. (default: true)\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the discoverer.\n\nDiscovererArn -> (string)\n\nThe ARN of the discoverer.\n\nDiscovererId -> (string)\n\nThe ID of the discoverer.\n\nSourceArn -> (string)\n\nThe ARN of the event bus.\n\nState -> (string)\n\nThe state of the discoverer.\n\nCrossAccount -> (boolean)\n\nThe Status if the discoverer will discover schemas from events sent from another account.\n\nTags -> (map)\n\nTags associated with the resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "update-registry",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/update-registry.html",
+      "command_description": "Description\n\nUpdates a registry.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-registry\n[--description <value>]\n--registry-name <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--description <value>]",
+        "--registry-name <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--description (string)\n\nThe description of the registry to update.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the registry.\n\nRegistryArn -> (string)\n\nThe ARN of the registry.\n\nRegistryName -> (string)\n\nThe name of the registry.\n\nTags -> (map)\n\nTags associated with the registry.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "update-schema",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/update-schema.html",
+      "command_description": "Description\n\nUpdates the schema definition\n\nNote\n\nInactive schemas will be deleted after two years.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-schema\n[--client-token-id <value>]\n[--content <value>]\n[--description <value>]\n--registry-name <value>\n--schema-name <value>\n[--type <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-token-id <value>]",
+        "[--content <value>]",
+        "[--description <value>]",
+        "--registry-name <value>",
+        "--schema-name <value>",
+        "[--type <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-token-id (string)\n\nThe ID of the client token.\n\n--content (string)\n\nThe source of the schema definition.\n\n--description (string)\n\nThe description of the schema.\n\n--registry-name (string)\n\nThe name of the registry.\n\n--schema-name (string)\n\nThe name of the schema.\n\n--type (string)\n\nThe schema type for the events schema.\n\nPossible values:\n\nOpenApi3\n\nJSONSchemaDraft4\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDescription -> (string)\n\nThe description of the schema.\n\nLastModified -> (timestamp)\n\nThe date and time that schema was modified.\n\nSchemaArn -> (string)\n\nThe ARN of the schema.\n\nSchemaName -> (string)\n\nThe name of the schema.\n\nSchemaVersion -> (string)\n\nThe version number of the schema\n\nTags -> (map)\n\nKey-value pairs associated with a resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nType -> (string)\n\nThe type of the schema.\n\nVersionCreatedDate -> (timestamp)\n\nThe date the schema version was created."
+    },
+    {
+      "command_name": "wait",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/schemas/wait/index.html",
+      "command_description": "Description\n\nWait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_options": []
+    }
+  ],
+  "service_description": "Description\n\nAmazon EventBridge Schema Registry"
+}

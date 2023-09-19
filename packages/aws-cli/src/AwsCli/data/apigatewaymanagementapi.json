@@ -1,0 +1,50 @@
+{
+  "service_name": "apigatewaymanagementapi",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewaymanagementapi/index.html",
+  "service_commands": [
+    {
+      "command_name": "delete-connection",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewaymanagementapi/delete-connection.html",
+      "command_description": "Description\n\nDelete the connection with the provided id.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-connection\n--connection-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--connection-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--connection-id (string)\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone",
+      "command_examples": "Examples\n\nTo delete a WebSocket connection\n\nThe following delete-connection example disconnects a client from the specified WebSocket API.\n\naws apigatewaymanagementapi delete-connection \\\n    --connection-id L0SM9cOFvHcCIhw= \\\n    --endpoint-url https://aabbccddee.execute-api.us-west-2.amazonaws.com/prod\n\n\nThis command produces no output.\n\nFor more information, see Use @connections commands in your backend service in the Amazon API Gateway Developer Guide."
+    },
+    {
+      "command_name": "get-connection",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewaymanagementapi/get-connection.html",
+      "command_description": "Description\n\nGet information about the connection with the provided id.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-connection\n--connection-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--connection-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--connection-id (string)\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nConnectedAt -> (timestamp)\n\nThe time in ISO 8601 format for when the connection was established.\n\nIdentity -> (structure)\n\nSourceIp -> (string)\n\nThe source IP address of the TCP connection making the request to API Gateway.\n\nUserAgent -> (string)\n\nThe User Agent of the API caller.\n\nLastActiveAt -> (timestamp)\n\nThe time in ISO 8601 format for when the connection was last active.",
+      "command_examples": "Examples\n\nTo get information about a WebSocket connection\n\nThe following get-connection example describes a connection to the specified WebSocket API.\n\naws apigatewaymanagementapi get-connection \\\n    --connection-id L0SM9cOFvHcCIhw= \\\n    --endpoint-url https://aabbccddee.execute-api.us-west-2.amazonaws.com/prod\n\n\nOutput:\n\n{\n    \"ConnectedAt\": \"2020-04-30T20:10:33.236Z\",\n    \"Identity\": {\n        \"SourceIp\": \"192.0.2.1\"\n    },\n    \"LastActiveAt\": \"2020-04-30T20:10:42.997Z\"\n}\n\n\nFor more information, see Use @connections commands in your backend service in the Amazon API Gateway Developer Guide."
+    },
+    {
+      "command_name": "post-to-connection",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/apigatewaymanagementapi/post-to-connection.html",
+      "command_description": "Description\n\nSends the provided data to the specified connection.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  post-to-connection\n--data <value>\n--connection-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--data <value>",
+        "--connection-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--data (blob)\n\nThe data to be sent to the client specified by its connection id.\n\n--connection-id (string)\n\nThe identifier of the connection that a specific client is using.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone",
+      "command_examples": "Examples\n\nTo send data to a WebSocket connection\n\nThe following post-to-connection example sends a message to a client that’s connected to the specified WebSocket API.\n\naws apigatewaymanagementapi post-to-connection \\\n    --connection-id L0SM9cOFvHcCIhw= \\\n    --data \"Hello from API Gateway!\" \\\n    --endpoint-url https://aabbccddee.execute-api.us-west-2.amazonaws.com/prod\n\n\nThis command produces no output.\n\nFor more information, see Use @connections commands in your backend service in the Amazon API Gateway Developer Guide."
+    }
+  ],
+  "service_description": "Description\n\nThe Amazon API Gateway Management API allows you to directly manage runtime aspects of your deployed APIs. To use it, you must explicitly set the SDK’s endpoint to point to the endpoint of your deployed API. The endpoint will be of the form https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will be the endpoint corresponding to your API’s custom domain and base path, if applicable."
+}

@@ -1,0 +1,122 @@
+{
+  "service_name": "iotfleethub",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-application",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/create-application.html",
+      "command_description": "Description\n\nCreates a Fleet Hub for AWS IoT Device Management web application.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-application\n--application-name <value>\n[--application-description <value>]\n[--client-token <value>]\n--role-arn <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-name <value>",
+        "[--application-description <value>]",
+        "[--client-token <value>]",
+        "--role-arn <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-name (string)\n\nThe name of the web application.\n\n--application-description (string)\n\nAn optional description of the web application.\n\n--client-token (string)\n\nA unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don’t reuse this client token if a new idempotent request is required.\n\n--role-arn (string)\n\nThe ARN of the role that the web application assumes when it interacts with AWS IoT Core.\n\nNote\n\nThe name of the role must be in the form ``AWSIotFleetHub_*random_string* `` .\n\n--tags (map)\n\nA set of key/value pairs that you can use to manage the web application resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\napplicationId -> (string)\n\nThe unique Id of the web application.\n\napplicationArn -> (string)\n\nThe ARN of the web application."
+    },
+    {
+      "command_name": "delete-application",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/delete-application.html",
+      "command_description": "Description\n\nDeletes a Fleet Hub for AWS IoT Device Management web application.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-application\n--application-id <value>\n[--client-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-id <value>",
+        "[--client-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-id (string)\n\nThe unique Id of the web application.\n\n--client-token (string)\n\nA unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don’t reuse this client token if a new idempotent request is required.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-application",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/describe-application.html",
+      "command_description": "Description\n\nGets information about a Fleet Hub for AWS IoT Device Management web application.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-application\n--application-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-id (string)\n\nThe unique Id of the web application.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\napplicationId -> (string)\n\nThe unique Id of the web application.\n\napplicationArn -> (string)\n\nThe ARN of the web application.\n\napplicationName -> (string)\n\nThe name of the web application.\n\napplicationDescription -> (string)\n\nAn optional description of the web application.\n\napplicationUrl -> (string)\n\nThe URL of the web application.\n\napplicationState -> (string)\n\nThe current state of the web application.\n\napplicationCreationDate -> (long)\n\nThe date (in Unix epoch time) when the application was created.\n\napplicationLastUpdateDate -> (long)\n\nThe date (in Unix epoch time) when the application was last updated.\n\nroleArn -> (string)\n\nThe ARN of the role that the web application assumes when it interacts with AWS IoT Core.\n\nssoClientId -> (string)\n\nThe Id of the single sign-on client that you use to authenticate and authorize users on the web application.\n\nerrorMessage -> (string)\n\nA message indicating why the DescribeApplication API failed.\n\ntags -> (map)\n\nA set of key/value pairs that you can use to manage the web application resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "list-applications",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/list-applications.html",
+      "command_description": "Description\n\nGets a list of Fleet Hub for AWS IoT Device Management web applications for the current account.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-applications is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: applicationSummaries",
+      "command_synopsis": "Synopsis\n  list-applications\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\napplicationSummaries -> (list)\n\nAn array of objects that provide summaries of information about the web applications in the list.\n\n(structure)\n\nA summary of information about a AWS IoT Device Management web application.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\napplicationId -> (string)\n\nThe unique Id of the web application.\n\napplicationName -> (string)\n\nThe name of the web application.\n\napplicationDescription -> (string)\n\nAn optional description of the web application.\n\napplicationUrl -> (string)\n\nThe URL of the web application.\n\napplicationCreationDate -> (long)\n\nThe date (in Unix epoch time) when the web application was created.\n\napplicationLastUpdateDate -> (long)\n\nThe date (in Unix epoch time) when the web application was last updated.\n\napplicationState -> (string)\n\nThe current state of the web application.\n\nnextToken -> (string)\n\nA token used to get the next set of results."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags for the specified resource.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\ntags -> (map)\n\nThe list of tags assigned to the resource.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/tag-resource.html",
+      "command_description": "Description\n\nAdds to or modifies the tags of the specified resource. Tags are metadata which can be used to manage a resource.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tags (map)\n\nThe new or modified tags for the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/untag-resource.html",
+      "command_description": "Description\n\nRemoves the specified tags (metadata) from the resource.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe ARN of the resource.\n\n--tag-keys (list)\n\nA list of the keys of the tags to be removed from the resource.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-application",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotfleethub/update-application.html",
+      "command_description": "Description\n\nUpdates information about a Fleet Hub for a AWS IoT Device Management web application.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-application\n--application-id <value>\n[--application-name <value>]\n[--application-description <value>]\n[--client-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-id <value>",
+        "[--application-name <value>]",
+        "[--application-description <value>]",
+        "[--client-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-id (string)\n\nThe unique Id of the web application.\n\n--application-name (string)\n\nThe name of the web application.\n\n--application-description (string)\n\nAn optional description of the web application.\n\n--client-token (string)\n\nA unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don’t reuse this client token if a new idempotent request is required.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nWith Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.\n\nNote\n\nFleet Hub for AWS IoT Device Management is in public preview and is subject to change."
+}

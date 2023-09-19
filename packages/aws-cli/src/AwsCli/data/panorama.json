@@ -1,0 +1,494 @@
+{
+  "service_name": "panorama",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-application-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/create-application-instance.html",
+      "command_description": "Description\n\nCreates an application instance and deploys it to a device.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-application-instance\n[--name <value>]\n[--description <value>]\n--manifest-payload <value>\n[--manifest-overrides-payload <value>]\n[--application-instance-id-to-replace <value>]\n[--runtime-role-arn <value>]\n--default-runtime-context-device <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--name <value>]",
+        "[--description <value>]",
+        "--manifest-payload <value>",
+        "[--manifest-overrides-payload <value>]",
+        "[--application-instance-id-to-replace <value>]",
+        "[--runtime-role-arn <value>]",
+        "--default-runtime-context-device <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nA name for the application instance.\n\n--description (string)\n\nA description for the application instance.\n\n--manifest-payload (structure)\n\nThe application’s manifest document.\n\nPayloadData -> (string)\n\nThe application manifest.\n\nShorthand Syntax:\n\nPayloadData=string\n\n\nJSON Syntax:\n\n{\n  \"PayloadData\": \"string\"\n}\n\n\n--manifest-overrides-payload (structure)\n\nSetting overrides for the application manifest.\n\nPayloadData -> (string)\n\nThe overrides document.\n\nShorthand Syntax:\n\nPayloadData=string\n\n\nJSON Syntax:\n\n{\n  \"PayloadData\": \"string\"\n}\n\n\n--application-instance-id-to-replace (string)\n\nThe ID of an application instance to replace with the new instance.\n\n--runtime-role-arn (string)\n\nThe ARN of a runtime role for the application instance.\n\n--default-runtime-context-device (string)\n\nA device’s ID.\n\n--tags (map)\n\nTags for the application instance.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nApplicationInstanceId -> (string)\n\nThe application instance’s ID."
+    },
+    {
+      "command_name": "create-job-for-devices",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/create-job-for-devices.html",
+      "command_description": "Description\n\nCreates a job to run on one or more devices.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-job-for-devices\n--device-ids <value>\n--device-job-config <value>\n--job-type <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--device-ids <value>",
+        "--device-job-config <value>",
+        "--job-type <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-ids (list)\n\nIDs of target devices.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--device-job-config (structure)\n\nConfiguration settings for the job.\n\nOTAJobConfig -> (structure)\n\nA configuration for an over-the-air (OTA) upgrade. Required for OTA jobs.\n\nImageVersion -> (string)\n\nThe target version of the device software.\n\nShorthand Syntax:\n\nOTAJobConfig={ImageVersion=string}\n\n\nJSON Syntax:\n\n{\n  \"OTAJobConfig\": {\n    \"ImageVersion\": \"string\"\n  }\n}\n\n\n--job-type (string)\n\nThe type of job to run.\n\nPossible values:\n\nOTA\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nJobs -> (list)\n\nA list of jobs.\n\n(structure)\n\nA job for a device.\n\nJobId -> (string)\n\nThe job’s ID.\n\nDeviceId -> (string)\n\nThe target device’s ID."
+    },
+    {
+      "command_name": "create-node-from-template-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/create-node-from-template-job.html",
+      "command_description": "Description\n\nCreates a camera stream node.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-node-from-template-job\n--template-type <value>\n--output-package-name <value>\n--output-package-version <value>\n--node-name <value>\n[--node-description <value>]\n--template-parameters <value>\n[--job-tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--template-type <value>",
+        "--output-package-name <value>",
+        "--output-package-version <value>",
+        "--node-name <value>",
+        "[--node-description <value>]",
+        "--template-parameters <value>",
+        "[--job-tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--template-type (string)\n\nThe type of node.\n\nPossible values:\n\nRTSP_CAMERA_STREAM\n\n--output-package-name (string)\n\nAn output package name for the node.\n\n--output-package-version (string)\n\nAn output package version for the node.\n\n--node-name (string)\n\nA name for the node.\n\n--node-description (string)\n\nA description for the node.\n\n--template-parameters (map)\n\nTemplate parameters for the node.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--job-tags (list)\n\nTags for the job.\n\n(structure)\n\nTags for a job.\n\nResourceType -> (string)\n\nThe job’s type.\n\nTags -> (map)\n\nThe job’s tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nResourceType=string,Tags={KeyName1=string,KeyName2=string} ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"ResourceType\": \"PACKAGE\",\n    \"Tags\": {\"string\": \"string\"\n      ...}\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nJobId -> (string)\n\nThe job’s ID."
+    },
+    {
+      "command_name": "create-package",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/create-package.html",
+      "command_description": "Description\n\nCreates a package and storage location in an Amazon S3 access point.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-package\n--package-name <value>\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--package-name <value>",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--package-name (string)\n\nA name for the package.\n\n--tags (map)\n\nTags for the package.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPackageId -> (string)\n\nThe package’s ID.\n\nArn -> (string)\n\nThe package’s ARN.\n\nStorageLocation -> (structure)\n\nThe package’s storage location.\n\nBucket -> (string)\n\nThe location’s bucket.\n\nRepoPrefixLocation -> (string)\n\nThe location’s repo prefix.\n\nGeneratedPrefixLocation -> (string)\n\nThe location’s generated prefix.\n\nBinaryPrefixLocation -> (string)\n\nThe location’s binary prefix.\n\nManifestPrefixLocation -> (string)\n\nThe location’s manifest prefix."
+    },
+    {
+      "command_name": "create-package-import-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/create-package-import-job.html",
+      "command_description": "Description\n\nImports a node package.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-package-import-job\n--job-type <value>\n--input-config <value>\n--output-config <value>\n--client-token <value>\n[--job-tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-type <value>",
+        "--input-config <value>",
+        "--output-config <value>",
+        "--client-token <value>",
+        "[--job-tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-type (string)\n\nA job type for the package import job.\n\nPossible values:\n\nNODE_PACKAGE_VERSION\n\n--input-config (structure)\n\nAn input config for the package import job.\n\nPackageVersionInputConfig -> (structure)\n\nThe package version’s input configuration.\n\nS3Location -> (structure)\n\nA location in Amazon S3.\n\nRegion -> (string)\n\nThe bucket’s Region.\n\nBucketName -> (string)\n\nA bucket name.\n\nObjectKey -> (string)\n\nAn object key.\n\nShorthand Syntax:\n\nPackageVersionInputConfig={S3Location={Region=string,BucketName=string,ObjectKey=string}}\n\n\nJSON Syntax:\n\n{\n  \"PackageVersionInputConfig\": {\n    \"S3Location\": {\n      \"Region\": \"string\",\n      \"BucketName\": \"string\",\n      \"ObjectKey\": \"string\"\n    }\n  }\n}\n\n\n--output-config (structure)\n\nAn output config for the package import job.\n\nPackageVersionOutputConfig -> (structure)\n\nThe package version’s output configuration.\n\nPackageName -> (string)\n\nThe output’s package name.\n\nPackageVersion -> (string)\n\nThe output’s package version.\n\nMarkLatest -> (boolean)\n\nIndicates that the version is recommended for all users.\n\nShorthand Syntax:\n\nPackageVersionOutputConfig={PackageName=string,PackageVersion=string,MarkLatest=boolean}\n\n\nJSON Syntax:\n\n{\n  \"PackageVersionOutputConfig\": {\n    \"PackageName\": \"string\",\n    \"PackageVersion\": \"string\",\n    \"MarkLatest\": true|false\n  }\n}\n\n\n--client-token (string)\n\nA client token for the package import job.\n\n--job-tags (list)\n\nTags for the package import job.\n\n(structure)\n\nTags for a job.\n\nResourceType -> (string)\n\nThe job’s type.\n\nTags -> (map)\n\nThe job’s tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nResourceType=string,Tags={KeyName1=string,KeyName2=string} ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"ResourceType\": \"PACKAGE\",\n    \"Tags\": {\"string\": \"string\"\n      ...}\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nJobId -> (string)\n\nThe job’s ID."
+    },
+    {
+      "command_name": "delete-device",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/delete-device.html",
+      "command_description": "Description\n\nDeletes a device.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-device\n--device-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--device-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-id (string)\n\nThe device’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceId -> (string)\n\nThe device’s ID."
+    },
+    {
+      "command_name": "delete-package",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/delete-package.html",
+      "command_description": "Description\n\nDeletes a package.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-package\n--package-id <value>\n[--force-delete | --no-force-delete]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--package-id <value>",
+        "[--force-delete | --no-force-delete]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--package-id (string)\n\nThe package’s ID.\n\n--force-delete | --no-force-delete (boolean)\n\nDelete the package even if it has artifacts stored in its access point. Deletes the package’s artifacts from Amazon S3.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "deregister-package-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/deregister-package-version.html",
+      "command_description": "Description\n\nDeregisters a package version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  deregister-package-version\n[--owner-account <value>]\n--package-id <value>\n--package-version <value>\n--patch-version <value>\n[--updated-latest-patch-version <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--owner-account <value>]",
+        "--package-id <value>",
+        "--package-version <value>",
+        "--patch-version <value>",
+        "[--updated-latest-patch-version <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--owner-account (string)\n\nAn owner account.\n\n--package-id (string)\n\nA package ID.\n\n--package-version (string)\n\nA package version.\n\n--patch-version (string)\n\nA patch version.\n\n--updated-latest-patch-version (string)\n\nIf the version was marked latest, the new version to maker as latest.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "describe-application-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-application-instance.html",
+      "command_description": "Description\n\nReturns information about an application instance on a device.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-application-instance\n--application-instance-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-instance-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-instance-id (string)\n\nThe application instance’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nName -> (string)\n\nThe application instance’s name.\n\nDescription -> (string)\n\nThe application instance’s description.\n\nDefaultRuntimeContextDevice -> (string)\n\nThe device’s ID.\n\nDefaultRuntimeContextDeviceName -> (string)\n\nThe device’s bane.\n\nApplicationInstanceIdToReplace -> (string)\n\nThe ID of the application instance that this instance replaced.\n\nRuntimeRoleArn -> (string)\n\nThe application instance’s runtime role ARN.\n\nStatus -> (string)\n\nThe application instance’s status.\n\nHealthStatus -> (string)\n\nThe application instance’s health status.\n\nStatusDescription -> (string)\n\nThe application instance’s status description.\n\nCreatedTime -> (timestamp)\n\nWhen the application instance was created.\n\nLastUpdatedTime -> (timestamp)\n\nThe application instance was updated.\n\nApplicationInstanceId -> (string)\n\nThe application instance’s ID.\n\nArn -> (string)\n\nThe application instance’s ARN.\n\nTags -> (map)\n\nThe application instance’s tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-application-instance-details",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-application-instance-details.html",
+      "command_description": "Description\n\nReturns information about an application instance’s configuration manifest.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-application-instance-details\n--application-instance-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-instance-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-instance-id (string)\n\nThe application instance’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nName -> (string)\n\nThe application instance’s name.\n\nDescription -> (string)\n\nThe application instance’s description.\n\nDefaultRuntimeContextDevice -> (string)\n\nThe application instance’s default runtime context device.\n\nManifestPayload -> (structure)\n\nThe application instance’s configuration manifest.\n\nPayloadData -> (string)\n\nThe application manifest.\n\nManifestOverridesPayload -> (structure)\n\nParameter overrides for the configuration manifest.\n\nPayloadData -> (string)\n\nThe overrides document.\n\nApplicationInstanceIdToReplace -> (string)\n\nThe ID of the application instance that this instance replaced.\n\nCreatedTime -> (timestamp)\n\nWhen the application instance was created.\n\nApplicationInstanceId -> (string)\n\nThe application instance’s ID."
+    },
+    {
+      "command_name": "describe-device",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-device.html",
+      "command_description": "Description\n\nReturns information about a device.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-device\n--device-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--device-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-id (string)\n\nThe device’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceId -> (string)\n\nThe device’s ID.\n\nName -> (string)\n\nThe device’s name.\n\nArn -> (string)\n\nThe device’s ARN.\n\nDescription -> (string)\n\nThe device’s description.\n\nType -> (string)\n\nThe device’s type.\n\nDeviceConnectionStatus -> (string)\n\nThe device’s connection status.\n\nCreatedTime -> (timestamp)\n\nWhen the device was created.\n\nProvisioningStatus -> (string)\n\nThe device’s provisioning status.\n\nLatestSoftware -> (string)\n\nThe latest software version available for the device.\n\nCurrentSoftware -> (string)\n\nThe device’s current software version.\n\nSerialNumber -> (string)\n\nThe device’s serial number.\n\nTags -> (map)\n\nThe device’s tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nNetworkingConfiguration -> (structure)\n\nThe device’s networking configuration.\n\nEthernet0 -> (structure)\n\nSettings for Ethernet port 0.\n\nConnectionType -> (string)\n\nHow the device gets an IP address.\n\nStaticIpConnectionInfo -> (structure)\n\nNetwork configuration for a static IP connection.\n\nIpAddress -> (string)\n\nThe connection’s IP address.\n\nMask -> (string)\n\nThe connection’s DNS mask.\n\nDns -> (list)\n\nThe connection’s DNS address.\n\n(string)\n\nDefaultGateway -> (string)\n\nThe connection’s default gateway.\n\nEthernet1 -> (structure)\n\nSettings for Ethernet port 1.\n\nConnectionType -> (string)\n\nHow the device gets an IP address.\n\nStaticIpConnectionInfo -> (structure)\n\nNetwork configuration for a static IP connection.\n\nIpAddress -> (string)\n\nThe connection’s IP address.\n\nMask -> (string)\n\nThe connection’s DNS mask.\n\nDns -> (list)\n\nThe connection’s DNS address.\n\n(string)\n\nDefaultGateway -> (string)\n\nThe connection’s default gateway.\n\nCurrentNetworkingStatus -> (structure)\n\nThe device’s networking status.\n\nEthernet0Status -> (structure)\n\nThe status of Ethernet port 0.\n\nIpAddress -> (string)\n\nThe device’s IP address.\n\nConnectionStatus -> (string)\n\nThe device’s connection status.\n\nHwAddress -> (string)\n\nThe device’s physical address.\n\nEthernet1Status -> (structure)\n\nThe status of Ethernet port 1.\n\nIpAddress -> (string)\n\nThe device’s IP address.\n\nConnectionStatus -> (string)\n\nThe device’s connection status.\n\nHwAddress -> (string)\n\nThe device’s physical address.\n\nLeaseExpirationTime -> (timestamp)\n\nThe device’s lease expiration time."
+    },
+    {
+      "command_name": "describe-device-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-device-job.html",
+      "command_description": "Description\n\nReturns information about a device job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-device-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe job’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nJobId -> (string)\n\nThe job’s ID.\n\nDeviceId -> (string)\n\nThe device’s ID.\n\nDeviceArn -> (string)\n\nThe device’s ARN.\n\nDeviceName -> (string)\n\nThe device’s name.\n\nDeviceType -> (string)\n\nThe device’s type.\n\nImageVersion -> (string)\n\nFor an OTA job, the target version of the device software.\n\nStatus -> (string)\n\nThe job’s status.\n\nCreatedTime -> (timestamp)\n\nWhen the job was created."
+    },
+    {
+      "command_name": "describe-node",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-node.html",
+      "command_description": "Description\n\nReturns information about a node.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-node\n--node-id <value>\n[--owner-account <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--node-id <value>",
+        "[--owner-account <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--node-id (string)\n\nThe node’s ID.\n\n--owner-account (string)\n\nThe account ID of the node’s owner.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNodeId -> (string)\n\nThe node’s ID.\n\nName -> (string)\n\nThe node’s name.\n\nCategory -> (string)\n\nThe node’s category.\n\nOwnerAccount -> (string)\n\nThe account ID of the node’s owner.\n\nPackageName -> (string)\n\nThe node’s package name.\n\nPackageId -> (string)\n\nThe node’s package ID.\n\nPackageArn -> (string)\n\nThe node’s ARN.\n\nPackageVersion -> (string)\n\nThe node’s package version.\n\nPatchVersion -> (string)\n\nThe node’s patch version.\n\nNodeInterface -> (structure)\n\nThe node’s interface.\n\nInputs -> (list)\n\nThe node interface’s inputs.\n\n(structure)\n\nA node input port.\n\nName -> (string)\n\nThe input port’s name.\n\nDescription -> (string)\n\nThe input port’s description.\n\nType -> (string)\n\nThe input port’s type.\n\nDefaultValue -> (string)\n\nThe input port’s default value.\n\nMaxConnections -> (integer)\n\nThe input port’s max connections.\n\nOutputs -> (list)\n\nThe node interface’s outputs.\n\n(structure)\n\nA node output port.\n\nName -> (string)\n\nThe output port’s name.\n\nDescription -> (string)\n\nThe output port’s description.\n\nType -> (string)\n\nThe output port’s type.\n\nAssetName -> (string)\n\nThe node’s asset name.\n\nDescription -> (string)\n\nThe node’s description.\n\nCreatedTime -> (timestamp)\n\nWhen the node was created.\n\nLastUpdatedTime -> (timestamp)\n\nWhen the node was updated."
+    },
+    {
+      "command_name": "describe-node-from-template-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-node-from-template-job.html",
+      "command_description": "Description\n\nReturns information about a job to create a camera stream node.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-node-from-template-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe job’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nJobId -> (string)\n\nThe job’s ID.\n\nStatus -> (string)\n\nThe job’s status.\n\nStatusMessage -> (string)\n\nThe job’s status message.\n\nCreatedTime -> (timestamp)\n\nWhen the job was created.\n\nLastUpdatedTime -> (timestamp)\n\nWhen the job was updated.\n\nOutputPackageName -> (string)\n\nThe job’s output package name.\n\nOutputPackageVersion -> (string)\n\nThe job’s output package version.\n\nNodeName -> (string)\n\nThe node’s name.\n\nNodeDescription -> (string)\n\nThe node’s description.\n\nTemplateType -> (string)\n\nThe job’s template type.\n\nTemplateParameters -> (map)\n\nThe job’s template parameters.\n\nkey -> (string)\n\nvalue -> (string)\n\nJobTags -> (list)\n\nThe job’s tags.\n\n(structure)\n\nTags for a job.\n\nResourceType -> (string)\n\nThe job’s type.\n\nTags -> (map)\n\nThe job’s tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-package",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-package.html",
+      "command_description": "Description\n\nReturns information about a package.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-package\n--package-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--package-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--package-id (string)\n\nThe package’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPackageId -> (string)\n\nThe package’s ID.\n\nPackageName -> (string)\n\nThe package’s name.\n\nArn -> (string)\n\nThe package’s ARN.\n\nStorageLocation -> (structure)\n\nThe package’s storage location.\n\nBucket -> (string)\n\nThe location’s bucket.\n\nRepoPrefixLocation -> (string)\n\nThe location’s repo prefix.\n\nGeneratedPrefixLocation -> (string)\n\nThe location’s generated prefix.\n\nBinaryPrefixLocation -> (string)\n\nThe location’s binary prefix.\n\nManifestPrefixLocation -> (string)\n\nThe location’s manifest prefix.\n\nReadAccessPrincipalArns -> (list)\n\nARNs of accounts that have read access to the package.\n\n(string)\n\nWriteAccessPrincipalArns -> (list)\n\nARNs of accounts that have write access to the package.\n\n(string)\n\nCreatedTime -> (timestamp)\n\nWhen the package was created.\n\nTags -> (map)\n\nThe package’s tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-package-import-job",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-package-import-job.html",
+      "command_description": "Description\n\nReturns information about a package import job.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-package-import-job\n--job-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--job-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--job-id (string)\n\nThe job’s ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nJobId -> (string)\n\nThe job’s ID.\n\nClientToken -> (string)\n\nThe job’s client token.\n\nJobType -> (string)\n\nThe job’s type.\n\nInputConfig -> (structure)\n\nThe job’s input config.\n\nPackageVersionInputConfig -> (structure)\n\nThe package version’s input configuration.\n\nS3Location -> (structure)\n\nA location in Amazon S3.\n\nRegion -> (string)\n\nThe bucket’s Region.\n\nBucketName -> (string)\n\nA bucket name.\n\nObjectKey -> (string)\n\nAn object key.\n\nOutputConfig -> (structure)\n\nThe job’s output config.\n\nPackageVersionOutputConfig -> (structure)\n\nThe package version’s output configuration.\n\nPackageName -> (string)\n\nThe output’s package name.\n\nPackageVersion -> (string)\n\nThe output’s package version.\n\nMarkLatest -> (boolean)\n\nIndicates that the version is recommended for all users.\n\nOutput -> (structure)\n\nThe job’s output.\n\nPackageId -> (string)\n\nThe package’s ID.\n\nPackageVersion -> (string)\n\nThe package’s version.\n\nPatchVersion -> (string)\n\nThe package’s patch version.\n\nOutputS3Location -> (structure)\n\nThe package’s output location.\n\nBucketName -> (string)\n\nThe object’s bucket.\n\nObjectKey -> (string)\n\nThe object’s key.\n\nCreatedTime -> (timestamp)\n\nWhen the job was created.\n\nLastUpdatedTime -> (timestamp)\n\nWhen the job was updated.\n\nStatus -> (string)\n\nThe job’s status.\n\nStatusMessage -> (string)\n\nThe job’s status message.\n\nJobTags -> (list)\n\nThe job’s tags.\n\n(structure)\n\nTags for a job.\n\nResourceType -> (string)\n\nThe job’s type.\n\nTags -> (map)\n\nThe job’s tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "describe-package-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/describe-package-version.html",
+      "command_description": "Description\n\nReturns information about a package version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-package-version\n[--owner-account <value>]\n--package-id <value>\n--package-version <value>\n[--patch-version <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--owner-account <value>]",
+        "--package-id <value>",
+        "--package-version <value>",
+        "[--patch-version <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--owner-account (string)\n\nThe version’s owner account.\n\n--package-id (string)\n\nThe version’s ID.\n\n--package-version (string)\n\nThe version’s version.\n\n--patch-version (string)\n\nThe version’s patch version.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nOwnerAccount -> (string)\n\nThe account ID of the version’s owner.\n\nPackageId -> (string)\n\nThe version’s ID.\n\nPackageArn -> (string)\n\nThe ARN of the package.\n\nPackageName -> (string)\n\nThe version’s name.\n\nPackageVersion -> (string)\n\nThe version’s version.\n\nPatchVersion -> (string)\n\nThe version’s patch version.\n\nIsLatestPatch -> (boolean)\n\nWhether the version is the latest available.\n\nStatus -> (string)\n\nThe version’s status.\n\nStatusDescription -> (string)\n\nThe version’s status description.\n\nRegisteredTime -> (timestamp)\n\nThe version’s registered time."
+    },
+    {
+      "command_name": "list-application-instance-dependencies",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-application-instance-dependencies.html",
+      "command_description": "Description\n\nReturns a list of application instance dependencies.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-application-instance-dependencies\n--application-instance-id <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-instance-id <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-instance-id (string)\n\nThe application instance’s ID.\n\n--max-results (integer)\n\nThe maximum number of application instance dependencies to return in one page of results.\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPackageObjects -> (list)\n\nA list of package objects.\n\n(structure)\n\nA package object.\n\nName -> (string)\n\nThe object’s name.\n\nPackageVersion -> (string)\n\nThe object’s package version.\n\nPatchVersion -> (string)\n\nThe object’s patch version.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-application-instance-node-instances",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-application-instance-node-instances.html",
+      "command_description": "Description\n\nReturns a list of application node instances.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-application-instance-node-instances\n--application-instance-id <value>\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-instance-id <value>",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-instance-id (string)\n\nThe node instances’ application instance ID.\n\n--max-results (integer)\n\nThe maximum number of node instances to return in one page of results.\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNodeInstances -> (list)\n\nA list of node instances.\n\n(structure)\n\nA node instance.\n\nNodeInstanceId -> (string)\n\nThe instance’s ID.\n\nNodeId -> (string)\n\nThe node’s ID.\n\nPackageName -> (string)\n\nThe instance’s package name.\n\nPackageVersion -> (string)\n\nThe instance’s package version.\n\nPackagePatchVersion -> (string)\n\nThe instance’s package patch version.\n\nNodeName -> (string)\n\nThe instance’s name.\n\nCurrentStatus -> (string)\n\nThe instance’s current status.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-application-instances",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-application-instances.html",
+      "command_description": "Description\n\nReturns a list of application instances.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-application-instances\n[--device-id <value>]\n[--status-filter <value>]\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--device-id <value>]",
+        "[--status-filter <value>]",
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-id (string)\n\nThe application instances’ device ID.\n\n--status-filter (string)\n\nOnly include instances with a specific status.\n\nPossible values:\n\nDEPLOYMENT_SUCCEEDED\n\nDEPLOYMENT_ERROR\n\nREMOVAL_SUCCEEDED\n\nREMOVAL_FAILED\n\nPROCESSING_DEPLOYMENT\n\nPROCESSING_REMOVAL\n\n--max-results (integer)\n\nThe maximum number of application instances to return in one page of results.\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nApplicationInstances -> (list)\n\nA list of application instances.\n\n(structure)\n\nAn application instance on a device.\n\nName -> (string)\n\nThe application instance’s name.\n\nApplicationInstanceId -> (string)\n\nThe application instance’s ID.\n\nDefaultRuntimeContextDevice -> (string)\n\nThe device’s ID.\n\nDefaultRuntimeContextDeviceName -> (string)\n\nThe device’s name.\n\nDescription -> (string)\n\nThe application instance’s description.\n\nStatus -> (string)\n\nThe application instance’s status.\n\nHealthStatus -> (string)\n\nThe application instance’s health status.\n\nStatusDescription -> (string)\n\nThe application instance’s status description.\n\nCreatedTime -> (timestamp)\n\nWhen the application instance was created.\n\nArn -> (string)\n\nThe application instance’s ARN.\n\nTags -> (map)\n\nThe application instance’s tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-devices",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-devices.html",
+      "command_description": "Description\n\nReturns a list of devices.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-devices\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--max-results (integer)\n\nThe maximum number of devices to return in one page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDevices -> (list)\n\nA list of devices.\n\n(structure)\n\nA device.\n\nDeviceId -> (string)\n\nThe device’s ID.\n\nName -> (string)\n\nThe device’s name.\n\nCreatedTime -> (timestamp)\n\nWhen the device was created.\n\nProvisioningStatus -> (string)\n\nThe device’s provisioning status.\n\nLastUpdatedTime -> (timestamp)\n\nWhen the device was updated.\n\nLeaseExpirationTime -> (timestamp)\n\nThe device’s lease expiration time.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-devices-jobs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-devices-jobs.html",
+      "command_description": "Description\n\nReturns a list of jobs.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-devices-jobs\n[--device-id <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--device-id <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-id (string)\n\nFilter results by the job’s target device ID.\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--max-results (integer)\n\nThe maximum number of device jobs to return in one page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceJobs -> (list)\n\nA list of jobs.\n\n(structure)\n\nA job that runs on a device.\n\nDeviceName -> (string)\n\nThe name of the target device\n\nDeviceId -> (string)\n\nThe ID of the target device.\n\nJobId -> (string)\n\nThe job’s ID.\n\nCreatedTime -> (timestamp)\n\nWhen the job was created.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-node-from-template-jobs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-node-from-template-jobs.html",
+      "command_description": "Description\n\nReturns a list of camera stream node jobs.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-node-from-template-jobs\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--max-results (integer)\n\nThe maximum number of node from template jobs to return in one page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNodeFromTemplateJobs -> (list)\n\nA list of jobs.\n\n(structure)\n\nA job to create a camera stream node.\n\nJobId -> (string)\n\nThe job’s ID.\n\nTemplateType -> (string)\n\nThe job’s template type.\n\nStatus -> (string)\n\nThe job’s status.\n\nStatusMessage -> (string)\n\nThe job’s status message.\n\nCreatedTime -> (timestamp)\n\nWhen the job was created.\n\nNodeName -> (string)\n\nThe node’s name.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-nodes",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-nodes.html",
+      "command_description": "Description\n\nReturns a list of nodes.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-nodes\n[--category <value>]\n[--owner-account <value>]\n[--package-name <value>]\n[--package-version <value>]\n[--patch-version <value>]\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--category <value>]",
+        "[--owner-account <value>]",
+        "[--package-name <value>]",
+        "[--package-version <value>]",
+        "[--patch-version <value>]",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--category (string)\n\nSearch for nodes by category.\n\nPossible values:\n\nBUSINESS_LOGIC\n\nML_MODEL\n\nMEDIA_SOURCE\n\nMEDIA_SINK\n\n--owner-account (string)\n\nSearch for nodes by the account ID of the nodes’ owner.\n\n--package-name (string)\n\nSearch for nodes by name.\n\n--package-version (string)\n\nSearch for nodes by version.\n\n--patch-version (string)\n\nSearch for nodes by patch version.\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--max-results (integer)\n\nThe maximum number of nodes to return in one page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNodes -> (list)\n\nA list of nodes.\n\n(structure)\n\nAn application node that represents a camera stream, a model, code, or output.\n\nNodeId -> (string)\n\nThe node’s ID.\n\nName -> (string)\n\nThe node’s name.\n\nCategory -> (string)\n\nThe node’s category.\n\nOwnerAccount -> (string)\n\nThe account ID of the node’s owner.\n\nPackageName -> (string)\n\nThe node’s package name.\n\nPackageId -> (string)\n\nThe node’s package ID.\n\nPackageArn -> (string)\n\nThe node’s ARN.\n\nPackageVersion -> (string)\n\nThe node’s package version.\n\nPatchVersion -> (string)\n\nThe node’s patch version.\n\nDescription -> (string)\n\nThe node’s description.\n\nCreatedTime -> (timestamp)\n\nWhen the node was created.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-package-import-jobs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-package-import-jobs.html",
+      "command_description": "Description\n\nReturns a list of package import jobs.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-package-import-jobs\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--max-results (integer)\n\nThe maximum number of package import jobs to return in one page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPackageImportJobs -> (list)\n\nA list of package import jobs.\n\n(structure)\n\nA job to import a package version.\n\nJobId -> (string)\n\nThe job’s ID.\n\nJobType -> (string)\n\nThe job’s type.\n\nStatus -> (string)\n\nThe job’s status.\n\nStatusMessage -> (string)\n\nThe job’s status message.\n\nCreatedTime -> (timestamp)\n\nWhen the job was created.\n\nLastUpdatedTime -> (timestamp)\n\nWhen the job was updated.\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-packages",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-packages.html",
+      "command_description": "Description\n\nReturns a list of packages.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-packages\n[--max-results <value>]\n[--next-token <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--max-results <value>]",
+        "[--next-token <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--max-results (integer)\n\nThe maximum number of packages to return in one page of results.\n\n--next-token (string)\n\nSpecify the pagination token from a previous request to retrieve the next page of results.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nPackages -> (list)\n\nA list of packages.\n\n(structure)\n\nA package summary.\n\nPackageId -> (string)\n\nThe package’s ID.\n\nPackageName -> (string)\n\nThe package’s name.\n\nArn -> (string)\n\nThe package’s ARN.\n\nCreatedTime -> (timestamp)\n\nWhen the package was created.\n\nTags -> (map)\n\nThe package’s tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nNextToken -> (string)\n\nA pagination token that’s included if more results are available."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/list-tags-for-resource.html",
+      "command_description": "Description\n\nReturns a list of tags for a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource’s ARN.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTags -> (map)\n\nA list of tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "provision-device",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/provision-device.html",
+      "command_description": "Description\n\nCreates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Transfer the configuration archive to the device with the included USB storage device within 5 minutes.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  provision-device\n--name <value>\n[--description <value>]\n[--tags <value>]\n[--networking-configuration <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "[--tags <value>]",
+        "[--networking-configuration <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nA name for the device.\n\n--description (string)\n\nA description for the device.\n\n--tags (map)\n\nTags for the device.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--networking-configuration (structure)\n\nA networking configuration for the device.\n\nEthernet0 -> (structure)\n\nSettings for Ethernet port 0.\n\nConnectionType -> (string)\n\nHow the device gets an IP address.\n\nStaticIpConnectionInfo -> (structure)\n\nNetwork configuration for a static IP connection.\n\nIpAddress -> (string)\n\nThe connection’s IP address.\n\nMask -> (string)\n\nThe connection’s DNS mask.\n\nDns -> (list)\n\nThe connection’s DNS address.\n\n(string)\n\nDefaultGateway -> (string)\n\nThe connection’s default gateway.\n\nEthernet1 -> (structure)\n\nSettings for Ethernet port 1.\n\nConnectionType -> (string)\n\nHow the device gets an IP address.\n\nStaticIpConnectionInfo -> (structure)\n\nNetwork configuration for a static IP connection.\n\nIpAddress -> (string)\n\nThe connection’s IP address.\n\nMask -> (string)\n\nThe connection’s DNS mask.\n\nDns -> (list)\n\nThe connection’s DNS address.\n\n(string)\n\nDefaultGateway -> (string)\n\nThe connection’s default gateway.\n\nJSON Syntax:\n\n{\n  \"Ethernet0\": {\n    \"ConnectionType\": \"STATIC_IP\"|\"DHCP\",\n    \"StaticIpConnectionInfo\": {\n      \"IpAddress\": \"string\",\n      \"Mask\": \"string\",\n      \"Dns\": [\"string\", ...],\n      \"DefaultGateway\": \"string\"\n    }\n  },\n  \"Ethernet1\": {\n    \"ConnectionType\": \"STATIC_IP\"|\"DHCP\",\n    \"StaticIpConnectionInfo\": {\n      \"IpAddress\": \"string\",\n      \"Mask\": \"string\",\n      \"Dns\": [\"string\", ...],\n      \"DefaultGateway\": \"string\"\n    }\n  }\n}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceId -> (string)\n\nThe device’s ID.\n\nArn -> (string)\n\nThe device’s ARN.\n\nStatus -> (string)\n\nThe device’s status.\n\nCertificates -> (blob)\n\nThe device’s configuration bundle.\n\nIotThingName -> (string)\n\nThe device’s IoT thing name."
+    },
+    {
+      "command_name": "register-package-version",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/register-package-version.html",
+      "command_description": "Description\n\nRegisters a package version.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  register-package-version\n[--owner-account <value>]\n--package-id <value>\n--package-version <value>\n--patch-version <value>\n[--mark-latest | --no-mark-latest]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--owner-account <value>]",
+        "--package-id <value>",
+        "--package-version <value>",
+        "--patch-version <value>",
+        "[--mark-latest | --no-mark-latest]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--owner-account (string)\n\nAn owner account.\n\n--package-id (string)\n\nA package ID.\n\n--package-version (string)\n\nA package version.\n\n--patch-version (string)\n\nA patch version.\n\n--mark-latest | --no-mark-latest (boolean)\n\nWhether to mark the new version as the latest version.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "remove-application-instance",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/remove-application-instance.html",
+      "command_description": "Description\n\nRemoves an application instance.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  remove-application-instance\n--application-instance-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--application-instance-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--application-instance-id (string)\n\nAn application instance ID.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/tag-resource.html",
+      "command_description": "Description\n\nTags a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource’s ARN.\n\n--tags (map)\n\nTags for the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/untag-resource.html",
+      "command_description": "Description\n\nRemoves tags from a resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe resource’s ARN.\n\n--tag-keys (list)\n\nTag keys to remove.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "update-device-metadata",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/panorama/update-device-metadata.html",
+      "command_description": "Description\n\nUpdates a device’s metadata.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  update-device-metadata\n--device-id <value>\n[--description <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--device-id <value>",
+        "[--description <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--device-id (string)\n\nThe device’s ID.\n\n--description (string)\n\nA description for the device.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nDeviceId -> (string)\n\nThe device’s ID."
+    }
+  ],
+  "service_description": "Description\n\nOverview\n\nThis is the AWS Panorama API Reference . For an introduction to the service, see What is AWS Panorama? in the AWS Panorama Developer Guide ."
+}

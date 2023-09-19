@@ -1,0 +1,171 @@
+{
+  "service_name": "outposts",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/index.html",
+  "service_commands": [
+    {
+      "command_name": "create-order",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/create-order.html",
+      "command_description": "Description\n\nCreates an order for an Outpost.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-order\n--outpost-identifier <value>\n--line-items <value>\n--payment-option <value>\n[--payment-term <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--outpost-identifier <value>",
+        "--line-items <value>",
+        "--payment-option <value>",
+        "[--payment-term <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--outpost-identifier (string)\n\nThe ID or the Amazon Resource Name (ARN) of the Outpost.\n\n--line-items (list)\n\nThe line items that make up the order.\n\n(structure)\n\nInformation about a line item request.\n\nCatalogItemId -> (string)\n\nThe ID of the catalog item.\n\nQuantity -> (integer)\n\nThe quantity of a line item request.\n\nShorthand Syntax:\n\nCatalogItemId=string,Quantity=integer ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"CatalogItemId\": \"string\",\n    \"Quantity\": integer\n  }\n  ...\n]\n\n\n--payment-option (string)\n\nThe payment option for the order.\n\nPossible values:\n\nALL_UPFRONT\n\nNO_UPFRONT\n\nPARTIAL_UPFRONT\n\n--payment-term (string)\n\nThe payment terms for the order.\n\nPossible values:\n\nTHREE_YEARS\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nOrder -> (structure)\n\nInformation about this order.\n\nOutpostId -> (string)\n\nThe ID of the Outpost.\n\nOrderId -> (string)\n\nThe ID of the order.\n\nStatus -> (string)\n\nThe status of the order\n\nLineItems -> (list)\n\nThe line items for the order\n\n(structure)\n\nInformation about a line item.\n\nCatalogItemId -> (string)\n\nThe ID of the catalog item.\n\nLineItemId -> (string)\n\nThe ID of the line item.\n\nQuantity -> (integer)\n\nThe quantity of the line item.\n\nStatus -> (string)\n\nThe status of the line item.\n\nPaymentOption -> (string)\n\nThe payment option for the order.\n\nOrderSubmissionDate -> (timestamp)\n\nThe submission date for the order.\n\nOrderFulfilledDate -> (timestamp)\n\nThe fulfillment date of the order."
+    },
+    {
+      "command_name": "create-outpost",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/create-outpost.html",
+      "command_description": "Description\n\nCreates an Outpost.\n\nYou can specify AvailabilityZone or AvailabilityZoneId .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-outpost\n--name <value>\n[--description <value>]\n--site-id <value>\n[--availability-zone <value>]\n[--availability-zone-id <value>]\n[--tags <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--name <value>",
+        "[--description <value>]",
+        "--site-id <value>",
+        "[--availability-zone <value>]",
+        "[--availability-zone-id <value>]",
+        "[--tags <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--name (string)\n\nThe name of the Outpost.\n\n--description (string)\n\nThe description of the Outpost.\n\n--site-id (string)\n\nThe ID of the site.\n\n--availability-zone (string)\n\nThe Availability Zone.\n\n--availability-zone-id (string)\n\nThe ID of the Availability Zone.\n\n--tags (map)\n\nThe tags to apply to the Outpost.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nOutpost -> (structure)\n\nInformation about an Outpost.\n\nOutpostId -> (string)\n\nThe ID of the Outpost.\n\nOwnerId -> (string)\n\nThe AWS account ID of the Outpost owner.\n\nOutpostArn -> (string)\n\nThe Amazon Resource Name (ARN) of the Outpost.\n\nSiteId -> (string)\n\nThe ID of the site.\n\nName -> (string)\n\nThe name of the Outpost.\n\nDescription -> (string)\n\nThe description of the Outpost.\n\nLifeCycleStatus -> (string)\n\nThe life cycle status.\n\nAvailabilityZone -> (string)\n\nThe Availability Zone.\n\nAvailabilityZoneId -> (string)\n\nThe ID of the Availability Zone.\n\nTags -> (map)\n\nThe Outpost tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nSiteArn -> (string)\n\nThe Amazon Resource Name (ARN) of the site."
+    },
+    {
+      "command_name": "delete-outpost",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/delete-outpost.html",
+      "command_description": "Description\n\nDeletes the Outpost.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-outpost\n--outpost-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--outpost-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--outpost-id (string)\n\nThe ID of the Outpost.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "delete-site",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/delete-site.html",
+      "command_description": "Description\n\nDeletes the site.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-site\n--site-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--site-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--site-id (string)\n\nThe ID of the site.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "get-outpost",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/get-outpost.html",
+      "command_description": "Description\n\nGets information about the specified Outpost.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-outpost\n--outpost-id <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--outpost-id <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--outpost-id (string)\n\nThe ID of the Outpost.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nOutpost -> (structure)\n\nInformation about an Outpost.\n\nOutpostId -> (string)\n\nThe ID of the Outpost.\n\nOwnerId -> (string)\n\nThe AWS account ID of the Outpost owner.\n\nOutpostArn -> (string)\n\nThe Amazon Resource Name (ARN) of the Outpost.\n\nSiteId -> (string)\n\nThe ID of the site.\n\nName -> (string)\n\nThe name of the Outpost.\n\nDescription -> (string)\n\nThe description of the Outpost.\n\nLifeCycleStatus -> (string)\n\nThe life cycle status.\n\nAvailabilityZone -> (string)\n\nThe Availability Zone.\n\nAvailabilityZoneId -> (string)\n\nThe ID of the Availability Zone.\n\nTags -> (map)\n\nThe Outpost tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nSiteArn -> (string)\n\nThe Amazon Resource Name (ARN) of the site.",
+      "command_examples": "Examples\n\nTo get Outpost details\n\nThe following get-outpost example displays the details for the specified Outpost.\n\naws outposts get-outpost \\\n    --outpost-id op-0ab23c4567EXAMPLE\n\n\nOutput:\n\n{\n    \"Outpost\": {\n        \"OutpostId\": \"op-0ab23c4567EXAMPLE\",\n        \"OwnerId\": \"123456789012\",\n        \"OutpostArn\": \"arn:aws:outposts:us-west-2:123456789012:outpost/op-0ab23c4567EXAMPLE\",\n        \"SiteId\": \"os-0ab12c3456EXAMPLE\",\n        \"Name\": \"EXAMPLE\",\n        \"LifeCycleStatus\": \"ACTIVE\",\n        \"AvailabilityZone\": \"us-west-2a\",\n        \"AvailabilityZoneId\": \"usw2-az1\",\n        \"Tags\": {}\n    }\n}\n\n\nFor more information, see Working with Outposts in the AWS Outposts User Guide."
+    },
+    {
+      "command_name": "get-outpost-instance-types",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/get-outpost-instance-types.html",
+      "command_description": "Description\n\nLists the instance types for the specified Outpost.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-outpost-instance-types\n--outpost-id <value>\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--outpost-id <value>",
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--outpost-id (string)\n\nThe ID of the Outpost.\n\n--next-token (string)\n\nThe pagination token.\n\n--max-results (integer)\n\nThe maximum page size.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nInstanceTypes -> (list)\n\nInformation about the instance types.\n\n(structure)\n\nInformation about an instance type.\n\nInstanceType -> (string)\n\nThe instance type.\n\nNextToken -> (string)\n\nThe pagination token.\n\nOutpostId -> (string)\n\nThe ID of the Outpost.\n\nOutpostArn -> (string)\n\nThe Amazon Resource Name (ARN) of the Outpost.",
+      "command_examples": "Examples\n\nTo get the instance types on your Outpost\n\nThe following get-outpost-instance-types example gets the instance types for the specified Outpost.\n\naws outposts get-outpost-instance-types \\\n    --outpost-id op-0ab23c4567EXAMPLE\n\n\nOutput:\n\n{\n    \"InstanceTypes\": [\n        {\n            \"InstanceType\": \"c5d.large\"\n        },\n        {\n            \"InstanceType\": \"i3en.24xlarge\"\n        },\n        {\n            \"InstanceType\": \"m5d.large\"\n        },\n        {\n            \"InstanceType\": \"r5d.large\"\n        }\n    ],\n    \"OutpostId\": \"op-0ab23c4567EXAMPLE\",\n    \"OutpostArn\": \"arn:aws:outposts:us-west-2:123456789012:outpost/op-0ab23c4567EXAMPLE\"\n}\n\n\nFor more information, see Launch an instance on your Outpost in the AWS Outposts User Guide."
+    },
+    {
+      "command_name": "list-outposts",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/list-outposts.html",
+      "command_description": "Description\n\nCreate a list of the Outposts for your AWS account. Add filters to your request to return a more specific list of results. Use filters to match an Outpost lifecycle status, Availibility Zone (us-east-1a ), and AZ ID (use1-az1 ).\n\nIf you specify multiple filters, the filters are joined with an AND , and the request returns only results that match all of the specified filters.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-outposts\n[--next-token <value>]\n[--max-results <value>]\n[--life-cycle-status-filter <value>]\n[--availability-zone-filter <value>]\n[--availability-zone-id-filter <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--life-cycle-status-filter <value>]",
+        "[--availability-zone-filter <value>]",
+        "[--availability-zone-id-filter <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nThe pagination token.\n\n--max-results (integer)\n\nThe maximum page size.\n\n--life-cycle-status-filter (list)\n\nA filter for the lifecycle status of the Outpost.\n\nFilter values are case sensitive. If you specify multiple values for a filter, the values are joined with an OR , and the request returns all results that match any of the specified values.\n\n(string)\n\nThe life cycle status.\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--availability-zone-filter (list)\n\nA filter for the Availibility Zone (us-east-1a ) of the Outpost.\n\nFilter values are case sensitive. If you specify multiple values for a filter, the values are joined with an OR , and the request returns all results that match any of the specified values.\n\n(string)\n\nThe Availability Zone.\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--availability-zone-id-filter (list)\n\nA filter for the AZ IDs (use1-az1 ) of the Outpost.\n\nFilter values are case sensitive. If you specify multiple values for a filter, the values are joined with an OR , and the request returns all results that match any of the specified values.\n\n(string)\n\nThe ID of the Availability Zone.\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nOutposts -> (list)\n\nInformation about the Outposts.\n\n(structure)\n\nInformation about an Outpost.\n\nOutpostId -> (string)\n\nThe ID of the Outpost.\n\nOwnerId -> (string)\n\nThe AWS account ID of the Outpost owner.\n\nOutpostArn -> (string)\n\nThe Amazon Resource Name (ARN) of the Outpost.\n\nSiteId -> (string)\n\nThe ID of the site.\n\nName -> (string)\n\nThe name of the Outpost.\n\nDescription -> (string)\n\nThe description of the Outpost.\n\nLifeCycleStatus -> (string)\n\nThe life cycle status.\n\nAvailabilityZone -> (string)\n\nThe Availability Zone.\n\nAvailabilityZoneId -> (string)\n\nThe ID of the Availability Zone.\n\nTags -> (map)\n\nThe Outpost tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nSiteArn -> (string)\n\nThe Amazon Resource Name (ARN) of the site.\n\nNextToken -> (string)\n\nThe pagination token.",
+      "command_examples": "Examples\n\nTo list Outposts\n\nThe following list-outposts example lists the Outposts in your AWS account.\n\naws outposts list-outposts\n\n\nOutput:\n\n{\n    \"Outposts\": [\n        {\n            \"OutpostId\": \"op-0ab23c4567EXAMPLE\",\n            \"OwnerId\": \"123456789012\",\n            \"OutpostArn\": \"arn:aws:outposts:us-west-2:123456789012:outpost/op-0ab23c4567EXAMPLE\",\n            \"SiteId\": \"os-0ab12c3456EXAMPLE\",\n            \"Name\": \"EXAMPLE\",\n            \"Description\": \"example\",\n            \"LifeCycleStatus\": \"ACTIVE\",\n            \"AvailabilityZone\": \"us-west-2a\",\n            \"AvailabilityZoneId\": \"usw2-az1\",\n            \"Tags\": {\n                \"Name\": \"EXAMPLE\"\n            }\n        },\n        {\n            \"OutpostId\": \"op-4fe3dc21baEXAMPLE\",\n            \"OwnerId\": \"123456789012\",\n            \"OutpostArn\": \"arn:aws:outposts:us-west-2:123456789012:outpost/op-4fe3dc21baEXAMPLE\",\n            \"SiteId\": \"os-0ab12c3456EXAMPLE\",\n            \"Name\": \"EXAMPLE2\",\n            \"LifeCycleStatus\": \"ACTIVE\",\n            \"AvailabilityZone\": \"us-west-2a\",\n            \"AvailabilityZoneId\": \"usw2-az1\",\n            \"Tags\": {}\n        }\n    ]\n}\n\n\nFor more information, see Working with Outposts in the AWS Outposts User Guide."
+    },
+    {
+      "command_name": "list-sites",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/list-sites.html",
+      "command_description": "Description\n\nLists the sites for the specified AWS account.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-sites\n[--next-token <value>]\n[--max-results <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--next-token <value>]",
+        "[--max-results <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--next-token (string)\n\nThe pagination token.\n\n--max-results (integer)\n\nThe maximum page size.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nSites -> (list)\n\nInformation about the sites.\n\n(structure)\n\nInformation about a site.\n\nSiteId -> (string)\n\nThe ID of the site.\n\nAccountId -> (string)\n\nThe ID of the AWS account.\n\nName -> (string)\n\nThe name of the site.\n\nDescription -> (string)\n\nThe description of the site.\n\nTags -> (map)\n\nThe site tags.\n\nkey -> (string)\n\nvalue -> (string)\n\nSiteArn -> (string)\n\nThe Amazon Resource Name (ARN) of the site.\n\nNextToken -> (string)\n\nThe pagination token.",
+      "command_examples": "Examples\n\nTo list sites\n\nThe following list-sites example lists the available Outpost sites in your AWS account.\n\naws outposts list-sites\n\n\nOutput:\n\n{\n    \"Sites\": [\n        {\n            \"SiteId\": \"os-0ab12c3456EXAMPLE\",\n            \"AccountId\": \"123456789012\",\n            \"Name\": \"EXAMPLE\",\n            \"Description\": \"example\",\n            \"Tags\": {}\n        }\n    ]\n}\n\n\nFor more information, see Working with Outposts in the AWS Outposts User Guide."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/list-tags-for-resource.html",
+      "command_description": "Description\n\nLists the tags for the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTags -> (map)\n\nThe resource tags.\n\nkey -> (string)\n\nvalue -> (string)"
+    },
+    {
+      "command_name": "tag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/tag-resource.html",
+      "command_description": "Description\n\nAdds tags to the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  tag-resource\n--resource-arn <value>\n--tags <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tags <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the resource.\n\n--tags (map)\n\nThe tags to add to the resource.\n\nkey -> (string)\n\nvalue -> (string)\n\nShorthand Syntax:\n\nKeyName1=string,KeyName2=string\n\n\nJSON Syntax:\n\n{\"string\": \"string\"\n  ...}\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    },
+    {
+      "command_name": "untag-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/outposts/untag-resource.html",
+      "command_description": "Description\n\nRemoves tags from the specified resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  untag-resource\n--resource-arn <value>\n--tag-keys <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-keys <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the resource.\n\n--tag-keys (list)\n\nThe tag keys.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nNone"
+    }
+  ],
+  "service_description": "Description\n\nAWS Outposts is a fully managed service that extends AWS infrastructure, APIs, and tools to customer premises. By providing local access to AWS managed infrastructure, AWS Outposts enables customers to build and run applications on premises using the same programming interfaces as in AWS Regions, while using local compute and storage resources for lower latency and local data processing needs."
+}

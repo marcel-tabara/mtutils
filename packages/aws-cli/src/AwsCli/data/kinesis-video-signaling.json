@@ -1,0 +1,38 @@
+{
+  "service_name": "kinesis-video-signaling",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis-video-signaling/index.html",
+  "service_commands": [
+    {
+      "command_name": "get-ice-server-config",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis-video-signaling/get-ice-server-config.html",
+      "command_description": "Description\n\nGets the Interactive Connectivity Establishment (ICE) server configuration information, including URIs, username, and password which can be used to configure the WebRTC connection. The ICE component uses this configuration information to setup the WebRTC connection, including authenticating with the Traversal Using Relays around NAT (TURN) relay server.\n\nTURN is a protocol that is used to improve the connectivity of peer-to-peer applications. By providing a cloud-based relay service, TURN ensures that a connection can be established even when one or more peers are incapable of a direct peer-to-peer connection. For more information, see A REST API For Access To TURN Services .\n\nYou can invoke this API to establish a fallback mechanism in case either of the peers is unable to establish a direct peer-to-peer connection over a signaling channel. You must specify either a signaling channel ARN or the client ID in order to invoke this API.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-ice-server-config\n--channel-arn <value>\n[--client-id <value>]\n[--service <value>]\n[--username <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "[--client-id <value>]",
+        "[--service <value>]",
+        "[--username <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the signaling channel to be used for the peer-to-peer connection between configured peers.\n\n--client-id (string)\n\nUnique identifier for the viewer. Must be unique within the signaling channel.\n\n--service (string)\n\nSpecifies the desired service. Currently, TURN is the only valid value.\n\nPossible values:\n\nTURN\n\n--username (string)\n\nAn optional user ID to be associated with the credentials.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nIceServerList -> (list)\n\nThe list of ICE server information objects.\n\n(structure)\n\nA structure for the ICE server connection data.\n\nUris -> (list)\n\nAn array of URIs, in the form specified in the I-D.petithuguenin-behave-turn-uris spec. These URIs provide the different addresses and/or protocols that can be used to reach the TURN server.\n\n(string)\n\nUsername -> (string)\n\nA username to login to the ICE server.\n\nPassword -> (string)\n\nA password to login to the ICE server.\n\nTtl -> (integer)\n\nThe period of time, in seconds, during which the username and password are valid."
+    },
+    {
+      "command_name": "send-alexa-offer-to-master",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis-video-signaling/send-alexa-offer-to-master.html",
+      "command_description": "Description\n\nThis API allows you to connect WebRTC-enabled devices with Alexa display devices. When invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer. The offer is delivered as soon as the master is connected to the specified signaling channel. This API returns the SDP answer from the connected master. If the master is not connected to the signaling channel, redelivery requests are made until the message expires.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  send-alexa-offer-to-master\n--channel-arn <value>\n--sender-client-id <value>\n--message-payload <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--channel-arn <value>",
+        "--sender-client-id <value>",
+        "--message-payload <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--channel-arn (string)\n\nThe ARN of the signaling channel by which Alexa and the master peer communicate.\n\n--sender-client-id (string)\n\nThe unique identifier for the sender client.\n\n--message-payload (string)\n\nThe base64-encoded SDP offer content.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAnswer -> (string)\n\nThe base64-encoded SDP answer content."
+    }
+  ],
+  "service_description": "Description\n\nKinesis Video Streams Signaling Service is a intermediate service that establishes a communication channel for discovering peers, transmitting offers and answers in order to establish peer-to-peer connection in webRTC technology."
+}

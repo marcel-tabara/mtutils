@@ -1,0 +1,76 @@
+{
+  "service_name": "configure",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html",
+  "service_commands": [
+    {
+      "command_name": "add-model",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/add-model.html",
+      "command_description": "Description\n\nAdds a service JSON model to the appropriate location in ~/.aws/models. Once the model gets added, CLI commands and Boto3 clients will be immediately available for the service JSON model provided.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  add-model\n--service-model <value>\n[--service-name <value>]\n",
+      "command_options": [
+        "--service-model <value>",
+        "[--service-name <value>]"
+      ],
+      "command_options_description": "Options\n\n--service-model (string) The contents of the service JSON model.\n\n--service-name (string) Overrides the default name used by the service JSON model to generate CLI service commands and Boto3 clients.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_examples": "Examples\n\nAdd a model\n\nThe following command adds a service model from a file named service.json:\n\naws configure add-model --service-model file://service.json\n\n\nAdding a model replaces existing commands for the service defined in the model. To leave existing commands as-is, specify a different service name to use for the new commands:\n\naws configure add-model --service-model file://service.json --service-name service2\n"
+    },
+    {
+      "command_name": "get",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/get.html",
+      "command_description": "Description\n\nGet a configuration value from the config file.\n\nThe aws configure get command can be used to print a configuration value in the AWS config file. The get command supports two types of configuration values, unqualified and qualified config values.\n\nNote that aws configure get only looks at values in the AWS configuration file. It does not resolve configuration variables specified anywhere else, including environment variables, command line arguments, etc.\n\nUnqualified Names\n\nEvery value in the AWS configuration file must be placed in a section (denoted by [section-name] in the config file). To retrieve a value from the config file, the section name and the config name must be known.\n\nAn unqualified configuration name refers to a name that is not scoped to a specific section in the configuration file. Sections are specified by separating parts with the \".\" character (section.config-name). An unqualified name will be scoped to the current profile. For example, aws configure get aws_access_key_id will retrieve the aws_access_key_id from the current profile, or the default profile if no profile is specified. You can still provide a --profile argument to the aws configure get command. For example, aws configure get region --profile testing will print the region value for the testing profile.\n\nQualified Names\n\nA qualified name is a name that has at least one \".\" character in the name. This name provides a way to specify the config section from which to retrieve the config variable. When a qualified name is provided to aws configure get, the currently specified profile is ignored. Section names that have the format [profile profile-name] can be specified by using the profile.profile-name.config-name syntax, and the default profile can be specified using the default.config-name syntax.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\naws configure get varname [--profile profile-name]\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nvarname (string) The name of the config value to retrieve.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_examples": "Examples\n\nSuppose you had the following config file:\n\n[default]\naws_access_key_id=default_access_key\naws_secret_access_key=default_secret_key\n\n[profile testing]\naws_access_key_id=testing_access_key\naws_secret_access_key=testing_secret_key\nregion=us-west-2\n\n\nThe following commands would have the corresponding output:\n\n$ aws configure get aws_access_key_id\ndefault_access_key\n\n$ aws configure get default.aws_access_key_id\ndefault_access_key\n\n$ aws configure get aws_access_key_id --profile testing\ntesting_access_key\n\n$ aws configure get profile.testing.aws_access_key_id\ntesting_access_key\n\n$ aws configure get profile.does-not-exist\n$\n$ echo $?\n1\n"
+    },
+    {
+      "command_name": "import",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/import.html",
+      "command_description": "Description\n\nImport CSV credentials generated from the AWS web console. Entries in the CSV will be imported as profiles in the AWS credentials file, with the profile name matching the IAM User Name.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  import\n--csv <value>\n[--skip-invalid]\n[--profile-prefix <value>]\n",
+      "command_options": [
+        "--csv <value>",
+        "[--skip-invalid]",
+        "[--profile-prefix <value>]"
+      ],
+      "command_options_description": "Options\n\n--csv (string) The credentials in CSV format generated by the AWS web console.The CSV file must contain the “User name”, “Access key ID”, and “Secret access key” headers.\n\n--skip-invalid (boolean) Skip entries that are invalid or do not have programmatic access instead of failing.\n\n--profile-prefix (string) Adds the specified prefix to the beginning of all profile names.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_examples": "Examples\n\naws configure import –csv file://credentials.csv\n\naws configure import –csv file://credentials.csv –skip-invalid\n\naws configure import –csv file://credentials.csv –profile-prefix test-"
+    },
+    {
+      "command_name": "list",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/list.html",
+      "command_description": "Description\n\nList the AWS CLI configuration data. This command will show you the current configuration data. For each configuration item, it will show you the value, where the configuration value was retrieved, and the configuration variable name. For example, if you provide the AWS region in an environment variable, this command will show you the name of the region you’ve configured, it will tell you that this value came from an environment variable, and it will tell you the name of the environment variable.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\naws configure list [--profile profile-name]\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nNone\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_examples": "Examples\n\nTo show your current configuration values:\n\n$ aws configure list\n      Name                    Value             Type    Location\n      ----                    -----             ----    --------\n   profile                <not set>             None    None\naccess_key     ****************ABCD      config_file    ~/.aws/config\nsecret_key     ****************ABCD      config_file    ~/.aws/config\n    region                us-west-2              env    AWS_DEFAULT_REGION\n"
+    },
+    {
+      "command_name": "list-profiles",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/list-profiles.html",
+      "command_description": "Description\n\nList the profiles available to the AWS CLI.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\nlist-profiles\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nNone\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_examples": "Examples\n\naws configure list-profiles"
+    },
+    {
+      "command_name": "set",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/set.html",
+      "command_description": "Description\n\nSet a configuration value from the config file.\n\nThe aws configure set command can be used to set a single configuration value in the AWS config file. The set command supports both the qualified and unqualified config values documented in the get command (see aws configure get help for more information).\n\nTo set a single value, provide the configuration name followed by the configuration value.\n\nIf the config file does not exist, one will automatically be created. If the configuration value already exists in the config file, it will updated with the new configuration value.\n\nSetting a value for the aws_access_key_id, aws_secret_access_key, or the aws_session_token will result in the value being writen to the shared credentials file (~/.aws/credentials). All other values will be written to the config file (default location is ~/.aws/config).\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\naws configure set varname value [--profile profile-name]\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nvarname (string) The name of the config value to set.\n\nvalue (string) The value to set.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_examples": "Examples\n\nGiven an empty config file, the following commands:\n\n$ aws configure set aws_access_key_id default_access_key\n$ aws configure set aws_secret_access_key default_secret_key\n$ aws configure set default.region us-west-2\n$ aws configure set default.ca_bundle /path/to/ca-bundle.pem\n$ aws configure set region us-west-1 --profile testing\n$ aws configure set profile.testing2.region eu-west-1\n\n\nwill produce the following config file:\n\n[default]\nregion = us-west-2\nca_bundle = /path/to/ca-bundle.pem\n\n[profile testing]\nregion = us-west-1\n\n[profile testing2]\nregion = eu-west-1\n\n\nand the following ~/.aws/credentials file:\n\n[default]\naws_access_key_id = default_access_key\naws_secret_access_key = default_secret_key\n\n\nTo perform bulk profiles update list-profiles command can be piped with set command. For update region for all profiles, the following command can be used:\n\naws configure list-profiles | xargs -I {} aws configure set region us-west-2 --profile {}\n\n\nwill produce the following updated config file:\n\n[default]\nregion = us-west-2\nca_bundle = /path/to/ca-bundle.pem\n\n[profile testing]\nregion = us-west-2\n\n[profile testing2]\nregion = us-west-2\n\n\nFor update profiles by pattern “testing*”, the following command can be used:\n\naws configure list-profiles | grep 'testing*' | xargs -I {} aws configure set cli_pager '' --profile {}\n\n\nwill produce the following updated config file:\n\n[default]\nregion = us-west-2\nca_bundle = /path/to/ca-bundle.pem\n\n[profile testing]\nregion = us-west-2\ncli_pager =\n\n[profile testing2]\nregion = us-west-2\ncli_pager =\n"
+    },
+    {
+      "command_name": "sso",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/sso.html",
+      "command_description": "Description\n\nThe aws configure sso command interactively prompts for the configuration values required to create a profile that sources temporary AWS credentials from AWS Single Sign-On. To keep an existing value, hit enter when prompted for the value. When you are prompted for information, the current value will be displayed in [brackets]. If the config item has no value, it is displayed as [None]. When providing the --profile parameter the named profile will be created or updated. When a profile is not explicitly set the profile name will be prompted for.\n\nNote: The configuration is saved in the shared configuration file. By default, ~/.aws/config.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\naws configure sso [--profile profile-name]\n",
+      "command_options": [],
+      "command_options_description": "Options\n\nNone\n\nSee ‘aws help’ for descriptions of global parameters."
+    }
+  ],
+  "service_description": "Description\n\nConfigure AWS CLI options. If this command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key Id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (the default location is ~/.aws/config), the AWS CLI will create it for you. To keep an existing value, hit enter when prompted for the value. When you are prompted for information, the current value will be displayed in [brackets]. If the config item has no value, it be displayed as [None]. Note that the configure command only works with values from the config file. It does not use any configuration values from environment variables or the IAM role.\n\nNote: the values you provide for the AWS Access Key ID and the AWS Secret Access Key will be written to the shared credentials file (~/.aws/credentials)."
+}

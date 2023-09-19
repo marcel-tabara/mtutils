@@ -1,0 +1,291 @@
+{
+  "service_name": "cloudhsm",
+  "service_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/index.html",
+  "service_commands": [
+    {
+      "command_name": "add-tags-to-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/add-tags-to-resource.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nAdds or overwrites one or more tags for the specified AWS CloudHSM resource.\n\nEach tag consists of a key and a value. Tag keys must be unique to each resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  add-tags-to-resource\n--resource-arn <value>\n--tag-list <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-list <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.\n\n--tag-list (list)\n\nOne or more tags.\n\n(structure)\n\nA key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.\n\nKey -> (string)\n\nThe key of the tag.\n\nValue -> (string)\n\nThe value of the tag.\n\nShorthand Syntax:\n\nKey=string,Value=string ...\n\n\nJSON Syntax:\n\n[\n  {\n    \"Key\": \"string\",\n    \"Value\": \"string\"\n  }\n  ...\n]\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (string)\n\nThe status of the operation."
+    },
+    {
+      "command_name": "create-hapg",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/create-hapg.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nCreates a high-availability partition group. A high-availability partition group is a group of partitions that spans multiple physical HSMs.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-hapg\n--label <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--label <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--label (string)\n\nThe label of the new high-availability partition group.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHapgArn -> (string)\n\nThe ARN of the high-availability partition group."
+    },
+    {
+      "command_name": "create-hsm",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/create-hsm.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nCreates an uninitialized HSM instance.\n\nThere is an upfront fee charged for each HSM instance that you create with the CreateHsm operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the DeleteHsm operation, go to the AWS Support Center , create a new case, and select Account and Billing Support .\n\nWarning\n\nIt can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the DescribeHsm operation. The HSM is ready to be initialized when the status changes to RUNNING .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-hsm\n--subnet-id <value>\n--ssh-key <value>\n[--eni-ip <value>]\n--iam-role-arn <value>\n[--external-id <value>]\n--subscription-type <value>\n[--client-token <value>]\n[--syslog-ip <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--subnet-id <value>",
+        "--ssh-key <value>",
+        "[--eni-ip <value>]",
+        "--iam-role-arn <value>",
+        "[--external-id <value>]",
+        "--subscription-type <value>",
+        "[--client-token <value>]",
+        "[--syslog-ip <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--subnet-id (string)\n\nThe identifier of the subnet in your VPC in which to place the HSM.\n\n--ssh-key (string)\n\nThe SSH public key to install on the HSM.\n\n--eni-ip (string)\n\nThe IP address to assign to the HSM’s ENI.\n\nIf an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.\n\n--iam-role-arn (string)\n\nThe ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.\n\n--external-id (string)\n\nThe external ID from IamRoleArn , if present.\n\n--subscription-type (string)\n\nSpecifies the type of subscription for the HSM.\n\nPRODUCTION - The HSM is being used in a production environment.\n\nTRIAL - The HSM is being used in a product trial.\n\nPossible values:\n\nPRODUCTION\n\n--client-token (string)\n\nA user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.\n\n--syslog-ip (string)\n\nThe IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHsmArn -> (string)\n\nThe ARN of the HSM."
+    },
+    {
+      "command_name": "create-luna-client",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/create-luna-client.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nCreates an HSM client.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  create-luna-client\n[--label <value>]\n--certificate <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--label <value>]",
+        "--certificate <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--label (string)\n\nThe label for the client.\n\n--certificate (string)\n\nThe contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nClientArn -> (string)\n\nThe ARN of the client."
+    },
+    {
+      "command_name": "delete-hapg",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/delete-hapg.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nDeletes a high-availability partition group.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-hapg\n--hapg-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--hapg-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--hapg-arn (string)\n\nThe ARN of the high-availability partition group to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (string)\n\nThe status of the action."
+    },
+    {
+      "command_name": "delete-hsm",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/delete-hsm.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nDeletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-hsm\n--hsm-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--hsm-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--hsm-arn (string)\n\nThe ARN of the HSM to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (string)\n\nThe status of the operation."
+    },
+    {
+      "command_name": "delete-luna-client",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/delete-luna-client.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nDeletes a client.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  delete-luna-client\n--client-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--client-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-arn (string)\n\nThe ARN of the client to delete.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (string)\n\nThe status of the action."
+    },
+    {
+      "command_name": "describe-hapg",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/describe-hapg.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nRetrieves information about a high-availability partition group.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-hapg\n--hapg-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--hapg-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--hapg-arn (string)\n\nThe ARN of the high-availability partition group to describe.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHapgArn -> (string)\n\nThe ARN of the high-availability partition group.\n\nHapgSerial -> (string)\n\nThe serial number of the high-availability partition group.\n\nHsmsLastActionFailed -> (list)\n\n(string)\n\nAn ARN that identifies an HSM.\n\nHsmsPendingDeletion -> (list)\n\n(string)\n\nAn ARN that identifies an HSM.\n\nHsmsPendingRegistration -> (list)\n\n(string)\n\nAn ARN that identifies an HSM.\n\nLabel -> (string)\n\nThe label for the high-availability partition group.\n\nLastModifiedTimestamp -> (string)\n\nThe date and time the high-availability partition group was last modified.\n\nPartitionSerialList -> (list)\n\nThe list of partition serial numbers that belong to the high-availability partition group.\n\n(string)\n\nState -> (string)\n\nThe state of the high-availability partition group."
+    },
+    {
+      "command_name": "describe-hsm",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/describe-hsm.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nRetrieves information about an HSM. You can identify the HSM by its ARN or its serial number.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-hsm\n[--hsm-arn <value>]\n[--hsm-serial-number <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--hsm-arn <value>]",
+        "[--hsm-serial-number <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--hsm-arn (string)\n\nThe ARN of the HSM. Either the HsmArn or the SerialNumber parameter must be specified.\n\n--hsm-serial-number (string)\n\nThe serial number of the HSM. Either the HsmArn or the HsmSerialNumber parameter must be specified.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHsmArn -> (string)\n\nThe ARN of the HSM.\n\nStatus -> (string)\n\nThe status of the HSM.\n\nStatusDetails -> (string)\n\nContains additional information about the status of the HSM.\n\nAvailabilityZone -> (string)\n\nThe Availability Zone that the HSM is in.\n\nEniId -> (string)\n\nThe identifier of the elastic network interface (ENI) attached to the HSM.\n\nEniIp -> (string)\n\nThe IP address assigned to the HSM’s ENI.\n\nSubscriptionType -> (string)\n\nSpecifies the type of subscription for the HSM.\n\nPRODUCTION - The HSM is being used in a production environment.\n\nTRIAL - The HSM is being used in a product trial.\n\nSubscriptionStartDate -> (string)\n\nThe subscription start date.\n\nSubscriptionEndDate -> (string)\n\nThe subscription end date.\n\nVpcId -> (string)\n\nThe identifier of the VPC that the HSM is in.\n\nSubnetId -> (string)\n\nThe identifier of the subnet that the HSM is in.\n\nIamRoleArn -> (string)\n\nThe ARN of the IAM role assigned to the HSM.\n\nSerialNumber -> (string)\n\nThe serial number of the HSM.\n\nVendorName -> (string)\n\nThe name of the HSM vendor.\n\nHsmType -> (string)\n\nThe HSM model type.\n\nSoftwareVersion -> (string)\n\nThe HSM software version.\n\nSshPublicKey -> (string)\n\nThe public SSH key.\n\nSshKeyLastUpdated -> (string)\n\nThe date and time that the SSH key was last updated.\n\nServerCertUri -> (string)\n\nThe URI of the certificate server.\n\nServerCertLastUpdated -> (string)\n\nThe date and time that the server certificate was last updated.\n\nPartitions -> (list)\n\nThe list of partitions on the HSM.\n\n(string)"
+    },
+    {
+      "command_name": "describe-luna-client",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/describe-luna-client.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nRetrieves information about an HSM client.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  describe-luna-client\n[--client-arn <value>]\n[--certificate-fingerprint <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--client-arn <value>]",
+        "[--certificate-fingerprint <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-arn (string)\n\nThe ARN of the client.\n\n--certificate-fingerprint (string)\n\nThe certificate fingerprint.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nClientArn -> (string)\n\nThe ARN of the client.\n\nCertificate -> (string)\n\nThe certificate installed on the HSMs used by this client.\n\nCertificateFingerprint -> (string)\n\nThe certificate fingerprint.\n\nLastModifiedTimestamp -> (string)\n\nThe date and time the client was last modified.\n\nLabel -> (string)\n\nThe label of the client."
+    },
+    {
+      "command_name": "get-config",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/get-config.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nGets the configuration files necessary to connect to all high availability partition groups the client is associated with.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  get-config\n--client-arn <value>\n--client-version <value>\n--hapg-list <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--client-arn <value>",
+        "--client-version <value>",
+        "--hapg-list <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-arn (string)\n\nThe ARN of the client.\n\n--client-version (string)\n\nThe client version.\n\nPossible values:\n\n5.1\n\n5.3\n\n--hapg-list (list)\n\nA list of ARNs that identify the high-availability partition groups that are associated with the client.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nConfigType -> (string)\n\nThe type of credentials.\n\nConfigFile -> (string)\n\nThe chrystoki.conf configuration file.\n\nConfigCred -> (string)\n\nThe certificate file containing the server.pem files of the HSMs."
+    },
+    {
+      "command_name": "list-available-zones",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/list-available-zones.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nLists the Availability Zones that have available AWS CloudHSM capacity.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-available-zones\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nAZList -> (list)\n\nThe list of Availability Zones that have available AWS CloudHSM capacity.\n\n(string)"
+    },
+    {
+      "command_name": "list-hapgs",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/list-hapgs.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nLists the high-availability partition groups for the account.\n\nThis operation supports pagination with the use of the NextToken member. If more results are available, the NextToken member of the response contains a token that you pass in the next call to ListHapgs to retrieve the next set of items.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-hapgs is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: HapgList",
+      "command_synopsis": "Synopsis\n  list-hapgs\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHapgList -> (list)\n\nThe list of high-availability partition groups.\n\n(string)\n\nNextToken -> (string)\n\nIf not null, more results are available. Pass this value to ListHapgs to retrieve the next set of items."
+    },
+    {
+      "command_name": "list-hsms",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/list-hsms.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nRetrieves the identifiers of all of the HSMs provisioned for the current customer.\n\nThis operation supports pagination with the use of the NextToken member. If more results are available, the NextToken member of the response contains a token that you pass in the next call to ListHsms to retrieve the next set of items.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-hsms is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: HsmList",
+      "command_synopsis": "Synopsis\n  list-hsms\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHsmList -> (list)\n\nThe list of ARNs that identify the HSMs.\n\n(string)\n\nAn ARN that identifies an HSM.\n\nNextToken -> (string)\n\nIf not null, more results are available. Pass this value to ListHsms to retrieve the next set of items."
+    },
+    {
+      "command_name": "list-luna-clients",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/list-luna-clients.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nLists all of the clients.\n\nThis operation supports pagination with the use of the NextToken member. If more results are available, the NextToken member of the response contains a token that you pass in the next call to ListLunaClients to retrieve the next set of items.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.\n\nlist-luna-clients is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the --no-paginate argument. When using --output text and the --query argument on a paginated response, the --query argument must extract data from the results of the following query expressions: ClientList",
+      "command_synopsis": "Synopsis\n  list-luna-clients\n[--cli-input-json | --cli-input-yaml]\n[--starting-token <value>]\n[--max-items <value>]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--starting-token <value>]",
+        "[--max-items <value>]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--starting-token (string)\n\nA token to specify where to start paginating. This is the NextToken from a previously truncated response.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--max-items (integer)\n\nThe total number of items to return in the command’s output. If the total number of items available is more than the value specified, a NextToken is provided in the command’s output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI.\n\nFor usage examples, see Pagination in the AWS Command Line Interface User Guide .\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nClientList -> (list)\n\nThe list of clients.\n\n(string)\n\nNextToken -> (string)\n\nIf not null, more results are available. Pass this to ListLunaClients to retrieve the next set of items."
+    },
+    {
+      "command_name": "list-tags-for-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/list-tags-for-resource.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nReturns a list of all tags for the specified AWS CloudHSM resource.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  list-tags-for-resource\n--resource-arn <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the AWS CloudHSM resource.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nTagList -> (list)\n\nOne or more tags.\n\n(structure)\n\nA key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.\n\nKey -> (string)\n\nThe key of the tag.\n\nValue -> (string)\n\nThe value of the tag."
+    },
+    {
+      "command_name": "modify-hapg",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/modify-hapg.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nModifies an existing high-availability partition group.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  modify-hapg\n--hapg-arn <value>\n[--label <value>]\n[--partition-serial-list <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--hapg-arn <value>",
+        "[--label <value>]",
+        "[--partition-serial-list <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--hapg-arn (string)\n\nThe ARN of the high-availability partition group to modify.\n\n--label (string)\n\nThe new label for the high-availability partition group.\n\n--partition-serial-list (list)\n\nThe list of partition serial numbers to make members of the high-availability partition group.\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHapgArn -> (string)\n\nThe ARN of the high-availability partition group."
+    },
+    {
+      "command_name": "modify-hsm",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/modify-hsm.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nModifies an HSM.\n\nWarning\n\nThis operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  modify-hsm\n--hsm-arn <value>\n[--subnet-id <value>]\n[--eni-ip <value>]\n[--iam-role-arn <value>]\n[--external-id <value>]\n[--syslog-ip <value>]\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--hsm-arn <value>",
+        "[--subnet-id <value>]",
+        "[--eni-ip <value>]",
+        "[--iam-role-arn <value>]",
+        "[--external-id <value>]",
+        "[--syslog-ip <value>]",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--hsm-arn (string)\n\nThe ARN of the HSM to modify.\n\n--subnet-id (string)\n\nThe new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.\n\n--eni-ip (string)\n\nThe new IP address for the elastic network interface (ENI) attached to the HSM.\n\nIf the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.\n\n--iam-role-arn (string)\n\nThe new IAM role ARN.\n\n--external-id (string)\n\nThe new external ID.\n\n--syslog-ip (string)\n\nThe new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nHsmArn -> (string)\n\nThe ARN of the HSM."
+    },
+    {
+      "command_name": "modify-luna-client",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/modify-luna-client.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nModifies the certificate used by the client.\n\nThis action can potentially start a workflow to install the new certificate on the client’s HSMs.\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  modify-luna-client\n--client-arn <value>\n--certificate <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--client-arn <value>",
+        "--certificate <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--client-arn (string)\n\nThe ARN of the client.\n\n--certificate (string)\n\nThe new certificate for the client.\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nClientArn -> (string)\n\nThe ARN of the client."
+    },
+    {
+      "command_name": "remove-tags-from-resource",
+      "command_url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudhsm/remove-tags-from-resource.html",
+      "command_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference .\n\nRemoves one or more tags from the specified AWS CloudHSM resource.\n\nTo remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use AddTagsToResource .\n\nSee also: AWS API Documentation\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_synopsis": "Synopsis\n  remove-tags-from-resource\n--resource-arn <value>\n--tag-key-list <value>\n[--cli-input-json | --cli-input-yaml]\n[--generate-cli-skeleton <value>]\n",
+      "command_options": [
+        "--resource-arn <value>",
+        "--tag-key-list <value>",
+        "[--cli-input-json | --cli-input-yaml]",
+        "[--generate-cli-skeleton <value>]"
+      ],
+      "command_options_description": "Options\n\n--resource-arn (string)\n\nThe Amazon Resource Name (ARN) of the AWS CloudHSM resource.\n\n--tag-key-list (list)\n\nThe tag key or keys to remove.\n\nSpecify only the tag key to remove (not the value). To overwrite the value for an existing tag, use AddTagsToResource .\n\n(string)\n\nSyntax:\n\n\"string\" \"string\" ...\n\n\n--cli-input-json | --cli-input-yaml (string) Reads arguments from the JSON string provided. The JSON string follows the format provided by --generate-cli-skeleton. If other arguments are provided on the command line, those values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally. This may not be specified along with --cli-input-yaml.\n\n--generate-cli-skeleton (string) Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value input, prints a sample input JSON that can be used as an argument for --cli-input-json. Similarly, if provided yaml-input it will print a sample input YAML that can be used with --cli-input-yaml. If provided with the value output, it validates the command inputs and returns a sample output JSON for that command.\n\nSee ‘aws help’ for descriptions of global parameters.",
+      "command_output": "Output\n\nStatus -> (string)\n\nThe status of the operation."
+    }
+  ],
+  "service_description": "Description\n\nThis is documentation for AWS CloudHSM Classic . For more information, see AWS CloudHSM Classic FAQs , the AWS CloudHSM Classic User Guide , and the AWS CloudHSM Classic API Reference .\n\nFor information about the current version of AWS CloudHSM , see AWS CloudHSM , the AWS CloudHSM User Guide , and the AWS CloudHSM API Reference ."
+}
